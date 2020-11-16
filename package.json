@@ -1,0 +1,23 @@
+{
+  "name": "edukacije-hr-uniaro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/webshaped.biz/edukacije-hr-uniaro.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/webshaped.biz/edukacije-hr-uniaro/issues"
+  },
+  "homepage": "https://gitlab.com/webshaped.biz/edukacije-hr-uniaro#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.1"
+  }
+}
