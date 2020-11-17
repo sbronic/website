@@ -1141,7 +1141,7 @@ ul.social-icons{
 }
 .top_bar .social-icons li a{ min-width: auto; }
 .top_bar .ttm-btn { 
-    padding: 14px 25px 14px 25px;
+    padding: 14px 42px 14px 42px;
     font-size: 14px;
     vertical-align: top;
     line-height: 20px;
@@ -1591,7 +1591,6 @@ ul.social-icons{
 .footer{
     position: relative;
     z-index: 1;
-    background-image: url(../images/footer-map.jpg);
     background-position: center center;
     background-attachment: scroll;
 }
