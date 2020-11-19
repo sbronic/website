@@ -9,33 +9,33 @@
     <meta name="viewport" content=" width=device-width, initial-scale=1, maximum-scale=1" />
     <title>{{ title }} | edukacijE.hr</title>
     <!-- favicon icon -->
-    <link rel="shortcut icon" href="images/favicon.png" />
-    <link rel="icon" href="images/favicon/cropped-favicon512x512-32x32.png" sizes="32x32" />
-    <link rel="icon" href="images/favicon/cropped-favicon512x512-192x192.png" sizes="192x192" />
-    <link rel="apple-touch-icon-precomposed" href="images/favicon/cropped-favicon512x512-180x180.png" />
-    <meta name="msapplication-TileImage" content="images/favicon/cropped-favicon512x512-270x270.png" />
+    <link rel="shortcut icon" href="/images/favicon.png" />
+    <link rel="icon" href="/images/favicon/cropped-favicon512x512-32x32.png" sizes="32x32" />
+    <link rel="icon" href="/images/favicon/cropped-favicon512x512-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon-precomposed" href="/images/favicon/cropped-favicon512x512-180x180.png" />
+    <meta name="msapplication-TileImage" content="/images/favicon/cropped-favicon512x512-270x270.png" />
     <!-- bootstrap -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
     <!-- animate -->
-    <link rel="stylesheet" type="text/css" href="css/animate.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/animate.css"/>
     <!-- fontawesome -->
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.css"/>
     <!-- themify -->
-    <link rel="stylesheet" type="text/css" href="css/themify-icons.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/themify-icons.css"/>
     <!-- flaticon -->
-    <link rel="stylesheet" type="text/css" href="css/flaticon.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/flaticon.css"/>
     <!-- slick -->
-    <link rel="stylesheet" type="text/css" href="css/slick.css">
+    <link rel="stylesheet" type="text/css" href="/css/slick.css">
     <!-- prettyphoto -->
-    <link rel="stylesheet" type="text/css" href="css/prettyPhoto.css">
+    <link rel="stylesheet" type="text/css" href="/css/prettyPhoto.css">
     <!-- shortcodes -->
-    <link rel="stylesheet" type="text/css" href="css/shortcodes.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/shortcodes.css"/>
     <!-- main -->
-    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
     <!-- main -->
-    <link rel="stylesheet" type="text/css" href="css/megamenu.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/megamenu.css"/>
     <!-- responsive -->
-    <link rel="stylesheet" type="text/css" href="css/responsive.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/responsive.css"/>
     <!-- SEO -->
     <!--Twitter Card-->
     <meta name="twitter:site" content="{{ site.twitter }}">
@@ -66,17 +66,11 @@
     <!--page start-->
     <div class="page">
     {% include "partials/header.njk" %}
-    {% include "partials/home-banner-slider.njk" %}
 
     <!--site-main start-->
     <div class="site-main">
 
-    {% include "partials/home-features.njk" %}    
-    {% include "partials/home-courses.njk" %}
-    {% include "partials/home-events.njk" %}
-    {% include "partials/home-testimonials.njk" %}
-    {% include "partials/home-clients.njk" %}
-    {% include "partials/home-blog.njk" %}
+    {{ content | safe }}
 
     </div><!--site-main end-->
 
@@ -92,18 +86,18 @@
 
 
     <!-- Javascript -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/tether.min.js"></script>
-    <script src="js/bootstrap.min.js"></script> 
-    <script src="js/jquery.easing.js"></script>    
-    <script src="js/jquery-waypoints.js"></script>    
-    <script src="js/jquery-validate.js"></script> 
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/slick.min.js"></script>
-    <script src="js/numinate.min.js"></script>
-    <script src="js/imagesloaded.min.js"></script>
-    <script src="js/jquery-isotope.js"></script>
-    <script src="js/lazysizes.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/tether.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script> 
+    <script src="/js/jquery.easing.js"></script>    
+    <script src="/js/jquery-waypoints.js"></script>    
+    <script src="/js/jquery-validate.js"></script> 
+    <script src="/js/jquery.prettyPhoto.js"></script>
+    <script src="/js/slick.min.js"></script>
+    <script src="/js/numinate.min.js"></script>
+    <script src="/js/imagesloaded.min.js"></script>
+    <script src="/js/jquery-isotope.js"></script>
+    <script src="/js/lazysizes.min.js"></script>
+    <script src="/js/main.js"></script>
     <!-- Javascript end-->
 </body>

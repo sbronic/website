@@ -1141,7 +1141,7 @@ ul.social-icons{
 }
 .top_bar .social-icons li a{ min-width: auto; }
 .top_bar .ttm-btn { 
-    padding: 14px 42px 14px 42px;
+    padding: 14px 26px 14px 26px;
     font-size: 14px;
     vertical-align: top;
     line-height: 20px;
@@ -1282,7 +1282,7 @@ ul.social-icons{
 
 /* header_extra */
 .header_extra > div{ 
-    margin-left: 10px;
+    margin-left: 20px;
 }
 .header_cart .button-cart {
     display: block;
@@ -2125,8 +2125,6 @@ ul.ttm-coursedetails-box .lp-button {
 }
 .course-reviews-list .review-stars-rated .review-stars.filled,
 .course-reviews-list .review-stars-rated .review-stars.empty {
-    font-size: 13px;
-} {
     font-size: 13px;
 }
 
