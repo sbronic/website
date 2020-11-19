@@ -114,7 +114,7 @@ ul.menu-col li a:focus{
         font-size: 17px;
         line-height: 17px;
     }
-    nav.main-menu ul.menu > li > a:after {
+    nav.main-menu ul.menu > li.menuchevron > a:after {
         position: absolute;
         content: "\f107";
         font-family: "FontAwesome";

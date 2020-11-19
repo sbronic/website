@@ -1,0 +1,96 @@
+---
+title: Kontakt
+description: Kontaktirajte nas.
+layout: layouts/page.njk
+---
+
+{% include "partials/page-banner.njk" %}
+
+<!--- conatact-section -->
+<section class="ttm-row conatact2-section clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- section title -->
+                <div class="section-title">
+                    <div class="title-header">
+                        <h5>Svi prijedlozi, komentari, pohvale ali i pokude su dobro došli.</h5>
+                        <h2 class="title">Pošaljute svoju poruku</h2>
+                    </div>
+                    <div class="heading-seperator"><span></span></div>
+                </div><!-- section title end -->
+                <p>If you have question or would like more information on our works, Please complete the form and we’ll aim get back to you with in 24 hours.</p>
+            </div>
+        </div><!-- row end -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="border spacing-8">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <form id="ttm-contactform" class="ttm-contactform wrap-form clearfix" method="post" action="#">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>
+                                            <span class="text-input with-icon-pos_left"> 
+                                                <i class="fa fa-user"></i>
+                                                <input name="name" type="text" value="" placeholder="Ime" required="required">
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>
+                                            <span class="text-input with-icon-pos_left">
+                                                <i class="fa fa-user"></i>
+                                                <input name="name" type="text" value="" placeholder="Prezime" required="required">
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>
+                                            <span class="text-input with-icon-pos_left">
+                                                <i class="fa fa-phone"></i>
+                                                <input name="phone" type="text" value="" placeholder="Telefon" required="required">
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>
+                                            <span class="text-input with-icon-pos_left">
+                                                <i class="fa fa-envelope-o"></i>
+                                                <input name="email" type="text" value="" placeholder="Email adresa" required="required">
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <label>
+                                    <span class="text-input with-icon-pos_left">
+                                        <i class="fa fa-question"></i>
+                                        <input name="phone" type="text" value="" placeholder="Predmet" required="required">
+                                    </span>
+                                </label>
+                                <label>
+                                    <span class="text-input with-icon-pos_left">
+                                        <i class="fa fa-comments-o"></i>
+                                        <textarea name="message" rows="3" placeholder="Vaša poruka" required="required"></textarea>
+                                    </span>
+                                </label>
+                                <button class="w-100 submit ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-dark" type="submit">Pošalji poruku</button>
+                            </form>
+                        </div>
+                        <div class="col-lg-6">
+                            <!--google_map-->
+                            <div id="google_map" class="google_map res-991-mt-30">
+                                <div class="map_container">
+                                    <div id="map" style="position: relative; overflow: hidden;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- conatact-section end -->

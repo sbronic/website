@@ -1,65 +1,7 @@
 <!DOCTYPE html>
 <html lang="HR_hr">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="keywords" content="HTML5 Template" />
-    <meta name="description" content="Academics and Education Html Template" />
-    <meta name="author" content="https://www.themetechmount.com/" />
-    <meta name="viewport" content=" width=device-width, initial-scale=1, maximum-scale=1" />
-    <title>{{ title }} | edukacijE.hr</title>
-    <!-- favicon icon -->
-    <link rel="shortcut icon" href="/images/favicon.png" />
-    <link rel="icon" href="/images/favicon/cropped-favicon512x512-32x32.png" sizes="32x32" />
-    <link rel="icon" href="/images/favicon/cropped-favicon512x512-192x192.png" sizes="192x192" />
-    <link rel="apple-touch-icon-precomposed" href="/images/favicon/cropped-favicon512x512-180x180.png" />
-    <meta name="msapplication-TileImage" content="/images/favicon/cropped-favicon512x512-270x270.png" />
-    <!-- bootstrap -->
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
-    <!-- animate -->
-    <link rel="stylesheet" type="text/css" href="/css/animate.css"/>
-    <!-- fontawesome -->
-    <link rel="stylesheet" type="text/css" href="/css/font-awesome.css"/>
-    <!-- themify -->
-    <link rel="stylesheet" type="text/css" href="/css/themify-icons.css"/>
-    <!-- flaticon -->
-    <link rel="stylesheet" type="text/css" href="/css/flaticon.css"/>
-    <!-- slick -->
-    <link rel="stylesheet" type="text/css" href="/css/slick.css">
-    <!-- prettyphoto -->
-    <link rel="stylesheet" type="text/css" href="/css/prettyPhoto.css">
-    <!-- shortcodes -->
-    <link rel="stylesheet" type="text/css" href="/css/shortcodes.css"/>
-    <!-- main -->
-    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
-    <!-- main -->
-    <link rel="stylesheet" type="text/css" href="/css/megamenu.css"/>
-    <!-- responsive -->
-    <link rel="stylesheet" type="text/css" href="/css/responsive.css"/>
-    <!-- SEO -->
-    <!--Twitter Card-->
-    <meta name="twitter:site" content="{{ site.twitter }}">
-    <meta name="twitter:creator" content="{{ site.twitter }}">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="{{ site.url + page.url }}">
-    <meta name="twitter:title" content="{{ title + " – " + site.title if title else title }}">
-    <meta name="twitter:description" content="{{ site.description }}">
-    <meta name="twitter:image" content="{{ site.cover_image }}">
-    <!--Schema-->
-    <link rel="author" href="{{ site.url }}">
-    <link rel="publisher" href="{{ site.url }}">
-    <meta itemprop="name" content="{{ title + " – " + site.title if title else title }}">
-    <meta itemprop="description" content="{{ site.description }}">
-    <meta itemprop="image" content="{{ site.cover_image }}">
-    <!-- Facebook OpenGraph -->
-    <meta property="og:url" content="{{site.url + page.url}}">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="{{ title + " – " + site.title if title else title }}">
-    <meta property="og:image" content="{{ site.cover_image }}">
-    <meta property="og:description" content="{{ site.description }}">
-    <meta property="og:site_name" content="{{ site.title }}">
-    <meta property="og:locale" content="{{ site.lang }}">
-    <meta property="article:author" content="{{ site.url }}">
+    {% include "partials/head.njk" %}
 </head>
 
 <body>
@@ -84,20 +26,6 @@
 
     </div><!-- page end -->
 
+    {% include "partials/scripts.njk" %}
 
-    <!-- Javascript -->
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/tether.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script> 
-    <script src="/js/jquery.easing.js"></script>    
-    <script src="/js/jquery-waypoints.js"></script>    
-    <script src="/js/jquery-validate.js"></script> 
-    <script src="/js/jquery.prettyPhoto.js"></script>
-    <script src="/js/slick.min.js"></script>
-    <script src="/js/numinate.min.js"></script>
-    <script src="/js/imagesloaded.min.js"></script>
-    <script src="/js/jquery-isotope.js"></script>
-    <script src="/js/lazysizes.min.js"></script>
-    <script src="/js/main.js"></script>
-    <!-- Javascript end-->
 </body>
