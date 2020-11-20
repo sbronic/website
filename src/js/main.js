@@ -414,6 +414,27 @@ jQuery('#totop').on('click',function() {      // When arrow is clicked
 });
 
 
+/*------------------------------------------------------------------------------*/
+/* Hide cart count if 0
+/*------------------------------------------------------------------------------*/
+window.addEventListener('load', function () {
+    var cart = document.getElementById('cartcount');
+    
+    var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+    var observer = new MutationObserver(hideCount);
+    observer.observe(cart, {
+        childList: true
+    });
+
+    function hideCount() {
+        if (cart.innerText != '0') {
+            cart.style.display = 'block';
+        }
+        else {
+            cart.style.display = 'none';
+        }
+    }
+});
 
 $(function() {
 

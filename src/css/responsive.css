@@ -601,3 +601,8 @@
 	.ttm-fid.inside.style3 .ttm-fid-title:after { width: 30px; bottom: -8px;}
 
 }
+
+@media (max-width: 520px){
+.site-branding img{
+ max-height: 35px;
+}
