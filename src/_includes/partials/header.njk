@@ -12,24 +12,24 @@
                         <div class="top_bar_icon"><i class="fa fa-phone"></i></div>+385 1 557-9093
                     </div>
                     <div class="top_bar_contact_item ml-auto">
-                        <a href="/o-nama">O nama</a>
+                        <a href="/o-nama" style="{% if navID == 'o-nama' %}color:#88402C;{% endif %}">O nama</a>
                     </div>
                     <div class="top_bar_contact_item">
-                        <a href="/uvjeti-koristenja">Uvjeti korištenja</a>
+                        <a href="/uvjeti-koristenja" style="{% if navID == 'uvjeti-koristenja' %}color:#88402C;{% endif %}">Uvjeti korištenja</a>
                     </div>
                     <div class="top_bar_contact_item">
-                        <a href="/zastita-privatnosti">Zaštita privatnosti</a>
+                        <a href="/zastita-privatnosti" style="{% if navID == 'zastita-privatnosti' %}color:#88402C;{% endif %}">Zaštita privatnosti</a>
                     </div>
                     <div class="top_bar_contact_item">
                         <div class="top_bar_social">
                             <ul class="social-icons">
-                                <li><a class="tooltip-bottom" target="_blank" href="" data-tooltip="Facebook" tabindex="-1"><i class="fa fa-facebook"></i></a>
+                                <li><a class="tooltip-bottom" target="_blank" href="https://www.facebook.com/EdukacijEhr-390679021469000" data-tooltip="Facebook" tabindex="-1"><i class="fa fa-facebook"></i></a>
                                 </li>
-                                <li><a class="tooltip-bottom" target="_blank" href="" data-tooltip="Twitter" tabindex="-1"><i class="fa fa-twitter"></i></a>
+                                <li><a class="tooltip-bottom" target="_blank" href="https://www.linkedin.com/company/18852729/admin/" data-tooltip="Linkedin" tabindex="-1"><i class="fa fa-linkedin"></i></a>
                                 </li>
-                                <li><a class="tooltip-bottom" target="_blank" href="" data-tooltip="Flickr" tabindex="-1"><i class="fa fa-flickr"></i></a>
+                                <li><a class="tooltip-bottom" target="_blank" href="https://www.instagram.com/edukacije.hr/" data-tooltip="Instagram" tabindex="-1"><i class="fa fa-instagram"></i></a>
                                 </li>
-                                <li><a class="tooltip-bottom" target="_blank" href="" data-tooltip="Linkedin" tabindex="-1"><i class="fa fa-linkedin"></i></a>
+                                <li><a class="tooltip-bottom" target="_blank" href="https://www.youtube.com/channel/UCsXJK-egclFM3GFQrPIQdLQ?view_as=subscriber" data-tooltip="YouTube" tabindex="-1"><i class="fa fa-youtube"></i></a>
                                 </li>
                             </ul>
                         </div>
@@ -61,25 +61,32 @@
                             <!-- menu -->
                             <nav class="main-menu menu-mobile" id="menu">
                                 <ul class="menu">
-                                    <li class="mega-menu-item active">
+                                    <li class="mega-menu-item {% if navID == 'pocetna' %}active{% endif %}">
                                         <a href="/" class="mega-menu-link">Početna</a>
                                     </li>
-                                    <li class="mega-menu-item menuchevron">
+                                    <li class="mega-menu-item menuchevron
+                                        {% if
+                                            (navID == 'seminari-i-radionice') or
+                                            (navID == 'e-zbirke') or
+                                            (navID == 'videoteka') or
+                                            (navID == 'paketi-proizvoda') %}
+                                            active
+                                        {% endif %}">
                                         <a href="#" class="mega-menu-link">Edukacije</a>
                                         <ul class="mega-submenu">
-                                            <li class="active"><a href="index.html">Seminari i radionice</a></li>
-                                            <li><a href="home-2.html">E-Zbirke</a></li>
-                                            <li><a href="home-3.html">Videoteka</a></li>
-                                            <li><a href="home-4.html">Paketi proizvoda</a></li>
+                                            <li><a href="/seminari-i-radionice">Seminari i radionice</a></li>
+                                            <li><a href="/e-zbirke">E-Zbirke</a></li>
+                                            <li><a href="/videoteka">Videoteka</a></li>
+                                            <li><a href="/paketi-proizvoda">Paketi proizvoda</a></li>
                                         </ul>
                                     </li>
-                                    <li class="mega-menu-item">
+                                    <li class="mega-menu-item {% if navID == 'in-house' %}active{% endif %}">
                                         <a href="/in-house" class="mega-menu-link">In-house seminari</a>
                                     </li>
-                                    <li class="mega-menu-item">
+                                    <li class="mega-menu-item {% if navID == 'blog' %}active{% endif %}">
                                         <a href="/blog" class="mega-menu-link">Blog</a>
                                     </li>
-                                    <li class="mega-menu-item">
+                                    <li class="mega-menu-item {% if navID == 'kontakt' %}active{% endif %}">
                                         <a href="/kontakt" class="mega-menu-link">Kontakt</a>
                                     </li>
                                 </ul>
