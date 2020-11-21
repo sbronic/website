@@ -935,7 +935,7 @@
     vertical-align: middle;
     color: #fff;
 }
-.featured-imagebox-course .featured-content-post .ttm-lp-price.ttm-free-course { background-color: #72a92c; }
+.featured-imagebox-course .featured-content-post .ttm-lp-price.ttm-free-course { background-color: #6da34d; }
 .featured-imagebox-course .featured-content-post .ttm-lp-price ins { text-decoration: none; }
 .featured-imagebox-course .featured-content-post .ttm-lp-price del {
     padding-right: 3px;
@@ -1411,7 +1411,7 @@ section{ counter-reset: featured-imagebox-procedure; }
     position: absolute;
     top: -15px;
     right: 20px;
-    background-color: #ff4f01;
+    background-color: #F77F00;
     color: #fff;
     padding: 3px 15px;
     z-index: 2;
