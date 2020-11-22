@@ -545,7 +545,6 @@ nav.main-menu ul.menu > li > a:before,
 .ttm-btn.ttm-btn-style-border.ttm-btn-color-dark:not(.btn-inline):hover:after,
 .ttm-btn.ttm-btn-style-fill.ttm-btn-color-skincolor:not(.btn-inline):hover:after,
 .ttm-btn.ttm-btn-style-border.ttm-btn-color-skincolor:not(.btn-inline):hover:after,
-.featured-imagebox-event .ttm-box-event-date,
 .featured-imagebox-procedure .process-num,
 .featured-imagebox-course .featured-content-post .ttm-lp-price ,
 .ttm_subscribe_form .btn[type="submit"] ,
@@ -833,6 +832,10 @@ ul.tabs li.active a, ul.tabs li:hover a,
 .ttm-btn-color-green {
     background-color: #6DA34D;
     color:#fff;
+}
+
+.featured-imagebox-event .ttm-box-event-date {
+    background-color: #8FBC94;
 }
 
 /* ===============================================

@@ -217,7 +217,7 @@
     background-size: cover;
 }
 .col-bg-img-six.ttm-col-bgimage-yes .ttm-col-wrapper-bg-layer{
-    background-image: url(https://via.placeholder.com/1920x700?text=1920x700+col_bg-06.jpg);
+    background-color: #35637E;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1411,7 +1411,7 @@ section{ counter-reset: featured-imagebox-procedure; }
     position: absolute;
     top: -15px;
     right: 20px;
-    background-color: #F77F00;
+    background-color: #8FBC94;
     color: #fff;
     padding: 3px 15px;
     z-index: 2;
