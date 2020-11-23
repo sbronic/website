@@ -66,18 +66,18 @@
                                     </li>
                                     <li class="mega-menu-item menuchevron
                                         {% if
-                                            (navID == 'seminari-i-radionice') or
+                                            (navID == 'seminari') or
                                             (navID == 'e-zbirke') or
                                             (navID == 'videoteka') or
-                                            (navID == 'paketi-proizvoda') %}
+                                            (navID == 'paketi') %}
                                             active
                                         {% endif %}">
                                         <a href="#" class="mega-menu-link">Edukacije</a>
                                         <ul class="mega-submenu">
-                                            <li><a href="/seminari-i-radionice">Seminari i radionice</a></li>
-                                            <li><a href="/e-zbirke">E-Zbirke</a></li>
-                                            <li><a href="/videoteka">Videoteka</a></li>
-                                            <li><a href="/paketi-proizvoda">Paketi proizvoda</a></li>
+                                            <li class="{% if navID == 'seminari' %} active {% endif %}"><a href="/seminari-i-radionice">Seminari i radionice</a></li>
+                                            <li class="{% if navID == 'e-zbirke' %} active {% endif %}"><a href="/e-zbirke">E-Zbirke</a></li>
+                                            <li class="{% if navID == 'videoteka' %} active {% endif %}"><a href="/videoteka">Videoteka</a></li>
+                                            <li class="{% if navID == 'paketi' %} active {% endif %}"><a href="/paketi-proizvoda">Paketi proizvoda</a></li>
                                         </ul>
                                     </li>
                                     <li class="mega-menu-item {% if navID == 'in-house' %}active{% endif %}">
