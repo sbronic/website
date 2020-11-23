@@ -501,7 +501,6 @@ a, img {
 .ttm-btn-color-skincolor,
 .ttm-list-icon-color-skincolor li i,
 .top_bar_icon i,
-.top_bar.ttm-bgcolor-darkgrey.ttm-textcolor-white .top_bar_contact_item a:hover i,
 .top_bar .social-icons li a:hover,
 nav.main-menu ul.menu > li.active > a, nav.main-menu ul.menu > li > a:hover,
 .section-title h5,
@@ -581,8 +580,7 @@ div.product ul.tabs li.active a, div.product ul.tabs li:hover a,
 .slick_slider.slick-dots-style1 .slick-dots li.slick-active button:before,
 .slick_slider.slick-dots-style2 .slick-dots li.slick-active button,
 .slick_slider .slick-dots li.slick-active button,
-#totop.top-visible,
-.ttm-bgcolor-darkgrey .tooltip-bottom:after{
+#totop.top-visible, .ttm-bgcolor-darkgrey .tooltip-bottom:after{
     background-color: #88402C; 
 }
 
@@ -826,7 +824,8 @@ ul.tabs li.active a, ul.tabs li:hover a,
 }
 
 /** CUSTOM COLORS **/
-.top_bar.ttm-bgcolor-darkgrey.ttm-textcolor-white .top_bar_contact_item a:hover {
+.top_bar.ttm-bgcolor-darkgrey.ttm-textcolor-white .top_bar_contact_item a:hover,
+.top_bar.ttm-bgcolor-darkgrey.ttm-textcolor-white .top_bar_contact_item a:hover i {
     color: #F77F00;
 }
 .ttm-btn-color-green {
