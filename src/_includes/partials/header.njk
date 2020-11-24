@@ -64,7 +64,7 @@
                                     <li class="mega-menu-item {% if navID == 'pocetna' %}active{% endif %}">
                                         <a href="/" class="mega-menu-link">Početna</a>
                                     </li>
-                                    <li class="mega-menu-item menuchevron
+                                    <!--<li class="mega-menu-item menuchevron
                                         {% if
                                             (navID == 'seminari') or
                                             (navID == 'e-zbirke') or
@@ -78,6 +78,37 @@
                                             <li class="{% if navID == 'e-zbirke' %} active {% endif %}"><a href="/e-zbirke">E-Zbirke</a></li>
                                             <li class="{% if navID == 'videoteka' %} active {% endif %}"><a href="/videoteka">Videoteka</a></li>
                                             <li class="{% if navID == 'paketi' %} active {% endif %}"><a href="/paketi-proizvoda">Paketi proizvoda</a></li>
+                                        </ul>
+                                    </li>-->
+                                    <li class="mega-menu-item megamenu-fw menuchevron">
+                                        <a href="#" class="mega-menu-link">Edukacije</a>
+                                        <ul class="mega-submenu megamenu-content" role="menu">
+                                            <li>
+                                                <div class="row">
+                                                    <div class="col-menu col-md-6">
+                                                        <h6 class="title">Vrste edukacija</h6>
+                                                        <div class="content">
+                                                            <ul class="menu-col">
+                                                                <li class="{% if navID == 'seminari' %} active {% endif %}"><a href="/usluge/seminari-i-radionice">Seminari i radionice</a></li>
+                                                                <li class="{% if navID == 'e-zbirke' %} active {% endif %}"><a href="/usluge/e-zbirke">E-Zbirke</a></li>
+                                                                <li class="{% if navID == 'videoteka' %} active {% endif %}"><a href="/usluge/videoteka">Videoteka</a></li>
+                                                                <li class="{% if navID == 'paketi' %} active {% endif %}"><a href="/usluge/paketi-proizvoda">Paketi proizvoda</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div><!-- end col-3 -->
+                                                    <div class="col-menu col-md-6">
+                                                        <h6 class="title">Kategorije edukacija</h6>
+                                                        <div class="content">
+                                                            <ul class="menu-col">
+                                                                <li class="{% if navID == 'hr' %} active {% endif %}"><a href="/seminari-i-radionice">Ljudski resursi (HR)</a></li>
+                                                                <li class="{% if navID == 'rif' %} active {% endif %}"><a href="/e-zbirke">Računovodstvo i financije</a></li>
+                                                                <li class="{% if navID == 'it' %} active {% endif %}"><a href="/videoteka">Informatika</a></li>
+                                                                <li class="{% if navID == 'pim' %} active {% endif %}"><a href="/paketi-proizvoda">Prodaja i marketing</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div><!-- end col-3 -->
+                                                </div><!-- end row -->
+                                            </li>
                                         </ul>
                                     </li>
                                     <li class="mega-menu-item {% if navID == 'in-house' %}active{% endif %}">
