@@ -563,7 +563,6 @@ ul.tabs li.active a, ul.tabs li:hover a,
 .featured-imagebox-team.style2:hover .featured-content,
 .course-rate .review-bar .rating,
 .featured-imagebox-course_highlight:hover .featured-content-highlight .ttm-icon,
-.ttm-box-post-date,
 .sidebar .widget-title:before,
 .pagination-block .page-numbers.current,
 .pagination-block .page-numbers:hover ,
@@ -833,7 +832,7 @@ ul.tabs li.active a, ul.tabs li:hover a,
     color:#fff;
 }
 
-.featured-imagebox-event .ttm-box-event-date {
+.featured-imagebox-event .ttm-box-event-date, .ttm-box-post-date {
     background-color: #8FBC94;
 }
 
