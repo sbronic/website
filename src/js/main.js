@@ -300,7 +300,7 @@ $(".accordion").each(function(){
             $container.imagesLoaded(function(){
                 $container.isotope({
                     itemSelector: '.ttm-box-col-wrapper',
-                    transitionDuration: '1s',
+                    transitionDuration: '0.5s',
                     layoutMode: 'fitRows'
                 });
             });
