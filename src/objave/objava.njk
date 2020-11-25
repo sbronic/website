@@ -1,0 +1,71 @@
+---
+title: {{ objava.title }}
+description: {{ objava.excerpt }}
+layout: layouts/page.njk
+banner: blog.jpg
+navID: blog
+pagination:
+  data: objave
+  size: 1
+  alias: objava
+permalink: blog/{{ objava.categoryslug }}/{{ objava.titleslug }}/index.html
+---
+
+{% include "partials/post-banner.njk" %}
+
+<div class="site-main">
+
+    <!-- sidebar -->
+    <div class="ttm-row sidebar ttm-sidebar-right ttm-bgcolor-white clearfix">
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-xl-9 col-lg-8 content-area">
+                    <!-- post -->
+                    <article class="post ttm-blog-single clearfix">
+                        <!-- ttm-post-featured-wrapper -->
+                        <div class="ttm-post-featured-wrapper ttm-featured-wrapper mb-20">
+                            <div class="ttm-post-featured">
+                                <img class="img-fluid" src="https://media.graphcms.com/{{ objava.photo }}" alt="">
+                            </div>
+                            <div class="ttm-box-post-date">
+                                <span class="ttm-entry-date">
+                                    <time class="entry-date" datetime="2019-08-28T08:07:55+00:00">28<span class="entry-month">Aug</span></time>
+                                </span>
+                            </div>
+                        </div>
+                        <!-- ttm-post-featured-wrapper end -->
+                        <!-- ttm-blog-single-content -->
+                        <div class="ttm-blog-single-content">
+                            <div class="ttm-post-entry-header">
+                                <div class="post-meta">
+                                    <span class="ttm-meta-line byline"><i class="fa fa-user"></i>{{ objava.author }}</span>
+                                    <span class="ttm-meta-line tags-links"><i class="fa fa-tag"></i>{{ objava.category }}</span>
+                                </div>
+                            </div>
+                            <div class="entry-content mt-10">
+                                <div class="ttm-box-desc-text">
+                                    {{ objava.body | safe}}
+                                </div>
+                            </div>
+                        </div><!-- ttm-blog-single-content -->
+                    </article><!-- post end -->
+                </div>
+                <div class="col-xl-3 col-lg-4 widget-area sidebar-right ttm-col-bgcolor-yes ttm-bg ttm-right-span ttm-bgcolor-grey mt_60 pt-60 mb_60 pb-60 res-991-mt-0 res-991-pt-0">
+                <div class="ttm-col-wrapper-bg-layer ttm-bg-layer"></div>
+                    <aside class="widget widget-Categories with-title">
+                        <h3 class="widget-title">Categories</h3>
+                        <ul>
+                            <li><a href="#">Ljudski resursi (HR)</a></li>
+                            <li class="active"><a href="#">Računovodstvo i financije</a></li>
+                            <li><a href="#">Informatika</a></li>
+                            <li><a href="#">Prodaja i marketing</a></li>
+                        </ul>
+                    </aside>
+                </div>
+            </div><!-- row end -->
+        </div>
+    </div>
+    <!-- sidebar end -->
+
+</div><!--site-main end-->

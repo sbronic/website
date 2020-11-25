@@ -1,5 +1,6 @@
 // required packages
 const fetch = require("node-fetch");
+const slugify = require('slugify');
 
 // get Objave
 async function getObjave() {
@@ -30,6 +31,9 @@ async function getObjave() {
                         sazetakObjave
                         kategorija {
                             naziv
+                        }
+                        objava {
+                            html
                         }
                     }
                 }`
@@ -62,9 +66,12 @@ async function getObjave() {
             date: item.createdAt,
             author: item.autorObjava.imeIPrezime,
             title: item.naslovObjave,
+            titleslug: slugify(item.naslovObjave, { lower: true}),
             photo: item.fotografija.handle,
             excerpt: item.sazetakObjave,
-            category: item.kategorija.naziv
+            category: item.kategorija.naziv,
+            categoryslug: slugify(item.kategorija.naziv, { lower: true }),
+            body: item.objava.html
         };
     });
 

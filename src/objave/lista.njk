@@ -42,7 +42,7 @@ permalink: blog{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber +
                                 <span class="ttm-meta-line tags-links"><i class="fa fa-tag"></i>{{ objava.category }}</span>
                             </div>
                             <header class="entry-header">
-                                <h2 class="entry-title"><a href="blog-single.html">{{ objava.title }}</a></h2>
+                                <h2 class="entry-title"><a href="/blog/{{ objava.categoryslug }}/{{ objava.titleslug }}/">{{ objava.title }}</a></h2>
                             </header>
                         </div>
                         <div class="entry-content">
@@ -51,7 +51,7 @@ permalink: blog{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber +
                             </div>
                             <div class="ttm-blogbox-desc-footer">
                                 <div class="ttm-blogbox-footer-readmore">
-                                    <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark" href="#">Pročitaj sve</a>
+                                    <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark" href="/blog/{{ objava.categoryslug }}/{{ objava.titleslug }}/">Pročitaj sve</a>
                                 </div>
                             </div>
                         </div>
