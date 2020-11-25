@@ -20,7 +20,7 @@ navID: blog
                         <!-- post-featured-wrapper -->
                     <div class="ttm-post-featured-wrapper ttm-featured-wrapper">
                         <div class="ttm-post-featured">
-                            <img class="img-fluid" src="/images/blog-one-1024x683.jpg" alt="">
+                            <img class="img-fluid" src="/images/blog-one-1024x576.jpg" alt="">
                         </div>
                         <div class="ttm-box-post-date">
                             <span class="ttm-entry-date">
@@ -188,5 +188,3 @@ navID: blog
     </div>
 </div>
 <!-- sidebar end -->
-
-</div><!--site-main end-->
