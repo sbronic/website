@@ -1,0 +1,95 @@
+---
+title: Pravo i zaštita podataka
+description: Pravo i zaštita podataka
+layout: layouts/page.njk
+banner: blog.jpg
+navID: blog-pzp
+pagination:
+  data: pzpobjave
+  size: 6
+permalink: "blog/pravo-i-zastita-podataka{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
+eleventyComputed:
+    page_title: "Blog - Pravo i zaštita podataka"
+    page_description: "Blog - Pravo i zaštita podataka"
+---
+
+{% include "partials/category-banner.njk" %}
+
+<!-- sidebar -->
+<div class="ttm-row sidebar ttm-sidebar-right ttm-bgcolor-white clearfix">
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-xl-9 col-lg-8 content-area">
+
+            {% if pzpobjave != 'prazno' %}
+
+                {% for objava in pzpobjave %}
+                    
+                    <!-- post -->
+                    <article class="post ttm-blog-classic clearfix">
+                            <!-- post-featured-wrapper -->
+                        <div class="ttm-post-featured-wrapper ttm-featured-wrapper">
+                            <div class="ttm-post-featured">
+                                <img class="img-fluid" src="https://media.graphcms.com/{{ objava.photo }}" alt="">
+                                <!-- src="https://media.graphcms.com/output=format:webp/{{ objava.photo }}" -->
+                            </div>
+                        </div><!-- post-featured-wrapper end -->
+                        <!-- ttm-blog-classic-content -->
+                        <div class="ttm-blog-classic-content">
+                            <div class="ttm-post-entry-header">
+                                <div class="post-meta">
+                                    <span class="ttm-meta-line byline"><i class="fa fa-calendar"></i>{{ objava.date | datumObjave }}</span>
+                                    <span class="ttm-meta-line byline"><i class="fa fa-user"></i>{{ objava.author }}</span>
+                                    <span class="ttm-meta-line tags-links"><i class="fa fa-tag"></i>{{ objava.category }}</span>
+                                </div>
+                                <hr/>
+                                <header class="entry-header">
+                                    <h2 class="entry-title"><a href="/blog/{{ objava.categoryslug }}/{{ objava.titleslug }}/">{{ objava.title }}</a></h2>
+                                </header>
+                            </div>
+                            <div class="entry-content">
+                                <div class="ttm-box-desc-text">
+                                    <p>{{ objava.excerpt }}</p>
+                                </div>
+                                <div class="ttm-blogbox-desc-footer">
+                                    <div class="ttm-blogbox-footer-readmore">
+                                        <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark" href="/blog/{{ objava.categoryslug }}/{{ objava.titleslug }}/">Pročitaj sve</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- ttm-blog-classic-content end -->
+                    </article><!-- post end -->
+                    <hr/>
+
+                {% endfor %}
+
+                <div class="pagination-block">
+                    <span class="page-numbers current">1</span>
+                    <a class="page-numbers" href="#">2</a>
+                    <a class="next page-numbers" href="#"><i class="ti ti-arrow-right"></i></a>
+                </div>
+
+            {% else %}
+
+                <!-- post -->
+                <article class="post ttm-blog-classic clearfix">
+                    <!-- ttm-blog-classic-content -->
+                    <div class="ttm-blog-classic-content">
+                        <div class="ttm-post-entry-header">
+                            <header class="entry-header">
+                                <h2 class="entry-title">Trenutno nemamo ništa pametno reći na ovu temu.</h2>
+                            </header>
+                        </div>
+                    </div><!-- ttm-blog-classic-content end -->
+                </article><!-- post end -->
+            </div>
+                
+            {% endif %}
+            
+            {% include "partials/blogcategories.njk" %}
+
+        </div><!-- row end -->
+    </div>
+</div>
+<!-- sidebar end -->

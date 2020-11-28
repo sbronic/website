@@ -5,9 +5,12 @@ layout: layouts/page.njk
 banner: blog.jpg
 navID: blog
 pagination:
-  data: objave
-  size: 12
-permalink: blog{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html
+  data: sveobjave
+  size: 6
+permalink: "blog{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
+eleventyComputed:
+    page_title: "Blog"
+    page_description: "Blog"
 ---
 
 {% include "partials/page-banner.njk" %}
@@ -19,7 +22,7 @@ permalink: blog{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber +
         <div class="row">
             <div class="col-xl-9 col-lg-8 content-area">
 
-            {% for objava in objave %}
+            {% for objava in sveobjave %}
                 
                 <!-- post -->
                 <article class="post ttm-blog-classic clearfix">
@@ -27,20 +30,18 @@ permalink: blog{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber +
                     <div class="ttm-post-featured-wrapper ttm-featured-wrapper">
                         <div class="ttm-post-featured">
                             <img class="img-fluid" src="https://media.graphcms.com/{{ objava.photo }}" alt="">
-                        </div>
-                        <div class="ttm-box-post-date">
-                            <span class="ttm-entry-date">
-                                <time class="entry-date" datetime="2019-08-28T08:07:55+00:00">28<span class="entry-month">Aug</span></time>
-                            </span>
+                            <!-- src="https://media.graphcms.com/output=format:webp/{{ objava.photo }}" -->
                         </div>
                     </div><!-- post-featured-wrapper end -->
                     <!-- ttm-blog-classic-content -->
                     <div class="ttm-blog-classic-content">
                         <div class="ttm-post-entry-header">
                             <div class="post-meta">
+                                <span class="ttm-meta-line byline"><i class="fa fa-calendar"></i>{{ objava.date | datumObjave }}</span>
                                 <span class="ttm-meta-line byline"><i class="fa fa-user"></i>{{ objava.author }}</span>
                                 <span class="ttm-meta-line tags-links"><i class="fa fa-tag"></i>{{ objava.category }}</span>
                             </div>
+                            <hr/>
                             <header class="entry-header">
                                 <h2 class="entry-title"><a href="/blog/{{ objava.categoryslug }}/{{ objava.titleslug }}/">{{ objava.title }}</a></h2>
                             </header>
@@ -57,6 +58,7 @@ permalink: blog{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber +
                         </div>
                     </div><!-- ttm-blog-classic-content end -->
                 </article><!-- post end -->
+                <hr/>
 
                 {% endfor %}
 
@@ -66,25 +68,9 @@ permalink: blog{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber +
                     <a class="next page-numbers" href="#"><i class="ti ti-arrow-right"></i></a>
                 </div>
             </div>
-            <div class="col-xl-3 col-lg-4 widget-area sidebar-right ttm-col-bgcolor-yes ttm-bg ttm-right-span ttm-bgcolor-grey mt_60 pt-60 mb_60 pb-60 res-991-mt-0 res-991-pt-0">
-                <div class="ttm-col-wrapper-bg-layer ttm-bg-layer"></div>
-                <aside class="widget widget-Categories with-title">
-                    <h3 class="widget-title">Categories</h3>
-                    <ul>
-                        <li><a href="#">Ljudski resursi (HR)</a></li>
-                        <li class="active"><a href="#">Računovodstvo i financije</a></li>
-                        <li><a href="#">Informatika</a></li>
-                        <li><a href="#">Prodaja i marketing</a></li>
-                    </ul>
-                </aside>
-                <aside class="widget widget-download">
-                    <ul class="download">
-                        <li><a href="#"><i class="fa fa-file-pdf-o"></i>Brošura</a></li>
-                        <li><a href="#"><i class="fa fa-file-word-o"></i>GDPR obrazac</a></li>
-                        <li><a href="#"><i class="fa fa-files-o"></i>Download.txt</a></li>
-                    </ul>
-                </aside>
-            </div>
+            
+            {% include "partials/blogcategories.njk" %}
+
         </div><!-- row end -->
     </div>
 </div>

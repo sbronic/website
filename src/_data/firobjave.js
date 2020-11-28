@@ -18,9 +18,9 @@ async function getObjave() {
             },
             body: JSON.stringify({
                 query: `{
-                    objave {
+                    objave (orderBy: publishedAt_DESC, stage: PUBLISHED, where: {kategorija: {kod: "fir"}}) {
                         id
-                        createdAt
+                        publishedAt
                         naslovObjave
                         autorObjava {
                             imeIPrezime
@@ -34,6 +34,7 @@ async function getObjave() {
                         }
                         objava {
                             html
+                            text
                         }
                     }
                 }`
@@ -43,7 +44,7 @@ async function getObjave() {
         // store the JSON response when promise resolves
         const response = await graphcms.json();
 
-        // handle DatoCMS errors
+        // handle GraphCMS errors
         if (response.errors) {
             let errors = response.errors;
             errors.map((error) => {
@@ -60,25 +61,28 @@ async function getObjave() {
     }
 
     // format blogposts objects
-    const objaveFormatted = sveobjave.map((item) => {
+    const formatobjave = sveobjave.map((item) => {
         return {
             id: item.id,
-            date: item.createdAt,
+            date: item.publishedAt,
             author: item.autorObjava.imeIPrezime,
             title: item.naslovObjave,
-            titleslug: slugify(item.naslovObjave, { lower: true}),
+            titleslug: slugify(item.naslovObjave, { lower: true, strict: true }),
             photo: item.fotografija.handle,
             excerpt: item.sazetakObjave,
             category: item.kategorija.naziv,
-            categoryslug: slugify(item.kategorija.naziv, { lower: true }),
-            body: item.objava.html
+            categoryslug: slugify(item.kategorija.naziv, { lower: true, strict: true }),
+            bodyhtml: item.objava.html,
+            bodytext: item.objava.text
         };
     });
-
-    console.log(objaveFormatted);
+    
+    if (formatobjave === undefined || formatobjave.length == 0) {
+        formatobjave.push("prazno");
+    }
 
     // return formatted blogposts
-    return objaveFormatted;
+    return formatobjave;
 }
 
 // export for 11ty

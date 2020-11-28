@@ -1,10 +1,18 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="keywords" content="HTML5 Template" />
-<meta name="description" content="Academics and Education Html Template" />
-<meta name="author" content="https://webshaped.biz" />
 <meta name="viewport" content=" width=device-width, initial-scale=1, maximum-scale=1" />
-<title>{{ title }} | edukacijE.hr</title>
+<meta name="author" content="https://webshaped.biz" />
+
+{% if page_title %}
+<title>{{ page_title }} | edukacijE.hr</title>
+<meta name="keywords" content="{{ page_keywords }}" />
+<meta name="description" content="{{ page_description }}" />
+{% else  %}
+<title>Dobrodošli | edukacijE.hr</title>
+<meta name="keywords" content="homepage keywords" />
+<meta name="description" content="Svi trebamo sve više znanja i iskustva, kako bi bili bolji, konkurentniji i uspješniji. Što bolje radimo, svima će nam biti bolje." />
+{% endif %}
+
 <!-- favicon icon -->
 <link rel="shortcut icon" href="/images/favicon.png" />
 <link rel="icon" href="/images/favicon/cropped-favicon512x512-32x32.png" sizes="32x32" />
@@ -16,7 +24,7 @@
 <!-- animate -->
 <link rel="stylesheet" type="text/css" href="/css/animate.css"/>
 <!-- fontawesome -->
-<link rel="stylesheet" type="text/css" href="/css/font-awesome.css"/>
+<link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css"/>
 <!-- themify -->
 <link rel="stylesheet" type="text/css" href="/css/themify-icons.css"/>
 <!-- flaticon -->
@@ -33,27 +41,169 @@
 <link rel="stylesheet" type="text/css" href="/css/megamenu.css"/>
 <!-- responsive -->
 <link rel="stylesheet" type="text/css" href="/css/responsive.css"/>
-<!-- SEO -->
+<!-- SEO website -->
+<!-- JSON-LD website -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Gastro Mreža",
+        "legalname": "Gastro Mreža d.o.o.",
+        "url": "https://gastromreza.hr/",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Mandaličina 16",
+            "addressLocality": "Zagreb",
+            "postalCode": "10000",
+            "addressCountry": "Hrvatska"
+        },
+    },
+    "url": "https://edukacije.hr",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https:edukacije.hr/images/logo-img.png",
+        "width": 359,
+        "height": 55
+    },
+    "sameAs": [
+        "https://www.facebook.com/EdukacijEhr-390679021469000/",
+        "https://www.instagram.com/edukacije.hr/",
+        "https://www.linkedin.com/company/18852729/"
+    ],
+}
+</script>
+
+{% if page_type === 'article' %}
+
+<!-- JSON-LD article -->
+<script type="application/ld+json">
+{
+   "@context":"https://schema.org",
+   "@type":"Article",
+   "headline":"{{ page_title }}",
+   "image":"{{ objavaimage }}",
+   "author":"{{ objavaauthor }}",
+   "keywords":"seo sales b2b",
+   "wordcount":"1120",
+   "publisher":{
+      "@type":"Organization",
+      "name":"Google",
+      "logo":{
+         "@type":"ImageObject",
+         "url":"https:edukacije.hr/images/logo-img.png"
+      }
+   },
+   "url":"https://edukacije.hr/blog/{{ objava.categoryslug }}/{{ objava.titleslug }}",
+   "mainEntityOfPage":{
+      "@type":"WebPage",
+      "@id":"https://google.com/article"
+   },
+   "datePublished":"2015-09-20",
+   "description":"{{ page_description }}",
+   "articleBody":"{{ objavatekst }}"
+}
+</script>
+<!-- SEO article -->
 <!--Twitter Card-->
-<meta name="twitter:site" content="{{ site.twitter }}">
-<meta name="twitter:creator" content="{{ site.twitter }}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="{{ site.url + page.url }}">
-<meta name="twitter:title" content="{{ title + " – " + site.title if title else title }}">
-<meta name="twitter:description" content="{{ site.description }}">
-<meta name="twitter:image" content="{{ site.cover_image }}">
+<meta name="twitter:url" content="https://edukacije.hr">
+<meta name="twitter:title" content="edukacijE.hr za bolje poslovanje i bolji život svih nas">
+<meta name="twitter:description" content="Svi trebamo sve više znanja i iskustva, kako bi bili bolji, konkurentniji i uspješniji. Što bolje radimo, svima će nam biti bolje.">
+<meta name="twitter:image" content="https://www.edukacije.hr/images/og-image.jpg">
 <!--Schema-->
-<link rel="author" href="{{ site.url }}">
-<link rel="publisher" href="{{ site.url }}">
-<meta itemprop="name" content="{{ title + " – " + site.title if title else title }}">
-<meta itemprop="description" content="{{ site.description }}">
-<meta itemprop="image" content="{{ site.cover_image }}">
-<!-- Facebook OpenGraph -->
-<meta property="og:url" content="{{site.url + page.url}}">
+<link rel="author" href="https://edukacije.hr">
+<link rel="publisher" href="https://gastromreza.hr">
+<meta itemprop="name" content="edukacijE.hr za bolje poslovanje i bolji život svih nas">
+<meta itemprop="description" content="Svi trebamo sve više znanja i iskustva, kako bi bili bolji, konkurentniji i uspješniji. Što bolje radimo, svima će nam biti bolje.">
+<meta itemprop="image" content="https://www.edukacije.hr/images/og-image.jpg">
+<!--Facebook OpenGraph-->
+<meta property="og:locale" content="hr_HR">
 <meta property="og:type" content="website">
-<meta property="og:title" content="{{ title + " – " + site.title if title else title }}">
-<meta property="og:image" content="{{ site.cover_image }}">
-<meta property="og:description" content="{{ site.description }}">
-<meta property="og:site_name" content="{{ site.title }}">
-<meta property="og:locale" content="{{ site.lang }}">
-<meta property="article:author" content="{{ site.url }}">
+<meta property="og:title" content="edukacijE.hr za bolje poslovanje i bolji život svih nas">
+<meta property="og:description" content="Svi trebamo sve više znanja i iskustva, kako bi bili bolji, konkurentniji i uspješniji. Što bolje radimo, svima će nam biti bolje.">
+<meta property="og:url" content="https://edukacije.hr/">
+<meta property="og:site_name" content="edukacije.hr">
+<meta property="og:updated_time" content="{% og_updated_time %}">
+<meta property="og:image" content="https://www.edukacije.hr/images/og-image.jpg">
+<meta property="og:image:secure_url" content="https://www.edukacije.hr/images/og-image.jpg">
+<meta property="og:image:width" content="640">
+<meta property="og:image:height" content="349">
+<meta property="og:image:alt" content="edukacije.hr">
+<meta property="og:image:type" content="image/jpeg">
+
+{% elif pageType === 'course' %}
+
+<!-- JSON-LD course -->
+<script type="application/ld+json">
+{
+   "@context":"https://schema.org",
+   "@type":"Course",
+   "name":"{{ page_title }}",
+   "description":"{{ page_description}}",
+   "provider":{
+      "@type":"Organization",
+      "name":"Gastro Mreža d.o.o.",
+      "sameAs":"https://edukacije.hr"
+   }
+}
+</script>
+<!-- SEO course -->
+<!--Twitter Card-->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://edukacije.hr">
+<meta name="twitter:title" content="edukacijE.hr za bolje poslovanje i bolji život svih nas">
+<meta name="twitter:description" content="Svi trebamo sve više znanja i iskustva, kako bi bili bolji, konkurentniji i uspješniji. Što bolje radimo, svima će nam biti bolje.">
+<meta name="twitter:image" content="https://www.edukacije.hr/images/og-image.jpg">
+<!--Schema-->
+<link rel="author" href="https://edukacije.hr">
+<link rel="publisher" href="https://gastromreza.hr">
+<meta itemprop="name" content="edukacijE.hr za bolje poslovanje i bolji život svih nas">
+<meta itemprop="description" content="Svi trebamo sve više znanja i iskustva, kako bi bili bolji, konkurentniji i uspješniji. Što bolje radimo, svima će nam biti bolje.">
+<meta itemprop="image" content="https://www.edukacije.hr/images/og-image.jpg">
+<!--Facebook OpenGraph-->
+<meta property="og:locale" content="hr_HR">
+<meta property="og:type" content="website">
+<meta property="og:title" content="edukacijE.hr za bolje poslovanje i bolji život svih nas">
+<meta property="og:description" content="Svi trebamo sve više znanja i iskustva, kako bi bili bolji, konkurentniji i uspješniji. Što bolje radimo, svima će nam biti bolje.">
+<meta property="og:url" content="https://edukacije.hr/">
+<meta property="og:site_name" content="edukacije.hr">
+<meta property="og:updated_time" content="{% og_updated_time %}">
+<meta property="og:image" content="https://www.edukacije.hr/images/og-image.jpg">
+<meta property="og:image:secure_url" content="https://www.edukacije.hr/images/og-image.jpg">
+<meta property="og:image:width" content="640">
+<meta property="og:image:height" content="349">
+<meta property="og:image:alt" content="edukacije.hr">
+<meta property="og:image:type" content="image/jpeg">
+
+{% else %}
+
+<!--Twitter Card-->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://edukacije.hr">
+<meta name="twitter:title" content="edukacijE.hr za bolje poslovanje i bolji život svih nas">
+<meta name="twitter:description" content="Svi trebamo sve više znanja i iskustva, kako bi bili bolji, konkurentniji i uspješniji. Što bolje radimo, svima će nam biti bolje.">
+<meta name="twitter:image" content="https://www.edukacije.hr/images/og-image.jpg">
+<!--Schema-->
+<link rel="author" href="https://edukacije.hr">
+<link rel="publisher" href="https://gastromreza.hr">
+<meta itemprop="name" content="edukacijE.hr za bolje poslovanje i bolji život svih nas">
+<meta itemprop="description" content="Svi trebamo sve više znanja i iskustva, kako bi bili bolji, konkurentniji i uspješniji. Što bolje radimo, svima će nam biti bolje.">
+<meta itemprop="image" content="https://www.edukacije.hr/images/og-image.jpg">
+<!-- Facebook OpenGraph -->
+<meta property="og:locale" content="hr_HR">
+<meta property="og:type" content="website">
+<meta property="og:title" content="edukacijE.hr za bolje poslovanje i bolji život svih nas">
+<meta property="og:description" content="Svi trebamo sve više znanja i iskustva, kako bi bili bolji, konkurentniji i uspješniji. Što bolje radimo, svima će nam biti bolje.">
+<meta property="og:url" content="https://edukacije.hr/">
+<meta property="og:site_name" content="edukacije.hr">
+<meta property="og:updated_time" content="{% og_updated_time %}">
+<meta property="og:image" content="https://www.edukacije.hr/images/og-image.jpg">
+<meta property="og:image:secure_url" content="https://www.edukacije.hr/images/og-image.jpg">
+<meta property="og:image:width" content="640">
+<meta property="og:image:height" content="349">
+<meta property="og:image:alt" content="edukacije.hr">
+<meta property="og:image:type" content="image/jpeg">
+{% endif %}
+

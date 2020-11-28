@@ -517,8 +517,6 @@ a:hover, .ttm-bgcolor-darkgrey a:hover,
 .featured-imagebox-event .featured-content-event .ttm-meta-details i,
 ul.ttm-timelist-block li:last-child .service-time,
 .featured-imagebox-team .media-block .social-icons li a:hover,
-.breadcrumb-wrapper span.current,
-.breadcrumb-wrapper span a:hover ,
 ul.ttm-coursedetails-box li.ttm-course-price,
 .ttm-blog-single blockquote:before,
 .summary .star-rating li {
@@ -824,7 +822,8 @@ ul.tabs li.active a, ul.tabs li:hover a,
 
 /** CUSTOM COLORS **/
 .top_bar.ttm-bgcolor-darkgrey.ttm-textcolor-white .top_bar_contact_item a:hover,
-.top_bar.ttm-bgcolor-darkgrey.ttm-textcolor-white .top_bar_contact_item a:hover i {
+.top_bar.ttm-bgcolor-darkgrey.ttm-textcolor-white .top_bar_contact_item a:hover i,
+.breadcrumb-wrapper span.current,.breadcrumb-wrapper span a:hover {
     color: #F77F00;
 }
 .ttm-btn-color-green {
@@ -2365,6 +2364,9 @@ article.ttm-blog-classic .ttm-blog-classic-content {
     font-weight: 400;
     display: block;
     text-transform: uppercase;
+}
+.post-meta span {
+    font-weight: bold;
 }
 
 /*------------------------------------------------------------------------------*/

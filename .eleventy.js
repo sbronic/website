@@ -21,6 +21,30 @@ module.exports = function (config) {
         console.log(...args)
         debugger;
     });
+    // Datum objave
+    config.addFilter("datumObjave", dateObj => {
+        var dobj = new Date(dateObj);
+        var day = dobj.getDate();
+        var year = dobj.getFullYear();
+        var month = dobj.getMonth() + 1;
+        return day + "." + month + "." + year + ".";
+    });
+    // Dan
+    config.addFilter("datumDan", dateObj => {
+        var dobj = new Date(dateObj);
+        var day = dobj.getDate();
+        return day;
+    });
+    // Mjesec
+    config.addFilter("datumMjesec", dateObj => {
+        var dobj = new Date(dateObj);
+        var month = dobj.toLocaleString('hr', { month: 'short' });
+        return month;
+    });
+
+    /* Shortcodes */
+    config.addShortcode("og_updated_time", () => new Date()
+    );
 
    return {
         dir: {
