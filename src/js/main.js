@@ -350,7 +350,7 @@ $(function () {
         infinite: true,
         arrows: false,
         dots: false,                   
-        autoplay: false,
+        autoplay: true,
         centerMode : false,
 
         responsive: [{

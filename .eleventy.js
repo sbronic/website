@@ -26,8 +26,8 @@ module.exports = function (config) {
         var dobj = new Date(dateObj);
         var day = dobj.getDate();
         var year = dobj.getFullYear();
-        var month = dobj.getMonth() + 1;
-        return day + "." + month + "." + year + ".";
+        var month = dobj.toLocaleString('default', { month: 'long' });
+        return day + ". " + month + " " + year + ".";
     });
     // Dan
     config.addFilter("datumDan", dateObj => {
@@ -41,6 +41,8 @@ module.exports = function (config) {
         var month = dobj.toLocaleString('hr', { month: 'short' });
         return month;
     });
+    // Limit umjesto slice
+    config.addNunjucksFilter("limit", (arr, limit) => arr.slice(0, limit));
 
     /* Shortcodes */
     config.addShortcode("og_updated_time", () => new Date()

@@ -2189,6 +2189,9 @@ ul.ttm-recent-post-list li:after {
     border-top: 1px solid #e9ebef;
     padding-bottom: 5px!important;
 }
+.widget-Categories ul li.active a, .widget-Categories ul li a:hover {
+    color: #88402C;
+}
 .widget-Categories ul li:first-child{
     padding-top: 0 !important;
     margin-top: 0 !important;
@@ -2197,6 +2200,9 @@ ul.ttm-recent-post-list li:after {
     border-bottom: 0;
     padding-bottom: 0px!important;
     margin-bottom: 0;
+}
+.widget-Categories ul li.active {
+    border-bottom: 2px solid #88402C;
 }
 .widget-Categories li span {
     position: absolute;

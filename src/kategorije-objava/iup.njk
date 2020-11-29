@@ -24,9 +24,9 @@ eleventyComputed:
         <div class="row">
             <div class="col-xl-9 col-lg-8 content-area">
 
-            {% if iupobjave != 'prazno' %}
+                {% if iupobjave != 'prazno' %}
 
-                {% for objava in iupobjave %}
+                    {% for objava in iupobjave %}
                     
                     <!-- post -->
                     <article class="post ttm-blog-classic clearfix">
@@ -64,27 +64,28 @@ eleventyComputed:
                     </article><!-- post end -->
                     <hr/>
 
-                {% endfor %}
+                    {% endfor %}
 
-                <div class="pagination-block">
-                    <span class="page-numbers current">1</span>
-                    <a class="page-numbers" href="#">2</a>
-                    <a class="next page-numbers" href="#"><i class="ti ti-arrow-right"></i></a>
-                </div>
+                    <div class="pagination-block">
+                        <span class="page-numbers current">1</span>
+                        <a class="page-numbers" href="#">2</a>
+                        <a class="next page-numbers" href="#"><i class="ti ti-arrow-right"></i></a>
+                    </div>
+            </div>
 
-            {% else %}
+                {% else %}
 
-                <!-- post -->
-                <article class="post ttm-blog-classic clearfix">
-                    <!-- ttm-blog-classic-content -->
-                    <div class="ttm-blog-classic-content">
-                        <div class="ttm-post-entry-header">
-                            <header class="entry-header">
-                                <h2 class="entry-title">Trenutno nemamo ništa pametno reći na ovu temu.</h2>
-                            </header>
-                        </div>
-                    </div><!-- ttm-blog-classic-content end -->
-                </article><!-- post end -->
+                    <!-- post -->
+                    <article class="post ttm-blog-classic clearfix">
+                        <!-- ttm-blog-classic-content -->
+                        <div class="ttm-blog-classic-content">
+                            <div class="ttm-post-entry-header">
+                                <header class="entry-header">
+                                    <h2 class="entry-title">Trenutno nemamo ništa pametno reći na ovu temu.</h2>
+                                </header>
+                            </div>
+                        </div><!-- ttm-blog-classic-content end -->
+                    </article><!-- post end -->
             </div>
                 
             {% endif %}
