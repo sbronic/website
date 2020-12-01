@@ -1,0 +1,36 @@
+<div class="col-xl-3 col-lg-4 widget-area sidebar-right ttm-col-bgcolor-yes ttm-bg ttm-right-span ttm-bgcolor-grey mt_60 pt-60 mb_60 pb-60 res-991-mt-0 res-991-pt-0">
+    <div class="ttm-col-wrapper-bg-layer ttm-bg-layer"></div>
+    <aside class="widget widget-Categories with-title">
+        <h3 class="widget-title">Kategorije</h3>
+        <ul>
+            <li class="{% if navID == 'sem-sve' %}active{% endif %}"><a href="/edukacije/seminari-i-radionice">Sve kategorije</a></li>
+            <li class="{% if navID == 'sem-uljp' %}active{% endif %}"><a href="/edukacije/seminari-i-radionice/upravljanje-ljudskim-potencijalima">Upravljanje ljudskim potencijalima</a></li>
+            <li class="{% if navID == 'sem-pmoj' %}active{% endif %}"><a href="/edukacije/seminari-i-radionice/prodaja-marketing-i-odnosi-s-javnoscu">Prodaja, marketing i odnosi s javnošću</a></li>
+            <li class="{% if navID == 'sem-uia' %}active{% endif %}"><a href="/edukacije/seminari-i-radionice/upravljanje-i-administracija">Upravljanje i administracija</a></li>
+            <li class="{% if navID == 'sem-iup' %}active{% endif %}"><a href="/edukacije/seminari-i-radionice/informatika-i-uredsko-poslovanje">Informatika i uredsko poslovanje</a></li>
+            <li class="{% if navID == 'sem-pzp' %}active{% endif %}"><a href="/edukacije/seminari-i-radionice/pravo-i-zastita-podataka">Pravo i zaštita podataka</a></li>
+            <li class="{% if navID == 'sem-fir' %}active{% endif %}"><a href="/edukacije/seminari-i-radionice/financije-i-racunovodstvo">Financije i računovodstvo</a></li>
+            <li class="{% if navID == 'sem-znr' %}active{% endif %}"><a href="/edukacije/seminari-i-radionice/zastita-na-radu">Zaštita na radu</a></li>
+            <li class="{% if navID == 'sem-zouo' %}active{% endif %}"><a href="/edukacije/seminari-i-radionice/zastita-okolisa-i-upravljanje-otpadom">Zaštita okoliša i upravljanje otpadom</a></li>
+            <li class="{% if navID == 'sem-ostalo' %}active{% endif %}"><a href="/edukacije/seminari-i-radionice/ostalo">Ostalo</a></li>
+        </ul>
+    </aside>
+
+    {% if navID == 'blog' %}
+
+    <aside class="widget widget-download with-title">
+        <h3 class="widget-title">Podijeli priču</h3>
+        <div class="container">
+            <div>
+                <a href="#" style="padding: 0 .3em;"><i class="fa fa-2x fa-facebook-square"></i></a>
+                <a href="#" style="padding: 0 .3em;"><i class="fa fa-2x fa-twitter-square"></i></a>
+                <a href="#" style="padding: 0 .3em;"><i class="fa fa-2x fa-linkedin-square"></i></a>
+                <a href="#" style="padding: 0 .3em;"><i class="fa fa-2x fa-pinterest-square"></i></a>
+                <a href="mailto:info@edukacije.hr" style="padding: 0 .5em;" target="_blank"><i class="fa fa-2x fa-envelope-square"></i></a>
+            </div>
+        </div>
+    </aside>
+
+    {% endif %}
+
+</div>

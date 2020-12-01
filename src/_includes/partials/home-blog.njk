@@ -21,7 +21,7 @@
         <!-- slick_slider -->
         <div class="row slick_slider" data-slick='{"slidesToShow": 3, "slidesToScroll": 1, "arrows":false, "autoplay":true, "infinite":true, "responsive": [{"breakpoint":870,"settings":{"slidesToShow": 2}}, {"breakpoint":540,"settings":{"slidesToShow": 1}}]}'>
             
-            {% for objava in sveobjave | limit(3) %}
+            {% for objava in objave.sve | limit(3) %}
             
             <div class="ttm-box-col-wrapper col-lg-4">
                 <!-- featured-imagebox-post -->

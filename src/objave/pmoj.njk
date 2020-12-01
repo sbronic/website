@@ -1,19 +1,42 @@
 ---
-title: Pravo i zaštita podataka
-description: Pravo i zaštita podataka
+title: Prodaja, marketing i odnosi s javnošću
+description: Prodaja, marketing i odnosi s javnošću
 layout: layouts/page.njk
 banner: blog.jpg
-navID: blog-pzp
+navID: blog-pmoj
 pagination:
-  data: pzpobjave
+  data: objave.pmoj
   size: 6
-permalink: "blog/pravo-i-zastita-podataka{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
+permalink: "blog/prodaja-marketing-i-odnosi-s-javnoscu{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
 eleventyComputed:
-    page_title: "Blog - Pravo i zaštita podataka"
-    page_description: "Blog - Pravo i zaštita podataka"
+    page_title: "Blog - Prodaja, marketing i odnosi s javnošću"
+    page_description: "Blog - Prodaja, marketing i odnosi s javnošću"
 ---
 
-{% include "partials/category-banner.njk" %}
+<div class="ttm-page-title-row" style="background: url(/images/{{ banner }})!important">
+    <div class="ttm-page-title-row-inner ttm-textcolor-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="page-title-heading">
+                        <h2 class="title">Kategorija: {{ description }}</h2>
+                    </div>
+                    <div class="breadcrumb-wrapper">
+                        <span>
+                            <a title="Homepage" href="/">Početna</a>
+                        </span>
+                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                        <span>
+                            <a title="Blog" href="/blog">Blog</a>
+                        </span>
+                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                        <span class="current" style="color:#F77F00">{{ title }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                    
+</div>
 
 <!-- sidebar -->
 <div class="ttm-row sidebar ttm-sidebar-right ttm-bgcolor-white clearfix">
@@ -22,9 +45,9 @@ eleventyComputed:
         <div class="row">
             <div class="col-xl-9 col-lg-8 content-area">
 
-                {% if pzpobjave != 'prazno' %}
+                {% if objave.pmoj != 'prazno' %}
 
-                    {% for objava in pzpobjave %}
+                    {% for objava in objave.pmoj %}
                     
                     <!-- post -->
                     <article class="post ttm-blog-classic clearfix">

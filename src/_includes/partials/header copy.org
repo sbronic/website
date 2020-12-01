@@ -64,8 +64,8 @@
                             <!-- menu -->
                             <nav class="main-menu menu-mobile" id="menu">
                                 <ul class="menu">
-                                    <li class="mega-menu-item {% if navID == 'sem-sve' %}active{% endif %}">
-                                        <a href="/edukacije/seminari-i-radionice" class="mega-menu-link">Seminari</a>
+                                    <li class="mega-menu-item {% if navID == 'seminari' %}active{% endif %}">
+                                        <a href="/usluge/seminari-i-radionice" class="mega-menu-link">Seminari</a>
                                     </li>
                                     <!--<li class="mega-menu-item menuchevron
                                         {% if
@@ -83,11 +83,59 @@
                                             <li class="{% if navID == 'paketi' %} active {% endif %}"><a href="/paketi-proizvoda">Paketi proizvoda</a></li>
                                         </ul>
                                     </li>-->
-                                    <li class="mega-menu-item {% if navID == 'online-sve' %}active{% endif %}">
-                                        <a href="/edukacije/online-edukacije" class="mega-menu-link">On-Line Edukacije</a>
+                                    <li class="mega-menu-item megamenu-fw menuchevron">
+                                        <a href="#" class="mega-menu-link">On-Line Edukacije</a>
+                                        <ul class="mega-submenu megamenu-content" role="menu">
+                                            <li>
+                                                <div class="row">
+                                                    <div class="col-menu col-md-6">
+                                                        <h6 class="title" style="text-align:center;">Vrste edukacija</h6>
+                                                        <div class="row">
+                                                            <div class="content col-3 col-sm-6">
+                                                                <ul class="menu-col">
+                                                                    <li class="{% if navID == 'seminari' %} active {% endif %}"><a href="/usluge/seminari-i-radionice">Seminari i radionice</a></li>
+                                                                    <li class="{% if navID == 'e-zbirke' %} active {% endif %}"><a href="/usluge/e-zbirke">E-Zbirke</a></li>
+                                                                    <li class="{% if navID == 'videoteka' %} active {% endif %}"><a href="/usluge/videoteka">Videoteka</a></li>
+                                                                    <li class="{% if navID == 'paketi' %} active {% endif %}"><a href="/usluge/paketi-proizvoda">Paketi proizvoda</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="content col-3 col-sm-6">
+                                                                <ul class="menu-col">
+                                                                    <li class="{% if navID == 'seminari' %} active {% endif %}"><a href="/usluge/seminari-i-radionice">Seminari i radionice</a></li>
+                                                                    <li class="{% if navID == 'e-zbirke' %} active {% endif %}"><a href="/usluge/e-zbirke">E-Zbirke</a></li>
+                                                                    <li class="{% if navID == 'videoteka' %} active {% endif %}"><a href="/usluge/videoteka">Videoteka</a></li>
+                                                                    <li class="{% if navID == 'paketi' %} active {% endif %}"><a href="/usluge/paketi-proizvoda">Paketi proizvoda</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- end col-3 -->
+                                                    <div class="col-menu col-md-6">
+                                                        <h6 class="title" style="text-align:center;">Kategorije edukacija</h6>
+                                                        <div class="row">
+                                                            <div class="content col-3 col-sm-6">
+                                                                <ul class="menu-col">
+                                                                    <li class="{% if navID == 'hr' %} active {% endif %}"><a href="/kategorije/hr">Upravljanje i administracija</a></li>
+                                                                    <li class="{% if navID == 'rif' %} active {% endif %}"><a href="/kategorije/racunovodstvo-i-financije">Ljudski potencijali (HR)</a></li>
+                                                                    <li class="{% if navID == 'it' %} active {% endif %}"><a href="/kategorije/it">Pravo i zaštita podataka</a></li>
+                                                                    <li class="{% if navID == 'pim' %} active {% endif %}"><a href="/kategorije/prodaja-i-marketing">Prodaja, Marketing i PR</a></li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="content col-3 col-sm-6">
+                                                                <ul class="menu-col">
+                                                                    <li class="{% if navID == 'hr' %} active {% endif %}"><a href="/kategorije/hr">Informatika i uredsko poslovanje</a></li>
+                                                                    <li class="{% if navID == 'rif' %} active {% endif %}"><a href="/kategorije/racunovodstvo-i-financije">Zaštita na radu</a></li>
+                                                                    <li class="{% if navID == 'it' %} active {% endif %}"><a href="/kategorije/it">Financije i računovodstvo</a></li>
+                                                                    <li class="{% if navID == 'pim' %} active {% endif %}"><a href="/kategorije/prodaja-i-marketing">Zaštita okoliša</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- end col-3 -->
+                                                </div><!-- end row -->
+                                            </li>
+                                        </ul>
                                     </li>
                                     <li class="mega-menu-item {% if navID == 'in-house' %}active{% endif %}">
-                                        <a href="/edukacije/in-house" class="mega-menu-link">In-house edukacije</a>
+                                        <a href="/usluge/in-house" class="mega-menu-link">In-house edukacije</a>
                                     </li>
                                     <li class="mega-menu-item {% if navID == 'blog-sve' %}active{% endif %}">
                                         <a href="/blog" class="mega-menu-link">Blog</a>

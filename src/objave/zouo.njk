@@ -5,7 +5,7 @@ layout: layouts/page.njk
 banner: blog.jpg
 navID: blog-zouo
 pagination:
-  data: zouoobjave
+  data: objave.zouo
   size: 6
 permalink: "blog/zastita-okolisa-i-upravljanje-otpadom{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
 eleventyComputed:
@@ -13,7 +13,30 @@ eleventyComputed:
     page_description: "Blog - Zaštita okoliša i upravljanje otpadom"
 ---
 
-{% include "partials/category-banner.njk" %}
+<div class="ttm-page-title-row" style="background: url(/images/{{ banner }})!important">
+    <div class="ttm-page-title-row-inner ttm-textcolor-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="page-title-heading">
+                        <h2 class="title">Kategorija: {{ description }}</h2>
+                    </div>
+                    <div class="breadcrumb-wrapper">
+                        <span>
+                            <a title="Homepage" href="/">Početna</a>
+                        </span>
+                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                        <span>
+                            <a title="Blog" href="/blog">Blog</a>
+                        </span>
+                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                        <span class="current" style="color:#F77F00">{{ title }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                    
+</div>
 
 <!-- sidebar -->
 <div class="ttm-row sidebar ttm-sidebar-right ttm-bgcolor-white clearfix">
@@ -22,9 +45,9 @@ eleventyComputed:
         <div class="row">
             <div class="col-xl-9 col-lg-8 content-area">
 
-                {% if zouoobjave != 'prazno' %}
+                {% if objave.zouo != 'prazno' %}
 
-                    {% for objava in zouoobjave %}
+                    {% for objava in objave.zouo %}
                     
                     <!-- post -->
                     <article class="post ttm-blog-classic clearfix">

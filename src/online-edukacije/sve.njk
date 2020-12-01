@@ -1,31 +1,57 @@
 ---
-title: e-Zbirke
-description: e-Zbirke
+title: On-line Edukacije
+description: On-line Edukacije
 layout: layouts/page.njk
-permalink: "/usluge/e-zbirke/index.html"
-banner: e-zbirke.jpg
-navID: e-zbirke
+banner: online-edukacije.jpg
+navID: online-sve
+pagination:
+  data: seminari.sve
+  size: 6
+permalink: "edukacije/online-edukacije{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
+eleventyComputed:
+    page_title: "On-line Edukacije"
+    page_description: "On-line Edukacije"
 ---
 
-{% include "partials/page-banner.njk" %}
+<div class="ttm-page-title-row" style="background: url(/images/{{ banner }})!important">
+    <div class="ttm-page-title-row-inner ttm-textcolor-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="page-title-heading">
+                        <h2 class="title">{{ description }}</h2>
+                    </div>
+                    <div class="breadcrumb-wrapper">
+                        <span>
+                            <a title="Homepage" href="/">Početna</a>
+                        </span>
+                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                        <span class="current" style="color:#F77F00">{{ title }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                    
+</div>
 
-<!--portfolio-section-->
-<section class="ttm-row portfolio-section clearfix" style="padding: 40px 0;">
+<!-- sidebar -->
+<div class="ttm-row sidebar ttm-sidebar-right ttm-bgcolor-white clearfix">
     <div class="container">
+        <!-- row -->
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-xl-9 col-lg-8 content-area">
                 <div class="ttm-tabs">
                     <ul class="tabs portfolio-filter">
-                        <li class="tab active"><a href="#" data-filter="*">Sve</a></li>
-                        <li class="tab"><a href="#" data-filter=".cat-hr">Ljudski resursi</a></li>
-                        <li class="tab"><a href="#" data-filter=".cat-rif">Računovodstvo i financije</a></li>
-                        <li class="tab"><a href="#" data-filter=".cat-it">Informatika</a></li>
-                        <li class="tab"><a href="#" data-filter=".cat-pim">Prodaja i marketing</a></li>
+                        <li class="tab active"><a href="#" data-filter="*">Svi oblici</a></li>
+                        <li class="tab"><a href="#" data-filter=".cat-hr">E-Zbirke</a></li>
+                        <li class="tab"><a href="#" data-filter=".cat-rif">Videoteka</a></li>
+                        <li class="tab"><a href="#" data-filter=".cat-it">Paketi</a></li>
+                        <li class="tab"><a href="#" data-filter=".cat-pim">Webinari</a></li>
                     </ul>
                     <div class="content-tab">
                         <!-- content-inner -->
                         <div class="row multi-columns-row ttm-boxes-spacing-10px isotope-project">
-                            <div class="ttm-box-col-wrapper col-lg-3 col-md-4 col-sm-6 cat-hr">
+                            <div class="ttm-box-col-wrapper col-lg-4 col-md-4 col-sm-6 cat-hr">
                                 <!-- featured-imagebox-course -->
                                 <div class="featured-imagebox featured-imagebox-course">
                                     <div class="ttm-post-thumbnail featured-thumbnail"> 
@@ -50,7 +76,7 @@ navID: e-zbirke
                                     </div>
                                 </div><!-- featured-imagebox-course end-->
                             </div>
-                            <div class="ttm-box-col-wrapper col-lg-3 col-md-4 col-sm-6 cat-rif cat-it">
+                            <div class="ttm-box-col-wrapper col-lg-4 col-md-4 col-sm-6 cat-rif cat-it">
                                 <!-- featured-imagebox-course -->
                                 <div class="featured-imagebox featured-imagebox-course">
                                     <div class="ttm-post-thumbnail featured-thumbnail"> 
@@ -75,7 +101,7 @@ navID: e-zbirke
                                     </div>
                                 </div><!-- featured-imagebox-course end-->
                             </div>
-                            <div class="ttm-box-col-wrapper col-lg-3 col-md-4 col-sm-6 cat-hr cat-pim">
+                            <div class="ttm-box-col-wrapper col-lg-4 col-md-4 col-sm-6 cat-hr cat-pim">
                                 <!-- featured-imagebox-course -->
                                 <div class="featured-imagebox featured-imagebox-course">
                                     <div class="ttm-post-thumbnail featured-thumbnail"> 
@@ -100,7 +126,7 @@ navID: e-zbirke
                                     </div>
                                 </div><!-- featured-imagebox-course end-->
                             </div>
-                            <div class="ttm-box-col-wrapper col-lg-3 col-md-4 col-sm-6 cat-hr cat-it">
+                            <div class="ttm-box-col-wrapper col-lg-4 col-md-4 col-sm-6 cat-hr cat-it">
                                 <!-- featured-imagebox-course -->
                                 <div class="featured-imagebox featured-imagebox-course">
                                     <div class="ttm-post-thumbnail featured-thumbnail"> 
@@ -125,7 +151,7 @@ navID: e-zbirke
                                     </div>
                                 </div><!-- featured-imagebox-course end-->
                             </div>
-                            <div class="ttm-box-col-wrapper col-lg-3 col-md-4 col-sm-6 cat-rif cat-pim">
+                            <div class="ttm-box-col-wrapper col-lg-4 col-md-4 col-sm-6 cat-rif cat-pim">
                                 <!-- featured-imagebox-course -->
                                 <div class="featured-imagebox featured-imagebox-course">
                                     <div class="ttm-post-thumbnail featured-thumbnail"> 
@@ -150,7 +176,7 @@ navID: e-zbirke
                                     </div>
                                 </div><!-- featured-imagebox-course end-->
                             </div>
-                            <div class="ttm-box-col-wrapper col-lg-3 col-md-4 col-sm-6 cat-hr cat-it">
+                            <div class="ttm-box-col-wrapper col-lg-4 col-md-4 col-sm-6 cat-hr cat-it">
                                 <!-- featured-imagebox-course -->
                                 <div class="featured-imagebox featured-imagebox-course">
                                     <div class="ttm-post-thumbnail featured-thumbnail"> 
@@ -175,7 +201,7 @@ navID: e-zbirke
                                     </div>
                                 </div><!-- featured-imagebox-course end-->
                             </div>
-                            <div class="ttm-box-col-wrapper col-lg-3 col-md-4 col-sm-6 cat-hr">
+                            <div class="ttm-box-col-wrapper col-lg-4 col-md-4 col-sm-6 cat-hr">
                                 <!-- featured-imagebox-course -->
                                 <div class="featured-imagebox featured-imagebox-course">
                                     <div class="ttm-post-thumbnail featured-thumbnail"> 
@@ -200,7 +226,7 @@ navID: e-zbirke
                                     </div>
                                 </div><!-- featured-imagebox-course end-->
                             </div>
-                            <div class="ttm-box-col-wrapper col-lg-3 col-md-4 col-sm-6 cat-rif cat-it">
+                            <div class="ttm-box-col-wrapper col-lg-4 col-md-4 col-sm-6 cat-rif cat-it">
                                 <!-- featured-imagebox-course -->
                                 <div class="featured-imagebox featured-imagebox-course">
                                     <div class="ttm-post-thumbnail featured-thumbnail"> 
@@ -228,9 +254,12 @@ navID: e-zbirke
                         </div>
                     </div>
                 </div>
+            
             </div>
-        </div>
-    </div>
-</section>
-<!--portfolio-section-->
+            
+            {% include "partials/onlinecategories.njk" %}
 
+        </div><!-- row end -->
+    </div>
+</div>
+<!-- sidebar end -->

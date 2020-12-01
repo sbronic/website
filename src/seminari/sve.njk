@@ -1,0 +1,410 @@
+---
+title: Seminari i radionice
+description: Seminari i radionice
+layout: layouts/page.njk
+banner: seminari.jpg
+navID: sem-sve
+pagination:
+  data: seminari.sve
+  size: 6
+permalink: "edukacije/seminari-i-radionice{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
+eleventyComputed:
+    page_title: "Seminari i radionice"
+    page_description: "Seminari i radionice"
+---
+
+<div class="ttm-page-title-row" style="background: url(/images/{{ banner }})!important">
+    <div class="ttm-page-title-row-inner ttm-textcolor-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="page-title-heading">
+                        <h2 class="title">{{ description }}</h2>
+                    </div>
+                    <div class="breadcrumb-wrapper">
+                        <span>
+                            <a title="Homepage" href="/">Početna</a>
+                        </span>
+                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                        <span class="current" style="color:#F77F00">{{ title }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                    
+</div>
+
+<!-- sidebar -->
+<div class="ttm-row sidebar ttm-sidebar-right ttm-bgcolor-white clearfix">
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-xl-9 col-lg-8 content-area">                
+                <div class="ttm-tabs tabs-style-02" data-effect="fadeIn">
+                    <ul class="tabs clearfix">
+                        <li class="tab active"><a href="#">Otvoreni seminari</a></li>
+                        <li class="tab"><a href="#">Datumi održavanja</a></li>
+                    </ul>
+                    <div class="content-tab">
+                        <!-- content-inner -->
+                        <div class="content-inner">
+                            <div class="row ">
+                                <div class="ttm-box-col-wrapper col-lg-4 col-md-4 col-sm-6">
+                                    <!-- featured-imagebox-course -->
+                                    <div class="featured-imagebox featured-imagebox-course">
+                                        <div class="ttm-post-thumbnail featured-thumbnail"> 
+                                            <img class="img-fluid" src="/images/course/course-one-526x470.jpg" alt="image"> 
+                                        </div>
+                                        <div class="featured-content featured-content-post">
+                                            <div class="featured-content-post-inner">
+                                                <div class="post-title featured-title">
+                                                    <h5><a href="courses-single.html">Complete Beginner to the Web Design</a></h5>
+                                                </div>
+                                                <div class="post-desc featured-desc">
+                                                    <p>Are you excited to learn the web design, but not start yet...</p>
+                                                </div>
+                                            </div>
+                                            <div class="ttm-course-box-meta">
+                                                <div class="ttm-enrolled">
+                                                    <span class="ttm-count ttm-meta-line"><i class="fa fa-user" aria-hidden="true"></i>78</span>
+                                                    <span class="ttm-comments ttm-meta-line"><i class="fa fa-comment-o"></i>2</span>
+                                                </div>  
+                                                <span class="ttm-lp-price"><ins>$69.00</ins></span>                            
+                                            </div>
+                                        </div>
+                                    </div><!-- featured-imagebox-course end-->
+                                </div>
+                                <div class="ttm-box-col-wrapper col-lg-4 col-md-4 col-sm-6">
+                                    <!-- featured-imagebox-course -->
+                                    <div class="featured-imagebox featured-imagebox-course">
+                                        <div class="ttm-post-thumbnail featured-thumbnail"> 
+                                            <img class="img-fluid" src="/images/course/course-two-526x470.jpg" alt="image"> 
+                                        </div>
+                                        <div class="featured-content featured-content-post">
+                                            <div class="featured-content-post-inner">
+                                                <div class="post-title featured-title">
+                                                    <h5><a href="courses-single.html">Learn PHP Programming  From Scratch</a></h5>
+                                                </div>
+                                                <div class="post-desc featured-desc">
+                                                    <p>Now PHP is one of the best used programming languages...</p>
+                                                </div>
+                                            </div>
+                                            <div class="ttm-course-box-meta">
+                                                <div class="ttm-enrolled">
+                                                    <span class="ttm-count ttm-meta-line"><i class="fa fa-user" aria-hidden="true"></i>12</span>
+                                                    <span class="ttm-comments ttm-meta-line"><i class="fa fa-comment-o"></i>2</span>
+                                                </div>                
+                                                <span class="ttm-lp-price "><ins>$85.00</ins></span>
+                                            </div>
+                                        </div>
+                                    </div><!-- featured-imagebox-course end-->
+                                </div>
+                                <div class="ttm-box-col-wrapper col-lg-4 col-md-4 col-sm-6">
+                                    <!-- featured-imagebox-course -->
+                                    <div class="featured-imagebox featured-imagebox-course">
+                                        <div class="ttm-post-thumbnail featured-thumbnail"> 
+                                            <img class="img-fluid" src="/images/course/course-three-526x470.jpg" alt="image"> 
+                                        </div>
+                                        <div class="featured-content featured-content-post">
+                                            <div class="featured-content-post-inner">
+                                                <div class="post-title featured-title">
+                                                    <h5><a href="courses-single.html">Full Data Analysis Course For Beginner</a></h5>
+                                                </div>
+                                                <div class="post-desc featured-desc">
+                                                    <p>Contrary to popular belief, Lorem Ipsum is not simply rando...</p>
+                                                </div>
+                                            </div>
+                                            <div class="ttm-course-box-meta">
+                                                <div class="ttm-enrolled">
+                                                    <span class="ttm-count ttm-meta-line"><i class="fa fa-user" aria-hidden="true"></i>122</span>
+                                                    <span class="ttm-comments ttm-meta-line"><i class="fa fa-comment-o"></i>4</span>
+                                                </div>  
+                                                <span class="ttm-lp-price"><del>$69.00</del><ins>$45.00</ins></span>
+                                            </div>
+                                        </div>
+                                    </div><!-- featured-imagebox-course end-->
+                                </div>
+                                <div class="ttm-box-col-wrapper col-lg-4 col-md-4 col-sm-6">
+                                    <!-- featured-imagebox-course -->
+                                    <div class="featured-imagebox featured-imagebox-course">
+                                        <div class="ttm-post-thumbnail featured-thumbnail"> 
+                                            <img class="img-fluid" src="/images/course/course-four-526x470.jpg" alt="image"> 
+                                        </div>
+                                        <div class="featured-content featured-content-post">
+                                            <div class="featured-content-post-inner">
+                                                <div class="post-title featured-title">
+                                                    <h5><a href="courses-single.html">Masters Course in Adobe Photoshop</a></h5>
+                                                </div>
+                                                <div class="post-desc featured-desc">
+                                                    <p>Top-rated Photoshop courses are covers most of all important...</p>
+                                                </div>
+                                            </div>
+                                            <div class="ttm-course-box-meta">
+                                                <div class="ttm-enrolled">
+                                                    <span class="ttm-count ttm-meta-line"><i class="fa fa-user" aria-hidden="true"></i>27</span>
+                                                    <span class="ttm-comments ttm-meta-line"><i class="fa fa-comment-o"></i>2</span>
+                                                </div>  
+                                                <span class="ttm-lp-price ttm-free-course"><ins>Free</ins></span>                       
+                                            </div>
+                                        </div>
+                                    </div><!-- featured-imagebox-course end-->
+                                </div>
+                                <div class="ttm-box-col-wrapper col-lg-4 col-md-4 col-sm-6">
+                                    <!-- featured-imagebox-course -->
+                                    <div class="featured-imagebox featured-imagebox-course">
+                                        <div class="ttm-post-thumbnail featured-thumbnail"> 
+                                            <img class="img-fluid" src="/images/course/course-six-526x470.jpg" alt="image"> 
+                                        </div>
+                                        <div class="featured-content featured-content-post">
+                                            <div class="featured-content-post-inner">
+                                                <div class="post-title featured-title">
+                                                    <h5><a href="courses-single.html">Visual Basic Web Courses With Live Project</a></h5>
+                                                </div>
+                                                <div class="post-desc featured-desc">
+                                                    <p>Specially designed to gear up for students and job seekers...</p>
+                                                </div>
+                                            </div>
+                                            <div class="ttm-course-box-meta">
+                                                <div class="ttm-enrolled">
+                                                    <span class="ttm-count ttm-meta-line"><i class="fa fa-user" aria-hidden="true"></i>75</span>
+                                                    <span class="ttm-comments ttm-meta-line"><i class="fa fa-comment-o"></i>2</span>
+                                                </div>  
+                                                <span class="ttm-lp-price "><ins>$39.00</ins></span>
+                                            </div>
+                                        </div>
+                                    </div><!-- featured-imagebox-course end-->
+                                </div>
+                                <div class="ttm-box-col-wrapper col-lg-4 col-md-4 col-sm-6">
+                                    <!-- featured-imagebox-course -->
+                                    <div class="featured-imagebox featured-imagebox-course">
+                                        <div class="ttm-post-thumbnail featured-thumbnail"> 
+                                            <img class="img-fluid" src="/images/course/course-five-526x470.jpg" alt="image"> 
+                                        </div>
+                                        <div class="featured-content featured-content-post">
+                                            <div class="featured-content-post-inner">
+                                                <div class="post-title featured-title">
+                                                    <h5><a href="courses-single.html">Learning A Mobile App Development</a></h5>
+                                                </div>
+                                                <div class="post-desc featured-desc">
+                                                    <p>Contrary to popular belief, Lorem Ipsum is not simply rando...</p>
+                                                </div>
+                                            </div>
+                                            <div class="ttm-course-box-meta">
+                                                <div class="ttm-enrolled">
+                                                    <span class="ttm-count ttm-meta-line"><i class="fa fa-user" aria-hidden="true"></i>12</span>
+                                                    <span class="ttm-comments ttm-meta-line"><i class="fa fa-comment-o"></i>2</span>
+                                                </div>                              
+                                                <span class="ttm-lp-price "><ins>$85.00</ins></span>
+                                            </div>
+                                        </div>
+                                    </div><!-- featured-imagebox-course end-->
+                                </div>
+                                <div class="ttm-box-col-wrapper col-lg-4 col-md-4 col-sm-6">
+                                    <!-- featured-imagebox-course -->
+                                    <div class="featured-imagebox featured-imagebox-course">
+                                        <div class="ttm-post-thumbnail featured-thumbnail"> 
+                                            <img class="img-fluid" src="/images/course/course-seven-526x470.jpg" alt="image"> 
+                                        </div>
+                                        <div class="featured-content featured-content-post">
+                                            <div class="featured-content-post-inner">
+                                                <div class="post-title featured-title">
+                                                    <h5><a href="courses-single.html">Build A Full Web App System From Scratch</a></h5>
+                                                </div>
+                                                <div class="post-desc featured-desc">
+                                                    <p>Contrary to popular belief, Lorem Ipsum is not simply rando...</p>
+                                                </div>
+                                            </div>
+                                            <div class="ttm-course-box-meta">
+                                                <div class="ttm-enrolled">
+                                                    <span class="ttm-count ttm-meta-line"><i class="fa fa-user" aria-hidden="true"></i>24</span>
+                                                    <span class="ttm-comments ttm-meta-line"><i class="fa fa-comment-o"></i>2</span>
+                                                </div>                              
+                                                <span class="ttm-lp-price "><ins>$85.00</ins></span>
+                                            </div>
+                                        </div>
+                                    </div><!-- featured-imagebox-course end-->
+                                </div>
+                                <div class="ttm-box-col-wrapper col-lg-4 col-md-4 col-sm-6">
+                                    <!-- featured-imagebox-course -->
+                                    <div class="featured-imagebox featured-imagebox-course">
+                                        <div class="ttm-post-thumbnail featured-thumbnail"> 
+                                            <img class="img-fluid" src="/images/course/course-eight-526x470.jpg" alt="image"> 
+                                        </div>
+                                        <div class="featured-content featured-content-post">
+                                            <div class="featured-content-post-inner">
+                                                <div class="post-title featured-title">
+                                                    <h5><a href="courses-single.html">The Complete JavaScript Course For Beginner</a></h5>
+                                                </div>
+                                                <div class="post-desc featured-desc">
+                                                    <p>Contrary to popular belief, Lorem Ipsum is not simply rando...</p>
+                                                </div>
+                                            </div>
+                                            <div class="ttm-course-box-meta">
+                                                <div class="ttm-enrolled">
+                                                    <span class="ttm-count ttm-meta-line"><i class="fa fa-user" aria-hidden="true"></i>112</span>
+                                                    <span class="ttm-comments ttm-meta-line"><i class="fa fa-comment-o"></i>4</span>
+                                                </div>                              
+                                                <span class="ttm-lp-price "><ins>$85.00</ins></span>
+                                            </div>
+                                        </div>
+                                    </div><!-- featured-imagebox-course end-->
+                                </div>
+                            </div>
+                        </div><!-- content-inner end-->
+                        <!-- content-inner -->
+                        <div class="content-inner">
+                            <div class="row">
+                                 <div class="col-lg-12">
+                                    <!-- featured-imagebox-post -->
+                                    <div class="featured-imagebox featured-imagebox-post style1">
+                                        <div class="featured-content featured-content-post" style="padding: 20px 30px 20px 30px;!important">
+                                            <div class="row">
+                                                <div class="col-sm-2" style="max-width: 10.666667%;!important">
+                                                    <div class="icon-box">
+                                                        <div class="ttm-icon ttm-icon_element-fill ttm-icon_element-color-darkgrey ttm-icon_element-size-sm ttm-icon_element-style-rounded" style="background-color:#8FBC94;margin-bottom: 0px;!important">
+                                                            <div class="ttm-box-event-date">
+                                                                <span class="ttm-entry-date">
+                                                                    <time class="entry-date" datetime="2019-07-20T07:07:55+00:00" style="margin-top:10px;">14<span class="entry-month">SIJ</span></time>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <div class="post-meta">
+                                                        <span class="ttm-meta-line"><i class="fa fa-clock-o"></i>12:00h - 15:00h</span>
+                                                        <span class="ttm-meta-line"><i class="fa fa-map-marker"></i>Kraš d.d., Zagreb</span>
+                                                    </div>
+                                                    <div class="post-title featured-title">
+                                                        <h5><a href="blog-single.html">Key points For Improving Focus Towards you Ensures that you Know where</a></h5>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="ttm-btn-box" style="position: absolute;left:85px;width:100%">
+                                                        <h4>1.590Kn</h4>
+                                                    </div>
+                                                    <div class="ttm-btn-box" style="position: absolute;top: 50%;left:70px;">
+                                                        <a class="ttm-btn ttm-btn-size-sm ttm-btn-shape-round ttm-btn-style-fill ttm-icon-btn-right ttm-btn-color-dark" href="" title="">REZERVIRAJ </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- featured-imagebox-post end-->
+                                    <!-- featured-imagebox-post -->
+                                    <div class="featured-imagebox featured-imagebox-post style1">
+                                        <div class="featured-content featured-content-post" style="padding: 20px 30px 20px 30px;!important">
+                                            <div class="row">
+                                                <div class="col-sm-2" style="max-width: 10.666667%;!important">
+                                                    <div class="icon-box">
+                                                        <div class="ttm-icon ttm-icon_element-fill ttm-icon_element-color-darkgrey ttm-icon_element-size-sm ttm-icon_element-style-rounded" style="background-color:#8FBC94;margin-bottom: 0px;!important">
+                                                            <div class="ttm-box-event-date">
+                                                                <span class="ttm-entry-date">
+                                                                    <time class="entry-date" datetime="2019-07-20T07:07:55+00:00" style="margin-top:10px;">19<span class="entry-month">SIJ</span></time>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <div class="post-meta">
+                                                        <span class="ttm-meta-line"><i class="fa fa-clock-o"></i>09:00h - 13:00h</span>
+                                                        <span class="ttm-meta-line"><i class="fa fa-map-marker"></i>Hotel International, Zagreb</span>
+                                                    </div>
+                                                    <div class="post-title featured-title">
+                                                        <h5><a href="blog-single.html">Education Agree Plans To Boost Recruitment your Performance Help you</a></h5>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="ttm-btn-box" style="position: absolute;left:85px;width:100%">
+                                                        <h4>1.590Kn</h4>
+                                                    </div>
+                                                    <div class="ttm-btn-box" style="position: absolute;top: 50%;left:70px;">
+                                                        <a class="ttm-btn ttm-btn-size-sm ttm-btn-shape-round ttm-btn-style-fill ttm-icon-btn-right ttm-btn-color-dark" href="" title="">REZERVIRAJ </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- featured-imagebox-post end-->
+                                    <!-- featured-imagebox-post -->
+                                    <div class="featured-imagebox featured-imagebox-post style1">
+                                        <div class="featured-content featured-content-post" style="padding: 20px 30px 20px 30px;!important">
+                                            <div class="row">
+                                                <div class="col-sm-2" style="max-width: 10.666667%;!important">
+                                                    <div class="icon-box">
+                                                        <div class="ttm-icon ttm-icon_element-fill ttm-icon_element-color-darkgrey ttm-icon_element-size-sm ttm-icon_element-style-rounded" style="background-color:#8FBC94;margin-bottom: 0px;!important">
+                                                            <div class="ttm-box-event-date">
+                                                                <span class="ttm-entry-date">
+                                                                    <time class="entry-date" datetime="2019-07-20T07:07:55+00:00" style="margin-top:10px;">24<span class="entry-month">SIJ</span></time>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <div class="post-meta">
+                                                        <span class="ttm-meta-line"><i class="fa fa-clock-o"></i>18:00h - 12:00h</span>
+                                                        <span class="ttm-meta-line"><i class="fa fa-map-marker"></i>Kraš d.d., Zagreb</span>
+                                                    </div>
+                                                    <div class="post-title featured-title">
+                                                        <h5><a href="blog-single.html">Equipping Researchers In The Developing Impact Rural Life by Bringing.</a></h5>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="ttm-btn-box" style="position: absolute;left:85px;width:100%">
+                                                        <h4>1.590Kn</h4>
+                                                    </div>
+                                                    <div class="ttm-btn-box" style="position: absolute;top: 50%;left:70px;">
+                                                        <a class="ttm-btn ttm-btn-size-sm ttm-btn-shape-round ttm-btn-style-fill ttm-icon-btn-right ttm-btn-color-dark" href="" title="">REZERVIRAJ </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- featured-imagebox-post end-->
+                                    <!-- featured-imagebox-post -->
+                                    <div class="featured-imagebox featured-imagebox-post style1">
+                                        <div class="featured-content featured-content-post" style="padding: 20px 30px 20px 30px;!important">
+                                            <div class="row">
+                                                <div class="col-sm-2" style="max-width: 10.666667%;!important">
+                                                    <div class="icon-box">
+                                                        <div class="ttm-icon ttm-icon_element-fill ttm-icon_element-color-darkgrey ttm-icon_element-size-sm ttm-icon_element-style-rounded" style="background-color:#8FBC94;margin-bottom: 0px;!important">
+                                                            <div class="ttm-box-event-date">
+                                                                <span class="ttm-entry-date">
+                                                                    <time class="entry-date" datetime="2019-07-20T07:07:55+00:00" style="margin-top:10px;">29<span class="entry-month">SIJ</span></time>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <div class="post-meta">
+                                                        <span class="ttm-meta-line"><i class="fa fa-clock-o"></i>09:00h - 13:00h</span>
+                                                        <span class="ttm-meta-line"><i class="fa fa-map-marker"></i>Hotel International, Zagreb</span>
+                                                    </div>
+                                                    <div class="post-title featured-title">
+                                                        <h5><a href="blog-single.html">Education Agree Plans To Boost Recruitment your Performance Help you</a></h5>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-2">
+                                                    <div class="ttm-btn-box" style="position: absolute;left:85px;width:100%">
+                                                        <h4>1.590Kn</h4>
+                                                    </div>
+                                                    <div class="ttm-btn-box" style="position: absolute;top: 50%;left:70px;">
+                                                        <a class="ttm-btn ttm-btn-size-sm ttm-btn-shape-round ttm-btn-style-fill ttm-icon-btn-right ttm-btn-color-dark" href="" title="">REZERVIRAJ </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- featured-imagebox-post end-->
+                                </div>
+                            </div>
+                        </div><!-- content-inner end-->
+                    </div>
+                </div>
+            </div>
+            
+            {% include "partials/seminaricategories.njk" %}
+
+        </div><!-- row end -->
+    </div>
+</div>
+<!-- sidebar end -->
