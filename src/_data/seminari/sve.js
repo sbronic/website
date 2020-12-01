@@ -3,10 +3,10 @@ const fetch = require("node-fetch");
 const slugify = require('slugify');
 
 // get Objave
-async function getObjave() {
+async function getSeminari() {
     
     // Objave array
-    let sveobjave = [];
+    let sviseminari = [];
 
     try {
         // initiate fetch
@@ -18,23 +18,16 @@ async function getObjave() {
             },
             body: JSON.stringify({
                 query: `{
-                    objave (orderBy: publishedAt_DESC, stage: PUBLISHED) {
+                    seminari(orderBy: publishedAt_DESC, stage: PUBLISHED) {
                         id
-                        publishedAt
-                        naslovObjave
-                        autorObjava {
+                        sifraProizvoda
+                        nazivSeminara
+                        cijena
+                        promoVideo
+                        sazetakSeminara
+                        trajanjeDana
+                        predavaci{
                             imeIPrezime
-                        }
-                        fotografija {
-                            handle
-                        }
-                        sazetakObjave
-                        kategorija {
-                            naziv
-                        }
-                        objava {
-                            html
-                            text
                         }
                     }
                 }`
@@ -54,36 +47,34 @@ async function getObjave() {
         }
 
         // update blogpost array with the data from the JSON response
-        sveobjave = sveobjave.concat(response.data.objave);
+        sviseminari = sviseminari.concat(response.data.seminari);
 
     } catch (error) {
         throw new Error(error);
     }
 
     // format blogposts objects
-    const formatobjave = sveobjave.map((item) => {
+    const formatseminari = sviseminari.map((item) => {
         return {
             id: item.id,
-            date: item.publishedAt,
-            author: item.autorObjava.imeIPrezime,
-            title: item.naslovObjave,
-            titleslug: slugify(item.naslovObjave, { lower: true, strict: true }),
-            photo: item.fotografija.handle,
-            excerpt: item.sazetakObjave,
-            category: item.kategorija.naziv,
-            categoryslug: slugify(item.kategorija.naziv, { lower: true, strict: true }),
-            bodyhtml: item.objava.html,
-            bodytext: item.objava.text
+            title: item.nazivSeminara,
+            cijena: item.cijena,
+            promovideo: item.promoVideo,
+            excerpt: item.sazetakSeminara,
+            sifra: item.sifraProizvoda,
+            trajanje: item.trajanjeDana,
         };
-    });
+    }).filter(Boolean);
 
-    if (formatobjave === undefined || formatobjave.length == 0) {
-        formatobjave.push("prazno");
+    if (formatseminari === undefined || formatseminari.length == 0) {
+        formatseminari.push("prazno");
     }
 
+    console.log(formatseminari);
+
     // return formatted blogposts
-    return formatobjave;
+    return formatseminari;
 }
 
 // export for 11ty
-module.exports = getObjave;
+module.exports = getSeminari;
