@@ -27,7 +27,7 @@ module.exports = function (config) {
         var dobj = new Date(dateObj);
         var day = dobj.getDate();
         var year = dobj.getFullYear();
-        var month = dobj.toLocaleString('hr-HR.UTF8', { month: 'long' });
+        var month = dobj.toLocaleString('hr-HR', { month: 'long' });
         return day + ". " + month + " " + year + ".";
     });
     // Dan
@@ -39,7 +39,7 @@ module.exports = function (config) {
     // Mjesec
     config.addFilter("datumMjesec", dateObj => {
         var dobj = new Date(dateObj);
-        var month = dobj.toLocaleString('hr', { month: 'short' });
+        var month = dobj.toLocaleString('hr-HR', { month: 'short' });
         return month;
     });
     // Limit umjesto slice
