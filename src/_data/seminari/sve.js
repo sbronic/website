@@ -90,8 +90,6 @@ async function getSeminari() {
         formatseminari.push("prazno");
     }
 
-    console.log(formatseminari);
-
     // return formatted blogposts
     return formatseminari;
 }
