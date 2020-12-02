@@ -27,7 +27,8 @@ module.exports = function (config) {
         var dobj = new Date(dateObj);
         var day = dobj.getDate();
         var year = dobj.getFullYear();
-        var month = dobj.toLocaleDateString('hr-HR', { month: 'long' });
+        var month = dobj.toLocaleString('hr-HR', { month: 'long' });
+        console.log(month);
         return day + ". " + month + " " + year + ".";
     });
     // Dan
