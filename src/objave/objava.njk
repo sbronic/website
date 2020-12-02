@@ -12,7 +12,10 @@ eleventyComputed:
     page_description: "{{ objava.excerpt }}"
     page_type: "article"
     objavaimage: "https://media.graphcms.com/resize=width:1200/{{ objava.photo }}"
+    textcount: "{{ objava.bodytext | wordCount }}"
 ---
+
+<pre>{{ objava.bodytext | wordCount }}</pre>
 
 <div class="ttm-page-title-row" style="background: url(/images/blog.jpg)!important">
     <div class="ttm-page-title-row-inner ttm-textcolor-white">
