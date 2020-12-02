@@ -18,7 +18,7 @@ async function getSeminari() {
             },
             body: JSON.stringify({
                 query: `{
-                    seminari(orderBy: publishedAt_DESC, stage: PUBLISHED) {
+                    seminari(stage: PUBLISHED) {
                         id
                         sifraProizvoda
                         nazivSeminara
@@ -26,8 +26,21 @@ async function getSeminari() {
                         promoVideo
                         sazetakSeminara
                         trajanjeDana
-                        predavaci{
+                        predavaci {
                             imeIPrezime
+                        }
+                        curriculum {
+                            html
+                        }
+                        fotografija {
+                            handle
+                        }
+                        kategorija {
+                            kod
+                            naziv
+                        }
+                        opis {
+                            html
                         }
                     }
                 }`
@@ -57,12 +70,19 @@ async function getSeminari() {
     const formatseminari = sviseminari.map((item) => {
         return {
             id: item.id,
+            sifra: item.sifraProizvoda,
             title: item.nazivSeminara,
+            titleslug: slugify(item.nazivSeminara, { lower: true, strict: true }),
             cijena: item.cijena,
             promovideo: item.promoVideo,
             excerpt: item.sazetakSeminara,
-            sifra: item.sifraProizvoda,
             trajanje: item.trajanjeDana,
+            predavaci: item.predavaci,
+            curriculum: item.curriculum.html,
+            fotografija: item.fotografija.handle,
+            kategorija: item.kategorija.naziv,
+            kategorijaslug: slugify(item.kategorija.naziv, { lower: true, strict: true }),
+            opis: item.opis.html
         };
     }).filter(Boolean);
 

@@ -75,7 +75,7 @@ async function getObjave() {
             bodyhtml: item.objava.html,
             bodytext: item.objava.text
         };
-    });
+    }).filter(Boolean);
 
     if (formatobjave === undefined || formatobjave.length == 0) {
         formatobjave.push("prazno");

@@ -73,7 +73,7 @@ async function getObjave() {
             category: item.kategorija.naziv,
             categoryslug: slugify(item.kategorija.naziv, { lower: true, strict: true }),
             bodyhtml: item.objava.html,
-            bodytext: item.objava.text
+            bodytext: item.objava.text.replace(/\n /, "\n")
         };
     }).filter(Boolean);
 

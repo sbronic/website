@@ -1,17 +1,19 @@
 ---
 layout: layouts/page.njk
-banner: blog.jpg
-navID: blog
+banner: seminari.jpg
+navID: seminar
 pagination:
-  data: objave.sve
+  data: seminari.sve
   size: 1
-  alias: objava
-permalink: blog/{{ objava.categoryslug }}/{{ objava.titleslug }}/index.html
+  alias: seminar
+permalink: edukacije/{{ seminar.kategorijaslug }}/{{ seminar.titleslug }}/index.html
 eleventyComputed:
-    page_title: "{{ objava.title }}"
-    page_description: "{{ objava.excerpt }}"
+    page_title: "{{ seminar.title }}"
+    page_description: "{{ seminar.excerpt }}"
     page_type: "article"
-    objavaimage: "https://media.graphcms.com/resize=width:1200/{{ objava.photo }}"
+    objavaimage: "https://media.graphcms.com/resize=width:1200/{{ seminar.photo }}"
+    objavatekst: {{ seminar.bodytext }}
+    objavaauthor: {{ seminar.author }}
 ---
 
 <div class="ttm-page-title-row" style="background: url(/images/blog.jpg)!important">

@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "dotenv": "^8.2.0",
+    "eleventy-plugin-wordcount": "^1.0.5",
     "node-fetch": "^2.6.1",
     "slugify": "^1.4.6"
   }

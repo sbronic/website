@@ -2,6 +2,7 @@
 
 const util = require('util'); // dump filter
 const del = require('del');
+const { wordCount } = require("eleventy-plugin-wordcount");
 
 module.exports = function (config) {
     const dirToClean = '_site/*';
@@ -47,6 +48,9 @@ module.exports = function (config) {
     /* Shortcodes */
     config.addShortcode("og_updated_time", () => new Date()
     );
+
+    /* Plugins */
+    config.addPlugin(wordCount);
 
    return {
         dir: {

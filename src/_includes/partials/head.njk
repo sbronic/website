@@ -84,12 +84,12 @@
    "@type":"Article",
    "headline":"{{ page_title }}",
    "image":"{{ objavaimage }}",
-   "author":"{{ objavaauthor }}",
+   "author":"{{ objava.author }}",
    "keywords":"seo sales b2b",
-   "wordcount":"1120",
+   "wordcount":"{{ objava.bodytext | wordCount }}",
    "publisher":{
       "@type":"Organization",
-      "name":"Google",
+      "name":"Gastro Mreža",
       "logo":{
          "@type":"ImageObject",
          "url":"https:edukacije.hr/images/logo-img.png"
@@ -98,11 +98,11 @@
    "url":"https://edukacije.hr/blog/{{ objava.categoryslug }}/{{ objava.titleslug }}",
    "mainEntityOfPage":{
       "@type":"WebPage",
-      "@id":"https://google.com/article"
+      "@id":"https://edukacije.hr/blog/{{ objava.categoryslug }}/{{ objava.titleslug }}/"
    },
-   "datePublished":"2015-09-20",
+   "datePublished":"{{ objava.date }}",
    "description":"{{ page_description }}",
-   "articleBody":"{{ objavatekst }}"
+   "articleBody":"{{ objava.bodytext }}"
 }
 </script>
 <!-- SEO article -->
