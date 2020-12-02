@@ -1,0 +1,75 @@
+---
+title: Datumi održavanja seminara
+description: Datumi održavanja seminara
+layout: layouts/page.njk
+banner: seminari.jpg
+navID: sem-sve
+nav2ID: datumi
+pagination:
+  data: seminari.sve
+  size: 6
+permalink: "edukacije/seminari-i-radionice/datumi-odrzavanja{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
+eleventyComputed:
+    page_title: "Datumi održavanja seminara"
+    page_description: "Datumi održavanja seminara"
+---
+
+<div class="ttm-page-title-row" style="background: url(/images/{{ banner }})!important">
+    <div class="ttm-page-title-row-inner ttm-textcolor-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="page-title-heading">
+                        <h2 class="title">{{ description }}</h2>
+                    </div>
+                    <div class="breadcrumb-wrapper">
+                        <span>
+                            <a title="Homepage" href="/">Početna</a>
+                        </span>
+                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                        <span>Seminari i radionice</span>
+                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                        <span class="current" style="color:#F77F00">{{ title }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                    
+</div>
+
+<!-- sidebar -->
+<div class="ttm-row sidebar ttm-sidebar-right ttm-bgcolor-white clearfix">
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-xl-9 col-lg-8 content-area">
+
+                {% for seminar in seminari.sve %}
+
+                <div class="card mb-3" style="max-width: 100%; max-height:224px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                        <img src="https://media.graphcms.com/resize=fit:crop,width:286,height:223/output=format:webp/{{ seminar.fotografija }}" class="card-img" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ seminar.title }}</h5>
+                            <p class="card-text">{{ seminar.excerpt }}</p>
+                            <p class="card-text">
+                                <span><small class="text-muted">Last updated 3 mins ago</small></span>
+                            </p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+
+            </div>
+            
+            {% include "partials/seminaricategories.njk" %}
+
+        </div><!-- row end -->
+    </div>
+</div>
+<!-- sidebar end -->
