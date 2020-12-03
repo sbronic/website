@@ -1904,7 +1904,7 @@ ul.ttm-coursedetails-box li:not(:last-child):after {
     right: -15px;
 }
 ul.ttm-coursedetails-box li:first-child {
-    width: 185px;
+    width: 350px;
 }
 li.ttm-author img {
     width: 55px;

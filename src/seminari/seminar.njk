@@ -1,0 +1,219 @@
+---
+layout: layouts/page.njk
+banner: seminari.jpg
+navID: {{ seminar.kategorijakod }}
+pagination:
+  data: seminari.sve
+  size: 1
+  alias: seminar
+permalink: edukacije/seminari-i-radionice/{{ seminar.kategorijaslug }}/{{ seminar.titleslug }}/index.html
+eleventyComputed:
+    page_title: "{{ seminar.title }}"
+    page_description: "{{ seminar.excerpt }}"
+    page_type: "seminar"
+    seminarimage: "https://media.graphcms.com/resize=width:1200/{{ seminar.fotografija }}"
+    seminartekst: {{ seminar.bodytext }}
+    seminarauthor: {{ seminar.author }}
+---
+
+<div class="ttm-page-title-row" style="background: url(/images/blog.jpg)!important">
+    <div class="ttm-page-title-row-inner ttm-textcolor-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="page-title-heading">
+                        <h2 class="title">{{ seminar.title }}</h2>
+                    </div>
+                    <div class="breadcrumb-wrapper">
+                        <span>
+                            <a title="Homepage" href="/">Početna</a>
+                        </span>
+                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                        <span>
+                            <a title="Blog" href="/seminari-i-radionice">Seminari i Radionice</a>
+                        </span>
+                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                        <span>
+                            <a title="Kategorija" href="/blog/{{ objava.categoryslug }}">{{ seminar.kategorija }}</a>
+                        </span>
+                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                        <span class="current" style="color:#F77F00">{{ seminar.title }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                    
+</div>
+
+<div class="site-main">
+
+    <!-- sidebar -->
+    <div class="ttm-row sidebar ttm-sidebar-right ttm-bgcolor-white clearfix">
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-xl-9 col-lg-8 content-area">
+                        <!-- course -->
+                        <article class="course single-lp_course">
+                            <!-- course-featured-wrapper -->
+                            <div class="course-featured-wrapper mb-20">
+                                <div class="course-featured">
+                                    <img class="img-fluid" src="https://media.graphcms.com/resize=fit:clip,width:832,height:468/{{ seminar.fotografija }}" alt="">
+                                </div>
+                            </div>
+
+                            <!-- course-featured-wrapper end -->
+                            <!-- ttm-course-single-content -->
+                            <div class="ttm-course-single-content">
+                                <div class="ttm-single-course-box">
+                                    <ul class="ttm-coursedetails-box">
+                                        <li class="ttm-meta-line ttm-author">
+
+                                        {% if (seminar.predavaci | length) == 1 %}
+                                            <strong>Predavač:</strong>
+                                        {% else %}
+                                            <strong>Predavači:</strong>
+                                        {% endif %}
+                                        
+                                        {% if (seminar.predavaci | length) == 1 %}
+                                            {{ seminar.predavaci[0].imeIPrezime }}
+                                        {% else %}
+                                            {% for predavac in seminar.predavaci %}
+                                            {{ predavac.imeIPrezime }},
+                                            {% endfor %}
+                                        {% endif %}
+
+                                        </li>
+                                        <li class="ttm-meta-line ttm-course-dur"> 
+                                            <strong>Trajanje</strong>1 dan
+                                        </li>
+                                        <li class="ttm-meta-line ttm-course-price"> 
+                                            <strong>Cijena</strong>1.495 Kn
+                                        </li>
+                                        <li class="ttm-meta-line ttm-course-button"> 
+                                            <div class="lp-course-buttons">
+                                                <button class="lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">Buy this course</button>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="ttm-tabs course-tabs" data-effect="fadeIn">
+                                    <ul class="tabs clearfix">
+                                        <li class="tab active"><a href="#">Opis seminara</a></li>
+                                        <li class="tab"><a href="#">Curriculum</a></li>
+                                        <li class="tab"><a href="#">Instructor</a></li>
+                                        <li class="tab"><a href="#">Reviews</a></li>
+                                    </ul>
+                                    <div class="content-tab">
+                                        <!-- content-inner -->
+                                        <div class="content-inner active">
+                                            {{ seminar.opis | safe }}
+                                        </div><!-- content-inner end-->
+                                        <!-- content-inner -->
+                                        <div class="content-inner">
+                                            {{ seminar.curriculum | safe }}
+                                        </div><!-- content-inner end-->
+                                        <!-- content-inner -->
+                                        <div class="content-inner">
+                                            <div class="d-flex">
+                                                <div class="author-img text-center">
+                                                    <img src="https://via.placeholder.com/150x150?text=150x150+team-05.jpg" alt="John Doe" class="imag-fluid avatar photo">
+                                                    <div class="mt-10"><a href="instructor-profile.html"><h6>John Doe</h6></a></div>
+                                                </div>
+                                                <div class="author-bio pl-30">
+                                                    I have experienced in developing curriculum as well as conducting teach training and parenting programs. We guarantee to cover all phases of the teach programs to creating a classroom atmosphere that is stimulating and encouraging to students. I believe in maintaining high standards of education with emphasis on developing readings skills in pupils and thoroughly enjoys working with children and encourages creative expression.
+                                                </div>
+                                            </div>
+                                        </div><!-- content-inner end-->
+                                        <!-- content-inner -->
+                                        <div class="content-inner">
+                                            <div class="course-rates">
+                                                <div class="review-stars-rated" title="5 out of 5 stars">
+                                                    <div class="review-stars empty"></div>
+                                                    <div class="review-stars filled"></div>
+                                                </div>
+                                                <p class="review-number">5.00 average based on 2 ratings</p>
+                                                <div class="course-rate">
+                                                    <span>5 Star</span>
+                                                    <div class="review-bar"><div class="rating w-100"></div></div>
+                                                    <span>100%</span>
+                                                </div>
+                                                <div class="course-rate">
+                                                    <span>4 Star</span>
+                                                    <div class="review-bar"><div class="rating w-0"></div></div>
+                                                    <span>0%</span>
+                                                </div>
+                                                <div class="course-rate">
+                                                    <span>3 Star</span>
+                                                    <div class="review-bar"><div class="rating w-0"></div></div>
+                                                    <span>0%</span>
+                                                </div>
+                                                <div class="course-rate">
+                                                    <span>2 Star</span>
+                                                    <div class="review-bar"><div class="rating w-0"></div></div>
+                                                    <span>0%</span>
+                                                </div>
+                                                <div class="course-rate">
+                                                    <span>1 Star</span>
+                                                    <div class="review-bar"><div class="rating w-0"></div></div>
+                                                    <span>0%</span>
+                                                </div>
+                                            </div>
+                                            <div id="course-reviews">
+                                                <div class="mt-30 mb-30">
+                                                    <h4>Reviews</h4>
+                                                </div>
+                                                <ul class="course-reviews-list">
+                                                    <li>
+                                                        <div class="review-author">
+                                                            <img src="https://via.placeholder.com/150x150?text=150x150+team-02.jpg" width="96" height="96" alt="Cherie Leon" class="avatar photo">
+                                                        </div>
+                                                        <div class="review-author-info">
+                                                            <div class="rev_head">
+                                                                <h4 class="user-name">Cherie Leon</h4>
+                                                                <div class="review-stars-rated" title="5 out of 5 stars">
+                                                                    <div class="review-stars empty"></div>
+                                                                    <div class="review-stars filled"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="rev_content">
+                                                                <div class="review-title">Best Course </div>
+                                                                <div class="review-text">Very good lessaons to learn with good instructor. Always recommended.</div>
+                                                            </div>
+                                                        </div>
+                                                    </li>                           
+                                                    <li>
+                                                        <div class="review-author">
+                                                            <img src="https://via.placeholder.com/150x150?text=150x150+team-03.jpg" width="96" height="96" alt="Cherie Leon" class="avatar photo">
+                                                        </div>
+                                                        <div class="review-author-info">
+                                                            <div class="rev_head">
+                                                                <h4 class="user-name">Michael Grey</h4>
+                                                                <div class="review-stars-rated" title="5 out of 5 stars">
+                                                                    <div class="review-stars empty"></div>
+                                                                    <div class="review-stars filled"></div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="rev_content">
+                                                                <div class="review-title">Awesome Course</div>
+                                                                <div class="review-text">I Learn many things in less time. Overall very Good experience.</div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div><!-- content-inner end-->
+                                    </div>
+                                </div>
+                            </div> <!-- ttm-course-single-content end -->
+                        </article><!-- course end -->
+                    </div>
+
+                {% include "partials/seminaricategories.njk" %}
+
+            </div><!-- row end -->
+        </div>
+    </div>
+    <!-- sidebar end -->
+
+</div><!--site-main end-->

@@ -18,9 +18,9 @@ async function getObjave() {
             },
             body: JSON.stringify({
                 query: `{
-                    objave (orderBy: publishedAt_DESC, stage: PUBLISHED, where: {kategorija: {kod: "zouo"}}) {
+                    objave (orderBy: datumObjave_DESC, stage: PUBLISHED, where: {kategorija: {kod: "zouo"}}) {
                         id
-                        publishedAt
+                        datumObjave
                         naslovObjave
                         autorObjava {
                             imeIPrezime
@@ -64,7 +64,7 @@ async function getObjave() {
     const formatobjave = sveobjave.map((item) => {
         return {
             id: item.id,
-            date: item.publishedAt,
+            date: item.datumObjave,
             author: item.autorObjava.imeIPrezime,
             title: item.naslovObjave,
             titleslug: slugify(item.naslovObjave, { lower: true, strict: true }),

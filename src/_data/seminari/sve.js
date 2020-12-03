@@ -82,6 +82,7 @@ async function getSeminari() {
             fotografija: item.fotografija.handle,
             kategorija: item.kategorija.naziv,
             kategorijaslug: slugify(item.kategorija.naziv, { lower: true, strict: true }),
+            kategorijakod: item.kategorija.kod,
             opis: item.opis.html
         };
     }).filter(Boolean);
