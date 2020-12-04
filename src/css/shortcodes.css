@@ -422,8 +422,8 @@
 .ttm-btn.ttm-icon-btn-left i { text-align: left; margin-right: 10px; margin-left: 0;}
 
 /** btn-size-xs **/
-.ttm-btn.ttm-btn-size-xs { font-size: 11px; padding: 8px 20px;}
-.ttm-btn.ttm-btn-size-xs i { font-size: 10px; line-height: 11px;}
+.ttm-btn.ttm-btn-size-xs { font-size: 13px; padding: 8px 15px;}
+.ttm-btn.ttm-btn-size-xs i { font-size: 11px; line-height: 11px;}
 .ttm-btn.ttm-icon-btn-right.ttm-btn-size-xs i { text-align: right; margin-left: 6px; margin-right: 0;}
 .ttm-btn.ttm-icon-btn-left.ttm-btn-size-xs i { text-align: left; margin-right: 6px; margin-left: 0;}
 
@@ -942,7 +942,7 @@
     color: rgba(255,255,255,.7);
 }
 .featured-imagebox-course:hover img {
-    transform: scale(1.05);
+/*    transform: scale(1.05); */
 }
 
 
