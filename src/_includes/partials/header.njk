@@ -89,7 +89,7 @@
                                     <li class="mega-menu-item {% if navID == 'in-house' %}active{% endif %}">
                                         <a href="/edukacije/in-house" class="mega-menu-link">In-house edukacije</a>
                                     </li>
-                                    <li class="mega-menu-item {% if navID == 'blog-sve' %}active{% endif %}">
+                                    <li class="mega-menu-item {{ 'active' if '/blog' in page.url }}">
                                         <a href="/blog" class="mega-menu-link">Blog</a>
                                     </li>
                                     <li class="mega-menu-item {% if navID == 'kontakt' %}active{% endif %}">

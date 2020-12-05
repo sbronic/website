@@ -27,8 +27,9 @@ module.exports = function (config) {
         var dobj = new Date(dateObj);
         var day = dobj.getDate();
         var year = dobj.getFullYear();
-        var month = dobj.toLocaleString('hr-HR', { month: 'long' });
-        return day + ". " + month + " " + year + ".";
+        //var month = dobj.toLocaleString('hr-HR', { month: 'long' });
+        var month = dobj.getMonth();
+        return day + "." + month + "." + year + ".";
     });
     // Dan
     config.addFilter("datumDan", dateObj => {

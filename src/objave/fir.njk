@@ -6,7 +6,7 @@ banner: blog.jpg
 navID: blog-fir
 pagination:
   data: objave.fir
-  size: 6
+  size: 5
 permalink: "blog/financije-i-racunovodstvo{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
 eleventyComputed:
     page_title: "Blog - Financije i računovodstvo"
@@ -47,37 +47,37 @@ eleventyComputed:
 
                 {% if objave.fir != 'prazno' %}
 
-                    {% for objava in objave.fir %}
+                    {% for item in pagination.items %}
                     
                     <!-- post -->
                     <article class="post ttm-blog-classic clearfix">
                             <!-- post-featured-wrapper -->
                         <div class="ttm-post-featured-wrapper ttm-featured-wrapper">
                             <div class="ttm-post-featured">
-                                <img class="img-fluid" src="https://media.graphcms.com/{{ objava.photo }}" alt="">
-                                <!-- src="https://media.graphcms.com/output=format:webp/{{ objava.photo }}" -->
+                                <img class="img-fluid" src="https://media.graphcms.com/{{ item.photo }}" alt="">
+                                <!-- src="https://media.graphcms.com/output=format:webp/{{ item.photo }}" -->
                             </div>
                         </div><!-- post-featured-wrapper end -->
                         <!-- ttm-blog-classic-content -->
                         <div class="ttm-blog-classic-content">
                             <div class="ttm-post-entry-header">
                                 <div class="post-meta">
-                                    <span class="ttm-meta-line byline"><i class="fa fa-calendar"></i>{{ objava.date | datumObjave }}</span>
-                                    <span class="ttm-meta-line byline"><i class="fa fa-user"></i>{{ objava.author }}</span>
-                                    <span class="ttm-meta-line tags-links"><i class="fa fa-tag"></i>{{ objava.category }}</span>
+                                    <span class="ttm-meta-line byline"><i class="fa fa-calendar"></i>{{ item.date | datumObjave }}</span>
+                                    <span class="ttm-meta-line byline"><i class="fa fa-user"></i>{{ item.author }}</span>
+                                    <span class="ttm-meta-line tags-links"><i class="fa fa-tag"></i>{{ item.category }}</span>
                                 </div>
                                 <hr/>
                                 <header class="entry-header">
-                                    <h2 class="entry-title"><a href="/blog/{{ objava.categoryslug }}/{{ objava.titleslug }}/">{{ objava.title }}</a></h2>
+                                    <h2 class="entry-title"><a href="/blog/{{ item.categoryslug }}/{{ item.titleslug }}/">{{ item.title }}</a></h2>
                                 </header>
                             </div>
                             <div class="entry-content">
                                 <div class="ttm-box-desc-text">
-                                    <p>{{ objava.excerpt }}</p>
+                                    <p>{{ item.excerpt }}</p>
                                 </div>
                                 <div class="ttm-blogbox-desc-footer">
                                     <div class="ttm-blogbox-footer-readmore">
-                                        <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark" href="/blog/{{ objava.categoryslug }}/{{ objava.titleslug }}/">Pročitaj sve</a>
+                                        <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark" href="/blog/{{ item.categoryslug }}/{{ item.titleslug }}/">Pročitaj sve</a>
                                     </div>
                                 </div>
                             </div>
@@ -87,11 +87,7 @@ eleventyComputed:
 
                     {% endfor %}
 
-                    <div class="pagination-block">
-                        <span class="page-numbers current">1</span>
-                        <a class="page-numbers" href="#">2</a>
-                        <a class="next page-numbers" href="#"><i class="ti ti-arrow-right"></i></a>
-                    </div>
+                    {% include "partials/pagination-block.njk" %}
             </div>
 
                 {% else %}
