@@ -20,27 +20,37 @@ async function getSeminari() {
                 query: `{
                     seminari(stage: PUBLISHED) {
                         id
-                        sifraProizvoda
                         nazivSeminara
-                        cijena
+                        kategorija {
+                            naziv
+                            kod
+                        }
+                        opis {
+                            html
+                            text
+                        }
                         promoVideo
                         sazetakSeminara
+                        sifraProizvoda
+                        cijena
                         trajanjeDana
-                        predavaci {
-                            imeIPrezime
-                        }
                         curriculum {
                             html
+                        }
+                        datumiSeminara {
+                            dateAndTime
                         }
                         fotografija {
                             handle
                         }
-                        kategorija {
-                            kod
-                            naziv
-                        }
-                        opis {
-                            html
+                        autoriIPredavaci {
+                            fotografija {
+                                handle
+                            }
+                            imeIPrezime
+                            oAutoruPredavacu {
+                                html
+                            }
                         }
                     }
                 }`
@@ -70,20 +80,23 @@ async function getSeminari() {
     const formatseminari = sviseminari.map((item) => {
         return {
             id: item.id,
-            sifra: item.sifraProizvoda,
             title: item.nazivSeminara,
             titleslug: slugify(item.nazivSeminara, { lower: true, strict: true }),
-            cijena: item.cijena,
-            promovideo: item.promoVideo,
-            excerpt: item.sazetakSeminara,
-            trajanje: item.trajanjeDana,
-            predavaci: item.predavaci,
-            curriculum: item.curriculum.html,
-            fotografija: item.fotografija.handle,
             kategorija: item.kategorija.naziv,
             kategorijaslug: slugify(item.kategorija.naziv, { lower: true, strict: true }),
             kategorijakod: item.kategorija.kod,
-            opis: item.opis.html
+            opishtml: item.opis.html,
+            opistext: item.opis.text,
+            promovideo: item.promoVideo,
+            excerpt: item.sazetakSeminara,
+            sifra: item.sifraProizvoda,
+            cijena: item.cijena.toLocaleString() + ',00 Kn',
+            trajanje: item.trajanjeDana,
+            curriculum: item.curriculum.html,
+            datumiseminara: item.datumiSeminara.dateAndTime,
+            fotografija: item.fotografija.handle,            
+            predavaci: item.autoriIPredavaci
+            
         };
     }).filter(Boolean);
 

@@ -7,6 +7,7 @@ navID: blog-iup
 pagination:
   data: objave.iup
   size: 5
+  alias: objave
 permalink: "blog/informatika-i-uredsko-poslovanje{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
 eleventyComputed:
     page_title: "Blog - Informatika i uredsko poslovanje"
@@ -38,78 +39,4 @@ eleventyComputed:
     </div>                    
 </div>
 
-<!-- sidebar -->
-<div class="ttm-row sidebar ttm-sidebar-right ttm-bgcolor-white clearfix">
-    <div class="container">
-        <!-- row -->
-        <div class="row">
-            <div class="col-xl-9 col-lg-8 content-area">
-
-                {% if objave.iup != 'prazno' %}
-
-                    {% for item in pagination.items %}
-                    
-                    <!-- post -->
-                    <article class="post ttm-blog-classic clearfix">
-                            <!-- post-featured-wrapper -->
-                        <div class="ttm-post-featured-wrapper ttm-featured-wrapper">
-                            <div class="ttm-post-featured">
-                                <img class="img-fluid" src="https://media.graphcms.com/{{ item.photo }}" alt="">
-                                <!-- src="https://media.graphcms.com/output=format:webp/{{ item.photo }}" -->
-                            </div>
-                        </div><!-- post-featured-wrapper end -->
-                        <!-- ttm-blog-classic-content -->
-                        <div class="ttm-blog-classic-content">
-                            <div class="ttm-post-entry-header">
-                                <div class="post-meta">
-                                    <span class="ttm-meta-line byline"><i class="fa fa-calendar"></i>{{ item.date | datumObjave }}</span>
-                                    <span class="ttm-meta-line byline"><i class="fa fa-user"></i>{{ item.author }}</span>
-                                    <span class="ttm-meta-line tags-links"><i class="fa fa-tag"></i>{{ item.category }}</span>
-                                </div>
-                                <hr/>
-                                <header class="entry-header">
-                                    <h2 class="entry-title"><a href="/blog/{{ item.categoryslug }}/{{ item.titleslug }}/">{{ item.title }}</a></h2>
-                                </header>
-                            </div>
-                            <div class="entry-content">
-                                <div class="ttm-box-desc-text">
-                                    <p>{{ item.excerpt }}</p>
-                                </div>
-                                <div class="ttm-blogbox-desc-footer">
-                                    <div class="ttm-blogbox-footer-readmore">
-                                        <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark" href="/blog/{{ item.categoryslug }}/{{ item.titleslug }}/">Pročitaj sve</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- ttm-blog-classic-content end -->
-                    </article><!-- post end -->
-                    <hr/>
-
-                    {% endfor %}
-
-                    {% include "partials/pagination-block.njk" %}
-            </div>
-
-                {% else %}
-
-                    <!-- post -->
-                    <article class="post ttm-blog-classic clearfix">
-                        <!-- ttm-blog-classic-content -->
-                        <div class="ttm-blog-classic-content">
-                            <div class="ttm-post-entry-header">
-                                <header class="entry-header">
-                                    <h2 class="entry-title">Trenutno nemamo ništa pametno reći na ovu temu.</h2>
-                                </header>
-                            </div>
-                        </div><!-- ttm-blog-classic-content end -->
-                    </article><!-- post end -->
-            </div>
-                
-            {% endif %}
-            
-            {% include "partials/blogcategories.njk" %}
-
-        </div><!-- row end -->
-    </div>
-</div>
-<!-- sidebar end -->
+{% include "partials/blog-category.njk" %}

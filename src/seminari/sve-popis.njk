@@ -8,6 +8,7 @@ nav2ID: popis
 pagination:
   data: seminari.sve
   size: 6
+  alias: seminari
 permalink: "edukacije/seminari-i-radionice/otvoreni-seminari-i-radionice{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
 eleventyComputed:
     page_title: "Otvoreni seminari i radionice"
@@ -46,27 +47,34 @@ eleventyComputed:
                 
                 <div class="row multi-columns-row ttm-boxes-spacing-10px isotope-project">
 
-                {% for seminar in seminari.sve %}
+                {% for item in pagination.items %}
 
                 <div class="ttm-box-col-wrapper col-lg-6">
                         <!-- featured-imagebox-post -->
                         <div class="featured-imagebox featured-imagebox-event featured-imagebox-course style1" >
                             <div class="ttm-post-thumbnail featured-thumbnail"> 
-                                <img style="width:410px;height:230px;" alt="image" src="https://media.graphcms.com/resize=fit:clip,width:410,height:230/output=format:webp/{{ seminar.fotografija }}">
+                                <img style="width:410px;height:230px;" alt="image" src="https://media.graphcms.com/resize=fit:clip,width:410,height:230/output=format:webp/{{ item.fotografija }}">
                             </div>
                             <div class="featured-content-post">
                                 <div class="post-title" style="min-height:60px;!important;margin-top:30px;padding:0 20px;">
-                                    <h5><a href="/edukacije/seminari-i-radionice/{{ seminar.kategorijaslug }}/{{ seminar.titleslug }}/">{{ seminar.title }}</a></h5>
+                                    <h5><a href="/edukacije/seminari-i-radionice/{{ item.kategorijaslug }}/{{ item.titleslug }}/">{{ item.title }}</a></h5>
                                 </div>
                                 <div class="post-desc featured-desc" style="padding:0 20px;">
-                                    <p style="margin-top:0;margin-bottom:20px;padding-top:0">{{ seminar.excerpt | truncate(250) }}</p>
+                                    <p style="margin-top:0;margin-bottom:20px;padding-top:0">{{ item.excerpt | truncate(250) }}</p>
                                 </div>
                                 <div class="ttm-course-box-meta">
                                     <div class="ttm-enrolled">
-                                        <span class="ttm-count ttm-meta-line"><i class="fa fa-user" aria-hidden="true"></i>78</span>
-                                        <span class="ttm-comments ttm-meta-line"><i class="fa fa-comment-o"></i>2</span>
+                                        <span class="ttm-comments ttm-meta-line"><i class="fa fa-id-badge" aria-hidden="true"></i>
+                                            {% for predavac in item.predavaci %}
+                                            {% if loop.first %}
+                                            {{ predavac.imeIPrezime }}
+                                            {% else %}
+                                            , {{ predavac.imeIPrezime }}
+                                            {% endif %}
+                                            {% endfor %}
+                                        </span>
                                     </div>  
-                                    <span class="ttm-lp-price"><ins>{{ seminar.cijena }} Kn</ins></span>                            
+                                    <span class="ttm-lp-price"><ins>{{ item.cijena }}</ins></span>                            
                                 </div>
                             </div>
                         </div><!-- featured-imagebox-post end-->

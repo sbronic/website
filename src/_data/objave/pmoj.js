@@ -22,7 +22,7 @@ async function getObjave() {
                         id
                         datumObjave
                         naslovObjave
-                        autorObjava {
+                        autorIPredavac {
                             imeIPrezime
                         }
                         fotografija {
@@ -65,7 +65,7 @@ async function getObjave() {
         return {
             id: item.id,
             date: item.datumObjave,
-            author: item.autorObjava.imeIPrezime,
+            author: item.autorIPredavac.imeIPrezime,
             title: item.naslovObjave,
             titleslug: slugify(item.naslovObjave, { lower: true, strict: true }),
             photo: item.fotografija.handle,

@@ -8,6 +8,7 @@ nav2ID: datumi
 pagination:
   data: seminari.sve
   size: 6
+  alias: seminari
 permalink: "edukacije/seminari-i-radionice/datumi-odrzavanja{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
 eleventyComputed:
     page_title: "Datumi održavanja seminara"
@@ -44,7 +45,7 @@ eleventyComputed:
         <div class="row">
             <div class="col-xl-9 col-lg-8 content-area">
 
-                {% for seminar in seminari.sve %}
+                {% for item in pagination.items %}
 
                 <div class="featured-imagebox featured-imagebox-post style1">
                     <div class="featured-content featured-content-post" style="padding: 20px 30px 20px 30px;!important">
@@ -66,12 +67,12 @@ eleventyComputed:
                                     <span class="ttm-meta-line"><i class="fa fa-map-marker"></i>Kraš d.d., Ravnice 48, 10000 Zagreb, Dvorana "Dijabetes"</span>
                                 </div>
                                 <div class="post-title featured-title" style="margin-top: 10px;">
-                                    <h5><a href="blog-single.html">{{ seminar.title }}</a></h5>
+                                    <h5><a href="blog-single.html">{{ item.title }}</a></h5>
                                 </div>
                             </div>
                             <div class="col-sm-2">
                                 <div class="ttm-btn-box" style="position: absolute;left:85px;width:100%">
-                                    <h5>{{ seminar.cijena }} Kn</h5>
+                                    <h5>{{ item.cijena }}</h5>
                                 </div>
                                 <div class="ttm-btn-box" style="position: absolute;top: 50%;left:70px;">
                                     <a class="ttm-btn ttm-btn-size-xs ttm-btn-shape-square ttm-btn-style-fill ttm-icon-btn-right ttm-btn-color-dark" href="" title="">REZERVIRAJ </a>

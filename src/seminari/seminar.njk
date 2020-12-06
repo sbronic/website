@@ -75,20 +75,20 @@ eleventyComputed:
                                             <strong>Predavači:</strong>
                                         {% endif %}
                                         
-                                        {% if (seminar.predavaci | length) == 1 %}
-                                            {{ seminar.predavaci[0].imeIPrezime }}
+                                        {% for predavac in seminar.predavaci %}
+                                        {% if loop.first %}
+                                            {{ predavac.imeIPrezime }}
                                         {% else %}
-                                            {% for predavac in seminar.predavaci %}
-                                            {{ predavac.imeIPrezime }},
-                                            {% endfor %}
+                                            , {{ predavac.imeIPrezime }}
                                         {% endif %}
+                                        {% endfor %}
 
                                         </li>
                                         <li class="ttm-meta-line ttm-course-dur"> 
                                             <strong>Trajanje</strong>1 dan
                                         </li>
                                         <li class="ttm-meta-line ttm-course-price"> 
-                                            <strong>Cijena</strong>1.495 Kn
+                                            <strong>Cijena</strong>{{ seminar.cijena }}
                                         </li>
                                         <li class="ttm-meta-line ttm-course-button"> 
                                             <div class="lp-course-buttons">
@@ -101,13 +101,17 @@ eleventyComputed:
                                     <ul class="tabs clearfix">
                                         <li class="tab active"><a href="#">Opis seminara</a></li>
                                         <li class="tab"><a href="#">Curriculum</a></li>
-                                        <li class="tab"><a href="#">Instructor</a></li>
-                                        <li class="tab"><a href="#">Reviews</a></li>
+                                        {% if (seminar.predavaci | length) == 1 %}
+                                            <li class="tab"><a href="#">O Predavaču</a></li>
+                                        {% else %}
+                                            <li class="tab"><a href="#">O Predavačima</a></li>
+                                        {% endif %}
+                                        <li class="tab"><a href="#">Uvjeti korištenja usluge</a></li>
                                     </ul>
                                     <div class="content-tab">
                                         <!-- content-inner -->
                                         <div class="content-inner active">
-                                            {{ seminar.opis | safe }}
+                                            {{ seminar.opishtml | safe }}
                                         </div><!-- content-inner end-->
                                         <!-- content-inner -->
                                         <div class="content-inner">
@@ -115,15 +119,20 @@ eleventyComputed:
                                         </div><!-- content-inner end-->
                                         <!-- content-inner -->
                                         <div class="content-inner">
+                                            {% for predavac in seminar.predavaci %}
                                             <div class="d-flex">
                                                 <div class="author-img text-center">
-                                                    <img src="https://via.placeholder.com/150x150?text=150x150+team-05.jpg" alt="John Doe" class="imag-fluid avatar photo">
-                                                    <div class="mt-10"><a href="instructor-profile.html"><h6>John Doe</h6></a></div>
+                                                    <img src="https://media.graphcms.com/resize=fit:crop,width:150,height:150/{{ predavac.fotografija.handle }}" alt="{{ predavac.imeIPrezime }}" class="imag-fluid avatar photo">
+                                                    <div class="mt-10"><a href="instructor-profile.html"><h6>{{ predavac.imeIPrezime }}</h6></a></div>
                                                 </div>
                                                 <div class="author-bio pl-30">
                                                     I have experienced in developing curriculum as well as conducting teach training and parenting programs. We guarantee to cover all phases of the teach programs to creating a classroom atmosphere that is stimulating and encouraging to students. I believe in maintaining high standards of education with emphasis on developing readings skills in pupils and thoroughly enjoys working with children and encourages creative expression.
                                                 </div>
                                             </div>
+                                            {% if not loop.last %}
+                                            <hr/>
+                                            {% endif %}
+                                            {% endfor %}
                                         </div><!-- content-inner end-->
                                         <!-- content-inner -->
                                         <div class="content-inner">
