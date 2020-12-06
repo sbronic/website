@@ -436,7 +436,7 @@
 .ttm-btn.ttm-btn-size-md i { font-size: 14px; line-height: 15px; font-size: 16px; }
 
 /** btn-size-lg **/
-.ttm-btn.ttm-btn-size-lg { font-size: 18px; line-height: 18px; padding: 15px 40px;}
+.ttm-btn.ttm-btn-size-lg { font-size: 18px; line-height: 18px; padding: 15px 20px;}
 .ttm-btn.ttm-btn-size-lg i { font-size: 17px; line-height: 18px;}
 
 /** btn-shape **/
