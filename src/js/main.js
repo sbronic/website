@@ -441,3 +441,13 @@ $(function() {
     });
 
 })(jQuery);
+
+/*------------------------------------------------------------------------------*/
+/* Disable rezervation button if not selected
+/*------------------------------------------------------------------------------*/
+$("#datumi").on('change', function () {
+    if ($(this).find('option:selected').text() == "---")
+        $("#rezervacija").attr('disabled', true)
+    else
+        $("#rezervacija").attr('disabled', false)
+});

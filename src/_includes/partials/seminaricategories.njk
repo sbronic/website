@@ -19,17 +19,19 @@
 
     {% if nav2ID === "seminar" %}
     <aside class="widget widget-Categories with-title">
-     <h3 class="widget-title">Rezervirajte termin</h3>
+     <h3 class="widget-title">Dostupni termini</h3>
         <div class="ttm-btn-box pb-20">
             <div class="form-group">
                 <label for="sel1">Odaberite datum</label>
-                <select class="form-control" id="sel1">
+                <select class="form-control" id="datumi">
                         <option>---</option>
                     {% for datum in seminar.datumiseminara %}
                         <option>{{ datum.dateAndTime | datumDan }}. {{ datum.dateAndTime | datumMjesecDugi }} {{ datum.dateAndTime | datumGodina }}.</option>
                     {% endfor %}
                 </select>
-            </div>
+                <div class="lp-course-buttons" style="margin-top:50px;">
+                    <button class="lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark" id="rezervacija" disabled>Rezervirajte odabrani termin</button>
+                </div>
         </div>
     </aside>
     {% endif %}
