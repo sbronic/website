@@ -43,6 +43,18 @@ module.exports = function (config) {
         var month = dobj.toLocaleString('hr-HR', { month: 'short' });
         return month;
     });
+    // Mjesec dugi oblik
+    config.addFilter("datumMjesecDugi", dateObj => {
+        var dobj = new Date(dateObj);
+        var month = dobj.toLocaleString('hr-HR', { month: 'long' });
+        return month;
+    });
+    // Godina
+    config.addFilter("datumGodina", dateObj => {
+        var dobj = new Date(dateObj);
+        var year = dobj.getFullYear();
+        return year;
+    });
     // Limit umjesto slice
     config.addNunjucksFilter("limit", (arr, limit) => arr.slice(0, limit));
 

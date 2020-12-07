@@ -4,10 +4,10 @@
         <!-- row -->
         <div class="row">
             <div class="col-xl-9 col-lg-8 content-area">
+                
+                <div class="row multi-columns-row ttm-boxes-spacing-10px isotope-project">
 
-                {% if seminari != 'prazno' %}
-
-                    {% for item in pagination.items %}
+                {% for item in pagination.items %}
 
                 <div class="ttm-box-col-wrapper col-lg-6">
                         <!-- featured-imagebox-post -->
@@ -24,8 +24,15 @@
                                 </div>
                                 <div class="ttm-course-box-meta">
                                     <div class="ttm-enrolled">
-                                        <span class="ttm-count ttm-meta-line"><i class="fa fa-user" aria-hidden="true"></i>78</span>
-                                        <span class="ttm-comments ttm-meta-line"><i class="fa fa-comment-o"></i>2</span>
+                                        <span class="ttm-comments ttm-meta-line"><i class="fa fa-id-badge" aria-hidden="true"></i>
+                                            {% for predavac in item.predavaci %}
+                                            {% if loop.first %}
+                                            {{ predavac.imeIPrezime }}
+                                            {% else %}
+                                            , {{ predavac.imeIPrezime }}
+                                            {% endif %}
+                                            {% endfor %}
+                                        </span>
                                     </div>  
                                     <span class="ttm-lp-price"><ins>{{ item.cijena }}</ins></span>                            
                                 </div>
@@ -35,28 +42,11 @@
 
                 {% endfor %}
 
-                    {% include "partials/pagination-block.njk" %}
-                
+                </div>
+
             </div>
             
-                {% else %}
-
-                    <!-- post -->
-                    <article class="post ttm-blog-classic clearfix">
-                        <!-- ttm-blog-classic-content -->
-                        <div class="ttm-blog-classic-content">
-                            <div class="ttm-post-entry-header">
-                                <header class="entry-header">
-                                    <h2 class="entry-title">Trenutno nemamo seminara u ovoj kategoriji.</h2>
-                                </header>
-                            </div>
-                        </div><!-- ttm-blog-classic-content end -->
-                    </article><!-- post end -->
-            </div>
-
-            {% endif %}
-            
-            {% include "partials/blogcategories.njk" %}
+            {% include "partials/seminaricategories.njk" %}
 
         </div><!-- row end -->
     </div>

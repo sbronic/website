@@ -93,7 +93,7 @@ async function getSeminari() {
             cijena: item.cijena.toLocaleString() + ',00 Kn',
             trajanje: item.trajanjeDana,
             curriculum: item.curriculum.html,
-            datumiseminara: item.datumiSeminara.dateAndTime,
+            datumiseminara: item.datumiSeminara,
             fotografija: item.fotografija.handle,            
             predavaci: item.autoriIPredavaci
             

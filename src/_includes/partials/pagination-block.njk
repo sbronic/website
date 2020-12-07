@@ -1,9 +1,9 @@
 <div class="pagination-block">
-{% if page.url != pagination.href.first %}<a style="margin-right:20px;" href="{{ pagination.href.first }}"><i class="fa fa-chevron-left"></i></a>{% else %}{% endif %}
-{% if pagination.href.previous %}<span><a style="margin-right:20px;" href="{{ pagination.href.previous }}"><i class="fa fa-angle-left"></i></a></span>{% endif %}
+{% if page.url != pagination.href.first %}<a style="margin-right:20px;" href="{{ pagination.href.first }}" title="Prva stranica"><i class="fa fa-chevron-left"></i></a>{% else %}{% endif %}
+{% if pagination.href.previous %}<span><a style="margin-right:20px;" href="{{ pagination.href.previous }}" title="Prethodna"><i class="fa fa-angle-left"></i></a></span>{% endif %}
 {%- for pageEntry in pagination.pages %}
     <a href="{{ pagination.hrefs[ loop.index0 ] }}" style="margin: 0 10px;" {% if page.url == pagination.hrefs[ loop.index0 ] %} class="page-numbers current"{% endif %}>{{ loop.index }}</a>
 {%- endfor %}
-{% if pagination.href.next %}<span><a style="margin-left:20px;" href="{{ pagination.href.next }}"><i class="fa fa-angle-right"></i></a></span>{% endif %}
-{% if page.url != pagination.href.last %}<a style="margin-left:20px;" href="{{ pagination.href.last }}"><i class="fa fa-chevron-right"></i></a>{% endif %}
+{% if pagination.href.next %}<span><a style="margin-left:20px;" href="{{ pagination.href.next }}" title="Sljedeća"><i class="fa fa-angle-right"></i></a></span>{% endif %}
+{% if page.url != pagination.href.last %}<a style="margin-left:20px;" href="{{ pagination.href.last }}" title="Posljednja stranica"><i class="fa fa-chevron-right"></i></a>{% endif %}
 </div>
