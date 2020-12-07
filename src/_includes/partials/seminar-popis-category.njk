@@ -4,6 +4,8 @@
         <!-- row -->
         <div class="row">
             <div class="col-xl-9 col-lg-8 content-area">
+
+            {% if seminari != 'prazno' %}
                 
                 <div class="row multi-columns-row ttm-boxes-spacing-10px isotope-project">
 
@@ -42,7 +44,26 @@
 
                 {% endfor %}
 
-                </div>
+                {% include "partials/pagination-block.njk" %}
+
+            </div>
+            
+                {% else %}
+
+                    <!-- post -->
+                    <article class="post ttm-blog-classic clearfix">
+                        <!-- ttm-blog-classic-content -->
+                        <div class="ttm-blog-classic-content">
+                            <div class="ttm-post-entry-header">
+                                <header class="entry-header">
+                                    <h2 class="entry-title">Trenutno nemamo dostupnih datuma seminara.</h2>
+                                </header>
+                            </div>
+                        </div><!-- ttm-blog-classic-content end -->
+                    </article><!-- post end -->
+            </div>
+
+            {% endif %}
 
             </div>
             

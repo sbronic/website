@@ -18,7 +18,7 @@ async function getDatumi() {
             },
             body: JSON.stringify({
                 query: `{
-                    datumiSeminara {
+                    datumiSeminara (where: {dateAndTime_gt: "$today"}) {
                         dateAndTime
                         dvorana
                         lokacija {

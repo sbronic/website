@@ -20,6 +20,9 @@
     {% if nav2ID === "seminar" %}
     <aside class="widget widget-Categories with-title">
      <h3 class="widget-title">Dostupni termini</h3>
+
+        {% if seminar.datumiseminara | length > 0 %}
+
         <div class="ttm-btn-box pb-20">
             <div class="form-group">
                 <label for="sel1">Odaberite datum</label>
@@ -32,7 +35,19 @@
                 <div class="lp-course-buttons" style="margin-top:50px;">
                     <button class="lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark" id="rezervacija" disabled>Rezervirajte odabrani termin</button>
                 </div>
+            </div>
         </div>
+
+        {% else %}
+
+        <div class="ttm-btn-box pb-20">
+            <div class="form-group">
+                <h5>Na žalost nemamo dostupnih datuma seminara</h5>
+            </div>
+        </div>
+
+        {% endif %}
+
     </aside>
     {% endif %}
         

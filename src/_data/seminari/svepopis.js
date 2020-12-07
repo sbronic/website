@@ -37,8 +37,8 @@ async function getSeminari() {
                         curriculum {
                             html
                         }
-                        datumiSeminara {
-                            dateAndTime
+                        datumiSeminara (where: {dateAndTime_gt: "$today"}) {
+                            dateAndTime 
                         }
                         fotografija {
                             handle
