@@ -68,7 +68,7 @@ async function getDatumi() {
             dvorana: item.dvorana,
             seminarnaziv: item.seminar.nazivSeminara,
             seminarnazivslug: slugify(item.seminar.nazivSeminara, { lower: true, strict: true }),
-            seminarcijena: item.seminar.cijena.toLocaleString() + ',00 Kn',
+            seminarcijena: item.seminar.cijena.toLocaleString() + ',00 Kn + PDV',
             kategorijanaziv: item.seminar.kategorija.naziv,
             kategorijaslug: slugify(item.seminar.kategorija.naziv, { lower: true, strict: true }),
             kategorijakod: item.seminar.kategorija.kod
