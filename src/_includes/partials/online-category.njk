@@ -1,0 +1,89 @@
+<!-- sidebar -->
+<div class="ttm-row sidebar ttm-sidebar-right ttm-bgcolor-white clearfix">
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-xl-9 col-lg-8 content-area">
+                <div class="ttm-tabs">
+                    <ul class="tabs portfolio-filter">
+                        <li class="tab active"><a href="#" data-filter="*">Svi oblici</a></li>
+                        <li class="tab"><a href="#" data-filter=".e_Zbirke">E-Zbirke</a></li>
+                        <li class="tab"><a href="#" data-filter=".Video_seminari">Videoteka</a></li>
+                        <li class="tab"><a href="#" data-filter=".Paketi">Paketi</a></li>
+                        <li class="tab"><a href="#" data-filter=".Webinari">Webinari</a></li>
+                    </ul>
+
+                    <div class="content-tab">
+                        <!-- content-inner -->
+                        <div class="row multi-columns-row ttm-boxes-spacing-10px isotope-project">
+
+                        {% if edukacije != 'prazno' %}
+
+                            {% for item in pagination.items %}
+
+                                <div class="ttm-box-col-wrapper col-lg-6 {{ item.vrsta }}">
+                                    <!-- featured-imagebox-post -->
+                                    <div class="featured-imagebox featured-imagebox-event featured-imagebox-course style1" >
+                                        <div class="ttm-post-thumbnail featured-thumbnail"> 
+                                            <img style="width:410px;height:230px;" alt="image" src="https://media.graphcms.com/resize=fit:crop,width:410,height:230/output=format:webp/{{ item.photo }}">
+                                        </div>
+                                        <div class="featured-content-post">
+                                            <div class="post-title" style="min-height:60px;!important;margin-top:30px;padding:0 20px;">
+                                                <h5><a href="/edukacije/online-edukacije/{{ item.categoryslug }}/{{ item.titleslug }}/">{{ item.title }}</a></h5>
+                                            </div>
+                                            <div class="post-desc featured-desc" style="padding:0 20px;min-height:130px;!important">
+                                                <p>{{ item.excerpt | truncate(200) }}</p>
+                                            </div>
+                                            <div class="ttm-course-box-meta">
+                                                <div class="ttm-enrolled">
+                                                    <span class="ttm-comments ttm-meta-line"><i class="fa fa-id-badge" aria-hidden="true"></i>
+                                                        {% for autor in item.autori %}
+                                                        {% if loop.first %}
+                                                        {{ autor.imeIPrezime }}
+                                                        {% else %}
+                                                        , {{ autor.imeIPrezime }}
+                                                        {% endif %}
+                                                        {% endfor %}
+                                                    </span>
+                                                </div>  
+                                                <span class="ttm-lp-price"><ins>{{ item.cijena }}</ins></span>                            
+                                            </div>
+                                        </div>
+                                    </div><!-- featured-imagebox-post end-->
+                                </div>
+                        
+                            {% endfor %}
+
+                        </div>
+                    </div>
+
+                        <hr/>
+                        {% include "partials/pagination-block.njk" %}
+
+                        {% else %}
+
+                            <!-- post -->
+                            <article class="post ttm-blog-classic clearfix">
+                                <!-- ttm-blog-classic-content -->
+                                <div class="ttm-blog-classic-content">
+                                    <div class="ttm-post-entry-header">
+                                        <header class="entry-header">
+                                            <h2 class="entry-title">Trenutno nemamo ništa pametno reći na ovu temu.</h2>
+                                        </header>
+                                    </div>
+                                </div><!-- ttm-blog-classic-content end -->
+                            </article><!-- post end -->
+                        </div>
+                    </div>
+
+                        {% endif %}
+                            
+                </div>
+            </div>
+            
+            {% include "partials/onlinecategories.njk" %}
+
+        </div><!-- row end -->
+    </div>
+</div>
+<!-- sidebar end -->

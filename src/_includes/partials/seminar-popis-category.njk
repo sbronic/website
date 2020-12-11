@@ -12,41 +12,42 @@
                 {% for item in pagination.items %}
 
                 <div class="ttm-box-col-wrapper col-lg-6">
-                        <!-- featured-imagebox-post -->
-                        <div class="featured-imagebox featured-imagebox-event featured-imagebox-course style1" >
-                            <div class="ttm-post-thumbnail featured-thumbnail"> 
-                                <img style="width:410px;height:230px;" alt="image" src="https://media.graphcms.com/resize=fit:clip,width:410,height:230/output=format:webp/{{ item.fotografija }}">
+                    <!-- featured-imagebox-post -->
+                    <div class="featured-imagebox featured-imagebox-event featured-imagebox-course style1" >
+                        <div class="ttm-post-thumbnail featured-thumbnail"> 
+                            <img style="width:410px;height:230px;" alt="image" src="https://media.graphcms.com/resize=fit:clip,width:410,height:230/output=format:webp/{{ item.fotografija }}">
+                        </div>
+                        <div class="featured-content-post">
+                            <div class="post-title" style="min-height:60px;!important;margin-top:30px;padding:0 20px;">
+                                <h5><a href="/edukacije/seminari-i-radionice/{{ item.kategorijaslug }}/{{ item.titleslug }}/">{{ item.title }}</a></h5>
                             </div>
-                            <div class="featured-content-post">
-                                <div class="post-title" style="min-height:60px;!important;margin-top:30px;padding:0 20px;">
-                                    <h5><a href="/edukacije/seminari-i-radionice/{{ item.kategorijaslug }}/{{ item.titleslug }}/">{{ item.title }}</a></h5>
-                                </div>
-                                <div class="post-desc featured-desc" style="padding:0 20px;">
-                                    <p style="margin-top:0;margin-bottom:20px;padding-top:0">{{ item.excerpt | truncate(250) }}</p>
-                                </div>
-                                <div class="ttm-course-box-meta">
-                                    <div class="ttm-enrolled">
-                                        <span class="ttm-comments ttm-meta-line"><i class="fa fa-id-badge" aria-hidden="true"></i>
-                                            {% for predavac in item.predavaci %}
-                                            {% if loop.first %}
-                                            {{ predavac.imeIPrezime }}
-                                            {% else %}
-                                            , {{ predavac.imeIPrezime }}
-                                            {% endif %}
-                                            {% endfor %}
-                                        </span>
-                                    </div>  
-                                    <span class="ttm-lp-price"><ins>{{ item.cijena }}</ins></span>                            
-                                </div>
+                            <div class="post-desc featured-desc" style="padding:0 20px;">
+                                <p style="margin-top:0;margin-bottom:20px;padding-top:0">{{ item.excerpt | truncate(250) }}</p>
                             </div>
-                        </div><!-- featured-imagebox-post end-->
-                    </div>
+                            <div class="ttm-course-box-meta">
+                                <div class="ttm-enrolled">
+                                    <span class="ttm-comments ttm-meta-line"><i class="fa fa-id-badge" aria-hidden="true"></i>
+                                        {% for predavac in item.predavaci %}
+                                        {% if loop.first %}
+                                        {{ predavac.imeIPrezime }}
+                                        {% else %}
+                                        , {{ predavac.imeIPrezime }}
+                                        {% endif %}
+                                        {% endfor %}
+                                    </span>
+                                </div>  
+                                <span class="ttm-lp-price"><ins>{{ item.cijena }}</ins></span>                            
+                            </div>
+                        </div>
+                    </div><!-- featured-imagebox-post end-->
+                </div>
 
                 {% endfor %}
 
-                {% include "partials/pagination-block.njk" %}
+                </div>
 
-            </div>
+                <hr/>
+                {% include "partials/pagination-block.njk" %}
             
                 {% else %}
 
@@ -56,7 +57,7 @@
                         <div class="ttm-blog-classic-content">
                             <div class="ttm-post-entry-header">
                                 <header class="entry-header">
-                                    <h2 class="entry-title">Trenutno nemamo dostupnih datuma seminara.</h2>
+                                    <h2 class="entry-title">Trenutno nemamo seminara u ovoj kategoriji.</h2>
                                 </header>
                             </div>
                         </div><!-- ttm-blog-classic-content end -->

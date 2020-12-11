@@ -70,8 +70,8 @@ async function getOnlineEdukacije() {
     const formatedukacije = sveedukacije.map((item) => {
         return {
             id: item.id,
-            cijena: item.cijena,
-            author: item.autoriIPredavaci,
+            cijena: item.cijena.toLocaleString() + ' Kn + PDV',
+            autori: item.autoriIPredavaci,
             title: item.naziv,
             titleslug: slugify(item.naziv, { lower: true, strict: true }),
             photo: item.fotografija.handle,

@@ -3,16 +3,16 @@
     <aside class="widget widget-Categories with-title">
         <h3 class="widget-title">Kategorije</h3>
         <ul>
-            <li class="{% if navID == 'online-sve' %}active{% endif %}"><a href="/edukacije/online-edukacije">Sve kategorije</a></li>
-            <li class="{% if navID == 'online-uljp' %}active{% endif %}"><a href="/edukacije/online-edukacije/upravljanje-ljudskim-potencijalima">Upravljanje ljudskim potencijalima</a></li>
-            <li class="{% if navID == 'online-pmoj' %}active{% endif %}"><a href="/edukacije/online-edukacije/prodaja-marketing-i-odnosi-s-javnoscu">Prodaja, marketing i odnosi s javnošću</a></li>
-            <li class="{% if navID == 'online-uia' %}active{% endif %}"><a href="/edukacije/online-edukacije/upravljanje-i-administracija">Upravljanje i administracija</a></li>
-            <li class="{% if navID == 'online-iup' %}active{% endif %}"><a href="/edukacije/online-edukacije/informatika-i-uredsko-poslovanje">Informatika i uredsko poslovanje</a></li>
-            <li class="{% if navID == 'online-pzp' %}active{% endif %}"><a href="/edukacije/online-edukacije/pravo-i-zastita-podataka">Pravo i zaštita podataka</a></li>
-            <li class="{% if navID == 'online-fir' %}active{% endif %}"><a href="/edukacije/online-edukacije/financije-i-racunovodstvo">Financije i računovodstvo</a></li>
-            <li class="{% if navID == 'online-znr' %}active{% endif %}"><a href="/edukacije/online-edukacije/zastita-na-radu">Zaštita na radu</a></li>
-            <li class="{% if navID == 'online-zouo' %}active{% endif %}"><a href="/edukacije/online-edukacije/zastita-okolisa-i-upravljanje-otpadom">Zaštita okoliša i upravljanje otpadom</a></li>
-            <li class="{% if navID == 'online-ostalo' %}active{% endif %}"><a href="/edukacije/online-edukacije/ostalo">Ostalo</a></li>
+            <li class="{% if navID == 'sve' %}active{% endif %}"><a href="/edukacije/online-edukacije">Sve kategorije</a></li>
+            <li class="{{ 'active' if '/upravljanje-ljudskim-potencijalima' in page.url }}"><a href="/edukacije/online-edukacije/upravljanje-ljudskim-potencijalima">Upravljanje ljudskim potencijalima</a></li>
+            <li class="{{ 'active' if '/prodaja-marketing-i-odnosi-s-javnoscu' in page.url }}"><a href="/edukacije/online-edukacije/prodaja-marketing-i-odnosi-s-javnoscu">Prodaja, marketing i odnosi s javnošću</a></li>
+            <li class="{{ 'active' if '/upravljanje-i-administracija' in page.url }}"><a href="/edukacije/online-edukacije/upravljanje-i-administracija">Upravljanje i administracija</a></li>
+            <li class="{{ 'active' if '/informatika-i-uredsko-poslovanje' in page.url }}"><a href="/edukacije/online-edukacije/informatika-i-uredsko-poslovanje">Informatika i uredsko poslovanje</a></li>
+            <li class="{{ 'active' if '/pravo-i-zastita-podataka' in page.url }}"><a href="/edukacije/online-edukacije/pravo-i-zastita-podataka">Pravo i zaštita podataka</a></li>
+            <li class="{{ 'active' if '/financije-i-racunovodstvo' in page.url }}"><a href="/edukacije/online-edukacije/financije-i-racunovodstvo">Financije i računovodstvo</a></li>
+            <li class="{{ 'active' if '/zastita-na-radu' in page.url }}"><a href="/edukacije/online-edukacije/zastita-na-radu">Zaštita na radu</a></li>
+            <li class="{{ 'active' if '/zastita-okolisa-i-upravljanje-otpadom' in page.url }}"><a href="/edukacije/online-edukacije/zastita-okolisa-i-upravljanje-otpadom">Zaštita okoliša i upravljanje otpadom</a></li>
+            <li class="{{ 'active' if '/ostalo' in page.url }}"><a href="/edukacije/online-edukacije/ostalo">Ostalo</a></li>
         </ul>
     </aside>
 

@@ -1,18 +1,17 @@
 ---
-title: Otvoreni seminari i radionice
-description: Otvoreni seminari i radionice
+title: On-line Edukacije
+description: On-line Edukacije
 layout: layouts/page.njk
-banner: seminari.jpg
-navID: sem-sve
-nav2ID: popis
+banner: online-edukacije.jpg
+navID: sve
 pagination:
-  data: seminari.svepopis
+  data: online-edukacije.sve
   size: 6
-  alias: seminari
-permalink: "edukacije/seminari-i-radionice/otvoreni-seminari-i-radionice{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
+  alias: edukacije
+permalink: "edukacije/online-edukacije/financije-i-racunovodstvo{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
 eleventyComputed:
-    page_title: "Otvoreni seminari i radionice"
-    page_description: "Otvoreni seminari i radionice"
+    page_title: "On-line Edukacije"
+    page_description: "On-line Edukacije"
 ---
 
 <div class="ttm-page-title-row" style="background: url(/images/{{ banner }})!important">
@@ -28,8 +27,6 @@ eleventyComputed:
                             <a title="Homepage" href="/">Početna</a>
                         </span>
                         <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
-                        <span>Seminari i radionice</span>
-                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
                         <span class="current" style="color:#F77F00">{{ title }}</span>
                     </div>
                 </div>
@@ -38,4 +35,4 @@ eleventyComputed:
     </div>                    
 </div>
 
-{% include "partials/seminar-popis-category.njk" %}
+{% include "partials/online-category.njk" %}
