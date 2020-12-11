@@ -29,7 +29,6 @@
             <span style="margin: 0 10px;" class="page-numbers">...</span>
             <a href="{{ pagination.href.last }}" style="margin: 0 10px;" class="page-numbers current">{{ pagination.pages | length }}</a>
         {% endif %}
-        
     {% endif %}
 {%- endfor %}
 {% if pagination.href.next %}<span><a style="margin-left:20px;" href="{{ pagination.href.next }}" title="Sljedeća"><i class="fa fa-angle-right"></i></a></span>{% endif %}
