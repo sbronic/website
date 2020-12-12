@@ -18,81 +18,43 @@
                 </div><!-- row end -->
                 <!-- slick_slider -->
                 <div class="row slick-initialized">
+                    {% for seminar in seminari.svedatumi %}
+                    {% if loop.index < 4 %}
                     <div class="ttm-box-col-wrapper col-lg-4">
                         <!-- featured-imagebox-post -->
                         <div class="featured-imagebox featured-imagebox-event featured-imagebox-post style1">
                             <div class="ttm-post-thumbnail featured-thumbnail"> 
-                                <img class="img-fluid lazyload" data-src="/images/featured-event-1.jpg" alt="image">
+                                <img class="img-fluid lazyload" data-src="https://media.graphcms.com/resize=fit:crop,width:720,height:450/{{ seminar.photo }}" alt="image">
                                 <div class="ttm-box-event-date">
                                     <span class="ttm-entry-date">
-                                        <time class="entry-date" datetime="2019-07-20T07:07:55+00:00">11<span class="entry-month">Dec</span></time>
+                                        <time class="entry-date" datetime="2019-07-20T07:07:55+00:00">{{ seminar.datumseminara | datumDan }}<span class="entry-month">{{ seminar.datumseminara | datumMjesec }}</span></time>
                                     </span>
                                 </div>
                             </div>
                             <div class="featured-content featured-content-post">
                                 <div class="post-meta">
-                                    <span class="ttm-meta-line byline"><i class="fa fa-id-badge"></i>Tatjana Kotarski</span><br/>
-                                    <span class="ttm-meta-line cat-link"><i class="fa fa-map-marker"></i>Kraš d.d., Zagreb</span>
+                                    <span class="ttm-meta-line byline"><i class="fa fa-id-badge"></i>
+                                        {% for predavac in seminar.predavaci %}
+                                        {% if loop.first %}
+                                            {{ predavac.imeIPrezime }}
+                                        {% else %}
+                                            , {{ predavac.imeIPrezime }}
+                                        {% endif %}
+                                        {% endfor %}
+                                    </span><br/>
+                                    <span class="ttm-meta-line cat-link"><i class="fa fa-map-marker"></i>{{ seminar.lokacijanaziv }}, {% if seminar.dvorana %}Dvorana {{ seminar.dvorana }},{% endif %} {{ seminar.lokacijaadresa }}, {{ seminar.lokacijagrad }}</span>
                                 </div>
-                                <div class="post-title featured-title">
-                                    <h5><a href="blog-single.html">I Turned A Challenge Into A Positive Thing</a></h5>
+                                <div class="post-title featured-title" style="min-height:70px;!important">
+                                    <h5><a href="blog-single.html">{{ seminar.seminarnaziv }}</a></h5>
                                 </div>
                                 <div class="post-desc featured-desc">
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form,...</p>
+                                    <p>{{ seminar.excerpt | truncate(200) }}</p>
                                 </div>
                             </div>
                         </div><!-- featured-imagebox-post end-->
                     </div>
-                    <div class="ttm-box-col-wrapper col-lg-4">
-                        <!-- featured-imagebox-post -->
-                        <div class="featured-imagebox featured-imagebox-event featured-imagebox-post style1">
-                            <div class="ttm-post-thumbnail featured-thumbnail"> 
-                                <img class="img-fluid lazyload" data-src="/images/featured-event-2.jpg" alt="image">
-                                <div class="ttm-box-event-date">
-                                    <span class="ttm-entry-date">
-                                        <time class="entry-date" datetime="2019-07-20T07:07:55+00:00">15<span class="entry-month">Dec</span></time>
-                                    </span>
-                                </div> 
-                            </div>
-                            <div class="featured-content featured-content-post">
-                                <div class="post-meta">
-                                    <span class="ttm-meta-line"><i class="fa fa-id-badge"></i>Kristina Androlić</span><br/>
-                                    <span class="ttm-meta-line"><i class="fa fa-map-marker"></i>Kraš d.d., Zagreb</span>
-                                </div>
-                                <div class="post-title featured-title">
-                                    <h5><a href="blog-single.html">Choose The Right Place, At The Right Time</a></h5>
-                                </div>
-                                <div class="post-desc featured-desc">
-                                    <p>He found himself transformed in his bed into a horrible vermin.Ut enim ad minim veniam, quis nostrud exercitation ullamc...</p>
-                                </div>
-                            </div>
-                        </div><!-- featured-imagebox-post end-->
-                    </div>
-                    <div class="ttm-box-col-wrapper col-lg-4">
-                        <!-- featured-imagebox-post -->
-                        <div class="featured-imagebox featured-imagebox-event featured-imagebox-post style1">
-                            <div class="ttm-post-thumbnail featured-thumbnail"> 
-                                <img class="img-fluid lazyload" data-src="/images/featured-event-3.jpg" alt="image"> 
-                                <div class="ttm-box-event-date">
-                                    <span class="ttm-entry-date">
-                                        <time class="entry-date" datetime="2019-07-20T07:07:55+00:00">19<span class="entry-month">Dec</span></time>
-                                    </span>
-                                </div> 
-                            </div>
-                            <div class="featured-content featured-content-post">
-                                <div class="post-meta">
-                                    <span class="ttm-meta-line"><i class="fa fa-id-badge"></i>Marko Borsky</span><br/>
-                                    <span class="ttm-meta-line"><i class="fa fa-map-marker"></i>Hotel International, Zagreb</span>
-                                </div>
-                                <div class="post-title featured-title">
-                                    <h5><a href="blog-single.html">Build Responsive Real World Websites</a></h5>
-                                </div>
-                                <div class="post-desc featured-desc">
-                                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaq...</p>
-                                </div>
-                            </div>
-                        </div><!-- featured-imagebox-post end-->
-                    </div>
+                    {% endif %}
+                    {% endfor %}
                 </div>
                 <!-- row -->
             </div>
@@ -100,6 +62,8 @@
         <!--event-section-->
         <div class="row">
             <div class="col-lg-12">
+                {% for seminar in seminari.svedatumi %}
+                {% if loop.index > 3 %}
                 <!-- featured-imagebox-post -->
                 <div class="featured-imagebox featured-imagebox-post style1">
                     <div class="featured-content featured-content-post" style="padding: 20px 30px 20px 30px;!important">
@@ -109,7 +73,7 @@
                                     <div class="ttm-icon ttm-icon_element-fill ttm-icon_element-color-darkgrey ttm-icon_element-size-sm ttm-icon_element-style-rounded" style="background-color:#8FBC94;margin-bottom: 0px;!important">
                                         <div class="ttm-box-event-date">
                                             <span class="ttm-entry-date">
-                                                <time class="entry-date" datetime="2019-07-20T07:07:55+00:00" style="margin-top:10px;">14<span class="entry-month">SIJ</span></time>
+                                                <time class="entry-date" datetime="2019-07-20T07:07:55+00:00" style="margin-top:10px;">{{ seminar.datumseminara | datumDan }}<span class="entry-month">{{ seminar.datumseminara | datumMjesec }}</span></time>
                                             </span>
                                         </div>
                                     </div>
@@ -117,16 +81,24 @@
                             </div>
                             <div class="col-sm-8">
                                 <div class="post-meta">
-                                    <span class="ttm-meta-line"><i class="fa fa-clock-o"></i>12:00h - 15:00h</span>
-                                    <span class="ttm-meta-line"><i class="fa fa-map-marker"></i>Kraš d.d., Ravnice 48, 10000 Zagreb, Dvorana "Dijabetes"</span>
+                                    <span class="ttm-meta-line"><i class="fa fa-id-badge"></i>
+                                    {% for predavac in seminar.predavaci %}
+                                        {% if loop.first %}
+                                            {{ predavac.imeIPrezime }}
+                                        {% else %}
+                                            , {{ predavac.imeIPrezime }}
+                                        {% endif %}
+                                    {% endfor %}
+                                    </span>
+                                    <span class="ttm-meta-line"><i class="fa fa-map-marker"></i>{{ seminar.lokacijanaziv }}, {% if seminar.dvorana %}Dvorana {{ seminar.dvorana }},{% endif %} {{ seminar.lokacijaadresa }}, {{ seminar.lokacijagrad }}</span>
                                 </div>
                                 <div class="post-title featured-title">
-                                    <h5><a href="blog-single.html">Key points For Improving Focus Towards you Ensures that you Know where</a></h5>
+                                    <h5><a href="blog-single.html">{{ seminar.seminarnaziv }}</a></h5>
                                 </div>
                             </div>
                             <div class="col-sm-2">
                                 <div class="ttm-btn-box" style="position: absolute;left:85px;width:100%">
-                                    <h4>1.590Kn</h4>
+                                    <h5>{{ seminar.cijena }}</h4>
                                 </div>
                                 <div class="ttm-btn-box" style="position: absolute;top: 50%;left:70px;">
                                     <a class="ttm-btn ttm-btn-size-sm ttm-btn-shape-round ttm-btn-style-fill ttm-icon-btn-right ttm-btn-color-dark" href="" title="">REZERVIRAJ </a>
@@ -135,117 +107,14 @@
                         </div>
                     </div>
                 </div><!-- featured-imagebox-post end-->
-                <!-- featured-imagebox-post -->
-                <div class="featured-imagebox featured-imagebox-post style1">
-                    <div class="featured-content featured-content-post" style="padding: 20px 30px 20px 30px;!important">
-                        <div class="row">
-                            <div class="col-sm-2" style="max-width: 10.666667%;!important">
-                                <div class="icon-box">
-                                    <div class="ttm-icon ttm-icon_element-fill ttm-icon_element-color-darkgrey ttm-icon_element-size-sm ttm-icon_element-style-rounded" style="background-color:#8FBC94;margin-bottom: 0px;!important">
-                                        <div class="ttm-box-event-date">
-                                            <span class="ttm-entry-date">
-                                                <time class="entry-date" datetime="2019-07-20T07:07:55+00:00" style="margin-top:10px;">19<span class="entry-month">SIJ</span></time>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="post-meta">
-                                    <span class="ttm-meta-line"><i class="fa fa-clock-o"></i>09:00h - 13:00h</span>
-                                    <span class="ttm-meta-line"><i class="fa fa-map-marker"></i>Miramarska Cesta 24, 10000 Zagreb, Dvorana "Nad utovarom"</span>
-                                </div>
-                                <div class="post-title featured-title">
-                                    <h5><a href="blog-single.html">Education Agree Plans To Boost Recruitment your Performance Help you</a></h5>
-                                </div>
-                            </div>
-                            <div class="col-sm-2">
-                                <div class="ttm-btn-box" style="position: absolute;left:85px;width:100%">
-                                    <h4>1.590Kn</h4>
-                                </div>
-                                <div class="ttm-btn-box" style="position: absolute;top: 50%;left:70px;">
-                                    <a class="ttm-btn ttm-btn-size-sm ttm-btn-shape-round ttm-btn-style-fill ttm-icon-btn-right ttm-btn-color-dark" href="" title="">REZERVIRAJ </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- featured-imagebox-post end-->
-                <!-- featured-imagebox-post -->
-                <div class="featured-imagebox featured-imagebox-post style1">
-                    <div class="featured-content featured-content-post" style="padding: 20px 30px 20px 30px;!important">
-                        <div class="row">
-                            <div class="col-sm-2" style="max-width: 10.666667%;!important">
-                                <div class="icon-box">
-                                    <div class="ttm-icon ttm-icon_element-fill ttm-icon_element-color-darkgrey ttm-icon_element-size-sm ttm-icon_element-style-rounded" style="background-color:#8FBC94;margin-bottom: 0px;!important">
-                                        <div class="ttm-box-event-date">
-                                            <span class="ttm-entry-date">
-                                                <time class="entry-date" datetime="2019-07-20T07:07:55+00:00" style="margin-top:10px;">24<span class="entry-month">SIJ</span></time>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="post-meta">
-                                    <span class="ttm-meta-line"><i class="fa fa-clock-o"></i>18:00h - 12:00h</span>
-                                    <span class="ttm-meta-line"><i class="fa fa-map-marker"></i>Kraš d.d., Ravnice 48, 10000 Zagreb, Dvorana "Dijabetes"</span>
-                                </div>
-                                <div class="post-title featured-title">
-                                    <h5><a href="blog-single.html">Equipping Researchers In The Developing Impact Rural Life by Bringing.</a></h5>
-                                </div>
-                            </div>
-                            <div class="col-sm-2">
-                                <div class="ttm-btn-box" style="position: absolute;left:85px;width:100%">
-                                    <h4>1.590Kn</h4>
-                                </div>
-                                <div class="ttm-btn-box" style="position: absolute;top: 50%;left:70px;">
-                                    <a class="ttm-btn ttm-btn-size-sm ttm-btn-shape-round ttm-btn-style-fill ttm-icon-btn-right ttm-btn-color-dark" href="" title="">REZERVIRAJ </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- featured-imagebox-post end-->
-                <!-- featured-imagebox-post -->
-                <div class="featured-imagebox featured-imagebox-post style1">
-                    <div class="featured-content featured-content-post" style="padding: 20px 30px 20px 30px;!important">
-                        <div class="row">
-                            <div class="col-sm-2" style="max-width: 10.666667%;!important">
-                                <div class="icon-box">
-                                    <div class="ttm-icon ttm-icon_element-fill ttm-icon_element-color-darkgrey ttm-icon_element-size-sm ttm-icon_element-style-rounded" style="background-color:#8FBC94;margin-bottom: 0px;!important">
-                                        <div class="ttm-box-event-date">
-                                            <span class="ttm-entry-date">
-                                                <time class="entry-date" datetime="2019-07-20T07:07:55+00:00" style="margin-top:10px;">29<span class="entry-month">SIJ</span></time>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="post-meta">
-                                    <span class="ttm-meta-line"><i class="fa fa-clock-o"></i>09:00h - 13:00h</span>
-                                    <span class="ttm-meta-line"><i class="fa fa-map-marker"></i>Miramarska Cesta 24, 10000 Zagreb, Dvorana "Nad utovarom"</span>
-                                </div>
-                                <div class="post-title featured-title">
-                                    <h5><a href="blog-single.html">Education Agree Plans To Boost Recruitment your Performance Help you</a></h5>
-                                </div>
-                            </div>
-                            <div class="col-sm-2">
-                                <div class="ttm-btn-box" style="position: absolute;left:85px;width:100%">
-                                    <h4>1.590Kn</h4>
-                                </div>
-                                <div class="ttm-btn-box" style="position: absolute;top: 50%;left:70px;">
-                                    <a class="ttm-btn ttm-btn-size-sm ttm-btn-shape-round ttm-btn-style-fill ttm-icon-btn-right ttm-btn-color-dark" href="" title="">REZERVIRAJ </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- featured-imagebox-post end-->
+                {% endif %}
+                {% endfor %}
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-12">
-            <div class="mt-30 res-991-mt-15 mb_25 text-center"><p>Slobodno nas <u><a href="/kontakt"><strong>kontaktirajte</strong></a></u> za detalje ili <u><a href="/usluge/seminari-i-radionice/"><strong>pogledajte sve otvorene seminare.</strong></a></u></p></div>
+            <div class="mt-30 res-991-mt-15 mb_25 text-center"><p>Slobodno nas <u><a href="/kontakt"><strong>kontaktirajte</strong></a></u> za detalje ili <u><a href="/edukacije/seminari-i-radionice/datumi-odrzavanja/"><strong>pogledajte sve otvorene seminare.</strong></a></u></p></div>
         </div>
     </div>
 </section>

@@ -33,6 +33,13 @@ async function getDatumi() {
                                 kod
                                 naziv
                             }
+                            fotografija {
+                                handle
+                            }
+                            sazetakSeminara
+                            autoriIPredavaci {
+                                imeIPrezime
+                            }
                         }
                     }
                 }`
@@ -71,7 +78,10 @@ async function getDatumi() {
             seminarcijena: item.seminar.cijena.toLocaleString() + ',00 Kn + PDV',
             kategorijanaziv: item.seminar.kategorija.naziv,
             kategorijaslug: slugify(item.seminar.kategorija.naziv, { lower: true, strict: true }),
-            kategorijakod: item.seminar.kategorija.kod
+            kategorijakod: item.seminar.kategorija.kod,
+            photo: item.seminar.fotografija.handle,
+            excerpt: item.seminar.sazetakSeminara,
+            predavaci: item.seminar.autoriIPredavaci
         };
     }).filter(Boolean);
 
