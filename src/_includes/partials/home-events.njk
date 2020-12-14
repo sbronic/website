@@ -63,7 +63,7 @@
         <div class="row">
             <div class="col-lg-12">
                 {% for seminar in seminari.svedatumi %}
-                {% if loop.index > 3 %}
+                {% if (loop.index > 3) and (loop.index < 9) %}
                 <!-- featured-imagebox-post -->
                 <div class="featured-imagebox featured-imagebox-post style1">
                     <div class="featured-content featured-content-post" style="padding: 20px 30px 20px 30px;!important">

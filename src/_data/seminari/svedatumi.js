@@ -26,6 +26,7 @@ async function getDatumi() {
                             grad
                             nazivLokacije
                         }
+                        odDo
                         seminar {
                             nazivSeminara
                             cijena
@@ -81,7 +82,8 @@ async function getDatumi() {
             kategorijakod: item.seminar.kategorija.kod,
             photo: item.seminar.fotografija.handle,
             excerpt: item.seminar.sazetakSeminara,
-            predavaci: item.seminar.autoriIPredavaci
+            predavaci: item.seminar.autoriIPredavaci,
+            vrijeme: item.odDo
         };
     }).filter(Boolean);
 
