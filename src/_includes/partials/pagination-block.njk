@@ -9,7 +9,7 @@
             <span style="margin: 0 10px;" class="page-numbers">...</span>
             <a href="{{ pagination.href.last }}" style="margin: 0 10px;" class="page-numbers">{{ pagination.pages | length }}</a>
         {% elif (loop.index == 1) and (pagination.pages | length == 1) %}
-            <a href="{{ pagination.href.first }}" style="margin: 0 10px;" class="page-numbers current">1</a>    
+            
         {% elif loop.index == 2 %}
             <a href="{{ pagination.href.first }}" style="margin: 0 10px;" class="page-numbers">1</a>
             <a href="{{ pagination.hrefs[ loop.index0 ] }}" style="margin: 0 10px;" class="page-numbers current">{{ loop.index }}</a>

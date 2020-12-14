@@ -50,27 +50,49 @@
 
     </aside>
     {% endif %}
+
+    {% if nav2ID == 'datumi' %}
         
     <aside class="widget widget-Categories with-title">
         <h3 class="widget-title">Kategorije</h3>
         <ul>
-            <li class="{% if navID == 'sem-sve' %}active{% endif %}"><a href="/edukacije/seminari-i-radionice">Sve kategorije</a></li>
-            <li class="{{ 'active' if '/upravljanje-ljudskim-potencijalima' in page.url }}"><a href="/edukacije/seminari-i-radionice/upravljanje-ljudskim-potencijalima">Upravljanje ljudskim potencijalima</a></li>
-            <li class="{{ 'active' if '/prodaja-marketing-i-odnosi-s-javnoscu' in page.url }}"><a href="/edukacije/seminari-i-radionice/prodaja-marketing-i-odnosi-s-javnoscu">Prodaja, marketing i odnosi s javnošću</a></li>
-            <li class="{% if navID == 'uia' %}active{% endif %}"><a href="/edukacije/seminari-i-radionice/upravljanje-i-administracija">Upravljanje i administracija</a></li>
-            <li class="{% if navID == 'iup' %}active{% endif %}"><a href="/edukacije/seminari-i-radionice/informatika-i-uredsko-poslovanje">Informatika i uredsko poslovanje</a></li>
-            <li class="{% if navID == 'pzp' %}active{% endif %}"><a href="/edukacije/seminari-i-radionice/pravo-i-zastita-podataka">Pravo i zaštita podataka</a></li>
-            <li class="{% if navID == 'fir' %}active{% endif %}"><a href="/edukacije/seminari-i-radionice/financije-i-racunovodstvo">Financije i računovodstvo</a></li>
-            <li class="{% if navID == 'znr' %}active{% endif %}"><a href="/edukacije/seminari-i-radionice/zastita-na-radu">Zaštita na radu</a></li>
-            <li class="{% if navID == 'zouo' %}active{% endif %}"><a href="/edukacije/seminari-i-radionice/zastita-okolisa-i-upravljanje-otpadom">Zaštita okoliša i upravljanje otpadom</a></li>
-            <li class="{% if navID == 'ostalo' %}active{% endif %}"><a href="/edukacije/seminari-i-radionice/ostalo">Ostalo</a></li>
+            <li class="{% if navID == 'sem-sve' %}active{% endif %}"><a href="/edukacije/seminari-i-radionice/datumi-odrzavanja">Sve kategorije</a></li>
+            <li class="{{ 'active' if '/upravljanje-ljudskim-potencijalima' in page.url }}"><a href="/edukacije/seminari-i-radionice/upravljanje-ljudskim-potencijalima/datumi-odrzavanja">Upravljanje ljudskim potencijalima</a></li>
+            <li class="{{ 'active' if '/prodaja-marketing-i-odnosi-s-javnoscu' in page.url }}"><a href="/edukacije/seminari-i-radionice/prodaja-marketing-i-odnosi-s-javnoscu/datumi-odrzavanja">Prodaja, marketing i odnosi s javnošću</a></li>
+            <li class="{{ 'active' if '/upravljanje-i-administracija' in page.url }}"><a href="/edukacije/seminari-i-radionice/upravljanje-i-administracija/datumi-odrzavanja">Upravljanje i administracija</a></li>
+            <li class="{{ 'active' if '/informatika-i-uredsko-poslovanje' in page.url }}"><a href="/edukacije/seminari-i-radionice/informatika-i-uredsko-poslovanje/datumi-odrzavanja">Informatika i uredsko poslovanje</a></li>
+            <li class="{{ 'active' if '/pravo-i-zastita-podataka' in page.url }}"><a href="/edukacije/seminari-i-radionice/pravo-i-zastita-podataka/datumi-odrzavanja">Pravo i zaštita podataka</a></li>
+            <li class="{{ 'active' if '/financije-i-racunovodstvo' in page.url }}"><a href="/edukacije/seminari-i-radionice/financije-i-racunovodstvo/datumi-odrzavanja">Financije i računovodstvo</a></li>
+            <li class="{{ 'active' if '/zastita-na-radu' in page.url }}"><a href="/edukacije/seminari-i-radionice/zastita-na-radu/datumi-odrzavanja">Zaštita na radu</a></li>
+            <li class="{{ 'active' if '/zastita-okolisa-i-upravljanje-otpadom' in page.url }}"><a href="/edukacije/seminari-i-radionice/zastita-okolisa-i-upravljanje-otpadom/datumi-odrzavanja">Zaštita okoliša i upravljanje otpadom</a></li>
+            <li class="{{ 'active' if '/ostalo' in page.url }}"><a href="/edukacije/seminari-i-radionice/ostalo/datumi-odrzavanja">Ostalo</a></li>
         </ul>
     </aside>
 
-    {% if navID == 'blog' %}
+    {% else %}
+
+    <aside class="widget widget-Categories with-title">
+        <h3 class="widget-title">Kategorije</h3>
+        <ul>
+            <li class="{% if navID == 'sem-sve' %}active{% endif %}"><a href="/edukacije/seminari-i-radionice/otvoreni-seminari-i-radionice">Sve kategorije</a></li>
+            <li class="{{ 'active' if '/upravljanje-ljudskim-potencijalima' in page.url }}"><a href="/edukacije/seminari-i-radionice/upravljanje-ljudskim-potencijalima/otvoreni-seminari-i-radionice">Upravljanje ljudskim potencijalima</a></li>
+            <li class="{{ 'active' if '/prodaja-marketing-i-odnosi-s-javnoscu' in page.url }}"><a href="/edukacije/seminari-i-radionice/prodaja-marketing-i-odnosi-s-javnoscu/otvoreni-seminari-i-radionice">Prodaja, marketing i odnosi s javnošću</a></li>
+            <li class="{{ 'active' if '/upravljanje-i-administracija' in page.url }}"><a href="/edukacije/seminari-i-radionice/upravljanje-i-administracija/otvoreni-seminari-i-radionice">Upravljanje i administracija</a></li>
+            <li class="{{ 'active' if '/informatika-i-uredsko-poslovanje' in page.url }}"><a href="/edukacije/seminari-i-radionice/informatika-i-uredsko-poslovanje/otvoreni-seminari-i-radionice">Informatika i uredsko poslovanje</a></li>
+            <li class="{{ 'active' if '/pravo-i-zastita-podataka' in page.url }}"><a href="/edukacije/seminari-i-radionice/pravo-i-zastita-podataka/otvoreni-seminari-i-radionice">Pravo i zaštita podataka</a></li>
+            <li class="{{ 'active' if '/financije-i-racunovodstvo' in page.url }}"><a href="/edukacije/seminari-i-radionice/financije-i-racunovodstvo/otvoreni-seminari-i-radionice">Financije i računovodstvo</a></li>
+            <li class="{{ 'active' if '/zastita-na-radu' in page.url }}"><a href="/edukacije/seminari-i-radionice/zastita-na-radu/otvoreni-seminari-i-radionice">Zaštita na radu</a></li>
+            <li class="{{ 'active' if '/zastita-okolisa-i-upravljanje-otpadom' in page.url }}"><a href="/edukacije/seminari-i-radionice/zastita-okolisa-i-upravljanje-otpadom/otvoreni-seminari-i-radionice">Zaštita okoliša i upravljanje otpadom</a></li>
+            <li class="{{ 'active' if '/ostalo' in page.url }}"><a href="/edukacije/seminari-i-radionice/ostalo/otvoreni-seminari-i-radionice">Ostalo</a></li>
+        </ul>
+    </aside>
+
+    {% endif %}
+
+    {% if (nav2ID == 'seminar') %}
 
     <aside class="widget widget-download with-title">
-        <h3 class="widget-title">Podijeli priču</h3>
+        <h3 class="widget-title">Podijeli seminar</h3>
         <div class="container">
             <div>
                 <a href="#" style="padding: 0 .3em;"><i class="fa fa-2x fa-facebook-square"></i></a>

@@ -1,0 +1,41 @@
+---
+title: Datumi održavanja seminara
+description: Datumi održavanja seminara
+layout: layouts/page.njk
+banner: seminari.jpg
+navID: sem-pmoj
+nav2ID: datumi
+pagination:
+  data: seminari.pmojdatumi
+  size: 10
+  alias: seminari
+permalink: "edukacije/seminari-i-radionice/prodaja-marketing-i-odnosi-s-javnoscu/datumi-odrzavanja{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
+eleventyComputed:
+    page_title: "Datumi održavanja seminara"
+    page_description: "Datumi održavanja seminara"
+---
+
+<div class="ttm-page-title-row" style="background: url(/images/{{ banner }})!important">
+    <div class="ttm-page-title-row-inner ttm-textcolor-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="page-title-heading">
+                        <h2 class="title">{{ description }}</h2>
+                    </div>
+                    <div class="breadcrumb-wrapper">
+                        <span>
+                            <a title="Homepage" href="/">Početna</a>
+                        </span>
+                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                        <span>Seminari i radionice</span>
+                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                        <span class="current" style="color:#F77F00">{{ title }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                    
+</div>
+
+{% include "partials/seminar-datumi-category.njk" %}
