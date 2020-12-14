@@ -2,6 +2,8 @@
 
 const util = require('util'); // dump filter
 const del = require('del');
+const got = require("got");
+const pluginRSS = require("@11ty/eleventy-plugin-rss");
 const { wordCount } = require("eleventy-plugin-wordcount");
 
 module.exports = function (config) {
@@ -13,6 +15,39 @@ module.exports = function (config) {
     config.addPassthroughCopy("src/fonts");
     config.addPassthroughCopy("src/images");
     config.addPassthroughCopy("src/js");
+
+    /* RSS */
+    config.addPlugin(pluginRSS);
+    // RSS file size filter
+    config.addNunjucksAsyncFilter("size", async (url, callback) => {
+        try {
+            const { headers } = await got.head(url);
+            const clength = headers.hasOwnProperty("content-length")
+                ? headers["content-length"]
+                : "Unknown";
+            callback(null, clength);
+        } catch (err) {
+            console.error(err);
+            callback(err);
+        }
+    });
+    // RSS file MIME type
+    config.addNunjucksAsyncFilter("type", async (url, callback) => {
+        try {
+            const { headers } = await got.head(url);
+            const clength = headers.hasOwnProperty("content-type")
+                ? headers["content-type"]
+                : "Unknown";
+            callback(null, clength);
+        } catch (err) {
+            console.error(err);
+            callback(err);
+        }
+    });
+    // RSS RFC822 time
+    config.addFilter("rfc822", dateObj => {
+        return new Date(dateObj).toUTCString();
+    });
 
     /* Filters */
     config.addFilter('dump', obj => {

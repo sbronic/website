@@ -27,6 +27,7 @@ async function getObjave() {
                         }
                         fotografija {
                             handle
+                            url
                         }
                         sazetakObjave
                         kategorija {
@@ -69,6 +70,7 @@ async function getObjave() {
             title: item.naslovObjave,
             titleslug: slugify(item.naslovObjave, { lower: true, strict: true }),
             photo: item.fotografija.handle,
+            photourl: item.fotografija.url,
             excerpt: item.sazetakObjave,
             category: item.kategorija.naziv,
             categoryslug: slugify(item.kategorija.naziv, { lower: true, strict: true }),

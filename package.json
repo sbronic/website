@@ -21,8 +21,10 @@
     "@11ty/eleventy": "^0.11.1"
   },
   "dependencies": {
+    "@11ty/eleventy-plugin-rss": "^1.0.9",
     "dotenv": "^8.2.0",
     "eleventy-plugin-wordcount": "^1.0.5",
+    "got": "^11.8.1",
     "node-fetch": "^2.6.1",
     "slugify": "^1.4.6"
   }

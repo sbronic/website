@@ -1,0 +1,35 @@
+---
+permalink: feed.xml
+eleventyExcludeFromCollections: true
+date: Last Modified
+metadata:
+  title: edukacijE.HR objave na blogu
+  subtitle: Stručnim člancima, naših i gostujućih autora, nudimo vam niz korisnih sadržaja i informacija.
+  url: https://edukacije.hr
+  feedUrl: https://edukacije.hr/feed.xml
+  author:
+    name: edukacijE.hr
+    email: info@edukacije.hr
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ metadata.title }}</title>
+  <subtitle>{{ metadata.subtitle }}</subtitle>
+  <link href="{{ metadata.feedUrl }}" rel="self"/>
+  <link href="{{ metadata.url }}"/>
+  <updated>{{ objave.sve[0].date | rfc822 }}</updated>
+  <id>{{ metadata.url }}/</id>
+  <author>
+    <name>{{ metadata.author.name }}</name>
+    <email>{{ metadata.author.email }}</email>
+  </author>
+  {%- for post in objave.sve.slice(0,10) %}
+  <entry>
+    <title>{{ post.title }}</title>
+    <link href="{{ metadata.url + '/blog/' + post.categoryslug + '/' + post.titleslug }}"/>
+    <updated>{{ post.date | rfc822 }}</updated>
+    <id>{{ metadata.url + '/blog/' + post.categoryslug + '/' + post.titleslug }}</id>
+    <content type="text">{{ post.bodytext }}</content>
+  </entry>
+  {%- endfor %}
+</feed>
