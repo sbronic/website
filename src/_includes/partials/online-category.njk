@@ -36,14 +36,15 @@
                                             </div>
                                             <div class="ttm-course-box-meta">
                                                 <div class="ttm-enrolled">
-                                                    <span class="ttm-comments ttm-meta-line"><i class="fa fa-id-badge" aria-hidden="true"></i>
-                                                        {% for autor in item.autori %}
+                                                    <span class="ttm-comments ttm-meta-line"><i class="fa fa-tag" aria-hidden="true"></i>
+                                                    {{ item.category }}
+                                                    <!--    {% for autor in item.autori %}
                                                         {% if loop.first %}
                                                         {{ autor.imeIPrezime }}
                                                         {% else %}
                                                         , {{ autor.imeIPrezime }}
                                                         {% endif %}
-                                                        {% endfor %}
+                                                        {% endfor %} -->
                                                     </span>
                                                 </div>  
                                                 <span class="ttm-lp-price"><ins>{{ item.cijena }}</ins></span>                            

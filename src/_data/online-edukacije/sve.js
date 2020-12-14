@@ -26,6 +26,9 @@ async function getOnlineEdukacije() {
                             fotografija {
                                 handle
                             }
+                            oAutoruPredavacu {
+                                html
+                            }
                         }
                         fotografija {
                             handle
@@ -40,8 +43,12 @@ async function getOnlineEdukacije() {
                             html
                         }
                         sazetak
+                        curriculum {
+                            html
+                        }
                         sifraProizvoda
                         vrstaEdukacije
+                        trajanje
                     }
                 }`
             })
@@ -76,12 +83,14 @@ async function getOnlineEdukacije() {
             titleslug: slugify(item.naziv, { lower: true, strict: true }),
             photo: item.fotografija.handle,
             excerpt: item.sazetak,
+            curriculum: item.curriculum.html,
             category: item.kategorija.naziv,
             categoryslug: slugify(item.kategorija.naziv, { lower: true, strict: true }),
             categorycode: item.kategorija.kod,
             bodyhtml: item.opisEdukacije.html,
             sifra: item.sifraProizvoda,
-            vrsta: item.vrstaEdukacije
+            vrsta: item.vrstaEdukacije,
+            trajanje: item.trajanje
         };
     }).filter(Boolean);
 

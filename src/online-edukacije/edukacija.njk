@@ -69,26 +69,33 @@ eleventyComputed:
                                     <ul class="ttm-coursedetails-box">
                                         <li class="ttm-meta-line ttm-author">
 
-                                        {% if (seminar.predavaci | length) == 1 %}
+                                        {% if (edukacija.autori | length) == 1 %}
                                             <strong>Predavač:</strong>
                                         {% else %}
                                             <strong>Predavači:</strong>
                                         {% endif %}
                                         
-                                        {% for predavac in seminar.predavaci %}
+                                        {% for autor in edukacija.autori %}
                                         {% if loop.first %}
-                                            {{ predavac.imeIPrezime }}
+                                            {{ autor.imeIPrezime }}
                                         {% else %}
-                                            , {{ predavac.imeIPrezime }}
+                                            , {{ autor.imeIPrezime }}
                                         {% endif %}
                                         {% endfor %}
 
                                         </li>
                                         <li class="ttm-meta-line ttm-course-dur"> 
-                                            <strong>Trajanje</strong>1 dan
+                                            <strong>Trajanje</strong>{{ edukacija.trajanje }}
                                         </li>
                                         <li class="ttm-meta-line ttm-course-price"> 
-                                            <strong>Cijena</strong>{{ seminar.cijena }}
+                                            <strong>Cijena</strong>{{ edukacija.cijena }}
+                                        </li>
+                                        <li class="ttm-meta-line ttm-course-dur">
+                                            <div class="form-group" style="margin:0;!important">
+                                                <div class="lp-course-buttons">
+                                                    <button class="lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">Kupite ovaj seminar</button>
+                                                </div>
+                                            </div>
                                         </li>
                                     </ul>
                                 </div>
@@ -96,7 +103,7 @@ eleventyComputed:
                                     <ul class="tabs clearfix">
                                         <li class="tab active"><a href="#">Opis seminara</a></li>
                                         <li class="tab"><a href="#">Curriculum</a></li>
-                                        {% if (seminar.predavaci | length) == 1 %}
+                                        {% if (edukacija.autori | length) == 1 %}
                                             <li class="tab"><a href="#">O Predavaču</a></li>
                                         {% else %}
                                             <li class="tab"><a href="#">O Predavačima</a></li>
@@ -106,22 +113,22 @@ eleventyComputed:
                                     <div class="content-tab">
                                         <!-- content-inner -->
                                         <div class="content-inner active">
-                                            {{ seminar.opishtml | safe }}
+                                            {{ edukacija.bodyhtml | safe }}
                                         </div><!-- content-inner end-->
                                         <!-- content-inner -->
                                         <div class="content-inner">
-                                            {{ seminar.curriculum | safe }}
+                                            {{ edukacija.curriculum | safe }}
                                         </div><!-- content-inner end-->
                                         <!-- content-inner -->
                                         <div class="content-inner">
-                                            {% for predavac in seminar.predavaci %}
+                                            {% for autor in edukacija.autori %}
                                             <div class="d-flex">
                                                 <div class="author-img text-center">
-                                                    <img src="https://media.graphcms.com/resize=fit:crop,width:150,height:150/{{ predavac.fotografija.handle }}" alt="{{ predavac.imeIPrezime }}" class="imag-fluid avatar photo">
-                                                    <div class="mt-10"><a href="instructor-profile.html"><h6>{{ predavac.imeIPrezime }}</h6></a></div>
+                                                    <img src="https://media.graphcms.com/resize=fit:crop,width:150,height:150/{{ autor.fotografija.handle }}" alt="{{ autor.imeIPrezime }}" class="imag-fluid avatar photo">
+                                                    <div class="mt-10"><h6>{{ autor.imeIPrezime }}</h6></div>
                                                 </div>
                                                 <div class="author-bio pl-30">
-                                                    I have experienced in developing curriculum as well as conducting teach training and parenting programs. We guarantee to cover all phases of the teach programs to creating a classroom atmosphere that is stimulating and encouraging to students. I believe in maintaining high standards of education with emphasis on developing readings skills in pupils and thoroughly enjoys working with children and encourages creative expression.
+                                                    {{ autor.oAutoruPredavacu.html | safe }}
                                                 </div>
                                             </div>
                                             {% if not loop.last %}
@@ -131,81 +138,7 @@ eleventyComputed:
                                         </div><!-- content-inner end-->
                                         <!-- content-inner -->
                                         <div class="content-inner">
-                                            <div class="course-rates">
-                                                <div class="review-stars-rated" title="5 out of 5 stars">
-                                                    <div class="review-stars empty"></div>
-                                                    <div class="review-stars filled"></div>
-                                                </div>
-                                                <p class="review-number">5.00 average based on 2 ratings</p>
-                                                <div class="course-rate">
-                                                    <span>5 Star</span>
-                                                    <div class="review-bar"><div class="rating w-100"></div></div>
-                                                    <span>100%</span>
-                                                </div>
-                                                <div class="course-rate">
-                                                    <span>4 Star</span>
-                                                    <div class="review-bar"><div class="rating w-0"></div></div>
-                                                    <span>0%</span>
-                                                </div>
-                                                <div class="course-rate">
-                                                    <span>3 Star</span>
-                                                    <div class="review-bar"><div class="rating w-0"></div></div>
-                                                    <span>0%</span>
-                                                </div>
-                                                <div class="course-rate">
-                                                    <span>2 Star</span>
-                                                    <div class="review-bar"><div class="rating w-0"></div></div>
-                                                    <span>0%</span>
-                                                </div>
-                                                <div class="course-rate">
-                                                    <span>1 Star</span>
-                                                    <div class="review-bar"><div class="rating w-0"></div></div>
-                                                    <span>0%</span>
-                                                </div>
-                                            </div>
-                                            <div id="course-reviews">
-                                                <div class="mt-30 mb-30">
-                                                    <h4>Reviews</h4>
-                                                </div>
-                                                <ul class="course-reviews-list">
-                                                    <li>
-                                                        <div class="review-author">
-                                                            <img src="https://via.placeholder.com/150x150?text=150x150+team-02.jpg" width="96" height="96" alt="Cherie Leon" class="avatar photo">
-                                                        </div>
-                                                        <div class="review-author-info">
-                                                            <div class="rev_head">
-                                                                <h4 class="user-name">Cherie Leon</h4>
-                                                                <div class="review-stars-rated" title="5 out of 5 stars">
-                                                                    <div class="review-stars empty"></div>
-                                                                    <div class="review-stars filled"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="rev_content">
-                                                                <div class="review-title">Best Course </div>
-                                                                <div class="review-text">Very good lessaons to learn with good instructor. Always recommended.</div>
-                                                            </div>
-                                                        </div>
-                                                    </li>                           
-                                                    <li>
-                                                        <div class="review-author">
-                                                            <img src="https://via.placeholder.com/150x150?text=150x150+team-03.jpg" width="96" height="96" alt="Cherie Leon" class="avatar photo">
-                                                        </div>
-                                                        <div class="review-author-info">
-                                                            <div class="rev_head">
-                                                                <h4 class="user-name">Michael Grey</h4>
-                                                                <div class="review-stars-rated" title="5 out of 5 stars">
-                                                                    <div class="review-stars empty"></div>
-                                                                    <div class="review-stars filled"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="rev_content">
-                                                                <div class="review-title">Awesome Course</div>
-                                                                <div class="review-text">I Learn many things in less time. Overall very Good experience.</div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                            
                                         </div><!-- content-inner end-->
                                     </div>
                                 </div>
@@ -213,7 +146,7 @@ eleventyComputed:
                         </article><!-- course end -->
                     </div>
 
-                {% include "partials/seminaricategories.njk" %}
+                {% include "partials/onlinecategories.njk" %}
 
             </div><!-- row end -->
         </div>

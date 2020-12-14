@@ -32,7 +32,7 @@
                                 </div>
                             </div>
                             <div class="featured-content featured-content-post">
-                                <div class="post-meta">
+                                <div class="post-meta" style="font-weight:normal">
                                     <span class="ttm-meta-line byline"><i class="fa fa-id-badge"></i>
                                         {% for predavac in seminar.predavaci %}
                                         {% if loop.first %}
@@ -48,7 +48,7 @@
                                     <h5><a href="blog-single.html">{{ seminar.seminarnaziv }}</a></h5>
                                 </div>
                                 <div class="post-desc featured-desc">
-                                    <p>{{ seminar.excerpt | truncate(200) }}</p>
+                                <!--    <p>{{ seminar.excerpt | truncate(200) }}</p> -->
                                 </div>
                             </div>
                         </div><!-- featured-imagebox-post end-->
@@ -98,7 +98,7 @@
                             </div>
                             <div class="col-sm-2">
                                 <div class="ttm-btn-box" style="position: absolute;left:85px;width:100%">
-                                    <h5>{{ seminar.cijena }}</h4>
+                                    <h6>{{ seminar.seminarcijena }}</h6>
                                 </div>
                                 <div class="ttm-btn-box" style="position: absolute;top: 50%;left:70px;">
                                     <a class="ttm-btn ttm-btn-size-sm ttm-btn-shape-round ttm-btn-style-fill ttm-icon-btn-right ttm-btn-color-dark" href="" title="">REZERVIRAJ </a>
