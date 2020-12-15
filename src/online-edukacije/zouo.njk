@@ -1,18 +1,17 @@
 ---
-title: Seminari i radionice
-description: Zaštita na radu
+title: On-line Edukacije
+description: Zaštita okoliša i upravljanje otpadom
 layout: layouts/page.njk
-banner: seminari.jpg
-navID: sem-znr
-nav2ID: popis
+banner: online-edukacije.jpg
+navID: online-zouo
 pagination:
-  data: seminari.znrpopis
+  data: online.zouo
   size: 10
-  alias: seminari
-permalink: "edukacije/seminari-i-radionice/zastita-na-radu/otvoreni-seminari-i-radionice{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
+  alias: edukacije
+permalink: "edukacije/online-edukacije/zastita-okolisa-i-upravljanje-otpadom{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
 eleventyComputed:
-    page_title: "Seminari i radionice - Zaštita na radu"
-    page_description: "Seminari i radionice - Zaštita na radu"
+    page_title: "On-line Edukacije - Zaštita okoliša i upravljanje otpadom"
+    page_description: "On-line Edukacije - Zaštita okoliša i upravljanje otpadom"
 ---
 
 <div class="ttm-page-title-row" style="background: url(/images/{{ banner }})!important">
@@ -24,13 +23,11 @@ eleventyComputed:
                         <h2 class="title">Kategorija: {{ description }}</h2>
                     </div>
                     <div class="breadcrumb-wrapper">
-                        <span><a href="/">Početna</a></span>
+                         <span><a href="/">Početna</a></span>
                         <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
-                        <span>{{ title }}</span>
+                        <span><a href="/edukacije/online-edukacije">{{ title }}</a></span>
                         <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
                         <span class="current" style="color:#F77F00">{{ description }}</span>
-                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
-                        <span class="current" style="color:#F77F00">Otvoreni seminari i radionice</span>
                     </div>
                 </div>
             </div>
@@ -38,4 +35,4 @@ eleventyComputed:
     </div>                    
 </div>
 
-{% include "partials/seminar-popis-category.njk" %}
+{% include "partials/online-category.njk" %}

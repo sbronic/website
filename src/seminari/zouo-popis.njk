@@ -1,6 +1,6 @@
 ---
-title: Otvoreni seminari i radionice
-description: Otvoreni seminari i radionice
+title: Seminari i radionice
+description: Zaštita okoliša i upravljanje otpadom
 layout: layouts/page.njk
 banner: seminari.jpg
 navID: sem-zouo
@@ -11,8 +11,8 @@ pagination:
   alias: seminari
 permalink: "edukacije/seminari-i-radionice/zastita-okolisa-i-upravljanje-otpadom/otvoreni-seminari-i-radionice{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
 eleventyComputed:
-    page_title: "Otvoreni seminari i radionice"
-    page_description: "Otvoreni seminari i radionice"
+    page_title: "Seminari i radionice - Zaštita okoliša i upravljanje otpadom"
+    page_description: "Seminari i radionice - Zaštita okoliša i upravljanje otpadom"
 ---
 
 <div class="ttm-page-title-row" style="background: url(/images/{{ banner }})!important">
@@ -21,16 +21,16 @@ eleventyComputed:
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <div class="page-title-heading">
-                        <h2 class="title">{{ description }}</h2>
+                        <h2 class="title">Kategorija: {{ description }}</h2>
                     </div>
                     <div class="breadcrumb-wrapper">
-                        <span>
-                            <a title="Homepage" href="/">Početna</a>
-                        </span>
+                        <span><a href="/">Početna</a></span>
                         <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
-                        <span>Seminari i radionice</span>
+                        <span>{{ title }}</span>
                         <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
-                        <span class="current" style="color:#F77F00">{{ title }}</span>
+                        <span class="current" style="color:#F77F00">{{ description }}</span>
+                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                        <span class="current" style="color:#F77F00">Otvoreni seminari i radionice</span>
                     </div>
                 </div>
             </div>

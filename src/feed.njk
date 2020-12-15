@@ -29,7 +29,7 @@ metadata:
     <link href="{{ metadata.url + '/blog/' + post.categoryslug + '/' + post.titleslug }}"/>
     <updated>{{ post.date | rfc822 }}</updated>
     <id>{{ metadata.url + '/blog/' + post.categoryslug + '/' + post.titleslug }}</id>
-    <content type="text">{{ post.bodytext }}</content>
+    <content type="text/xml;charset=UTF-8">{{ post.bodytext }}</content>
   </entry>
   {%- endfor %}
 </feed>

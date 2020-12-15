@@ -1,6 +1,6 @@
 ---
-title: Datumi održavanja seminara
-description: Datumi održavanja seminara
+title: Seminari i radionice
+description: Pravo i zaštita podataka
 layout: layouts/page.njk
 banner: seminari.jpg
 navID: sem-pzp
@@ -11,8 +11,8 @@ pagination:
   alias: seminari
 permalink: "edukacije/seminari-i-radionice/pravo-i-zastita-podataka/datumi-odrzavanja{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
 eleventyComputed:
-    page_title: "Datumi održavanja seminara"
-    page_description: "Datumi održavanja seminara"
+    page_title: "Seminari i radionice - Pravo i zaštita podataka"
+    page_description: "Seminari i radionice - Pravo i zaštita podataka"
 ---
 
 <div class="ttm-page-title-row" style="background: url(/images/{{ banner }})!important">
@@ -21,16 +21,16 @@ eleventyComputed:
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <div class="page-title-heading">
-                        <h2 class="title">{{ description }}</h2>
+                        <h2 class="title">Kategorija: {{ description }}</h2>
                     </div>
                     <div class="breadcrumb-wrapper">
-                        <span>
-                            <a title="Homepage" href="/">Početna</a>
-                        </span>
+                        <span><a href="/">Početna</a></span>
                         <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
-                        <span>Seminari i radionice</span>
+                        <span>{{ title }}</span>
                         <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
-                        <span class="current" style="color:#F77F00">{{ title }}</span>
+                        <span class="current" style="color:#F77F00">{{ description }}</span>
+                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                        <span class="current" style="color:#F77F00">Datumi održavanja</span>
                     </div>
                 </div>
             </div>

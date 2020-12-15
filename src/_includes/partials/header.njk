@@ -34,6 +34,8 @@
                                 </li>
                                 <li><a class="tooltip-bottom" target="_blank" href="https://www.youtube.com/channel/UCsXJK-egclFM3GFQrPIQdLQ?view_as=subscriber"><i class="fa fa-youtube"></i></a>
                                 </li>
+                                <li><a class="tooltip-bottom" target="_blank" href="/feed.xml"><i class="fa fa-rss"></i></a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -83,7 +85,7 @@
                                             <li class="{% if navID == 'paketi' %} active {% endif %}"><a href="/paketi-proizvoda">Paketi proizvoda</a></li>
                                         </ul>
                                     </li>-->
-                                    <li class="mega-menu-item {% if navID == 'online-sve' %}active{% endif %}">
+                                    <li class="mega-menu-item {{ 'active' if '/online-edukacije' in page.url }}">
                                         <a href="/edukacije/online-edukacije" class="mega-menu-link">On-Line Edukacije</a>
                                     </li>
                                     <li class="mega-menu-item {% if navID == 'in-house' %}active{% endif %}">
