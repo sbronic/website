@@ -89,6 +89,7 @@ async function getOnlineEdukacije() {
         return {
             id: item.id,
             cijena: item.cijena.toLocaleString() + ' Kn + PDV',
+            cijenaCart: item.cijena,
             autori: item.autoriIPredavaci,
             title: item.naziv,
             titleslug: slugify(item.naziv, { lower: true, strict: true }),

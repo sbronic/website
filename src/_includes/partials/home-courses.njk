@@ -27,12 +27,21 @@
                         <img class="img-fluid lazyload" data-src="https://media.graphcms.com/resize=fit:crop,width:526,height:400/{{ item.photo }}" alt="image"> 
                     </div>
                     <div class="featured-content featured-content-post">
-                        <div class="featured-content-post-inner">
-                            <div class="post-title featured-title">
+                        <div class="featured-content-post-inner" style="padding: 23px 20px 0px 20px;!important">
+                            <div class="post-title featured-title" style="min-height:55px;">
                                 <h5><a href="/edukacije/online-edukacije/{{ item.categoryslug }}/{{ item.titleslug }}/">{{ item.title }}</a></h5>
                             </div>
-                            <div class="post-desc featured-desc" style="min-height:190px;!important">
-                                <p>{{ item.excerpt }}</p>
+                            <div class="post-desc featured-desc">
+                                <p>{{ item.excerpt | truncate(190) }}</p>
+                                <br/>
+                                <span style="color:#88402C;font-size:14px;font-style:italic;">
+                                {% if item.vrsta == "e_Zbirke"%}e-Zbirka{% endif %}
+                                {% if item.vrsta == "Video_seminari"%}Video seminar{% endif %}
+                                {% if item.vrsta == "Audio_seminari"%}Audio seminar{% endif %}
+                                {% if item.vrsta == "Paketi"%}Paket{% endif %}
+                                {% if item.vrsta == "Webinari"%}Webinar{% endif %}
+                                {% if item.vrsta == "Zoom_meeting"%}Zoom meeting uživo{% endif %}
+                                </span>
                             </div>
                         </div>
                         <div class="ttm-course-box-meta">

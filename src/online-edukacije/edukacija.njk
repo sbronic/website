@@ -106,7 +106,14 @@ eleventyComputed:
                                         <li class="ttm-meta-line ttm-course-dur">
                                             <div class="form-group" style="margin:0;!important">
                                                 <div class="lp-course-buttons">
-                                                    <button class="lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">Kupite ovu edukaciju</button>
+                                                    <button
+                                                    data-item-id="{{edukacija.sifra}}"
+                                                    data-item-price="{{ edukacija.cijenaCart }}"
+                                                    data-item-url="{{ site.url }}/edukacije/online-edukacije/{{ edukacija.categoryslug }}/{{ edukacija.titleslug }}"
+                                                    data-item-description="{{ edukacija.excerpt }}"
+                                                    data-item-image="https://media.graphcms.com/resize=fit:clip,width:120/{{ edukacija.photo }}"
+                                                    data-item-name="{{ edukacija.title }}"
+                                                    class="snipcart-add-item lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">Kupite ovu edukaciju</button>
                                                 </div>
                                             </div>
                                         </li>
