@@ -35,6 +35,14 @@
                                             </div>
                                             <div class="post-desc featured-desc" style="padding:0 20px;min-height:130px;!important">
                                                 <p>{{ item.excerpt | truncate(200) }}</p>
+                                                <span style="color:#88402C;font-size:14px;font-style:italic;">
+                                                {% if item.vrsta == "e_Zbirke"%}e-Zbirka{% endif %}
+                                                {% if item.vrsta == "Video_seminari"%}Video seminar{% endif %}
+                                                {% if item.vrsta == "Audio_seminari"%}Audio seminar{% endif %}
+                                                {% if item.vrsta == "Paketi"%}Paket{% endif %}
+                                                {% if item.vrsta == "Webinari"%}Webinar{% endif %}
+                                                {% if item.vrsta == "Zoom_meeting"%}Zoom meeting uživo{% endif %}
+                                                </span>
                                             </div>
                                             <div class="ttm-course-box-meta">
                                                 <div class="ttm-enrolled">
