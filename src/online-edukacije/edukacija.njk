@@ -131,6 +131,9 @@ eleventyComputed:
                                             <hr/>
                                             {% endif %}
                                             {{ edukacija.bodyhtml | safe }}
+                                            {% if edukacija.outroVideo %}
+                                            <div class="youtube-player" data-id="{{ edukacija.outroVideo }}"></div>
+                                            {% endif %}
                                         </div><!-- content-inner end-->
                                         <!-- content-inner -->
                                         <div class="content-inner">

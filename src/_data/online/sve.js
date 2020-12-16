@@ -51,6 +51,7 @@ async function getOnlineEdukacije() {
                         trajanje
                         popularan
                         promoVideo
+                        outroVideo
                         zoomDatumIVrijemePocetka
                     }
                 }`
@@ -103,6 +104,7 @@ async function getOnlineEdukacije() {
             trajanje: item.trajanje,
             popularan: item.popularan,
             promoVideo: item.promoVideo,
+            outroVideo: item.outroVideo,
             zoomDatumIVrijemePocetka: futureDates
         };
     }).filter(Boolean);

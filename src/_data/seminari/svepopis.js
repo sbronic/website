@@ -30,6 +30,7 @@ async function getSeminari() {
                             text
                         }
                         promoVideo
+                        outroVideo
                         sazetakSeminara
                         sifraProizvoda
                         cijena
@@ -87,7 +88,8 @@ async function getSeminari() {
             kategorijakod: item.kategorija.kod,
             opishtml: item.opis.html,
             opistext: item.opis.text,
-            promovideo: item.promoVideo,
+            promoVideo: item.promoVideo,
+            outroVideo: item.outroVideo,
             excerpt: item.sazetakSeminara,
             sifra: item.sifraProizvoda,
             cijena: item.cijena.toLocaleString() + ' Kn + PDV',

@@ -107,7 +107,14 @@ eleventyComputed:
                                     <div class="content-tab">
                                         <!-- content-inner -->
                                         <div class="content-inner active">
+                                            {% if seminar.promoVideo %}
+                                            <div class="youtube-player" data-id="{{ seminar.promoVideo }}"></div>
+                                            <hr/>
+                                            {% endif %}
                                             {{ seminar.opishtml | safe }}
+                                            {% if seminar.outroVideo %}
+                                            <div class="youtube-player" data-id="{{ seminar.outroVideo }}"></div>
+                                            {% endif %}
                                         </div><!-- content-inner end-->
                                         <!-- content-inner -->
                                         <div class="content-inner">
