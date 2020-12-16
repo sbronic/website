@@ -1926,7 +1926,7 @@ section{ counter-reset: featured-imagebox-procedure; }
 }
 .ttm-tabs ul.tabs li a{
     display: inline-block;
-    padding: 9px 25px 7px;
+    padding: 9px 15px 7px;
     line-height: 22px;
     font-size: 14px;
     font-weight: 600;

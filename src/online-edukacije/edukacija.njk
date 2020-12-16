@@ -68,20 +68,33 @@ eleventyComputed:
                                 <div class="ttm-single-course-box">
                                     <ul class="ttm-coursedetails-box">
                                         <li class="ttm-meta-line ttm-author">
+                                        {% if edukacija.zoomDatumIVrijemePocetka | length %}
+                                            <strong>Datumi održavanja:</strong>
+                                            {% for datum in edukacija.zoomDatumIVrijemePocetka %}
+                                            {% if loop.last %}
+                                            {{ datum | datumSeminara }}
+                                            {% else %}
+                                            {{ datum | datumSeminara }},
+                                            {% endif %}
+                                            {% endfor %}
 
-                                        {% if (edukacija.autori | length) == 1 %}
-                                            <strong>Predavač:</strong>
                                         {% else %}
-                                            <strong>Predavači:</strong>
+
+                                            {% if (edukacija.autori | length) == 1 %}
+                                                <strong>Predavač:</strong>
+                                            {% else %}
+                                                <strong>Predavači:</strong>
+                                            {% endif %}
+                                            
+                                            {% for autor in edukacija.autori %}
+                                            {% if loop.first %}
+                                                {{ autor.imeIPrezime }}
+                                            {% else %}
+                                                , {{ autor.imeIPrezime }}
+                                            {% endif %}
+                                            {% endfor %}
+
                                         {% endif %}
-                                        
-                                        {% for autor in edukacija.autori %}
-                                        {% if loop.first %}
-                                            {{ autor.imeIPrezime }}
-                                        {% else %}
-                                            , {{ autor.imeIPrezime }}
-                                        {% endif %}
-                                        {% endfor %}
 
                                         </li>
                                         <li class="ttm-meta-line ttm-course-dur"> 
@@ -93,7 +106,7 @@ eleventyComputed:
                                         <li class="ttm-meta-line ttm-course-dur">
                                             <div class="form-group" style="margin:0;!important">
                                                 <div class="lp-course-buttons">
-                                                    <button class="lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">Kupite ovaj seminar</button>
+                                                    <button class="lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">Kupite ovu edukaciju</button>
                                                 </div>
                                             </div>
                                         </li>
@@ -113,6 +126,10 @@ eleventyComputed:
                                     <div class="content-tab">
                                         <!-- content-inner -->
                                         <div class="content-inner active">
+                                            {% if edukacija.promoVideo %}
+                                            <div class="youtube-player" data-id="{{ edukacija.promoVideo }}"></div>
+                                            <hr/>
+                                            {% endif %}
                                             {{ edukacija.bodyhtml | safe }}
                                         </div><!-- content-inner end-->
                                         <!-- content-inner -->
@@ -124,7 +141,11 @@ eleventyComputed:
                                             {% for autor in edukacija.autori %}
                                             <div class="d-flex">
                                                 <div class="author-img text-center">
+                                                {% if autor.fotografija.handle %}
                                                     <img src="https://media.graphcms.com/resize=fit:crop,width:150,height:150/{{ autor.fotografija.handle }}" alt="{{ autor.imeIPrezime }}" class="imag-fluid avatar photo">
+                                                {% else %}
+                                                    <img src="https://media.graphcms.com/OLAOKWG6Sw2pBjbJZPCP" class="imag-fluid avatar photo">
+                                                {% endif %}
                                                     <div class="mt-10"><h6>{{ autor.imeIPrezime }}</h6></div>
                                                 </div>
                                                 <div class="author-bio pl-30">

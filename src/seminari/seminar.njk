@@ -118,7 +118,11 @@ eleventyComputed:
                                             {% for predavac in seminar.predavaci %}
                                             <div class="d-flex">
                                                 <div class="author-img text-center">
-                                                    <img src="https://media.graphcms.com/resize=fit:crop,width:150,height:150/{{ predavac.fotografija.handle }}" alt="{{ predavac.imeIPrezime }}" class="imag-fluid avatar photo">
+                                                {% if predavac.fotografija.handle %}
+                                                    <img src="https://media.graphcms.com/resize=fit:crop,width:150,height:150/{{ predavac.fotografija.handle }}" alt="{{ autor.imeIPrezime }}" class="imag-fluid avatar photo">
+                                                {% else %}
+                                                    <img src="https://media.graphcms.com/OLAOKWG6Sw2pBjbJZPCP" class="imag-fluid avatar photo">
+                                                {% endif %}
                                                     <div class="mt-10"><h6>{{ predavac.imeIPrezime }}</h6></div>
                                                 </div>
                                                 <div class="author-bio pl-30">

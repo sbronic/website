@@ -66,6 +66,15 @@ module.exports = function (config) {
         //var month = dobj.getMonth()+1;
         return day + ". " + month + " " + year + ".";
     });
+    // Datum seminara
+    config.addFilter("datumSeminara", dateObj => {
+        var dobj = new Date(dateObj);
+        var day = dobj.getDate();
+        var year = dobj.getFullYear();
+        var month = dobj.toLocaleString('hr-HR', { month: 'short' });
+        //var month = dobj.getMonth()+1;
+        return day + ". " + month + " " + year + ".";
+    });
     // Dan
     config.addFilter("datumDan", dateObj => {
         var dobj = new Date(dateObj);
@@ -89,6 +98,15 @@ module.exports = function (config) {
         var dobj = new Date(dateObj);
         var year = dobj.getFullYear();
         return year;
+    });
+    // Datum u budućnosti
+    config.addFilter("inFuture", function (dates) {
+        const now = Date.now();
+        const futureDates = dates.filter(date => {
+            // Filter out dates in the past or falsey values
+            return date && (new Date(date)).getTime() > now;
+            return futureDates;
+        })
     });
     // Limit umjesto slice
     config.addNunjucksFilter("limit", (arr, limit) => arr.slice(0, limit));
