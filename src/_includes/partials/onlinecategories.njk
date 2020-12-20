@@ -1,6 +1,8 @@
 <div class="col-xl-3 col-lg-4 widget-area sidebar-right ttm-col-bgcolor-yes ttm-bg ttm-right-span ttm-bgcolor-grey mt_60 pt-60 mb_60 pb-60 res-991-mt-0 res-991-pt-0">
     <div class="ttm-col-wrapper-bg-layer ttm-bg-layer"></div>
 
+    {% if nav2ID == 'edukacija' %}
+
     <aside class="widget widget-download with-title">
         <h3 class="widget-title">Kupi ovu edukaciju</h3>
         <div class="container">
@@ -23,10 +25,16 @@
             data-item-custom1-name="Podaci o polaznicima (svaki polaznik u svom retku)"
             data-item-custom1-type="textarea"
             data-item-custom1-placeholder="Ime i Prezime, Email"
+            data-item-custom1-required="true"
+            data-item-custom2-name="Razumijem i prihavaća sve odredbe Uvjeta korištenja i Politike zaštite privatnosti"
+            data-item-custom2-type="checkbox"
+            data-item-custom2-required="true"
             style="margin-top:30px;"
             class="snipcart-add-item lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">Kupite ovu edukaciju</button>
         </div>
     </aside>
+
+    {% endif %}
     
     {% if nav2ID != 'edukacija' %}
 
