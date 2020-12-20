@@ -1,0 +1,6 @@
+@media (min-width: 1024px) {
+    .snipcart-item-custom-fields {
+        display: block!important;
+        flex-wrap: wrap;
+    }
+}

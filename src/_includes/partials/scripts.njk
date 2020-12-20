@@ -12,6 +12,39 @@
 <script src="/js/jquery-isotope.js"></script>
 <script src="/js/lazysizes.min.js"></script>
 <script src="/js/main.js"></script>
+
+<script src="/js/bootstrap-input-spinner.js"></script>
+<script>
+    $("input[type='number']").inputSpinner();
+</script>
+<div hidden id="snipcart" data-api-key="ZjhhN2Y3ZTYtNjM5NS00MDlhLWI4ZjYtOTVkMGVhYzM5NzAw">
+    <address-fields section="top">
+        <fieldset class="snipcart-form__set">
+            <div class="snipcart-form__field">
+                <snipcart-label class="snipcart__font--tiny" for="tvrtka">
+                    Tvrtka:
+                </snipcart-label>
+                <snipcart-input name="tvtka">
+                </snipcart-input>
+            </div>
+            <div class="snipcart-form__field">
+                <snipcart-label class="snipcart__font--tiny" for="oib">
+                    OIB:
+                </snipcart-label>
+                <snipcart-input name="oib">
+                </snipcart-input>
+            </div>
+        </fieldset>
+    </address-fields>
+</div>
 <script async src="https://cdn.snipcart.com/themes/v3.0.27/default/snipcart.js"></script>
-<div hidden id="snipcart" data-api-key="ZjhhN2Y3ZTYtNjM5NS00MDlhLWI4ZjYtOTVkMGVhYzM5NzAw"></div>
+<script type="text/javascript">
+    $(function() {
+        var btn = $('#buy-button');
+        $('#qnt').change(function() {
+            btn.attr('data-item-quantity', this.value);
+        })
+    });
+</script>
+
 <!-- Javascript end-->
