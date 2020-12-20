@@ -14,6 +14,10 @@
                 <h6 style="width:100%">Jedinična cijena</h6>
                 <strong style="color: #88402C;font-size:20px;">{{ edukacija.cijena }}</strong>
             </div>
+            <div class="form-check" style="margin-top:30px;">
+                <input type="checkbox" class="form-check-input" name="suglasnost" id="suglanost" onclick="$('#buy-button').attr('disabled', !$(this).is(':checked'));" />
+                <label class="form-check-label" for="suglasnost">Razumijem i prihavaćam sve odredbe <a href="/uvjeti-koristenja/" target="_blank">Uvjeta korištenja</a> i politike <a href="/zastita-privatnosti/" target="_blank">Zaštite privatnosti</a></label>
+            </div>
             <button
             id="buy-button"
             data-item-id="{{edukacija.sifra}}"
@@ -29,7 +33,7 @@
             data-item-custom2-name="Razumijem i prihavaćam sve odredbe Uvjeta korištenja i Politike zaštite privatnosti"
             data-item-custom2-type="checkbox"
             style="margin-top:30px;"
-            class="snipcart-add-item lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">Kupite ovu edukaciju</button>
+            class="snipcart-add-item lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark" disabled>Kupite ovu edukaciju</button>
         </div>
     </aside>
 
