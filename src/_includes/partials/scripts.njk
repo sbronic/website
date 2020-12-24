@@ -41,9 +41,26 @@
 <script type="text/javascript">
     $(function() {
         var btn = $('#buy-button');
-        $('#qnt').change(function() {
-            btn.attr('data-item-quantity', this.value);
-        })
+        var cijenaCart = $('#cijenaCart').text();
+        $('#tipkupca').change(function() {
+            btn.removeAttr('data-item-price-fizicka');
+            btn.removeAttr('data-item-price-neprofitna');
+            sel = $("#tipkupca").find(":selected").val();
+            if (sel == "pravna") {
+            btn.attr('data-item-price', cijenaCart);
+            $("#jed-cijena").html(cijenaCart + " + PDV");
+            }
+            else if (sel == "fizicka") {
+            cijena = Math.round(cijenaCart - (cijenaCart*0.20));
+            btn.attr('data-item-price-fizicka', cijena);
+            $("#jed-cijena").html(cijena + " + PDV (-20%)");
+            }
+            else if (sel == "neprofitna") {
+            cijena = Math.round(cijenaCart - (cijenaCart*0.50));
+            btn.attr('data-item-price-neprofitna', cijena);
+            $("#jed-cijena").html(cijena + " + PDV (-50%)");
+            }
+        });
     });
 </script>
 

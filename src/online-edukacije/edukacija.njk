@@ -90,9 +90,9 @@ eleventyComputed:
                                                 <strong>Datumi održavanja:</strong>
                                                 {% for datum in edukacija.zoomDatumIVrijemePocetka %}
                                                 {% if loop.last %}
-                                                {{ datum | datumSeminara }}
+                                                {{ datum | datumSeminara }} u {{ datum | datumSat }}h
                                                 {% else %}
-                                                {{ datum | datumSeminara }},
+                                                {{ datum | datumSeminara }} u {{ datum | datumSat }}h,
                                                 {% endif %}
                                                 {% endfor %}
                                             {% endif %}

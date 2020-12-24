@@ -4,22 +4,15 @@
     {% if nav2ID == 'edukacija' %}
 
     <aside class="widget widget-download with-title">
-        <h3 class="widget-title">Kupite ovu edukaciju</h3>
+        <h3 class="widget-title">Kupi ovu edukaciju</h3>
         <div class="container">
             <div class="row">
-                <div class="form-group" style="width:100%">
-                    <h6>Kupujete kao</h6>
-                    <select class="form-control" id="tipkupca">
-                    <option value="pravna">Pravna osoba</option>
-                    <option value="fizicka">Fizička osoba</option>
-                    <option value="neprofitna">Neprofitna organizacija</option>
-                    </select>
-                </div>
+                <h6>Količina</h6>
+                <input id="qnt" type="number" value="1" min="1" max="10" step="1"/>
             </div>
-            <div class="row ttm-meta-line ttm-course-price" style="margin-top:30px;">
+            <div class="row ttm-meta-line ttm-course-price" style="margin-top:30px;" id="jed-cijena">
                 <h6 style="width:100%">Jedinična cijena</h6>
-                <strong id="jed-cijena" style="color: #88402C;font-size:20px;">{{ edukacija.cijena }}</strong>
-                <p id="cijenaCart" hidden>{{ edukacija.cijenaCart }}</p>
+                <strong style="color: #88402C;font-size:20px;">{{ edukacija.cijena }}</strong>
             </div>
             <div class="form-check" style="margin-top:30px;">
                 <input type="checkbox" class="form-check-input" name="suglasnost" id="suglanost" onclick="$('#buy-button').attr('disabled', !$(this).is(':checked'));" />
@@ -50,6 +43,12 @@
             data-item-custom2-type="textarea"
             data-item-custom2-placeholder="Ime i Prezime, Email"
             data-item-custom2-required="true"
+            data-item-custom3-name="Popust 20% za fizičke osobe"
+            data-item-custom3-value="Promocijski kod OSOBE"
+            data-item-custom3-type="readonly"
+            data-item-custom4-name="Popust 50% za neprofitne organizacije"
+            data-item-custom4-value="Promocijski kod NEPROFITNE"
+            data-item-custom4-type="readonly"
             style="margin-top:30px;"
             class="snipcart-add-item lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark" disabled>Kupite ovu edukaciju</button>
 
@@ -67,6 +66,12 @@
             data-item-custom1-type="textarea"
             data-item-custom1-placeholder="Ime i Prezime, Email"
             data-item-custom1-required="true"
+            data-item-custom2-name="Popusti"
+            data-item-custom2-value="Za fizičke osobe popust 20% - promocijski kod OSOBE"
+            data-item-custom2-type="readonly"
+            data-item-custom3-name=""
+            data-item-custom3-value="Za neprofitne organizacije popust 50% - promocijski kod NEPROFITNE"
+            data-item-custom3-type="readonly"
             style="margin-top:30px;"
             class="snipcart-add-item lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark" disabled>Kupite ovu edukaciju</button>
 

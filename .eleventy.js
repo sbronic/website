@@ -99,6 +99,13 @@ module.exports = function (config) {
         var year = dobj.getFullYear();
         return year;
     });
+    config.addFilter("datumSat", dateObj => {
+        var dobj = new Date(dateObj);
+        var sat = dobj.getHours();
+        var minutes = (dobj.getMinutes() < 10 ? '0' : '') + dobj.getMinutes();
+        var satiminute = sat + ':' + minutes;
+        return satiminute;
+    });
     // Datum u budućnosti
     config.addFilter("inFuture", function (dates) {
         const now = Date.now();

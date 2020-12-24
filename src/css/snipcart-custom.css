@@ -4,3 +4,6 @@
         flex-wrap: wrap;
     }
 }
+.snipcart-custom-field-wrapper__input > textarea {
+    font-size:12px!important;
+}

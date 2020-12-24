@@ -87,17 +87,17 @@ p {
 }
 
 *::-moz-selection { 
-    background: #2457aa; 
+    background: #35637E!important; 
     color: #fff; 
     text-shadow: none; 
 }
 ::-moz-selection { 
-    background: #2457aa; 
+    background: #35637E!important; 
     color: #fff;
     text-shadow: none; 
 }
 ::selection { 
-    background: #2457aa; 
+    background: #35637E!important; 
     color: #fff; 
     text-shadow: none; 
 }
