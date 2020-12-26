@@ -4,22 +4,20 @@
     {% if nav2ID == 'edukacija' %}
 
     <aside class="widget widget-download with-title">
-        <h3 class="widget-title">Kupite ovu edukaciju</h3>
+        <h3 class="widget-title">Kupi ovu edukaciju</h3>
         <div class="container">
             <div class="row">
-                <div class="form-group" style="width:100%">
-                    <h6>Kupujete kao</h6>
-                    <select class="form-control" id="tipkupca">
-                    <option value="pravna">Pravna osoba</option>
-                    <option value="fizicka">Fizička osoba</option>
-                    <option value="neprofitna">Neprofitna organizacija</option>
-                    </select>
-                </div>
+                <h6>Količina</h6>
+                <input id="qnt" type="number" value="1" min="1" max="10" step="1"/>
             </div>
-            <div class="row ttm-meta-line ttm-course-price" style="margin-top:30px;">
+            <div class="row ttm-meta-line ttm-course-price" style="margin-top:30px;" id="jed-cijena">
                 <h6 style="width:100%">Jedinična cijena</h6>
-                <strong id="jed-cijena" style="color: #88402C;font-size:20px;">{{ edukacija.cijena }}</strong>
-                <p id="cijenaCart" hidden>{{ edukacija.cijenaCart }}</p>
+                <strong style="color: #88402C;font-size:20px;">{{ edukacija.cijena }}</strong>
+            </div>
+            <div class="row ttm-meta-line ttm-course-price" style="margin-top:30px;" id="jed-cijena">
+                <h6 style="width:100%">Popusti</h6>
+                <p style="font-size:14px;">20% fizičke osobe - promo kod <strong>20</strong></p>
+                <p style="font-size:14px;">50% neprofitne organizacije - promo kod <strong>50</strong></p>
             </div>
             <div class="form-check" style="margin-top:30px;">
                 <input type="checkbox" class="form-check-input" name="suglasnost" id="suglanost" onclick="$('#buy-button').attr('disabled', !$(this).is(':checked'));" />
@@ -32,10 +30,12 @@
             id="buy-button"
             data-item-id="{{edukacija.sifra}}"
             data-item-price="{{ edukacija.cijenaCart }}"
+            data-item-quantity="1"
             data-item-url="{{ site.url }}/edukacije/online-edukacije/{{ edukacija.categoryslug }}/{{ edukacija.titleslug }}"
             data-item-description="{{ edukacija.excerpt }}"
             data-item-image="https://media.graphcms.com/resize=fit:clip,width:120/{{ edukacija.photo }}"
             data-item-name="{{ edukacija.title }}"
+            data-item-stackable="never"
             data-item-custom1-name="Odaberite datum edukacije"
             data-item-custom1-options="
                 {% for datum in edukacija.zoomDatumIVrijemePocetka %}
@@ -59,10 +59,12 @@
             id="buy-button"
             data-item-id="{{edukacija.sifra}}"
             data-item-price="{{ edukacija.cijenaCart }}"
+            data-item-quantity="1"
             data-item-url="{{ site.url }}/edukacije/online-edukacije/{{ edukacija.categoryslug }}/{{ edukacija.titleslug }}"
             data-item-description="{{ edukacija.excerpt }}"
             data-item-image="https://media.graphcms.com/resize=fit:clip,width:120/{{ edukacija.photo }}"
             data-item-name="{{ edukacija.title }}"
+            data-item-stackable="never"
             data-item-custom1-name="Podaci o polaznicima (svaki polaznik u svom retku)"
             data-item-custom1-type="textarea"
             data-item-custom1-placeholder="Ime i Prezime, Email"

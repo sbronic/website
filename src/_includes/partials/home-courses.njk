@@ -32,7 +32,7 @@
                                 <h5><a href="/edukacije/online-edukacije/{{ item.categoryslug }}/{{ item.titleslug }}/">{{ item.title }}</a></h5>
                             </div>
                             <div class="post-desc featured-desc">
-                                <p>{{ item.excerpt | truncate(190) }}</p>
+                                <p style="min-height:150px;">{{ item.excerpt | truncate(190) }}</p>
                                 <br/>
                                 <span style="color:#88402C;font-size:14px;font-style:italic;">
                                 {% if item.vrsta == "e_Zbirke"%}e-Zbirka{% endif %}

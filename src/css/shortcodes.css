@@ -241,7 +241,6 @@
 }
 .section-title h2.title{
     font-weight: 700;
-    text-transform: capitalize;
     font-size: 50px;
     line-height: 60px;
     margin-bottom: 0;
@@ -373,7 +372,6 @@
     background: transparent; 
     border: 1px solid #eaeff5;
     position: relative;
-    text-transform: capitalize;
     font-weight: 700;
     overflow: hidden;
     z-index: 1;
@@ -454,7 +452,6 @@
 
 /** btn-inline **/
 .ttm-btn.btn-inline{
-    text-transform: capitalize;
     padding: 0;
     font-weight: 400;
     border: 1px solid transparent;
@@ -1827,7 +1824,6 @@ section{ counter-reset: featured-imagebox-procedure; }
      border: 0;
 }
 .accordion .toggle.ttm-style-classic .toggle-title a {
-    text-transform: capitalize;
     font-size: 18px;
     line-height: 22px;
     font-weight: 400;
@@ -1962,7 +1958,6 @@ section{ counter-reset: featured-imagebox-procedure; }
     font-size: 21px;
     font-weight: 400;
     border-radius: 0;
-    text-transform: capitalize;
     border: 1px solid #f4f6f9;
     background-color: #f4f6f9;
 }

@@ -1843,7 +1843,6 @@ ul.footer-nav-menu li:not(:last-child):after {
 }
 .page-title-heading h2 {
     font-weight: 700;
-    text-transform: capitalize;
     font-size: 50px;
     line-height: 55px;
     margin-bottom: 4px;
@@ -1854,7 +1853,6 @@ ul.footer-nav-menu li:not(:last-child):after {
 }
 .breadcrumb-wrapper span{
     font-weight: 400;
-    text-transform: capitalize;
     font-size: 18px;
     line-height: 30px;
     position: relative;
@@ -1884,7 +1882,7 @@ ul.ttm-coursedetails-box {
 }
 ul.ttm-coursedetails-box li {
     display: inline-block;
-    padding: 20px 15px;
+    padding: 15px 15px;
     font-size: 14px;
     position: relative;
     vertical-align: middle;
@@ -1976,11 +1974,10 @@ ul.ttm-coursedetails-box .lp-button {
 .single-lp_course .course-tabs ul.tabs li a {
     border: none;
     font-weight: 700;
-    padding: 15px 40px;
-    text-transform: capitalize;
+    padding: 15px 30px;
     -webkit-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
-    font-size: 18px;
+    font-size: 16px;
 }
 .single-lp_course .course-tabs ul.tabs li:hover a,
 .single-lp_course .course-tabs ul.tabs li.active a{
@@ -2116,7 +2113,6 @@ ul.ttm-coursedetails-box .lp-button {
     margin: 0 14px 10px 0;
     display: inline-block;
     vertical-align: middle;
-    text-transform: capitalize;
     font-weight: 400;
     position: relative;
 }
@@ -2194,7 +2190,6 @@ ul.ttm-coursedetails-box .lp-button {
     text-align: center;
 }
 #learn-press-profile-nav .ttm-tabs ul.tabs li a{
-    text-transform: capitalize;
     font-weight: 500;
     border-color: #eeeeef;
 }

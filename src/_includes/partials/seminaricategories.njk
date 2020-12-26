@@ -19,21 +19,30 @@
 
     {% if nav2ID === "seminar" %}
     <aside class="widget widget-Categories with-title">
-     <h3 class="widget-title">Dostupni termini</h3>
+     <h3 class="widget-title">Rezervacija</h3>
 
         {% if seminar.datumiseminara | length > 0 %}
 
         <div class="ttm-btn-box pb-20">
             <div class="form-group">
-                <label for="sel1">Odaberite datum</label>
-                <select class="form-control" id="datumi">
-                        <option>---</option>
-                    {% for datum in seminar.datumiseminara %}
-                        <option>{{ datum.dateAndTime | datumDan }}. {{ datum.dateAndTime | datumMjesecDugi }} {{ datum.dateAndTime | datumGodina }}.</option>
-                    {% endfor %}
-                </select>
+                <div class="row">
+                    <div class="form-group" style="width:100%">
+                        <h6>Kupujete kao</h6>
+                        <select class="form-control" id="tipkupca">
+                        <option value="pravna">Pravna osoba</option>
+                        <option value="fizicka">Fizička osoba</option>
+                        <option value="neprofitna">Neprofitna organizacija</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-check" style="margin-top:30px;">
+                    <input type="checkbox" class="form-check-input" name="suglasnost" id="suglanost" onclick="$('#buy-button').attr('disabled', !$(this).is(':checked'));" />
+                    <label class="form-check-label" for="suglasnost">Razumijem i prihavaćam sve odredbe <a href="/uvjeti-koristenja/" target="_blank">Uvjeta korištenja</a> i politike <a href="/zastita-privatnosti/" target="_blank">Zaštite privatnosti</a></label>
+                </div>
                 <div class="lp-course-buttons" style="margin-top:50px;">
-                    <button class="lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark" id="rezervacija" disabled>Rezervirajte odabrani termin</button>
+                    <button
+                    id="buy-button"
+                    class="snipcart-add-item lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark" disabled>Rezervirajte ovaj seminar</button>
                 </div>
             </div>
         </div>
@@ -50,6 +59,8 @@
 
     </aside>
     {% endif %}
+
+    {% if nav2ID != 'seminar' %}
 
     {% if nav2ID == 'datumi' %}
         
@@ -86,6 +97,8 @@
             <li class="{{ 'active' if '/ostalo' in page.url }}"><a href="/edukacije/seminari-i-radionice/ostalo/otvoreni-seminari-i-radionice">Ostalo</a></li>
         </ul>
     </aside>
+
+    {% endif %}
 
     {% endif %}
 
