@@ -17,17 +17,17 @@ metadata:
   <subtitle>{{ metadata.subtitle }}</subtitle>
   <link href="{{ metadata.feedUrl }}" rel="self"/>
   <link href="{{ metadata.url }}"/>
-  <updated>{{ objave.sve[0].date | rfc822 }}</updated>
+  <updated>{{ objave.sve[0].dateUpdated }}</updated>
   <id>{{ metadata.url }}/</id>
   <author>
     <name>{{ metadata.author.name }}</name>
     <email>{{ metadata.author.email }}</email>
   </author>
-  {%- for post in objave.sve.slice(0,10) %}
+  {%- for post in objave.sve.slice(0,20) %}
   <entry>
     <title>{{ post.title }}</title>
     <link href="{{ metadata.url + '/blog/' + post.categoryslug + '/' + post.titleslug }}"/>
-    <updated>{{ post.date | rfc822 }}</updated>
+    <updated>{{ post.dateUpdated }}</updated>
     <id>{{ metadata.url + '/blog/' + post.categoryslug + '/' + post.titleslug }}</id>
     <content type="text/xml;charset=UTF-8">{{ post.bodytext }}</content>
   </entry>

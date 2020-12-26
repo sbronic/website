@@ -20,6 +20,7 @@ async function getObjave() {
                 query: `{
                     objave (orderBy: datumObjave_DESC, stage: PUBLISHED) {
                         id
+                        updatedAt
                         datumObjave
                         naslovObjave
                         autorIPredavac {
@@ -65,6 +66,7 @@ async function getObjave() {
     const formatobjave = sveobjave.map((item) => {
         return {
             id: item.id,
+            dateUpdated: item.updatedAt,
             date: item.datumObjave,
             author: item.autorIPredavac.imeIPrezime,
             title: item.naslovObjave,
