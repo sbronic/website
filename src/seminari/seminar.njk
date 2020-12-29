@@ -31,11 +31,11 @@ eleventyComputed:
                         </span>
                         <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
                         <span>
-                            <a title="Blog" href="/seminari-i-radionice">Seminari i Radionice</a>
+                            <a title="Blog" href="/edukacije/seminari-i-radionice/otvoreni-seminari-i-radionice/">Seminari i Radionice</a>
                         </span>
                         <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
                         <span>
-                            <a title="Kategorija" href="/blog/{{ objava.categoryslug }}">{{ seminar.kategorija }}</a>
+                            <a title="Kategorija" href="/edukacije//seminari-i-radionice/{{ seminar.kategorijaslug }}/otvoreni-seminari-i-radionice/">{{ seminar.kategorija }}</a>
                         </span>
                         <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
                         <span class="current" style="color:#F77F00">{{ seminar.title }}</span>
@@ -69,6 +69,29 @@ eleventyComputed:
                                 <div class="ttm-single-course-box">
                                     <ul class="ttm-coursedetails-box">
                                         <li class="ttm-meta-line ttm-author">
+                                            {% if seminar.datumiseminara | length > 0%}
+                                                <strong>Datumi održavanja:</strong>
+                                                {% for datum in seminar.datumiseminara %}
+                                                {% if loop.last %}
+                                                {{ datum.dateAndTime | datumSeminara }} od {{ datum.odDo }}
+                                                {% else %}
+                                                {{ datum.dateAndTime | datumSeminara }} od {{ datum.odDo }},
+                                                {% endif %}
+                                                {% endfor %}
+                                            {% else %}
+                                                <strong>Datumi održavanja:</strong>
+                                                Trenutno nemamo dostupnih datuma
+                                            {% endif %}
+                                        </li>
+                                        <li class="ttm-meta-line ttm-course-dur"> 
+                                            <strong>Vrsta</strong>
+                                            {% if seminar.trajanje == "1" %}
+                                                Jednodnevni
+                                            {% else %}
+                                                Dvodnevni
+                                            {% endif %}
+                                        </li>
+                                        <li class="ttm-meta-line ttm-author">
 
                                         {% if (seminar.predavaci | length) == 1 %}
                                             <strong>Predavač:</strong>
@@ -84,12 +107,6 @@ eleventyComputed:
                                         {% endif %}
                                         {% endfor %}
 
-                                        </li>
-                                        <li class="ttm-meta-line ttm-course-dur"> 
-                                            <strong>Trajanje</strong>1 dan
-                                        </li>
-                                        <li class="ttm-meta-line ttm-course-price"> 
-                                            <strong>Cijena</strong>{{ seminar.cijena }}
                                         </li>
                                     </ul>
                                 </div>

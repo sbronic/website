@@ -806,7 +806,7 @@
 .featured-icon-box.icon-align-top-content.style2:hover .ttm-icon,
 .featured-icon-box.icon-align-top-content.style3:hover .ttm-icon  {
     transition: all .3s cubic-bezier(.645,.045,.355,1);
-    webkit-transform: translateY(-8px);
+    -webkit-transform: translateY(-8px);
     -ms-transform: translateY(-8px);
     transform: translateY(-8px);
     -webkit-transition: all .3s cubic-bezier(.645,.045,.355,1);
@@ -976,7 +976,7 @@
     font-weight: 700;
 }
 .ttm-box-event-date .entry-month{
-    font-size: 14px;
+    font-size: 16px;
     line-height: 17px;
     display: block;
     font-weight: 400;

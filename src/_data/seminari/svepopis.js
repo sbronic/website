@@ -39,7 +39,8 @@ async function getSeminari() {
                             html
                         }
                         datumiSeminara (where: {dateAndTime_gt: "$today"}) {
-                            dateAndTime 
+                            dateAndTime
+                            odDo
                         }
                         fotografija {
                             handle
@@ -93,6 +94,7 @@ async function getSeminari() {
             excerpt: item.sazetakSeminara,
             sifra: item.sifraProizvoda,
             cijena: item.cijena.toLocaleString() + ' Kn + PDV',
+            cijenaCart: item.cijena,
             trajanje: item.trajanjeDana,
             curriculum: item.curriculum.html,
             datumiseminara: item.datumiSeminara,

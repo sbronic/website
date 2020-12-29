@@ -67,6 +67,28 @@ eleventyComputed:
                             <div class="ttm-course-single-content">
                                 <div class="ttm-single-course-box">
                                     <ul class="ttm-coursedetails-box">
+                                    {% if edukacija.vrsta === "Zoom_meeting" %}
+                                        <li class="ttm-meta-line ttm-author">
+                                            {% if edukacija.zoomDatumIVrijemePocetka | length > 0%}
+                                                <strong>Datumi održavanja:</strong>
+                                                {% for datum in edukacija.zoomDatumIVrijemePocetka %}
+                                                {% if loop.last %}
+                                                {{ datum | datumSeminara }} u {{ datum | datumSat }}h
+                                                {% else %}
+                                                {{ datum | datumSeminara }} u {{ datum | datumSat }}h,
+                                                {% endif %}
+                                                {% endfor %}
+                                            {% else %}
+                                                <strong>Datumi održavanja:</strong>
+                                                Trenutno nemamo dostupnih datuma
+                                            {% endif %}
+                                        </li>
+                                    {% endif %}
+                                    {% if (edukacija.vrsta === "Zoom_meeting") or edukacija.vrsta === "Video_seminari" %}
+                                        <li class="ttm-meta-line ttm-course-dur"> 
+                                            <strong>Trajanje:</strong>{{ edukacija.trajanje }}
+                                        </li>
+                                    {% endif %}
                                         <li class="ttm-meta-line ttm-author">
                                             {% if (edukacija.autori | length) == 1 %}
                                                 <strong>Predavač:</strong>
@@ -81,21 +103,6 @@ eleventyComputed:
                                                 , {{ autor.imeIPrezime }}
                                             {% endif %}
                                             {% endfor %}
-                                        </li>
-                                        <li class="ttm-meta-line ttm-course-dur"> 
-                                            <strong>Trajanje:</strong>{{ edukacija.trajanje }}
-                                        </li>
-                                        <li class="ttm-meta-line ttm-course-dur">
-                                            {% if edukacija.zoomDatumIVrijemePocetka | length %}
-                                                <strong>Datumi održavanja:</strong>
-                                                {% for datum in edukacija.zoomDatumIVrijemePocetka %}
-                                                {% if loop.last %}
-                                                {{ datum | datumSeminara }} u {{ datum | datumSat }}h
-                                                {% else %}
-                                                {{ datum | datumSeminara }} u {{ datum | datumSat }}h,
-                                                {% endif %}
-                                                {% endfor %}
-                                            {% endif %}
                                         </li>
                                     </ul>
                                 </div>

@@ -2360,9 +2360,9 @@ article.ttm-blog-classic .ttm-blog-classic-content {
     display: block;
     text-transform: uppercase;
 }
-.post-meta span {
-/*    font-weight: bold; */
-}
+/* .post-meta span {
+    font-weight: bold; 
+} */
 
 /*------------------------------------------------------------------------------*/
 /*  Single_Blog
@@ -2621,6 +2621,7 @@ section.error-404 .page-content p { font-size: 18px; margin-bottom: 30px; }
   }
 
   .youtube-player img:hover {
+    filter: brightness(75%);
     -webkit-filter: brightness(75%);
   }
 

@@ -1,5 +1,4 @@
 <div class="col-xl-3 col-lg-4 widget-area sidebar-right ttm-col-bgcolor-yes ttm-bg ttm-right-span ttm-bgcolor-grey mt_60 pt-60 mb_60 pb-60 res-991-mt-0 res-991-pt-0">
-    <div class="ttm-col-wrapper-bg-layer ttm-bg-layer"></div>
     
     {% if nav2ID === "popis" %}
     <aside class="widget widget-Categories with-title">
@@ -23,28 +22,52 @@
 
         {% if seminar.datumiseminara | length > 0 %}
 
-        <div class="ttm-btn-box pb-20">
-            <div class="form-group">
-                <div class="row">
-                    <div class="form-group" style="width:100%">
-                        <h6>Kupujete kao</h6>
-                        <select class="form-control" id="tipkupca">
-                        <option value="pravna">Pravna osoba</option>
-                        <option value="fizicka">Fizička osoba</option>
-                        <option value="neprofitna">Neprofitna organizacija</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-check" style="margin-top:30px;">
-                    <input type="checkbox" class="form-check-input" name="suglasnost" id="suglanost" onclick="$('#buy-button').attr('disabled', !$(this).is(':checked'));" />
-                    <label class="form-check-label" for="suglasnost">Razumijem i prihavaćam sve odredbe <a href="/uvjeti-koristenja/" target="_blank">Uvjeta korištenja</a> i politike <a href="/zastita-privatnosti/" target="_blank">Zaštite privatnosti</a></label>
-                </div>
-                <div class="lp-course-buttons" style="margin-top:50px;">
-                    <button
-                    id="buy-button"
-                    class="snipcart-add-item lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark" disabled>Rezervirajte ovaj seminar</button>
-                </div>
+        <div class="container">
+            <div class="row">
+                <h6>Količina</h6>
+                <input id="qnt" type="number" value="1" min="1" max="10" step="1"/>
             </div>
+            <div class="row ttm-meta-line ttm-course-price" style="margin-top:30px;" id="jed-cijena">
+                <h6 style="width:100%">Jedinična cijena</h6>
+                <strong style="color: #88402C;font-size:20px;">{{ seminar.cijena }}</strong>
+            </div>
+            <div class="row ttm-meta-line ttm-course-price" style="margin-top:30px;" id="jed-cijena">
+                <h6 style="width:100%">Popusti</h6>
+                <p style="font-size:14px;">10% za više od dvije prijave iz iste tvrtke</p>
+                <p style="font-size:14px;">20% fizičke osobe - promo kod <strong>20</strong></p>
+                <p style="font-size:14px;">50% neprofitne organizacije - promo kod <strong>50</strong></p>
+            </div>
+            <hr/>
+            <div class="form-check" style="margin-top:30px;">
+                <input type="checkbox" class="form-check-input" name="suglasnost" id="suglanost" onclick="$('#buy-button').attr('disabled', !$(this).is(':checked'));" />
+                <label class="form-check-label" for="suglasnost">Razumijem i prihavaćam sve odredbe <a href="/uvjeti-koristenja/" target="_blank">Uvjeta korištenja</a> i politike <a href="/zastita-privatnosti/" target="_blank">Zaštite privatnosti</a></label>
+            </div>
+            <button
+            id="buy-button"
+            data-item-id="{{seminar.sifra}}"
+            data-item-price="{{ seminar.cijenaCart }}"
+            data-item-quantity="1"
+            data-item-url="{{ site.url }}/edukacije/seminari-i-radionice/{{ seminar.kategorijaslug }}/{{ seminar.titleslug }}"
+            data-item-description="{{ seminar.excerpt }}"
+            data-item-image="https://media.graphcms.com/resize=fit:clip,width:120/{{ seminar.fotografija }}"
+            data-item-name="{{ seminar.title }}"
+            data-item-stackable="never"
+            data-item-custom1-name="Odaberite datum seminara"
+            data-item-custom1-options="
+                {% for datum in seminar.datumiseminara %}
+                {% if loop.last %}
+                {{ datum.dateAndTime | datumSeminara }} ({{ datum.odDo }})
+                {% else %}
+                {{ datum.dateAndTime | datumSeminara }} ({{ datum.odDo }})|
+                {% endif %}
+                {% endfor %}
+            "
+            data-item-custom2-name="Podaci o polaznicima (svaki polaznik u svom retku)"
+            data-item-custom2-type="textarea"
+            data-item-custom2-placeholder="Ime i Prezime, Email"
+            data-item-custom2-required="true"
+            style="margin-top:30px;"
+            class="snipcart-add-item lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark" disabled>Kupite ovu edukaciju</button>
         </div>
 
         {% else %}
@@ -58,6 +81,20 @@
         {% endif %}
 
     </aside>
+
+    <aside class="widget widget-download with-title">
+        <h3 class="widget-title">Podijeli seminar</h3>
+        <div class="container">
+            <div>
+                <a href="#" style="padding: 0 .3em;"><i class="fa fa-2x fa-facebook-square"></i></a>
+                <a href="#" style="padding: 0 .3em;"><i class="fa fa-2x fa-twitter-square"></i></a>
+                <a href="#" style="padding: 0 .3em;"><i class="fa fa-2x fa-linkedin-square"></i></a>
+                <a href="#" style="padding: 0 .3em;"><i class="fa fa-2x fa-pinterest-square"></i></a>
+                <a href="mailto:info@edukacije.hr" style="padding: 0 .5em;" target="_blank"><i class="fa fa-2x fa-envelope-square"></i></a>
+            </div>
+        </div>
+    </aside>
+
     {% endif %}
 
     {% if nav2ID != 'seminar' %}
@@ -99,23 +136,6 @@
     </aside>
 
     {% endif %}
-
-    {% endif %}
-
-    {% if (nav2ID == 'seminar') %}
-
-    <aside class="widget widget-download with-title">
-        <h3 class="widget-title">Podijeli seminar</h3>
-        <div class="container">
-            <div>
-                <a href="#" style="padding: 0 .3em;"><i class="fa fa-2x fa-facebook-square"></i></a>
-                <a href="#" style="padding: 0 .3em;"><i class="fa fa-2x fa-twitter-square"></i></a>
-                <a href="#" style="padding: 0 .3em;"><i class="fa fa-2x fa-linkedin-square"></i></a>
-                <a href="#" style="padding: 0 .3em;"><i class="fa fa-2x fa-pinterest-square"></i></a>
-                <a href="mailto:info@edukacije.hr" style="padding: 0 .5em;" target="_blank"><i class="fa fa-2x fa-envelope-square"></i></a>
-            </div>
-        </div>
-    </aside>
 
     {% endif %}
 

@@ -606,3 +606,7 @@
 .site-branding img{
  max-height: 35px;
 }
+
+@media (max-width:580px){
+	.single-lp_course .course-tabs ul.tabs li {flex: unset;	width: 100%;}
+}
