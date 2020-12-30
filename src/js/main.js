@@ -568,3 +568,35 @@ $(".input-number").keydown(function (e) {
         e.preventDefault();
     }
 });
+
+// SEARCH
+$(function () {
+    const objave = [];
+    fetch('/searchindex-objave.json')
+        .then(blob => blob.json())
+        .then(data => objave.push(...data));
+    
+    function findRezObjave(wordToMatch, objave) {
+        return objave.filter(rezObjave => {
+            const regex = new RegExp(wordToMatch, 'gi');
+            return rezObjave.title.match(regex);
+        });
+    }
+
+    function displayRezObjave() {
+        if (typeof findRezObjave != 'undefined') {
+            const matchArray = findRezObjave(this.value, objave);
+            const html = matchArray.map(rezObjave => {
+                const regex = new RegExp(this.value, 'gi');
+                const posttitle = rezObjave.title.replace(regex, '<span class="hi">' + this.value + '</span>')
+                return '<li><span class="name"><a href="' + rezObjave.url + '">' + posttitle + '</a></span>';
+            }).join('');
+            suggestions.innerHTML = html;
+        }
+    }
+
+    const searchInput = document.querySelector('#search_query_top');
+    const suggestions = document.querySelector('#suggestions');
+
+    searchInput.addEventListener('keyup', displayRezObjave);
+});

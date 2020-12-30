@@ -1,0 +1,13 @@
+---
+permalink: /searchindex-objave.json
+eleventyExcludeFromCollections: true
+---
+
+[
+{% for objava in objave.sve %}
+{
+   "title":"{{ objava.title }}",
+   "url":"/blog/{{ objava.categoryslug }}/{{ objava.titleslug }}/"
+} {%- if loop.last == false -%},{% endif %}
+{% endfor %} 
+]

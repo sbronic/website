@@ -2636,3 +2636,7 @@ section.error-404 .page-content p { font-size: 18px; margin-bottom: 30px; }
     background: url('//i.imgur.com/TxzC70f.png') no-repeat;
     cursor: pointer;
   }
+.hi {
+    width: 100%;
+    background-color: yellow;
+}

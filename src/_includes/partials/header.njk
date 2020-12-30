@@ -69,22 +69,6 @@
                                     <li class="mega-menu-item {{ 'active' if '/seminari-i-radionice' in page.url }}">
                                         <a href="/edukacije/seminari-i-radionice/datumi-odrzavanja" class="mega-menu-link">Seminari</a>
                                     </li>
-                                    <!--<li class="mega-menu-item menuchevron
-                                        {% if
-                                            (navID == 'seminari') or
-                                            (navID == 'e-zbirke') or
-                                            (navID == 'videoteka') or
-                                            (navID == 'paketi') %}
-                                            active
-                                        {% endif %}">
-                                        <a href="#" class="mega-menu-link">Edukacije</a>
-                                        <ul class="mega-submenu">
-                                            <li class="{% if navID == 'seminari' %} active {% endif %}"><a href="/seminari-i-radionice">Seminari i radionice</a></li>
-                                            <li class="{% if navID == 'e-zbirke' %} active {% endif %}"><a href="/e-zbirke">E-Zbirke</a></li>
-                                            <li class="{% if navID == 'videoteka' %} active {% endif %}"><a href="/videoteka">Videoteka</a></li>
-                                            <li class="{% if navID == 'paketi' %} active {% endif %}"><a href="/paketi-proizvoda">Paketi proizvoda</a></li>
-                                        </ul>
-                                    </li>-->
                                     <li class="mega-menu-item {{ 'active' if '/online-edukacije' in page.url }}">
                                         <a href="/edukacije/online-edukacije" class="mega-menu-link">On-Line Edukacije</a>
                                     </li>
@@ -104,9 +88,10 @@
                                     <a href="#" class="btn-default search_btn"><i class="ti ti-search"></i></a>
                                     <div class="header_search_content">
                                         <form id="searchbox" method="get" action="#">
-                                            <input class="search_query" type="text" id="search_query_top" name="s" placeholder="Enter Keyword" value="">
+                                            <input class="search_query" type="text" id="search_query_top" name="s" placeholder="Unesite riječ za pretraživanje" value="">
                                             <button type="submit" class="btn close-search"><i class="fa fa-search"></i></button>
                                         </form>
+                                        <ul id="suggestions"></ul>
                                     </div>
                                 </div>
                                 <div class="header_cart">

@@ -115,6 +115,13 @@ module.exports = function (config) {
             return futureDates;
         })
     });
+    // JSON-LD escape special characters
+    config.addFilter("jsonldesc", obj => {
+        const json = JSON.stringify(obj);
+        const jsonesc = JSON.stringify(json);
+        const escstring = JSON.parse(jsonesc);
+        return escstring;
+    });
     // Limit umjesto slice
     config.addNunjucksFilter("limit", (arr, limit) => arr.slice(0, limit));
 
