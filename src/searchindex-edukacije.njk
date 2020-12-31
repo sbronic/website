@@ -1,0 +1,13 @@
+---
+permalink: /searchindex-edukacije.json
+eleventyExcludeFromCollections: true
+---
+
+[
+{% for edukacija in online.sve %}
+{
+   "title":"{{ edukacija.title }}",
+   "url":"/edukacije/online-edukacije/{{ edukacija.categoryslug }}/{{ edukacija.titleslug }}/"
+} {%- if loop.last == false -%},{% endif %}
+{% endfor %} 
+]

@@ -2640,3 +2640,9 @@ section.error-404 .page-content p { font-size: 18px; margin-bottom: 30px; }
     width: 100%;
     background-color: yellow;
 }
+.searchsection {
+    width: 100%;
+    background-color: #88402C;
+    color:white;
+    padding: 5px 15px;
+}

@@ -571,32 +571,95 @@ $(".input-number").keydown(function (e) {
 
 // SEARCH
 $(function () {
+    // fetch JSON data
     const objave = [];
     fetch('/searchindex-objave.json')
         .then(blob => blob.json())
         .then(data => objave.push(...data));
+    const edukacije = [];
+    fetch('/searchindex-edukacije.json')
+        .then(blob => blob.json())
+        .then(data => edukacije.push(...data));
+    const seminari = [];
+    fetch('/searchindex-seminari.json')
+        .then(blob => blob.json())
+        .then(data => seminari.push(...data));
     
+    //search functions
     function findRezObjave(wordToMatch, objave) {
         return objave.filter(rezObjave => {
             const regex = new RegExp(wordToMatch, 'gi');
             return rezObjave.title.match(regex);
         });
     }
+    function findRezEdukacije(wordToMatch, edukacije) {
+        return edukacije.filter(rezEdukacije => {
+            const regex = new RegExp(wordToMatch, 'gi');
+            return rezEdukacije.title.match(regex);
+        });
+    }
+    function findRezSeminari(wordToMatch, seminari) {
+        return seminari.filter(rezSeminari => {
+            const regex = new RegExp(wordToMatch, 'gi');
+            return rezSeminari.title.match(regex);
+        });
+    }
 
-    function displayRezObjave() {
-        if (typeof findRezObjave != 'undefined') {
-            const matchArray = findRezObjave(this.value, objave);
-            const html = matchArray.map(rezObjave => {
+    // display search results
+    function displayRez() {
+        //objave
+        const matchObjave = findRezObjave(this.value, objave);
+        if ((matchObjave.length > 0) && (searchInput.value.length > 2)) {
+            document.getElementById('objavebanner').style.display = "block";
+            const htmlobjave = matchObjave.map(rezObjave => {
                 const regex = new RegExp(this.value, 'gi');
                 const posttitle = rezObjave.title.replace(regex, '<span class="hi">' + this.value + '</span>')
                 return '<li><span class="name"><a href="' + rezObjave.url + '">' + posttitle + '</a></span>';
             }).join('');
-            suggestions.innerHTML = html;
+            suggobjave.innerHTML = htmlobjave;
+        }
+        else {
+            document.getElementById('objavebanner').style.display = "none";
+            suggobjave.innerHTML = '';
+        }
+
+        // seminari
+        const matchSeminari = findRezSeminari(this.value, seminari);
+        if ((matchSeminari.length > 0) && (searchInput.value.length > 2)) {
+            document.getElementById('seminaribanner').style.display = "block";
+            const htmlseminari = matchSeminari.map(rezSeminari => {
+                const regex = new RegExp(this.value, 'gi');
+                const seminarititle = rezSeminari.title.replace(regex, '<span class="hi">' + this.value + '</span>')
+                return '<li><span class="name"><a href="' + rezSeminari.url + '">' + seminarititle + '</a></span>';
+            }).join('');
+            suggseminari.innerHTML = htmlseminari;
+        }
+        else {
+            document.getElementById('seminaribanner').style.display = "none";
+            suggseminari.innerHTML = '';
+        }
+        
+        // online edukacije
+        const matchEdukacije = findRezEdukacije(this.value, edukacije);
+        if ((matchEdukacije.length > 0) && (searchInput.value.length > 2)) {
+            document.getElementById('edukacijebanner').style.display = "block";
+            const htmledukacije = matchEdukacije.map(rezEdukacije => {
+                const regex = new RegExp(this.value, 'gi');
+                const edukacijetitle = rezEdukacije.title.replace(regex, '<span class="hi">' + this.value + '</span>')
+                return '<li><span class="name"><a href="' + rezEdukacije.url + '">' + edukacijetitle + '</a></span>';
+            }).join('');
+            suggedukacije.innerHTML = htmledukacije;
+        }
+        else {
+            document.getElementById('edukacijebanner').style.display = "none";
+            suggedukacije.innerHTML = '';
         }
     }
 
     const searchInput = document.querySelector('#search_query_top');
-    const suggestions = document.querySelector('#suggestions');
+    const suggobjave = document.querySelector('#suggObjave');
+    const suggedukacije = document.querySelector('#suggEdukacije');
+    const suggseminari = document.querySelector('#suggSeminari');
 
-    searchInput.addEventListener('keyup', displayRezObjave);
+    searchInput.addEventListener('keyup', displayRez);
 });
