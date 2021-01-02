@@ -537,6 +537,14 @@ $("#ttm-contactform").validate({
         }
     }
 });
+$("#ttm-inhouseform").validate({
+    rules: {
+        Email: {
+            required: true,
+            email: true
+        }
+    }
+});
 $.extend($.validator.messages, {
     required: "Obavezno polje",
     email: "Neispravna email adresa"

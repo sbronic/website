@@ -2649,3 +2649,8 @@ section.error-404 .page-content p { font-size: 18px; margin-bottom: 30px; }
 .honeypot {
 	display:hidden;
 }
+label.error {
+    color:red;
+    font-size: 12px;
+    font-style: italic;
+}

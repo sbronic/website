@@ -5,6 +5,9 @@ layout: layouts/page.njk
 permalink: "/edukacije/in-house/index.html"
 banner: in-house.jpg
 navID: in-house
+eleventyComputed:
+    page_title: "In-house edukacije"
+    page_description: "In-house edukacije"
 ---
 
 <div class="ttm-page-title-row" style="background: url(/images/{{ banner }})!important">
@@ -148,13 +151,16 @@ navID: in-house
                 <div class="section-title clearfix">
                     <h3 class="title">Dogovorite termin prezentacije</h3>
                 </div>
-                <form id="ttm-contactform" class="ttm-contactform wrap-form clearfix" method="post" action="#">
+                <form id="ttm-inhouseform" name="inhouseForm" class="ttm-contactform wrap-form clearfix" method="post" action="/hvala" netlify-honeypot="bot-fld" netlify>
                     <div class="row">
+                        <div class="form-group honeypot">
+                            <input name="bot-fld" type="hidden" id="shoney">
+                        </div>
                         <div class="col-md-6">
                             <label>
                                 <span class="text-input with-icon-pos_left"> 
                                     <i class="fa fa-user"></i>
-                                    <input name="name" type="text" value="" placeholder="Ime i Prezime" required="required">
+                                    <input name="Ime" type="text" value="" placeholder="Ime i prezime*" required="required">
                                 </span>
                             </label>
                         </div>
@@ -162,7 +168,7 @@ navID: in-house
                             <label>
                                 <span class="text-input with-icon-pos_left">
                                     <i class="fa fa-user"></i>
-                                    <input name="name" type="text" value="" placeholder="Email Adresa" required="required">
+                                    <input name="Email" type="text" value="" placeholder="Email adresa*" required="required">
                                 </span>
                             </label>
                         </div>
@@ -171,16 +177,16 @@ navID: in-house
                         <div class="col-md-6">
                             <label>
                                 <span class="text-input with-icon-pos_left">
-                                    <i class="fa fa-question"></i>
-                                    <input name="phone" type="text" value="" placeholder="Telefon" required="required">
+                                    <i class="fa fa-phone"></i>
+                                    <input name="Telefon" type="text" value="" placeholder="Telefon">
                                 </span>
                             </label>
                         </div>
                         <div class="col-md-6">
                             <label>
                                 <span class="text-input with-icon-pos_left">
-                                    <i class="fa fa-phone"></i>
-                                    <input name="phone" type="text" value="" placeholder="Tvrtka" required="required">
+                                    <i class="fa fa-building"></i>
+                                    <input name="Organizacija" type="text" value="" placeholder="Organizacija*" required="required">
                                 </span>
                             </label>
                         </div>
@@ -188,10 +194,10 @@ navID: in-house
                     <label>
                         <span class="text-input with-icon-pos_left">
                             <i class="fa fa-comments-o"></i>
-                            <textarea name="message" rows="3" placeholder="Poruka" required="required"></textarea>
+                            <textarea name="Poruka" rows="3" placeholder="Poruka*" required="required"></textarea>
                         </span>
                     </label>
-                    <button class="w-100 submit ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-dark" type="submit">Send Message</button>
+                    <button class="w-100 submit ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-dark" type="submit">Pošalji poruku</button>
                 </form>
             </div>
         </div><!-- row end -->
