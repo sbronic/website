@@ -10,7 +10,7 @@
                 {% for item in pagination.items %}
 
                 <div class="featured-imagebox featured-imagebox-post style1">
-                    <div class="featured-content featured-content-post" style="padding: 20px 30px 20px 30px;!important">
+                    <div class="featured-content featured-content-post" style="padding: 20px;!important">
                         <div class="row">
                             <div class="col-sm-2" style="max-width: 10.666667%;!important">
                                 <div class="icon-box">
@@ -23,7 +23,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-8">
+                            <div class="col-sm-7">
                                 <div class="post-meta" style="border-bottom: solid 1px;">
                                     <span class="ttm-meta-line"><i class="fa fa-clock-o"></i>{{ item.vrijeme }}</span>
                                     <span class="ttm-meta-line"><i class="fa fa-map-marker"></i>{{ item.lokacijanaziv }}, {% if item.dvorana %}Dvorana {{ item.dvorana }},{% endif %} {{ item.lokacijaadresa }}, {{ item.lokacijagrad }}</span>
@@ -32,12 +32,10 @@
                                     <h6><a href="/edukacije/seminari-i-radionice/{{ item.kategorijaslug }}/{{ item.seminarnazivslug }}">{{ item.seminarnaziv }}</a></h6>
                                 </div>
                             </div>
-                            <div class="col-sm-2">
-                                <div class="ttm-btn-box" style="position: absolute;left:55px;width:100%">
-                                    <h6>{{ item.seminarcijena }}</h6>
-                                </div>
-                                <div class="ttm-btn-box" style="position: absolute;top: 50%;left:70px;">
-                                    <a class="ttm-btn ttm-btn-size-xs ttm-btn-shape-square ttm-btn-style-fill ttm-icon-btn-right ttm-btn-color-dark" href="/edukacije/seminari-i-radionice/{{ item.kategorijaslug }}/{{ item.seminarnazivslug }}" title="">REZERVIRAJ </a>
+                            <div class="col-sm-3">
+                                <div class="ttm-btn-box" style="right:0px;width:100%">
+                                    <h6 style="text-decoration: line-through;color:grey;font-weight:400;">{{ item.seminarcijena }}</h6>
+                                    <h5 style="color:#88402C">{{ item.seminarcijena }}</h5>
                                 </div>
                             </div>
                         </div>
