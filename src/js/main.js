@@ -29,7 +29,6 @@
 
    'use strict'
 
-
 /*------------------------------------------------------------------------------*/
 /* Preloader
 /*------------------------------------------------------------------------------*/
@@ -40,7 +39,6 @@
             // will fade out the whole DIV that covers the website.
          $("#status").fadeOut(9000);
     })
-
 
 /*------------------------------------------------------------------------------*/
 /* header_search
@@ -72,7 +70,6 @@
 
     });
 
-    
 /*------------------------------------------------------------------------------*/
 /* Datetimepicker
 /*------------------------------------------------------------------------------*/
@@ -85,8 +82,6 @@
             $("i", this).toggleClass("ti-menu ti-close");
         });
     });
-
-   
 
 /*------------------------------------------------------------------------------*/
 /* Fixed-header
@@ -105,8 +100,6 @@
             }
         }
     });
-
-
 
 /*------------------------------------------------------------------------------*/
 /* Menu
@@ -168,85 +161,6 @@
 
     });
 
- 
-
-/*------------------------------------------------------------------------------*/
-/* Animation on scroll: Number rotator
-/*------------------------------------------------------------------------------*/
-    
-    $("[data-appear-animation]").each(function() {
-    var self      = $(this);
-    var animation = self.data("appear-animation");
-    var delay     = (self.data("appear-animation-delay") ? self.data("appear-animation-delay") : 0);
-        
-        if( $(window).width() > 959 ) {
-            self.html('0');
-            self.waypoint(function(direction) {
-                if( !self.hasClass('completed') ){
-                    var from     = self.data('from');
-                    var to       = self.data('to');
-                    var interval = self.data('interval');
-                    self.numinate({
-                        format: '%counter%',
-                        from: from,
-                        to: to,
-                        runningInterval: 2000,
-                        stepUnit: interval,
-                        onComplete: function(elem) {
-                            self.addClass('completed');
-                        }
-                    });
-                }
-            }, { offset:'85%' });
-        } else {
-            if( animation == 'animateWidth' ) {
-                self.css('width', self.data("width"));
-            }
-        }
-    });
-
-
-   
-/*------------------------------------------------------------------------------*/
-/* Skillbar
-/*------------------------------------------------------------------------------*/
-    
-    $('.ttm-progress-bar').each(function() {
-        $(this).find('.progress-bar').width(0);
-    });
-
-    $('.ttm-progress-bar').each(function() {
-
-        $(this).find('.progress-bar').animate({
-            width: $(this).attr('data-percent')
-        }, 2000);
-    });
-
-
-    // Part of the code responsible for loading percentages:
-
-    $('.progress-bar-percent[data-percentage]').each(function () {
-
-        var progress = $(this);
-        var percentage = Math.ceil($(this).attr('data-percentage'));
-
-            $({countNum: 0}).animate({countNum: percentage}, {
-                duration: 2000,
-                easing:'linear',
-                step: function() {
-                // What todo on every count
-                    var pct = '';
-                    if(percentage == 0){
-                        pct = Math.floor(this.countNum) + '%';
-                    }else{
-                        pct = Math.floor(this.countNum+1) + '%';
-                    }
-                    progress.text(pct);
-                }
-            });
-    });
-
-
 /*------------------------------------------------------------------------------*/
 /* Tab
 /*------------------------------------------------------------------------------*/ 
@@ -263,31 +177,6 @@
         e.preventDefault();
     });
 });
-
-
-
-/*------------------------------------------------------------------------------*/
-/* Accordion
-/*------------------------------------------------------------------------------*/
-
-/*https://www.antimath.info/jquery/quick-and-simple-jquery-accordion/*/
-$(".accordion").each(function(){
-
-    var allPanels = $('.toggle').children(".toggle-content").hide();
-    $('.toggle').children(".toggle-content").eq(2).slideDown("easeOutExpo");
-    $('.toggle').children(".toggle-title").children("a").eq(2).addClass("active");
-
-    $('.toggle').children(".toggle-title").children("a").on('click',function(){        
-        var current = $(this).parent().next(".toggle-content");
-        $(".toggle-title > a").removeClass("active");
-        $(this).addClass("active");
-        allPanels.not(current).slideUp("easeInExpo");
-        $(this).parent().next().slideDown("easeOutExpo");                
-        return false;                
-    });
-
-});
-
 
 /*------------------------------------------------------------------------------*/
 /* Isotope
@@ -315,32 +204,6 @@ $(".accordion").each(function(){
         };
 
    });
-
-
-    
-/*------------------------------------------------------------------------------*/
-/* Prettyphoto
-/*------------------------------------------------------------------------------*/
-$(function () {
-
-     // Normal link
-    jQuery('a[href*=".jpg"], a[href*=".jpeg"], a[href*=".png"], a[href*=".gif"]').each(function(){
-        if( jQuery(this).attr('target')!='_blank' && !jQuery(this).hasClass('prettyphoto') && !jQuery(this).hasClass('modula-lightbox') ){
-            var attr = $(this).attr('data-gal');
-            if (typeof attr !== typeof undefined && attr !== false && attr!='prettyPhoto' ) {
-                jQuery(this).attr('data-rel','prettyPhoto');
-            }
-        }
-    });     
-
-    jQuery('a[data-gal^="prettyPhoto"]').prettyPhoto();
-    jQuery('a.ttm_prettyphoto').prettyPhoto();
-    jQuery('a[data-gal^="prettyPhoto"]').prettyPhoto();
-    jQuery("a[data-gal^='prettyPhoto']").prettyPhoto({hook: 'data-gal'})
-
-});
-    
-
 
 /*------------------------------------------------------------------------------*/
 /* Slick_slider
@@ -386,8 +249,6 @@ $(function () {
         }]
     });
 
-
-
 /*------------------------------------------------------------------------------*/
 /* Back to top
 /*------------------------------------------------------------------------------*/
@@ -412,7 +273,6 @@ jQuery('#totop').on('click',function() {      // When arrow is clicked
     }, 500);
     return false;
 });
-
 
 /*------------------------------------------------------------------------------*/
 /* Hide cart count if 0
@@ -452,11 +312,9 @@ $("#datumi").on('change', function () {
         $("#rezervacija").attr('disabled', false)
 });
 
-/*
-* Light YouTube Embeds by @labnol
-* Credit: https://www.labnol.org/
-*/
-
+/*------------------------------------------------------------------------------*/
+/* Light YouTube Embeds by @labnol. Credit: https://www.labnol.org/
+/*------------------------------------------------------------------------------*/
 function labnolIframe(div) {
     var iframe = document.createElement('iframe');
     iframe.setAttribute(
@@ -496,7 +354,9 @@ function initYouTubeVideos() {
 
 document.addEventListener('DOMContentLoaded', initYouTubeVideos);
 
-//plugin bootstrap minus and plus
+/*------------------------------------------------------------------------------*/
+/* plugin bootstrap minus and plus
+/*------------------------------------------------------------------------------*/
 $('.btn-number').click(function (e) {
     e.preventDefault();
 
@@ -569,7 +429,9 @@ $(".input-number").keydown(function (e) {
     }
 });
 
-// SEARCH
+/*------------------------------------------------------------------------------*/
+/* Search funkcija
+/*------------------------------------------------------------------------------*/
 $(function () {
     // fetch JSON data
     const objave = [];
@@ -662,4 +524,20 @@ $(function () {
     const suggseminari = document.querySelector('#suggSeminari');
 
     searchInput.addEventListener('keyup', displayRez);
+});
+
+/*------------------------------------------------------------------------------*/
+/* Valid email in form
+/*------------------------------------------------------------------------------*/
+$("#ttm-contactform").validate({
+    rules: {
+        email: {
+            required: true,
+            email: true
+        }
+    }
+});
+$.extend($.validator.messages, {
+    required: "Obavezno polje",
+    email: "Neispravna email adresa"
 });
