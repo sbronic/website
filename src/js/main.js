@@ -531,7 +531,7 @@ $(function () {
 /*------------------------------------------------------------------------------*/
 $("#ttm-contactform").validate({
     rules: {
-        email: {
+        Email: {
             required: true,
             email: true
         }
