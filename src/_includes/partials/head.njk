@@ -95,15 +95,15 @@
       "name":"Gastro Mreža",
       "logo":{
          "@type":"ImageObject",
-         "url":"https:edukacije.hr/images/logo-img.png"
+         "url":"{{ site.url }}/images/logo-img.png"
       }
    },
-   "url":"https://edukacije.hr/blog/{{ objava.categoryslug }}/{{ objava.titleslug }}",
+   "url":"{{ site.url }}{{ page.url }}",
    "mainEntityOfPage":{
       "@type":"WebPage",
-      "@id":"https://edukacije.hr/blog/{{ objava.categoryslug }}/{{ objava.titleslug }}/"
+      "@id":"{{ site.url }}{{ page.url }}"
    },
-   "datePublished":"{{ objava.date }}",
+   "datePublished":"{% og_updated_time %}",
    "description":"{{ page_description | jsonldesc }}",
    "articleBody":"{{ objava.bodytext }}"
 }
@@ -116,11 +116,11 @@
 <meta name="twitter:description" content="{{ objava.excerpt }}">
 <meta name="twitter:image" content="https://media.graphcms.com/resize=fit:crop,width:1200,height:675/{{ objava.photo }}">
 <!--Schema-->
-<link rel="author" href="https://edukacije.hr">
-<link rel="publisher" href="https://gastromreza.hr">
-<meta itemprop="name" content="edukacijE.hr za bolje poslovanje i bolji život svih nas">
-<meta itemprop="description" content="Svi trebamo sve više znanja i iskustva, kako bi bili bolji, konkurentniji i uspješniji. Što bolje radimo, svima će nam biti bolje.">
-<meta itemprop="image" content="https://www.edukacije.hr/images/og-image.jpg">
+<link rel="author" href="{{ objava.author }}">
+<link rel="publisher" href="Gastro Mreža">
+<meta itemprop="name" content="{{ objava.title }}">
+<meta itemprop="description" content="{{ objava.excerpt }}">
+<meta itemprop="image" content="https://media.graphcms.com/resize=fit:crop,width:1200,height:675/{{ objava.photo }}">
 <!--Facebook OpenGraph-->
 <meta property="og:locale" content="hr_HR">
 <meta property="og:type" content="website">
