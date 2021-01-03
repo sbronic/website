@@ -53,6 +53,7 @@ async function getOnlineEdukacije() {
                         promoVideo
                         outroVideo
                         zoomDatumIVrijemePocetka
+                        updatedAt
                     }
                 }`
             })
@@ -90,6 +91,7 @@ async function getOnlineEdukacije() {
             id: item.id,
             cijena: item.cijena.toLocaleString() + ' Kn + PDV',
             cijenaCart: item.cijena,
+            cijenaPDV: (item.cijena * 1.25).toFixed(2),
             autori: item.autoriIPredavaci,
             title: item.naziv,
             titleslug: slugify(item.naziv, { lower: true, strict: true }),
@@ -106,7 +108,8 @@ async function getOnlineEdukacije() {
             popularan: item.popularan,
             promoVideo: item.promoVideo,
             outroVideo: item.outroVideo,
-            zoomDatumIVrijemePocetka: futureDates
+            zoomDatumIVrijemePocetka: futureDates,
+            updated: item.updatedAt
         };
     }).filter(Boolean);
 

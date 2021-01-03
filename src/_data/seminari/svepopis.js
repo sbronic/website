@@ -35,6 +35,7 @@ async function getSeminari() {
                         sifraProizvoda
                         cijena
                         trajanjeDana
+                        updatedAt
                         curriculum {
                             html
                         }
@@ -95,11 +96,13 @@ async function getSeminari() {
             sifra: item.sifraProizvoda,
             cijena: item.cijena.toLocaleString() + ' Kn + PDV',
             cijenaCart: item.cijena,
+            cijenaPDV: (item.cijena * 1.25).toFixed(2),
             trajanje: item.trajanjeDana,
             curriculum: item.curriculum.html,
             datumiseminara: item.datumiSeminara,
             fotografija: item.fotografija.handle,            
-            predavaci: item.autoriIPredavaci
+            predavaci: item.autoriIPredavaci,
+            updated: item.updatedAt
             
         };
     }).filter(Boolean);
