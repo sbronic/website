@@ -59,7 +59,7 @@ eleventyComputed:
                             <!-- course-featured-wrapper -->
                             <div class="course-featured-wrapper mb-20">
                                 <div class="course-featured">
-                                    <img class="img-fluid" src="https://media.graphcms.com/resize=fit:clip,width:832,height:468/{{ seminar.fotografija }}" alt="">
+                                    <img class="img-fluid" src="https://media.graphcms.com/resize=fit:clip,width:832,height:468/{{ seminar.fotografija }}" alt="{{ seminar.title }}">
                                 </div>
                             </div>
 
@@ -92,7 +92,6 @@ eleventyComputed:
                                             {% endif %}
                                         </li>
                                         <li class="ttm-meta-line ttm-author">
-
                                         {% if (seminar.predavaci | length) == 1 %}
                                             <strong>Predavač:</strong>
                                         {% else %}
@@ -106,7 +105,9 @@ eleventyComputed:
                                             , {{ predavac.imeIPrezime }}
                                         {% endif %}
                                         {% endfor %}
-
+                                        </li>
+                                        <li class="ttm-meta-line ttm-course-dur"> 
+                                            <strong>Šifra:</strong>{{ seminar.sifra }}
                                         </li>
                                     </ul>
                                 </div>

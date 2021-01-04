@@ -58,7 +58,7 @@ eleventyComputed:
                             <!-- course-featured-wrapper -->
                             <div class="course-featured-wrapper mb-20">
                                 <div class="course-featured">
-                                    <img class="img-fluid" src="https://media.graphcms.com/resize=fit:clip,width:832,height:468/{{ edukacija.photo }}" alt="">
+                                    <img class="img-fluid" src="https://media.graphcms.com/resize=fit:clip,width:832,height:468/{{ edukacija.photo }}" alt="{{ edukacija.title }}">
                                 </div>
                             </div>
 
@@ -84,11 +84,6 @@ eleventyComputed:
                                             {% endif %}
                                         </li>
                                     {% endif %}
-                                    {% if (edukacija.vrsta === "Zoom_meeting") or edukacija.vrsta === "Video_seminari" %}
-                                        <li class="ttm-meta-line ttm-course-dur"> 
-                                            <strong>Trajanje:</strong>{{ edukacija.trajanje }}
-                                        </li>
-                                    {% endif %}
                                         <li class="ttm-meta-line ttm-author">
                                             {% if (edukacija.autori | length) == 1 %}
                                                 <strong>Predavač:</strong>
@@ -103,6 +98,14 @@ eleventyComputed:
                                                 , {{ autor.imeIPrezime }}
                                             {% endif %}
                                             {% endfor %}
+                                        </li>
+                                    {% if (edukacija.vrsta === "Zoom_meeting") or edukacija.vrsta === "Video_seminari" %}
+                                        <li class="ttm-meta-line ttm-course-dur"> 
+                                            <strong>Trajanje:</strong>{{ edukacija.trajanje }}
+                                        </li>
+                                    {% endif %}
+                                        <li class="ttm-meta-line ttm-course-dur"> 
+                                            <strong>Šifra:</strong>{{ edukacija.sifra }}
                                         </li>
                                     </ul>
                                 </div>

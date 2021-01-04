@@ -15,11 +15,11 @@
                         <!-- featured-imagebox-post -->
                         <div class="featured-imagebox featured-imagebox-event featured-imagebox-course style1" >
                             <div class="ttm-post-thumbnail featured-thumbnail"> 
-                                <img class="img-fluid lazyload" style="width:410px;height:230px;" alt="image" src="https://media.graphcms.com/resize=fit:clip,width:410,height:230/output=format:webp/{{ item.fotografija }}">
+                                <img class="img-fluid lazyload" style="width:410px;height:230px;" alt="{{ item.title }}" src="https://media.graphcms.com/resize=fit:clip,width:410,height:230/output=format:webp/{{ item.fotografija }}">
                             </div>
                             <div class="featured-content-post">
                                 <div class="post-title" style="min-height:60px!important;margin-top:30px;padding:0 20px;">
-                                    <h5><a href="/edukacije/seminari-i-radionice/{{ item.kategorijaslug }}/{{ item.titleslug }}/">{{ item.title }}</a></h5>
+                                    <h5><a href="/edukacije/seminari-i-radionice/{{ item.kategorijaslug }}/{{ item.titleslug }}/">{{ item.title }} ({{item.sifra}})</a></h5>
                                 </div>
                                 <div class="post-desc featured-desc" style="padding:0 20px;">
                                     <p style="min-height:130px!important;margin-top:0;margin-bottom:20px;padding-top:0">{{ item.excerpt | truncate(250) }}</p>
@@ -35,6 +35,7 @@
                                             {% endif %}
                                             {% endfor %}
                                         </span>
+                                        <span class="ttm-comments ttm-meta-line" title="Šifra proizvoda"><i class="fa fa-barcode" aria-hidden="true"></i>{{ item.sifra }}</span>
                                     </div>  
                                     <span class="ttm-lp-price"><ins>{{ item.cijena }}</ins></span>                            
                                 </div>
