@@ -1,5 +1,5 @@
 /*
-Content-Security-Policy: default-src ‘self’ ‘unsafe-inline’ ‘unsafe-eval’ https:edukacije.hr data:
+Content-Security-Policy: default-src ‘self’ ‘unsafe-inline’ ‘unsafe-eval’ 'https:edukacije.hr' data:
 X-Frame-Options: *ALLOW-FROM https://edukacije.hr*
 X-XSS-Protection: 1; mode=block
 Referrer-Policy: strict-origin-when-cross-origin
@@ -10,6 +10,9 @@ Strict-Transport-Security: max-age=604800; includeSubDomains; preload
 Feature-Policy: accelerometer ‘none’; camera ‘none’; geolocation ‘none’; gyroscope ‘none’; magnetometer ‘none’; microphone ‘none’; payment ‘none’; usb ‘none’
 
 /images/*
+Cache-Control: public, max-age=604800, immutable
+
+/fonts/*
 Cache-Control: public, max-age=604800, immutable
 
 /*.pdf
@@ -25,6 +28,9 @@ Cache-Control: public, max-age=604800, immutable
 Cache-Control: public, max-age=604800, immutable
 
 /*.jpeg
+Cache-Control: public, max-age=604800, immutable
+
+/*.webp
 Cache-Control: public, max-age=604800, immutable
 
 /*.png
