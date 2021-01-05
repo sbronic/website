@@ -127,95 +127,13 @@
 /* ===============================================
     4.Row-Bg-Image  
 ------------------------*/
-.bg-img1{
-    background-image: url(https://via.placeholder.com/1920x727.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-.bg-img2{
-    background-image: url(https://via.placeholder.com/1920x658.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center
-}
-.bg-img3{
-    background-image: url(https://via.placeholder.com/1920x676.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom;
-}
-.bg-img4{
-    background-image: url(https://via.placeholder.com/1920x543.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-.bg-img5{
-    background-image: url(https://via.placeholder.com/1920x568.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-.bg-img6{
-    background-image: url(https://via.placeholder.com/1920x690.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-}
-.bg-img7{
-    background-image: url(https://via.placeholder.com/1920x570.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: left;
-    background-attachment: fixed;
-}
-.bg-img8{
-    background-image: url(https://via.placeholder.com/1920x663.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: left;
-}
-.bg-map{
-    background-image: url(../images/map-bg.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-}
+
 
 
 /* ===============================================
     5.Col-Bg-Image  
 ------------------------*/
-.ttm-equal-height-image{ display: none; }
-.col-bg-img-one.ttm-col-bgimage-yes .ttm-col-wrapper-bg-layer{
-    background-image: url(https://via.placeholder.com/469x673/848484/FFFFFF?text=469x673+col_bg-01.jpg);
-    background-position: left center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.col-bg-img-two.ttm-col-bgimage-yes .ttm-col-wrapper-bg-layer {
-    background-image: url(https://via.placeholder.com/585x415?text=585x415+col_bg-02.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.col-bg-img-three.ttm-col-bgimage-yes .ttm-col-wrapper-bg-layer{
-    background-image: url(https://via.placeholder.com/1200x800?text=1200x800+col_bg-03.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.col-bg-img-four.ttm-col-bgimage-yes .ttm-col-wrapper-bg-layer{
-    background-image: url(https://via.placeholder.com/1200x800?text=1200x800+col_bg-04.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.col-bg-img-five.ttm-col-bgimage-yes .ttm-col-wrapper-bg-layer{
-    background-image: url(https://via.placeholder.com/525x747?text=525x747+col_bg-05.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+
 .col-bg-img-six.ttm-col-bgimage-yes .ttm-col-wrapper-bg-layer{
     background-color: #35637E;
     background-position: center;
