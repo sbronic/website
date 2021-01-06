@@ -86,9 +86,9 @@ eleventyComputed:
                                     {% endif %}
                                         <li class="ttm-meta-line ttm-author">
                                             {% if (edukacija.autori | length) == 1 %}
-                                                <strong>Predavač:</strong>
+                                                <strong>Predavač/Autor:</strong>
                                             {% else %}
-                                                <strong>Predavači:</strong>
+                                                <strong>Predavači/Autori:</strong>
                                             {% endif %}
                                             
                                             {% for autor in edukacija.autori %}
@@ -113,15 +113,16 @@ eleventyComputed:
                                     <ul class="tabs clearfix">
                                         <li class="tab active"><a href="#">Opis seminara</a></li>
                                         <li class="tab"><a href="#">Curriculum</a></li>
+                                        <li class="tab"><a href="#">Preview</a></li>
                                         {% if (edukacija.autori | length) == 1 %}
                                             <li class="tab"><a href="#">O Predavaču</a></li>
                                         {% else %}
                                             <li class="tab"><a href="#">O Predavačima</a></li>
                                         {% endif %}
-                                        <li class="tab"><a href="#">Uvjeti korištenja usluge</a></li>
+                                        <li class="tab"><a href="#">Uvjeti korištenja</a></li>
                                     </ul>
                                     <div class="content-tab">
-                                        <!-- content-inner -->
+                                        <!-- Opis content-inner -->
                                         <div class="content-inner active">
                                             {% if edukacija.promoVideo %}
                                             <div class="youtube-player" data-id="{{ edukacija.promoVideo }}"></div>
@@ -132,11 +133,15 @@ eleventyComputed:
                                             <div class="youtube-player" data-id="{{ edukacija.outroVideo }}"></div>
                                             {% endif %}
                                         </div><!-- content-inner end-->
-                                        <!-- content-inner -->
+                                        <!-- Curriculum content-inner -->
                                         <div class="content-inner">
                                             {{ edukacija.curriculum | safe }}
                                         </div><!-- content-inner end-->
-                                        <!-- content-inner -->
+                                        <!-- Preview content-inner -->
+                                        <div class="content-inner" style="min-height:1000px;">    
+                                            <iframe src="https://www.edukacije.hr/course/hr-zbirka-1-sistematizacija-radnih-mjesta/" height="950px;" width="100%" frameborder="0">Your browser doesnot support iframes<a href="https://www.edukacije.hr/course/hr-zbirka-1-sistematizacija-radnih-mjesta/"> click here to view the page directly. </a></iframe>
+                                        </div><!-- content-inner end-->
+                                        <!-- Predavači content-inner -->
                                         <div class="content-inner">
                                             {% for autor in edukacija.autori %}
                                             <div class="d-flex">
@@ -157,9 +162,9 @@ eleventyComputed:
                                             {% endif %}
                                             {% endfor %}
                                         </div><!-- content-inner end-->
-                                        <!-- content-inner -->
+                                        <!-- Uvjeti content-inner -->
                                         <div class="content-inner">
-                                            
+                                            <p>Uvjeti korištenja</p>
                                         </div><!-- content-inner end-->
                                     </div>
                                 </div>

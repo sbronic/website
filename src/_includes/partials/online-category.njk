@@ -27,7 +27,7 @@
                                     <!-- featured-imagebox-post -->
                                     <div class="featured-imagebox featured-imagebox-event featured-imagebox-course style1" >
                                         <div class="ttm-post-thumbnail featured-thumbnail"> 
-                                            <img class="img-fluid lazyload" style="width:410px;height:230px;" alt="{{ item.title }}" src="https://media.graphcms.com/resize=fit:crop,width:410,height:230/output=format:webp/{{ item.photo }}">
+                                            <img class="img-fluid lazyload" style="width:410px;height:230px;" alt="{{ item.title }}" src="https://media.graphcms.com/resize=fit:clip,width:410,height:230/output=format:webp/{{ item.photo }}">
                                         </div>
                                         <div class="featured-content-post">
                                             <div class="post-title" style="min-height:60px;!important;margin-top:30px;padding:0 20px;">
@@ -47,14 +47,7 @@
                                             <div class="ttm-course-box-meta">
                                                 <div class="ttm-enrolled">
                                                     <span class="ttm-comments ttm-meta-line"><i class="fa fa-tag" aria-hidden="true"></i>
-                                                    {{ item.category }}
-                                                    <!--    {% for autor in item.autori %}
-                                                        {% if loop.first %}
-                                                        {{ autor.imeIPrezime }}
-                                                        {% else %}
-                                                        , {{ autor.imeIPrezime }}
-                                                        {% endif %}
-                                                        {% endfor %} -->
+                                                    {{ item.category | truncate(35) }}
                                                     </span>
                                                     <span class="ttm-comments ttm-meta-line" title="Šifra proizvoda"><i class="fa fa-barcode" aria-hidden="true"></i>{{ item.sifra }}
                                                     </span>
