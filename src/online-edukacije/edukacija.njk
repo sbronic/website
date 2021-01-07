@@ -113,7 +113,9 @@ eleventyComputed:
                                     <ul class="tabs clearfix">
                                         <li class="tab active"><a href="#">Opis seminara</a></li>
                                         <li class="tab"><a href="#">Curriculum</a></li>
+                                        {% if edukacija.preview %}
                                         <li class="tab"><a href="#">Preview</a></li>
+                                        {% endif %}
                                         {% if (edukacija.autori | length) == 1 %}
                                             <li class="tab"><a href="#">O Predavaču</a></li>
                                         {% else %}
@@ -137,10 +139,12 @@ eleventyComputed:
                                         <div class="content-inner">
                                             {{ edukacija.curriculum | safe }}
                                         </div><!-- content-inner end-->
+                                        {% if edukacija.preview %}
                                         <!-- Preview content-inner -->
                                         <div class="content-inner" style="min-height:1000px;">    
-                                            <iframe src="https://www.edukacije.hr/course/hr-zbirka-1-sistematizacija-radnih-mjesta/" height="950px;" width="100%" frameborder="0">Your browser doesnot support iframes<a href="https://www.edukacije.hr/course/hr-zbirka-1-sistematizacija-radnih-mjesta/"> click here to view the page directly. </a></iframe>
+                                            <iframe src="{{ edukacija.preview }}" height="950px;" width="100%" frameborder="0">Your browser doesnot support iframes<a href="{{ edukacija.preview }}" target="_blank"> click here to view the page directly. </a></iframe>
                                         </div><!-- content-inner end-->
+                                        {% endif %}
                                         <!-- Predavači content-inner -->
                                         <div class="content-inner">
                                             {% for autor in edukacija.autori %}
