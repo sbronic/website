@@ -18,7 +18,7 @@ async function getOnlineEdukacije() {
             },
             body: JSON.stringify({
                 query: `{
-                    onLineEdukacije(orderBy: vrstaEdukacije_ASC, stage: PUBLISHED, where: {kategorija: {kod: "iup"}}) {
+                    onLineEdukacije(orderBy: naziv_ASC, stage: PUBLISHED, where: {kategorija: {kod: "iup"}}) {
                         naziv
                         cijena
                         autoriIPredavaci {

@@ -199,6 +199,13 @@
                 $('.portfolio-filter li').removeClass('active');
                 $(this).addClass('active');
                 $container.isotope({ filter: selector });
+                console.log(selector);
+                if (selector != "*") {
+                    $('.pagination-block').addClass('hidden')
+                }
+                else {
+                    $('.pagination-block').removeClass('hidden')
+                }
                 return false;
             });
         };
