@@ -1,0 +1,21 @@
+---
+permalink: /edukacije/sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for edukacija in online.sve %}
+{% if (loop.index == 1) %}
+  <url>
+    <loc>{{ site.url }}/edukacije/</loc>
+    <lastmod>{{ edukacija.updated | rfc822 }}</lastmod>
+  </url>
+{% endif %}
+  <url>
+    <loc>{{ site.url }}/edukacije/{{ edukacija.categoryslug }}/{{ edukacija.titleslug }}/</loc>
+    <lastmod>{{ edukacija.updated | rfc822 }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+{%- endfor %}
+</urlset>

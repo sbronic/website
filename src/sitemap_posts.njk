@@ -1,0 +1,21 @@
+---
+permalink: /blog/sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{%- for post in objave.sve %}
+{% if (loop.index == 1) %}
+  <url>
+    <loc>{{ site.url }}/blog/</loc>
+    <lastmod>{{ post.date | rfc822 }}</lastmod>
+  </url>
+{% endif %}
+  <url>
+    <loc>{{ site.url }}/blog/{{ post.categoryslug }}/{{ post.titleslug }}/</loc>
+    <lastmod>{{ post.date | rfc822 }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+{%- endfor %}
+</urlset>
