@@ -19,7 +19,7 @@
 
                         {% if edukacije != 'prazno' %}
 
-                            {% for item in pagination.items %}
+                            {% for item in online.sve %}
 
                                 <div class="ttm-box-col-wrapper col-md-6 {{ item.vrsta }}">
                                     <!-- featured-imagebox-post -->
@@ -59,7 +59,7 @@
                         </div>
                     </div>
 
-                        {% include "partials/pagination-block.njk" %}
+                    <!--    {% include "partials/pagination-block.njk" %} -->
 
 
                         {% else %}

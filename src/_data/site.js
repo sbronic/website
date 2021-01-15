@@ -3,6 +3,6 @@ module.exports = {
     url: "https://hungry-lumiere-36a191.netlify.app",
     environment: process.env.ELEVENTY_ENV,
     tracking: {
-        gtag: '12345',
+        gtag: 'GTM-W6PXHF',
     }
 };
