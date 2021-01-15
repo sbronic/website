@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "ELEVENTY_ENV=dev npx eleventy --serve",
+    "build": "ELEVENTY_ENV=dev npx eleventy",
+    "build:prod": "ELEVENTY_ENV=prod npx eleventy"
   },
   "repository": {
     "type": "git",

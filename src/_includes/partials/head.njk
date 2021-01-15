@@ -3,6 +3,20 @@
 <meta name="viewport" content=" width=device-width, initial-scale=1, maximum-scale=1" />
 <meta name="author" content="https://webshaped.biz" />
 
+{% if site.environment == "prod" %}
+   <script async 
+      src="https://www.googletagmanager.com/gtag/js?id={{ site.tracking.gtag }}">
+   </script>
+   <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+      dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', '{{ site.tracking.gtag }}');
+   </script>
+{% endif %}
+
 {% if page_title %}
 <title>{{ page_title }} | edukacijE.hr</title>
 <meta name="keywords" content="{{ page_keywords }}" />
@@ -51,6 +65,8 @@
 <!-- Snipcart -->
 <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.27/default/snipcart.css" />
 <link rel="stylesheet" type="text/css" href="/css/snipcart-custom.css" />
+<!-- Fancybox -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
 <!-- SEO website -->
 <!-- JSON-LD website -->
 <script type="application/ld+json">
