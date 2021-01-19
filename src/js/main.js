@@ -531,6 +531,7 @@ $(function () {
     const suggseminari = document.querySelector('#suggSeminari');
 
     searchInput.addEventListener('keyup', displayRez);
+    
 });
 
 /*------------------------------------------------------------------------------*/

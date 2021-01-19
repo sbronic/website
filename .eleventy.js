@@ -15,7 +15,7 @@ module.exports = function (config) {
     config.addPassthroughCopy("src/fonts");
     config.addPassthroughCopy("src/images");
     config.addPassthroughCopy("src/js");
-    config.addPassthroughCopy("src/_headers");
+    config.addPassthroughCopy("src/netlify.toml");
     config.addPassthroughCopy("src/_redirects");
 
     /* RSS */

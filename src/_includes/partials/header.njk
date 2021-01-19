@@ -88,8 +88,7 @@
                                     <a href="#" class="btn-default search_btn"><i class="ti ti-search"></i></a>
                                     <div class="header_search_content">
                                         <form id="searchbox" method="get" action="#">
-                                            <input class="search_query" type="text" id="search_query_top" name="s" placeholder="Unesite riječ za pretraživanje" value="">
-                                            <button type="submit" class="btn close-search"><i class="fa fa-search"></i></button>
+                                            <input class="search_query" type="text" id="search_query_top" name="s" placeholder="Unesite riječ za pretraživanje" value="" autocomplete="off" onkeypress="return event.keyCode != 13;">
                                         </form>
                                         <p id="objavebanner" style="width:100%;text-align:center;display:none;border-bottom:1px solid #88402C;">OBJAVE</p>
                                         <ul id="suggObjave"></ul>
