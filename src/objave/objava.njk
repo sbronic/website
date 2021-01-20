@@ -9,7 +9,7 @@ pagination:
   alias: objava
 permalink: blog/{{ objava.categoryslug }}/{{ objava.titleslug }}/index.html
 eleventyComputed:
-    page_title: "{{ objava.title }}"
+    page_title: 'Članak "{{ objava.title }}"'
     page_description: "{{ objava.excerpt }}"
     page_type: "article"
     objavaimage: "https://media.graphcms.com/resize=width:1200/{{ objava.photo }}"

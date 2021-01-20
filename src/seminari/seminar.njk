@@ -9,7 +9,7 @@ pagination:
   alias: seminar
 permalink: edukacije/seminari-i-radionice/{{ seminar.kategorijaslug }}/{{ seminar.titleslug }}/index.html
 eleventyComputed:
-    page_title: "{{ seminar.title }}"
+    page_title: 'Seminar "{{ seminar.title }}"'
     page_description: "{{ seminar.excerpt }}"
     page_type: "seminar"
     seminarimage: "https://media.graphcms.com/resize=width:1200/{{ seminar.fotografija }}"
