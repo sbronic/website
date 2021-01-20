@@ -11,8 +11,8 @@ pagination:
   alias: objave
 permalink: "blog/ostalo{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
 eleventyComputed:
-    page_title: "Blog - Ostalo"
-    page_description: "Blog - Ostalo"
+    page_title: "Blog - Ostalo {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+    page_description: "Blog - Ostalo {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
 ---
 
 {% include "partials/blog-header.njk" %}
