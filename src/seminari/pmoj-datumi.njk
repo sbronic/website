@@ -12,31 +12,10 @@ pagination:
   alias: seminari
 permalink: "edukacije/seminari-i-radionice/prodaja-marketing-i-odnosi-s-javnoscu/datumi-odrzavanja{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
 eleventyComputed:
-    page_title: "Seminari i radionice - Prodaja, marketing i odnosi s javnošću"
-    page_description: "Seminari i radionice - Prodaja, marketing i odnosi s javnošću"
+    page_title: "Datumi održavanja seminara - Prodaja, marketing i odnosi s javnošću {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+    page_description: "Datumi održavanja seminara - Prodaja, marketing i odnosi s javnošću {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
 ---
 
-<div class="ttm-page-title-row" style="background: url(/images/{{ banner }})!important">
-    <div class="ttm-page-title-row-inner ttm-textcolor-white">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12">
-                    <div class="page-title-heading">
-                        <h1 class="title">Kategorija: {{ description }}</h1>
-                    </div>
-                    <div class="breadcrumb-wrapper">
-                        <span><a href="/">Početna</a></span>
-                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
-                        <span class="current" style="color:#F77F00">{{ title }}</span>
-                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
-                        <span class="current" style="color:#F77F00">{{ description }}</span>
-                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
-                        <span class="current" style="color:#F77F00">Datumi održavanja</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>                    
-</div>
+{% include "partials/seminari-header-datumi.njk" %}
 
 {% include "partials/seminar-datumi-category.njk" %}

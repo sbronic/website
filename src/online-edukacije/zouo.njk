@@ -11,29 +11,10 @@ pagination:
   alias: edukacije
 permalink: "edukacije/online-edukacije/zastita-okolisa-i-upravljanje-otpadom{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
 eleventyComputed:
-    page_title: "On-line edukacije - Zaštita okoliša i upravljanje otpadom"
-    page_description: "On-line edukacije - Zaštita okoliša i upravljanje otpadom"
+    page_title: "On-line edukacije - Zaštita okoliša i upravljanje otpadom {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+    page_description: "On-line edukacije - Zaštita okoliša i upravljanje otpadom {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
 ---
 
-<div class="ttm-page-title-row" style="background: url(/images/{{ banner }})!important">
-    <div class="ttm-page-title-row-inner ttm-textcolor-white">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12">
-                    <div class="page-title-heading">
-                        <h1 class="title">Kategorija: {{ description }}</h1>
-                    </div>
-                    <div class="breadcrumb-wrapper">
-                         <span><a href="/">Početna</a></span>
-                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
-                        <span><a href="/edukacije/online-edukacije">{{ title }}</a></span>
-                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
-                        <span class="current" style="color:#F77F00">{{ description }}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>                    
-</div>
+{% include "partials/online-header.njk" %}
 
 {% include "partials/online-category.njk" %}

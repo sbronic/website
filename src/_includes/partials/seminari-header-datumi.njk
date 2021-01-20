@@ -1,0 +1,26 @@
+<div class="ttm-page-title-row" style="background: url(/images/{{ banner }})!important">
+    <div class="ttm-page-title-row-inner ttm-textcolor-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="page-title-heading">
+                        <h1 class="title">Kategorija: {{ description }}
+                        {% if pagination.pages | length != 1 %}
+                         ({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }})
+                        {% endif %}
+                        </h1>
+                    </div>
+                    <div class="breadcrumb-wrapper">
+                        <span><a href="/">Početna</a></span>
+                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                        <span class="current" style="color:#F77F00">{{ title }}</span>
+                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                        <span class="current" style="color:#F77F00">{{ description }}</span>
+                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                        <span class="current" style="color:#F77F00">Datumi održavanja</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                    
+</div>
