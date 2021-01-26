@@ -1,14 +1,14 @@
 [[headers]]
 for = "/*"
 [headers.values]
-Content-Security-Policy = "default-src ‘self’ ‘unsafe-inline’ ‘unsafe-eval’ 'https:edukacije.hr' data:"
+Content-Security-Policy = "default-src ‘self’ ‘unsafe-inline’ ‘unsafe-eval’ 'https:www.edukacije.hr' data:"
 Expect-CT = "max-age=0"
 Feature-Policy = "accelerometer ‘none’; camera ‘none’; geolocation ‘none’; gyroscope ‘none’; magnetometer ‘none’; microphone ‘none’; payment ‘none’; usb ‘none’"
 Referrer-Policy = "strict-origin-when-cross-origin"
 Strict-Transport-Security = "max-age=604800; includeSubDomains; preload"
 Vary = "Accept-Encoding"
 X-Content-Type-Options = "nosniff"
-X-Frame-Options = "*ALLOW-FROM https://edukacije.hr*"
+X-Frame-Options = "*ALLOW-FROM https://www.edukacije.hr*"
 X-XSS-Protection = "1; mode=block"
 [[headers]]
 for = "/images/*"

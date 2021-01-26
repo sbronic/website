@@ -51,6 +51,7 @@
             e.stopPropagation();
 
             $(".header_search_content").toggleClass("on");
+            $("#search_query_top").focus();
 
                 if ($('.header_search a').hasClass('open')) {
 
