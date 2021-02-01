@@ -116,6 +116,10 @@
                     data-item-custom1-type="textarea"
                     data-item-custom1-placeholder="Ime i Prezime, Email"
                     data-item-custom1-required="true"
+                {% if edukacija.printanje %}
+                    data-item-custom2-name="Opcije dostave materijala na drugim medijima"
+                    data-item-custom2-options="Bez dostave materijala|PDF emailom (+100Kn)[+100.00]|Uvezano tiskano izdanje poštom (+300Kn)[+300.00]|PDF i tiskano izdanje (+400Kn)[+400.00]"
+                {% endif %}
                     style="margin-top:30px;"
                     class="snipcart-add-item lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark" disabled>Naručite edukaciju</button>
             </div>

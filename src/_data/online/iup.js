@@ -49,6 +49,7 @@ async function getOnlineEdukacije() {
                         sifraProizvoda
                         vrstaEdukacije
                         trajanje
+                        daLiNudimoPrintanje
                     }
                 }`
             })
@@ -90,7 +91,8 @@ async function getOnlineEdukacije() {
             bodyhtml: item.opisEdukacije.html,
             sifra: item.sifraProizvoda,
             vrsta: item.vrstaEdukacije,
-            trajanje: item.trajanje
+            trajanje: item.trajanje,
+            printanje: item.daLiNudimoPrintanje
         };
     }).filter(Boolean);
 

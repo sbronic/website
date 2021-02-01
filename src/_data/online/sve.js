@@ -55,6 +55,7 @@ async function getOnlineEdukacije() {
                         zoomDatumIVrijemePocetka
                         updatedAt
                         preview
+                        daLiNudimoPrintanje
                     }
                 }`
             })
@@ -111,7 +112,8 @@ async function getOnlineEdukacije() {
             outroVideo: item.outroVideo,
             zoomDatumIVrijemePocetka: futureDates,
             updated: item.updatedAt,
-            preview: item.preview
+            preview: item.preview,
+            printanje: item.daLiNudimoPrintanje
         };
     }).filter(Boolean);
 
