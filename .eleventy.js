@@ -103,6 +103,7 @@ module.exports = function (config) {
     });
     config.addFilter("datumSat", dateObj => {
         var dobj = new Date(dateObj);
+        dobj.setTime(dobj.getTime() - new Date().getTimezoneOffset() * 60 * 1000);
         var sat = dobj.getHours();
         var minutes = (dobj.getMinutes() < 10 ? '0' : '') + dobj.getMinutes();
         var satiminute = sat + ':' + minutes;
