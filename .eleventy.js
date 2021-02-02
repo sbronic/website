@@ -104,9 +104,11 @@ module.exports = function (config) {
         return year;
     });
     config.addFilter("datumSat", dateObj => {
-        var dobj = new Date(dateObj);
-        var sat = dobj.getHours();
-        var minutes = (dobj.getMinutes() < 10 ? '0' : '') + dobj.getMinutes();
+        //var dobj = new Date(dateObj);
+        var dobj = moment.utc(dateObj).tz('Europe/Amsterdam');
+        //var sat = dobj.getHours();
+        var sat = dobj.hour();
+        var minutes = (dobj.minute() < 10 ? '0' : '') + dobj.minute();
         var satiminute = sat + ':' + minutes;
         return satiminute;
     });
