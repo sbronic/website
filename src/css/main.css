@@ -2655,3 +2655,17 @@ label.error {
 .hidden {
     display:none;
 }
+
+/*------------------------------------------------------------------------------*/
+/*  Snipcart
+/*------------------------------------------------------------------------------*/
+.snipcart-item-line__info {
+    margin-bottom:20px!important;
+}
+.snipcart-form__label {
+    font-size: 14px!important;
+    font-weight: bold!important;
+}
+.snipcart__font--std {
+    font-size: 12px!important;
+}
