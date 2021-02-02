@@ -27,6 +27,7 @@
     "dotenv": "^8.2.0",
     "eleventy-plugin-wordcount": "^1.0.5",
     "got": "^11.8.1",
+    "moment-timezone": "^0.5.32",
     "node-fetch": "^2.6.1",
     "slugify": "^1.4.6"
   }

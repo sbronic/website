@@ -5,6 +5,8 @@ const del = require('del');
 const got = require("got");
 const pluginRSS = require("@11ty/eleventy-plugin-rss");
 const { wordCount } = require("eleventy-plugin-wordcount");
+const moment = require('moment-timezone');
+moment().tz('Europe/Amsterdam').format();
 
 module.exports = function (config) {
     const dirToClean = '_site/*';
@@ -103,7 +105,6 @@ module.exports = function (config) {
     });
     config.addFilter("datumSat", dateObj => {
         var dobj = new Date(dateObj);
-        dobj.setTime(dobj.getTime() - new Date().getTimezoneOffset() * 60 * 1000);
         var sat = dobj.getHours();
         var minutes = (dobj.getMinutes() < 10 ? '0' : '') + dobj.getMinutes();
         var satiminute = sat + ':' + minutes;
