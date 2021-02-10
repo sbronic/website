@@ -1,12 +1,10 @@
-// Switch localhost/TalentLMS u activecourses.js i config.yml
-
 const util = require('util'); // dump filter
 const del = require('del');
 const got = require("got");
 const pluginRSS = require("@11ty/eleventy-plugin-rss");
 const { wordCount } = require("eleventy-plugin-wordcount");
 const moment = require('moment-timezone');
-moment().tz('Europe/Amsterdam').format();
+moment().tz('Europe/Zagreb').format();
 
 module.exports = function (config) {
     const dirToClean = '_site/*';
