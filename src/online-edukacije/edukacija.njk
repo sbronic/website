@@ -121,7 +121,7 @@ eleventyComputed:
                                         {% else %}
                                             <li class="tab"><a href="#">O Predavačima</a></li>
                                         {% endif %}
-                                        <li class="tab"><a href="#">Uvjeti korištenja</a></li>
+                                        <li class="tab"><a href="#">Najčešća pitanja</a></li>
                                     </ul>
                                     <div class="content-tab">
                                         <!-- Opis content-inner -->
@@ -172,7 +172,11 @@ eleventyComputed:
                                         </div><!-- content-inner end-->
                                         <!-- Uvjeti content-inner -->
                                         <div class="content-inner">
-                                            <p>Uvjeti korištenja</p>
+                                        {% for faq in faqs %}
+                                            {% if faq.vrsta === "online" %}
+                                                <p>{{ faq.html | safe }}</p>                                                
+                                            {% endif %}
+                                        {% endfor %}
                                         </div><!-- content-inner end-->
                                     </div>
                                 </div>
