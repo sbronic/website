@@ -67,5 +67,4 @@ Cache-Control = "public, max-age=0, must-revalidate"
   TZ="Europe/Zagreb"
 
 [build]
-  publish = "_site"
-  functions = "_site/functions"
+  functions = "./functions"
