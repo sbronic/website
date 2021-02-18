@@ -21,7 +21,7 @@
                 <div class="row ttm-meta-line" style="margin-top:30px;">
                     <h6 style="width:100%">Trajni popusti</h6>
                     <p style="font-size:14px;">10% za više od dvije prijave iz iste tvrtke</p>
-                    <p style="font-size:14px;">20% fizičke osobe - promo kod <strong>20</strong></p>
+                    <p style="font-size:14px;">25% fizičke osobe - promo kod <strong>25</strong></p>
                     <p style="font-size:14px;">50% neprofitne organizacije - promo kod <strong>50</strong></p>
                 </div>
                 <div class="row ttm-meta-line" style="margin-top:30px;">
@@ -43,7 +43,7 @@
                 data-item-description="Šifra: {{ edukacija.sifra }}"
                 data-item-image="https://media.graphcms.com/resize=fit:clip,width:120/{{ edukacija.photo }}"
                 data-item-name="{{ edukacija.title }} ({{edukacija.sifra}})"
-                data-item-stackable="never"
+                data-item-stackable="{never}"
                 data-item-custom1-name="Odaberite datum edukacije"
                 data-item-custom1-options="
                     {% for datum in edukacija.zoomDatumIVrijemePocetka %}
@@ -111,7 +111,7 @@
                     data-item-description="Šifra: {{ edukacija.sifra }}"
                     data-item-image="https://media.graphcms.com/resize=fit:clip,width:120/{{ edukacija.photo }}"
                     data-item-name="{{ edukacija.title }} ({{edukacija.sifra}})"
-                    data-item-stackable="never"
+                    data-item-stackable="{never}"
                     data-item-custom1-name="Podaci o polaznicima (svaki polaznik u svom retku)"
                     data-item-custom1-type="textarea"
                     data-item-custom1-placeholder="Ime i Prezime, Email"

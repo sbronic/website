@@ -65,3 +65,7 @@ Cache-Control = "public, max-age=0, must-revalidate"
 
 [build.environment]
   TZ="Europe/Zagreb"
+
+[build]
+  publish="public"
+  functions = "functions"
