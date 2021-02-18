@@ -68,4 +68,4 @@ Cache-Control = "public, max-age=0, must-revalidate"
 
 [build]
   publish = "_site"
-  command = "npm run build"
+  functions = "_site/functions"
