@@ -67,5 +67,6 @@ Cache-Control = "public, max-age=0, must-revalidate"
   TZ="Europe/Zagreb"
 
 [build]
-  publish="_site"
-  functions = "functions"
+  publish = "_site"
+  command = "npm run build"
+  functions = "_site/lambda"
