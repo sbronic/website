@@ -72,11 +72,7 @@ eleventyComputed:
                                             {% if edukacija.zoomDatumIVrijemePocetka | length > 0%}
                                                 <strong>Datumi održavanja:</strong>
                                                 {% for datum in edukacija.zoomDatumIVrijemePocetka %}
-                                                {% if loop.last %}
-                                                {{ datum | datumSeminara }} u {{ datum | datumSat }}h
-                                                {% else %}
-                                                {{ datum | datumSeminara }} u {{ datum | datumSat }}h,
-                                                {% endif %}
+                                                <b>{{ datum | datumSeminara }}</b> u {{ datum | datumSat }}h<br/>
                                                 {% endfor %}
                                             {% else %}
                                                 <strong>Datumi održavanja:</strong>
