@@ -42,6 +42,11 @@ async function getSeminari() {
                         datumiSeminara (where: {dateAndTime_gt: "$today"}) {
                             dateAndTime
                             odDo
+                            lokacija {
+                                nazivLokacije
+                                adresa
+                                grad
+                            }
                         }
                         fotografija {
                             handle
@@ -97,6 +102,8 @@ async function getSeminari() {
             cijena: item.cijena.toLocaleString() + ' Kn + PDV',
             cijenaCart: item.cijena,
             cijenaPDV: (item.cijena * 1.25).toFixed(2),
+            popustCartOsoba: (item.cijena * 0.25).toFixed(2),
+            popustCartNgo: (item.cijena * 0.50).toFixed(2),
             trajanje: item.trajanjeDana,
             curriculum: item.curriculum.html,
             datumiseminara: item.datumiSeminara,

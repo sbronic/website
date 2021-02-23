@@ -18,24 +18,24 @@
 
     {% if nav2ID === "seminar" %}
     <aside class="widget widget-Categories with-title">
-     <h3 class="widget-title">Rezervacija</h3>
+     <h3 class="widget-title">Rezervacija seminara</h3>
 
         {% if seminar.datumiseminara | length > 0 %}
 
         <div class="container">
             <div class="row">
-                <h6>Količina</h6>
-                <input id="qnt" type="number" value="1" min="1" max="10" step="1"/>
+                <h6>Broj polaznika (max. 3)</h6>
+                <input id="qnt" type="number" value="1" min="1" max="3" step="1"/>
             </div>
             <div class="row ttm-meta-line ttm-course-price" style="margin-top:30px;" id="jed-cijena">
                 <h6 style="width:100%">Jedinična cijena</h6>
                 <strong style="color: #88402C;font-size:20px;">{{ seminar.cijena }}</strong>
             </div>
             <div class="row ttm-meta-line ttm-course-price" style="margin-top:30px;" id="jed-cijena">
-                <h6 style="width:100%">Trajni popusti</h6>
+                <h6 style="width:100%">Popusti (obračun u košarici)</h6>
                 <p style="font-size:14px;">10% za više od dvije prijave iz iste tvrtke</p>
-                <p style="font-size:14px;">25% fizičke osobe - promo kod <strong>25</strong></p>
-                <p style="font-size:14px;">50% neprofitne organizacije - promo kod <strong>50</strong></p>
+                <p style="font-size:14px;">25% fizičke osobe</p>
+                <p style="font-size:14px;">50% neprofitne organizacije</p>
             </div>
             <div class="row ttm-meta-line" style="margin-top:30px;">
                     <h6 style="width:100%">Opcije plaćanja</h6>
@@ -43,9 +43,8 @@
                     <p style="font-size:14px;">Za rezervaciju nisu potrebne kartice.</p>
                 </div>
             <hr style="margin-left: -15px;"/>
-            <div class="form-check" style="margin-top:30px;">
-                <input type="checkbox" class="form-check-input" name="suglasnost" id="suglanost" onclick="$('#buy-button').attr('disabled', !$(this).is(':checked'));" />
-                <label class="form-check-label" for="suglasnost">Razumijem i prihavaćam sve odredbe <a href="/uvjeti-koristenja/" target="_blank">Uvjeta korištenja</a> i politike <a href="/zastita-privatnosti/" target="_blank">Zaštite privatnosti</a></label>
+            <div class="row ttm-meta-line" style="margin-top:30px;">
+                <p style="font-size:14px;">Klikom na donji gumb smatra se da razumijete i prihavaćate sve odredbe iz <a href="/uvjeti-koristenja/" target="_blank">Uvjeta korištenja</a> i politike <a href="/zastita-privatnosti/" target="_blank">Zaštite privatnosti</a></p>
             </div>
             <button
             id="buy-button"
@@ -57,22 +56,33 @@
             data-item-image="https://media.graphcms.com/resize=fit:clip,width:120/{{ seminar.fotografija }}"
             data-item-name="{{ seminar.title }}"
             data-item-stackable="{never}"
-            data-item-custom1-name="Odaberite datum seminara"
-            data-item-custom1-options="
+            data-item-custom1-name="Kupujem kao:"
+            data-item-custom1-options="Pravna osoba|Fizička osoba[-{{ seminar.popustCartOsoba }}]|Neprofitna organizacija[-{{ seminar.popustCartNgo }}]"
+            data-item-custom1-value="Pravna osoba"
+            data-item-custom2-name="Datum seminara"
+            data-item-custom2-options="
                 {% for datum in seminar.datumiseminara %}
                 {% if loop.last %}
-                {{ datum.dateAndTime | datumSeminara }} ({{ datum.odDo }})
+                {{ datum.dateAndTime | datumSeminara }} od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}
                 {% else %}
-                {{ datum.dateAndTime | datumSeminara }} ({{ datum.odDo }})|
+                {{ datum.dateAndTime | datumSeminara }} od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}|
                 {% endif %}
                 {% endfor %}
             "
-            data-item-custom2-name="Podaci o polaznicima (svaki polaznik u svom retku)"
-            data-item-custom2-type="textarea"
-            data-item-custom2-placeholder="Ime i Prezime, Email"
-            data-item-custom2-required="true"
+            data-item-custom3-name="Polaznik 1"
+            data-item-custom3-type="textarea"
+            data-item-custom3-placeholder="Oblik unosa: Ime Prezime, Email, Telefon"
+            data-item-custom3-required="true"
+            data-item-custom4-name="Polaznik 2"
+            data-item-custom4-type="textarea"
+            data-item-custom4-placeholder="Oblik unosa: Ime Prezime, Email, Telefon"
+            data-item-custom4-required="false"
+            data-item-custom5-name="Polaznik 3"
+            data-item-custom5-type="textarea"
+            data-item-custom5-placeholder="Oblik unosa: Ime Prezime, Email, Telefon"
+            data-item-custom5-required="false"
             style="margin-top:30px;"
-            class="snipcart-add-item lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark" disabled>Rezervirajte seminar</button>
+            class="snipcart-add-item lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">Rezervirajte seminar</button>
         </div>
 
         {% else %}
@@ -86,7 +96,7 @@
         {% endif %}
 
     </aside>
-
+    <hr style="margin-left: -15px;"/>
     <aside class="widget widget-download with-title">
         <h3 class="widget-title">Podijeli seminar</h3>
         <div class="container">

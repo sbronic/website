@@ -7,3 +7,12 @@
 .snipcart-custom-field-wrapper__input > textarea {
     font-size:12px!important;
 }
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"],
+input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"],
+input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"],
+.uneditable-input, select {
+    color: #313332!important;
+}
+/*figure.snipcart-item-line__media {
+    display:none;
+}*/

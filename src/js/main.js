@@ -360,7 +360,7 @@ function initYouTubeVideos() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', initYouTubeVideos);
+document.addEventListener('DOMContentLoaded', initYouTubeVideos, { passive: true });
 
 /*------------------------------------------------------------------------------*/
 /* plugin bootstrap minus and plus
@@ -531,7 +531,7 @@ $(function () {
     const suggedukacije = document.querySelector('#suggEdukacije');
     const suggseminari = document.querySelector('#suggSeminari');
 
-    searchInput.addEventListener('keyup', displayRez);
+    searchInput.addEventListener('keyup', displayRez, { passive: true });
     
 });
 

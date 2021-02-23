@@ -72,11 +72,7 @@ eleventyComputed:
                                             {% if seminar.datumiseminara | length > 0%}
                                                 <strong>Datumi održavanja:</strong>
                                                 {% for datum in seminar.datumiseminara %}
-                                                {% if loop.last %}
-                                                {{ datum.dateAndTime | datumSeminara }} od {{ datum.odDo }}
-                                                {% else %}
-                                                {{ datum.dateAndTime | datumSeminara }} od {{ datum.odDo }},
-                                                {% endif %}
+                                                <b>{{ datum.dateAndTime | datumSeminara }}</b> od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}<br/>
                                                 {% endfor %}
                                             {% else %}
                                                 <strong>Datumi održavanja:</strong>
@@ -84,32 +80,16 @@ eleventyComputed:
                                             {% endif %}
                                         </li>
                                         <li class="ttm-meta-line ttm-course-dur"> 
-                                            <strong>Vrsta</strong>
+                                            <strong>Vrsta:</strong>
                                             {% if seminar.trajanje == "1" %}
                                                 Jednodnevni
                                             {% else %}
                                                 Dvodnevni
                                             {% endif %}
                                         </li>
-                                        <li class="ttm-meta-line ttm-author">
-                                        {% if (seminar.predavaci | length) == 1 %}
-                                            <strong>Predavač:</strong>
-                                        {% else %}
-                                            <strong>Predavači:</strong>
-                                        {% endif %}
-                                        
-                                        {% for predavac in seminar.predavaci %}
-                                        {% if loop.first %}
-                                            {{ predavac.imeIPrezime }}
-                                        {% else %}
-                                            , {{ predavac.imeIPrezime }}
-                                        {% endif %}
-                                        {% endfor %}
-                                        </li>
                                         <li class="ttm-meta-line ttm-course-dur"> 
                                             <strong>Šifra:</strong>{{ seminar.sifra }}
                                         </li>
-                                    </ul>
                                 </div>
                                 <div class="ttm-tabs course-tabs" data-effect="fadeIn">
                                     <ul class="tabs clearfix">
