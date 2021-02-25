@@ -67,7 +67,7 @@ Cache-Control = "public, max-age=0, must-revalidate"
   TZ="Europe/Zagreb"
 
 [build]
-  functions = "functions"
+  functions = "functions/"
 
 [[redirects]]
   from = "/api/*"
