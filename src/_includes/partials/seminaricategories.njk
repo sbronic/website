@@ -55,7 +55,7 @@
             data-item-description="Šifra: {{ seminar.sifra }}"
             data-item-image="https://media.graphcms.com/resize=fit:clip,width:120/{{ seminar.fotografija }}"
             data-item-name="{{ seminar.title }}"
-            data-item-stackable="{never}"
+            data-item-stackable="never"
             data-item-min-quantity="1"
             data-item-max-quantity="3"
             data-item-custom1-name="Kupujem kao:"
@@ -83,6 +83,9 @@
             data-item-custom5-type="textarea"
             data-item-custom5-placeholder="Oblik unosa: Ime Prezime, Email, Telefon"
             data-item-custom5-required="false"
+            data-item-custom6-name="Barcode ID"
+            data-item-custom6-type="hidden"
+            onClick="bcTimestamp()"
             style="margin-top:30px;"
             class="snipcart-add-item lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">Rezervirajte seminar</button>
         </div>

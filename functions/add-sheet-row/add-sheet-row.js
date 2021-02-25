@@ -9,6 +9,9 @@ exports.handler = async (event, context, callback) => {
     if (body.eventName === "order.completed") {
       console.log("Nova narudžba")
     }
+    else if ((body.eventName === "order.paymentStatus.changed") && (body.to === "Paid") ) { 
+      console.log("Narudžba plaćena")
+    }
     return {
       statusCode: 200
     }

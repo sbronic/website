@@ -44,10 +44,14 @@
         var btn = $('#buy-button');
         $('#qnt').change(function() {
             var newqnt = $("#qnt").val();
-            console.log(newqnt);
             btn.attr('data-item-quantity', newqnt);
         });
     });
+    function bcTimestamp() {
+        var ts = Date.now();
+        var btn = $('#buy-button');
+        btn.attr('data-item-custom6-value', ts);
+    }
 </script>
 
 <!-- Javascript end-->
