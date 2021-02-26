@@ -52,10 +52,14 @@
                 data-item-custom2-options="
                     {% for datum in edukacija.zoomDatumIVrijemePocetka %}
                     {% if loop.last %}
-                    {{ datum | datumSeminara }} u {{ datum | datumSat }}h
-                    {% else %}
-                    {{ datum | datumSeminara }} u {{ datum | datumSat }}h|
-                    {% endif %}
+                        {% if datum | datumSat != '7:00' %}
+                            {{ datum | datumSeminara }} u {{ datum | datumSat }}h
+                        {% endif %}
+                        {% else %}
+                        {% if datum | datumSat != '7:00' %}
+                            {{ datum | datumSeminara }} u {{ datum | datumSat }}h|
+                        {% endif %}
+                        {% endif %}
                     {% endfor %}
                 "
                 data-item-custom3-name="Polaznik 1"
