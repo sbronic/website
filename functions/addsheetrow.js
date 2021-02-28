@@ -7,7 +7,7 @@ exports.handler = async (event, context, callback) => {
   try {
     const body = JSON.parse(event.body)
     if (body.eventName === "order.completed") {
-      return { statusCode: 200, body: body };
+      return { statusCode: 200, body: `Ovo je bila nova Narudžba` };
     }
     else if ((body.eventName === "order.paymentStatus.changed") && (body.to === "Paid") ) { 
       return { statusCode: 200, body: `Ovo je bila plaćena Narudžba` };
