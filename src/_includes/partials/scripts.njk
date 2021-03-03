@@ -79,43 +79,8 @@
         </fieldset>
     </billing>
 </div>
-<script async src="https://cdn.snipcart.com/themes/v3.0.30/default/snipcart.js"></script>
+<script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
 <script type="text/javascript">
-    document.addEventListener('snipcart.ready', () => {
-        Snipcart.events.on('item.adding', (item) => {
-
-            var quantity = item.quantity;
-            item.quantity = 1;
-
-            var products = new Array(quantity).fill({
-                id: item.id,
-                name: item.name,
-                price: item.price,
-                url: item.url,
-                customFields: item.customFields,
-                stackable: "never",
-                shippable: item.shippable,
-                quantity: 1
-            });
-
-            /*products.forEach(async product =>  {
-                try {
-                    await Snipcart.api.cart.items.add({
-                        id: product.id,
-                        name: product.name,
-                        price: product.price,
-                        url: product.url,
-                        quantity: 1,
-                        customFields: product.customFields,
-                        stackable: "never"
-                    });
-                } catch (error) {
-                    console.log(error);
-                }
-            });*/
-        });
-    });
-
     $(function() {
         var btn = $('#buy-button');
         $('#qnt').change(function() {
