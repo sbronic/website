@@ -5,8 +5,11 @@ const pluginRSS = require("@11ty/eleventy-plugin-rss");
 const { wordCount } = require("eleventy-plugin-wordcount");
 const moment = require('moment-timezone');
 moment().tz('Europe/Zagreb').format();
+const Canvas = require("canvas");
+const PDF417 = require("pdf417-generator");
 
 module.exports = function (config) {
+
     const dirToClean = '_site/*';
     del(dirToClean);
 

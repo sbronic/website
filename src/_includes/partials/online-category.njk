@@ -4,84 +4,71 @@
         <!-- row -->
         <div class="row">
             <div class="col-xl-9 col-lg-8 content-area">
-                <div class="ttm-tabs">
-                    <ul class="tabs portfolio-filter">
-                        <li class="tab active"><a href="#" data-filter="*">Svi oblici</a></li>
-                        <li class="tab"><a href="#" title="Elektroničke zbirke dokumenata" data-filter=".e_Zbirke">E-Zbirke</a></li>
-                        <li class="tab"><a href="#" title="Snimljeni video seminari" data-filter=".Video_seminari">Video seminari</a></li>
-                        <li class="tab"><a href="#" title="Tekstualno-grafički seminari" data-filter=".Webinari">Webinari</a></li>
-                        <li class="tab"><a href="#" title="Zoom video seminari uživo" data-filter=".Zoom_meeting">Zoom Meeting</a></li>
-                    </ul>
 
-                    <div class="content-tab">
-                        <!-- content-inner -->
-                        <div class="row multi-columns-row ttm-boxes-spacing-10px isotope-project">
+                {% if edukacije != 'prazno' %}
 
-                        {% if edukacije != 'prazno' %}
+                <div class="row multi-columns-row ttm-boxes-spacing-10px isotope-project">
 
-                            {% for item in pagination.items %}
+                {% for item in pagination.items %}
 
-                                <div class="ttm-box-col-wrapper col-md-6 {{ item.vrsta }}">
-                                    <!-- featured-imagebox-post -->
-                                    <div class="featured-imagebox featured-imagebox-event featured-imagebox-course style1" >
-                                        <div class="ttm-post-thumbnail featured-thumbnail"> 
-                                            <img class="img-fluid lazyload" style="width:410px;height:230px;" alt="{{ item.title }}" src="https://media.graphcms.com/resize=fit:clip,width:410,height:230/output=format:webp/{{ item.photo }}">
-                                        </div>
-                                        <div class="featured-content-post">
-                                            <div class="post-title" style="min-height:60px;!important;margin-top:30px;padding:0 20px;">
-                                                <h5><a href="/edukacije/online-edukacije/{{ item.categoryslug }}/{{ item.titleslug }}/">{{ item.title }}</a></h5>
-                                            </div>
-                                            <div class="post-desc featured-desc" style="padding:0 20px;">
-                                                <p style="min-height:105px;">{{ item.excerpt | truncate(200) }}</p>
-                                                <span style="color:#88402C;font-size:14px;font-style:italic;">
-                                                {% if item.vrsta == "e_Zbirke"%}e-Zbirka{% endif %}
-                                                {% if item.vrsta == "Video_seminari"%}Video seminar{% endif %}
-                                                {% if item.vrsta == "Webinari"%}Webinar{% endif %}
-                                                {% if item.vrsta == "Zoom_meeting"%}Zoom meeting uživo{% endif %}
-                                                </span>
-                                            </div>
-                                            <div class="ttm-course-box-meta">
-                                                <div class="ttm-enrolled">
-                                                    <span class="ttm-comments ttm-meta-line"><i class="fa fa-tag" aria-hidden="true"></i>
-                                                    {{ item.category | truncate(35) }}
-                                                    </span>
-                                                    <span class="ttm-comments ttm-meta-line" title="Šifra proizvoda"><i class="fa fa-barcode" aria-hidden="true"></i>{{ item.sifra }}
-                                                    </span>
-                                                </div>  
-                                                <span class="ttm-lp-price"><ins>{{ item.cijena }}</ins></span>                            
-                                            </div>
-                                        </div>
-                                    </div><!-- featured-imagebox-post end-->
+                    <div class="ttm-box-col-wrapper col-md-6">
+                        <!-- featured-imagebox-post -->
+                        <div class="featured-imagebox featured-imagebox-event featured-imagebox-course style1" >
+                            <div class="ttm-post-thumbnail featured-thumbnail"> 
+                                <img class="img-fluid lazyload" style="width:410px;height:230px;" alt="{{ item.title }}" src="https://media.graphcms.com/resize=fit:clip,width:410,height:230/output=format:webp/{{ item.photo }}">
+                            </div>
+                            <div class="featured-content-post">
+                                <div class="post-title" style="min-height:60px;!important;margin-top:30px;padding:0 20px;">
+                                    <h5><a href="/edukacije/online-edukacije/{{ item.categoryslug }}/{{ item.titleslug }}/">{{ item.title }}</a></h5>
                                 </div>
-                        
-                            {% endfor %}
-                            
-                        </div>
+                                <div class="post-desc featured-desc" style="padding:0 20px;">
+                                    <p style="min-height:105px;">{{ item.excerpt | truncate(200) }}</p>
+                                    <span style="color:#88402C;font-size:16px;font-style:italic;">Vrsta edukacije: 
+                                    {% if item.vrsta == "e_Zbirke"%}e-Zbirka{% endif %}
+                                    {% if item.vrsta == "Video_seminari"%}Video seminar{% endif %}
+                                    {% if item.vrsta == "Webinari"%}Webinar{% endif %}
+                                    {% if item.vrsta == "Zoom_meeting"%}Zoom meeting uživo{% endif %}
+                                    </span>
+                                </div>
+                                <div class="ttm-course-box-meta">
+                                    <div class="ttm-enrolled">
+                                        <span class="ttm-comments ttm-meta-line"><i class="fa fa-tag" aria-hidden="true"></i>
+                                        {{ item.category | truncate(35) }}
+                                        </span>
+                                        <span class="ttm-comments ttm-meta-line" title="Šifra proizvoda"><i class="fa fa-barcode" aria-hidden="true"></i>{{ item.sifra }}
+                                        </span>
+                                    </div>  
+                                    <span class="ttm-lp-price"><ins>{{ item.cijena }}</ins></span>                            
+                                </div>
+                            </div>
+                        </div><!-- featured-imagebox-post end-->
                     </div>
+            
+                {% endfor %}
 
-                    <!--    {% include "partials/pagination-block.njk" %} -->
-
-
-                        {% else %}
-
-                            <!-- post -->
-                            <article class="post ttm-blog-classic clearfix">
-                                <!-- ttm-blog-classic-content -->
-                                <div class="ttm-blog-classic-content">
-                                    <div class="ttm-post-entry-header">
-                                        <header class="entry-header">
-                                            <h2 class="entry-title">Trenutno nemamo on-line edukacija u ovoj kategoriji.</h2>
-                                        </header>
-                                    </div>
-                                </div><!-- ttm-blog-classic-content end -->
-                            </article><!-- post end -->
-                        </div>
-                    </div>
-
-                        {% endif %}
-                            
                 </div>
+
+                {% include "partials/pagination-block.njk" %}
+
             </div>
+
+                {% else %}
+
+                    <!-- post -->
+                    <article class="post ttm-blog-classic clearfix">
+                        <!-- ttm-blog-classic-content -->
+                        <div class="ttm-blog-classic-content">
+                            <div class="ttm-post-entry-header">
+                                <header class="entry-header">
+                                    <h2 class="entry-title">Trenutno nemamo on-line edukacija u ovoj kategoriji.</h2>
+                                </header>
+                            </div>
+                        </div><!-- ttm-blog-classic-content end -->
+                    </article><!-- post end -->
+
+            </div>
+
+            {% endif %}
             
             {% include "partials/onlinecategories.njk" %}
 

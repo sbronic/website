@@ -13,6 +13,9 @@ input[type="email"], input[type="url"], input[type="search"], input[type="tel"],
 .uneditable-input, select {
     color: #313332!important;
 }
+#barcode {
+    display:none;
+}
 /*figure.snipcart-item-line__media {
     display:none;
 }*/
