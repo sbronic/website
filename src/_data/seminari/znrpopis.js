@@ -90,7 +90,7 @@ async function getSeminari() {
             promovideo: item.promoVideo,
             excerpt: item.sazetakSeminara,
             sifra: item.sifraProizvoda,
-            cijena: item.cijena.toLocaleString() + ' Kn + PDV',
+            cijena: item.cijena.toLocaleString('hr-HR') + ' Kn + PDV',
             trajanje: item.trajanjeDana,
             curriculum: item.curriculum.html,
             datumiseminara: item.datumiSeminara,
