@@ -7,6 +7,7 @@ async function getDatumi() {
     
     // Objave array
     let svidatumi = [];
+    const today = new Date().toISOString();
 
     try {
         // initiate fetch
@@ -17,8 +18,9 @@ async function getDatumi() {
                 Accept: "application/json",
             },
             body: JSON.stringify({
-                query: `{
-                    datumiSeminara (orderBy: dateAndTime_ASC, stage: PUBLISHED, where: {dateAndTime_gt: "$today", seminar: {kategorija: {kod: "pzp"}}}) {
+                variables: { today },
+                query: `query DatumiSeminara($today: DateTime!) {
+                    datumiSeminara (orderBy: dateAndTime_ASC, stage: PUBLISHED, where: {dateAndTime_gt: $today, seminar: {kategorija: {kod: "pzp"}}}) {
                         dateAndTime
                         dvorana
                         lokacija {

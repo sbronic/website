@@ -7,6 +7,7 @@ async function getSeminari() {
     
     // Objave array
     let sviseminari = [];
+    const today = new Date().toISOString();
 
     try {
         // initiate fetch
@@ -17,7 +18,8 @@ async function getSeminari() {
                 Accept: "application/json",
             },
             body: JSON.stringify({
-                query: `{
+                variables: { today },
+                query: `query Seminari($today: DateTime!) {
                     seminari(stage: PUBLISHED, where: {kategorija: {kod: "zouo"}}) {
                         id
                         nazivSeminara
@@ -37,7 +39,7 @@ async function getSeminari() {
                         curriculum {
                             html
                         }
-                        datumiSeminara (where: {dateAndTime_gt: "$today"}) {
+                        datumiSeminara (where: {dateAndTime_gt: $today}) {
                             dateAndTime 
                         }
                         fotografija {
