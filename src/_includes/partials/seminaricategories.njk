@@ -11,14 +11,14 @@
     {% if nav2ID === "datumi" %}
     <aside class="widget widget-Categories with-title">
         <div class="ttm-btn-box pb-20">
-            <a class="ttm-btn ttm-btn-size-lg ttm-btn-shape-square ttm-btn-style-fill ttm-icon-btn-right ttm-btn-color-dark" href="/edukacije/seminari-i-radionice/otvoreni-seminari-i-radionice/"><i class="fa fa-list" aria-hidden="true" style="margin-right:10px;"></i>POPIS SEMINARA</a>
+            <a class="ttm-btn ttm-btn-size-lg ttm-btn-shape-square ttm-btn-style-fill ttm-icon-btn-right ttm-btn-color-dark" href="/edukacije/seminari-i-radionice/otvoreni-seminari-i-radionice/"><i class="fa fa-list" aria-hidden="true" style="margin-right:10px;"></i>POPIS EDUKACIJA</a>
         </div>
     </aside>
     {% endif %}
 
     {% if nav2ID === "seminar" %}
     <aside class="widget widget-Categories with-title">
-     <h3 class="widget-title">Rezervacija seminara</h3>
+     <h3 class="widget-title">Rezervirajte edukaciju</h3>
 
         {% if seminar.datumiseminara | length > 0 %}
 
@@ -87,14 +87,14 @@
             data-item-custom6-type="hidden"
             onClick="bcTimestamp()"
             style="margin-top:30px;"
-            class="snipcart-add-item lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">Rezervirajte seminar</button>
+            class="snipcart-add-item lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">Rezervirajte edukaciju</button>
         </div>
 
         {% else %}
 
         <div class="ttm-btn-box pb-20">
             <div class="form-group">
-                <h5>Na žalost nemamo dostupnih datuma seminara</h5>
+                <h5>Na žalost nemamo dostupnih datuma ove edukacije</h5>
             </div>
         </div>
 
@@ -103,7 +103,7 @@
     </aside>
     <hr style="margin-left: -15px;"/>
     <aside class="widget widget-download with-title">
-        <h3 class="widget-title">Podijeli seminar</h3>
+        <h3 class="widget-title">Podijeli edukaciju</h3>
         <div class="container">
             <div>
                     <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" target="_blank" style="padding: 0 .3em;"><i class="fa fa-2x fa-facebook-square"></i></a>

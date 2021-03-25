@@ -42,9 +42,24 @@
                                 <div class="post-meta">
                                     <span class="ttm-meta-line"><i class="fa fa-clock-o"></i>{{ seminar.vrijeme }}</span>
                                     <span class="ttm-meta-line"><i class="fa fa-map-marker"></i>{{ seminar.lokacijanaziv }}, {% if seminar.dvorana %}Dvorana {{ seminar.dvorana }},{% endif %} {{ seminar.lokacijaadresa }}, {{ seminar.lokacijagrad }}</span>
+                                    <span class="ttm-meta-line"><i class="fa fa-id-badge"></i>
+                                    {% for predavac in seminar.predavaci %}
+                                        {% if loop.first %}
+                                            {{ predavac.imeIPrezime }}
+                                        {% else %}
+                                            , {{ predavac.imeIPrezime }}
+                                        {% endif %}
+                                    {% endfor %}
+                                    </span>
                                 </div>
                                 <div class="post-title featured-title">
                                     <h5><a href="/edukacije/seminari-i-radionice/{{ seminar.kategorijaslug }}/{{ seminar.seminarnazivslug }}/">{{ seminar.seminarnaziv }}</a></h5>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="ttm-btn-box" style="right:0px;width:100%">
+                                    <h6 style="text-decoration: line-through;color:grey;font-weight:400;"></h6>
+                                    <h5 style="color:#88402C">{{ seminar.seminarcijena }}</h5>
                                 </div>
                             </div>
                         </div>

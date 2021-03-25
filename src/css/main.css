@@ -2669,3 +2669,7 @@ label.error {
 .snipcart__font--std {
     font-size: 12px!important;
 }
+
+.content-tab > .content-inner > p > a {
+    text-decoration: underline;
+}
