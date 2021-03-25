@@ -1,4 +1,8 @@
 [[headers]]
+for = "/*"
+[headers.values]
+Content-Security-Policy = "default-src ‘self’"
+[[headers]]
 for = "/images/*"
 [headers.values]
 Cache-Control = "public, max-age=604800, immutable"
@@ -23,7 +27,7 @@ for = "/*.jpg"
 [headers.values]
 Cache-Control = "public, max-age=604800, immutable"
 [[headers]]
-for = "/*.jpeg"netlify copy
+for = "/*.jpeg"
 [headers.values]
 Cache-Control = "public, max-age=604800, immutable"
 [[headers]]
