@@ -250,8 +250,8 @@ ul.menu-col li a:focus{
         color: inherit;
     }
     nav.main-menu li.mega-menu-item a.mega-menu-link:after{
-        font-family: 'FontAwesome';
-        content: "\f107";
+        /*font-family: 'FontAwesome';
+        content: "\f107";*/
         float: right;
         font-size: 16px;
         margin-left: 10px;
