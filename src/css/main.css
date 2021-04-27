@@ -2655,6 +2655,10 @@ label.error {
 .hidden {
     display:none;
 }
+.redfont {
+    color:red;
+    margin-top:-15px;
+}
 
 /*------------------------------------------------------------------------------*/
 /*  Snipcart

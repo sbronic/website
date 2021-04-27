@@ -1,0 +1,138 @@
+---
+title: Akademije
+description: akademije
+layout: layouts/page.njk
+banner: akademija.jpg
+idx: yes
+permalink: "edukacije/akademije/index.html"
+eleventyComputed:
+    page_title: "Akademije"
+    page_description: "edukacijE.hr akademije"
+---
+
+<div class="ttm-page-title-row" style="background: url(/images/{{ banner }})!important">
+    <div class="ttm-page-title-row-inner ttm-textcolor-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="page-title-heading">
+                        <h1 class="title">{{ description }}
+                        </h1>
+                    </div>
+                    <div class="breadcrumb-wrapper">
+                        <span><a href="/">Početna</a></span>
+                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                        <span class="current" style="color:#F77F00">{{ description }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                    
+</div>
+<div class="container">
+    <div class="row" style="margin-top:50px;">
+        <div class="col-lg-12">
+            <div class="ttm-tabs tabs-style-01" data-effect="fadeIn">
+                <ul class="tabs clearfix">
+                    <li class="tab active"><a href="#">Akademije</a></li>
+                    <li class="tab"><a href="#">On-line akademije</a></li>
+                </ul>
+                <div class="content-tab">                        
+                    <!-- content-inner -->
+                    <div class="content-inner" style="display: block;">
+
+                        {% if akademijeoff != 'prazno' %}
+                        {% for item in akademijeoff %}
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img class="img-fluid lazyloaded" alt="image" src="https://media.graphcms.com/resize=fit:crop,width:540,height:414/output=format:webp/{{ item.fotografija }}">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="pt-15 pl-15 pr-15 pb-15 res-991-p-0 res-991-mt-20">
+                                    <h4 class="font-weight-normal">{{ item.naziv }}</h4>
+                                    <p>{{ item.sazetak }}</p>
+                                    <p>Akademija se sastoji od ovih modula:</p>
+                                    <div class="pt-10 pb-30 res-991-pb-15">
+                                        <ul class="ttm-list ttm-list-style-icon ttm-list-icon-color-skincolor">
+
+                                            {% for bullet in item.elementi %}
+                                            <li><i class="fa fa-arrow-circle-right"></i><div class="ttm-list-li-content">{{ bullet }}</div></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-dark" href="/edukacije/akademije/{{ item.slug }}">Saznaj više</a>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+
+                        {% endfor %}
+                        {% else %}
+
+                        <!-- post -->
+                        <article class="post ttm-blog-classic clearfix" style="padding: 0 50px 50px 50px;">
+                            <!-- ttm-blog-classic-content -->
+                            <div class="ttm-blog-classic-content">
+                                <div class="ttm-post-entry-header">
+                                    <header class="entry-header">
+                                        <h2 class="entry-title">Trenutno nemamo akademija u ponudi.</h2>
+                                    </header>
+                                </div>
+                            </div><!-- ttm-blog-classic-content end -->
+                        </article><!-- post end -->
+
+                        {% endif %}
+
+                    </div><!-- content-inner end-->
+                    <!-- content-inner -->
+                    <div class="content-inner" style="display: none;">
+
+                        {% if akademijeon != 'prazno' %}
+                        {% for item in akademijeon %}
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img class="img-fluid lazyloaded" alt="image" src="https://media.graphcms.com/resize=fit:crop,width:540,height:414/output=format:webp/{{ item.fotografija }}">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="pt-15 pl-15 pr-15 pb-15 res-991-p-0 res-991-mt-20">
+                                    <h4 class="font-weight-normal">{{ item.naziv }}</h4>
+                                    <p>{{ item.sazetak }}</p>
+                                    <div class="pt-10 pb-30 res-991-pb-15">
+                                        <ul class="ttm-list ttm-list-style-icon ttm-list-icon-color-skincolor">
+
+                                            {% for bullet in item.elementi %}
+                                            <li><i class="fa fa-arrow-circle-right"></i><div class="ttm-list-li-content">{{ bullet }}</div></li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-dark" href="/edukacije/akademije/{{ item.slug }}">Saznaj više</a>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+
+                        {% endfor %}
+                        {% else %}
+
+                        <!-- post -->
+                        <article class="post ttm-blog-classic clearfix" style="padding: 0 50px 50px 50px;">
+                            <!-- ttm-blog-classic-content -->
+                            <div class="ttm-blog-classic-content">
+                                <div class="ttm-post-entry-header">
+                                    <header class="entry-header">
+                                        <h2 class="entry-title">Trenutno nemamo on-line akademija u ponudi.</h2>
+                                    </header>
+                                </div>
+                            </div><!-- ttm-blog-classic-content end -->
+                        </article><!-- post end -->
+
+                        {% endif %}
+                        
+                    </div><!-- content-inner end-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
