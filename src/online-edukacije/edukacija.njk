@@ -101,7 +101,7 @@ eleventyComputed:
                                             {% endif %}
                                             {% endfor %}
                                         </li>
-                                    {% if (edukacija.vrsta === "Zoom_meeting") or edukacija.vrsta === "Video_seminari" %}
+                                    {% if (edukacija.vrsta === "Zoom_meeting") or (edukacija.vrsta === "Video_seminari") or (edukacija.vrsta === "Zoom_snimka") %}
                                         <li class="ttm-meta-line ttm-course-dur"> 
                                             <strong>Trajanje:</strong>{{ edukacija.trajanje }}
                                         </li>
