@@ -2677,3 +2677,15 @@ label.error {
 .content-tab > .content-inner > p > a {
     text-decoration: underline;
 }
+.snipcart-checkbox+label:before {
+    content: "";
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: text-top;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #007bff!important;
+    border-radius: 3px;
+    background-color: #fdfefe;
+}
+

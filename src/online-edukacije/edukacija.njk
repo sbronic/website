@@ -101,6 +101,14 @@ eleventyComputed:
                                             {% endif %}
                                             {% endfor %}
                                         </li>
+                                        <li class="ttm-meta-line ttm-course-dur"> 
+                                            <strong>Vrsta edukacije:</strong>
+                                            {% if edukacija.vrsta == "e_Zbirke"%}e-Zbirka{% endif %}
+                                            {% if edukacija.vrsta == "Video_seminari"%}Video seminar{% endif %}
+                                            {% if edukacija.vrsta == "Webinari"%}Webinar{% endif %}
+                                            {% if edukacija.vrsta == "Zoom_meeting"%}Zoom meeting uživo{% endif %}
+                                            {% if edukacija.vrsta == "Zoom_snimka"%}Zoom meeting snimka{% endif %}
+                                        </li>
                                     {% if (edukacija.vrsta === "Zoom_meeting") or (edukacija.vrsta === "Video_seminari") or (edukacija.vrsta === "Zoom_snimka") %}
                                         <li class="ttm-meta-line ttm-course-dur"> 
                                             <strong>Trajanje:</strong>{{ edukacija.trajanje }}
@@ -116,7 +124,7 @@ eleventyComputed:
                                         <li class="tab active"><a href="#">Opis seminara</a></li>
                                         <li class="tab"><a href="#">Sadržaj edukacije</a></li>
                                         {% if edukacija.preview %}
-                                        <li class="tab"><a href="#">Preview</a></li>
+                                        <li class="tab"><a href="#">Preview sadržaja</a></li>
                                         {% endif %}
                                         {% if (edukacija.autori | length) == 1 %}
                                             <li class="tab"><a href="#">O Predavaču</a></li>
