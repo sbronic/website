@@ -454,6 +454,10 @@ $(function () {
     fetch('/searchindex-seminari.json')
         .then(blob => blob.json())
         .then(data => seminari.push(...data));
+    const akademije = [];
+    fetch('/searchindex-akademije.json')
+        .then(blob => blob.json())
+        .then(data => akademije.push(...data));
     
     //search functions
     function findRezObjave(wordToMatch, objave) {
@@ -472,6 +476,12 @@ $(function () {
         return seminari.filter(rezSeminari => {
             const regex = new RegExp(wordToMatch, 'gi');
             return rezSeminari.title.match(regex);
+        });
+    }
+    function findRezAkademije(wordToMatch, akademije) {
+        return akademije.filter(rezAkademije => {
+            const regex = new RegExp(wordToMatch, 'gi');
+            return rezAkademije.title.match(regex);
         });
     }
 
@@ -524,12 +534,29 @@ $(function () {
             document.getElementById('edukacijebanner').style.display = "none";
             suggedukacije.innerHTML = '';
         }
+
+        // akademije
+        const matchAkademije = findRezAkademije(this.value, seminari);
+        if ((matchAkademije.length > 0) && (searchInput.value.length > 2)) {
+            document.getElementById('akademijebanner').style.display = "block";
+            const htmlakademije = matchAkademije.map(rezAkademije => {
+                const regex = new RegExp(this.value, 'gi');
+                const akademijetitle = rezAkademije.title.replace(regex, '<span class="hi">' + this.value + '</span>')
+                return '<li><span class="name"><a href="' + rezAkademije.url + '">' + akademijetitle + '</a></span>';
+            }).join('');
+            suggakademije.innerHTML = htmlakademije;
+        }
+        else {
+            document.getElementById('akademijebanner').style.display = "none";
+            suggakademije.innerHTML = '';
+        }
     }
 
     const searchInput = document.querySelector('#search_query_top');
     const suggobjave = document.querySelector('#suggObjave');
     const suggedukacije = document.querySelector('#suggEdukacije');
     const suggseminari = document.querySelector('#suggSeminari');
+    const suggakademije = document.querySelector('#suggAkademije');
 
     searchInput.addEventListener('keyup', displayRez, { passive: true });
     

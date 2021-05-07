@@ -1,0 +1,20 @@
+---
+permalink: /searchindex-akademije.json
+eleventyExcludeFromCollections: true
+---
+
+[
+{% for edukacija in akademijeoff %}
+{
+   "title":"{{ edukacija.title }}",
+   "url":"/edukacije/akademije/{{ edukacija.slug }}/"
+} {%- if loop.last == false -%},{% endif %}
+{% endfor %}
+,
+{% for edukacija in akademijeon %}
+{
+   "title":"{{ edukacija.title }}",
+   "url":"/edukacije/online-akademije/{{ edukacija.slug }}/"
+} {%- if loop.last == false -%},{% endif %}
+{% endfor %}
+]
