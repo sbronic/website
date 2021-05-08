@@ -536,7 +536,7 @@ $(function () {
         }
 
         // akademije
-        const matchAkademije = findRezAkademije(this.value, seminari);
+        const matchAkademije = findRezAkademije(this.value, akademije);
         if ((matchAkademije.length > 0) && (searchInput.value.length > 2)) {
             document.getElementById('akademijebanner').style.display = "block";
             const htmlakademije = matchAkademije.map(rezAkademije => {

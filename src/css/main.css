@@ -1358,6 +1358,10 @@ ul.social-icons{
     -ms-box-shadow: 0 3px 5px rgba(0,0,0,.1);
     box-shadow: 0 3px 5px rgba(0,0,0,.1);
     z-index: 9;
+    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 700px;
 }
 .header_search .header_search_content.on{
     opacity: 1;
