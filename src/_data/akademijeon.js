@@ -42,6 +42,7 @@ async function getAkademije() {
                         opisAkademije {
                             html
                         }
+                        outroVideo
                         pdf {
                             url
                         }
@@ -54,6 +55,7 @@ async function getAkademije() {
                         datumiAkademijas (where: {date_gt: $today}) {
                             date
                         }
+                        updatedAt
                     }
                 }`
             })
@@ -100,7 +102,8 @@ async function getAkademije() {
             sifraProizvoda: item.sifraProizvoda,
             trajanje: item.trajanjeDana,
             vrsta: item.vrstaAkademije,
-            datumi: item.datumiAkademijas
+            datumi: item.datumiAkademijas,
+            updated: item.updatedAt
         };
     }).filter(Boolean);
 

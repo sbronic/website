@@ -157,8 +157,9 @@
     
     
     // Initialize
-    $(document).ready(function () {
+    $(document).ready(function(){
         menu.initialize();
+
     });
 
 /*------------------------------------------------------------------------------*/
@@ -583,4 +584,11 @@ $("#ttm-inhouseform").validate({
 $.extend($.validator.messages, {
     required: "Obavezno polje",
     email: "Neispravna email adresa"
+});
+
+/*------------------------------------------------------------------------------*/
+/* Fix for hamburger menu
+/*------------------------------------------------------------------------------*/
+$(' .menu-mobile .menu li.mega-menu-item > a').on('click', function () {
+    jQuery(this).find('.mega-menu-link').triggerHandler('click');
 });
