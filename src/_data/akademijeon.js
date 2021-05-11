@@ -54,7 +54,6 @@ async function getAkademije() {
                         datumiAkademijas (where: {date_gt: $today}) {
                             date
                         }
-                        updatedAt
                     }
                 }`
             })
@@ -101,8 +100,7 @@ async function getAkademije() {
             sifraProizvoda: item.sifraProizvoda,
             trajanje: item.trajanjeDana,
             vrsta: item.vrstaAkademije,
-            datumi: item.datumiAkademijas,
-            updated: item.updatedAt
+            datumi: item.datumiAkademijas
         };
     }).filter(Boolean);
 

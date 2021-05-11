@@ -5,9 +5,15 @@ eleventyExcludeFromCollections: true
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {%- for seminar in seminari.svepopis %}
+{% if (loop.index == 1) %}
+  <url>
+    <loc>{{ site.url }}/seminari-i-radionice/</loc>
+    <lastmod>{{ seminar.updated | rfc822 }}</lastmod>
+  </url>
+{% endif %}
   <url>
     <loc>{{ site.url }}/seminari-i-radionice/{{ seminar.kategorijaslug }}/{{ seminar.titleslug }}/</loc>
-    <lastmod>{{ seminar.updated }}</lastmod>
+    <lastmod>{{ seminar.updated | rfc822 }}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
