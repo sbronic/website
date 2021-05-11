@@ -7,11 +7,42 @@ const moment = require('moment-timezone');
 moment().tz('Europe/Zagreb').format();
 const Canvas = require("canvas");
 const PDF417 = require("pdf417-generator");
+const htmlmin = require("html-minifier");
 
 module.exports = function (config) {
 
+    let env = process.env.ELEVENTY_ENV;
+
     const dirToClean = '_site/*';
     del(dirToClean);
+
+    /* minify the html output */
+    if (env != 'dev') {
+        config.addTransform("htmlmin", function (content, outputPath) {
+            // Eleventy 1.0+: use this.inputPath and this.outputPath instead
+            if (outputPath && outputPath.endsWith(".html")) {
+                let minified = htmlmin.minify(content, {
+                    useShortDoctype: true,
+                    removeComments: true,
+                    collapseWhitespace: true
+                });
+                return minified;
+            }
+
+            return content;
+        });
+    }
+
+    /* compress and combine js files */
+    config.addFilter("jsmin", function (code) {
+        const UglifyJS = require("uglify-js");
+        let minified = UglifyJS.minify(code);
+        if (minified.error) {
+            console.log("UglifyJS error: ", minified.error);
+            return code;
+        }
+        return minified.code;
+    });
 
     /* Passthrough Copy */
     config.addPassthroughCopy("src/css");

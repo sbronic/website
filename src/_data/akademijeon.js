@@ -42,7 +42,6 @@ async function getAkademije() {
                         opisAkademije {
                             html
                         }
-                        outroVideo
                         pdf {
                             url
                         }

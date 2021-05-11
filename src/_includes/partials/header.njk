@@ -66,23 +66,23 @@
                             <!-- menu -->
                             <nav class="main-menu menu-mobile" id="menu">
                                 <ul class="menu">
-                                    <li class="mega-menu-item {{ 'active' if '/seminari-i-radionice' in page.url }}">
-                                        <a href="/edukacije/seminari-i-radionice/datumi-odrzavanja" class="mega-menu-link">Seminari</a>
+                                    <li class="nav-item {{ 'active' if '/seminari-i-radionice' in page.url }}">
+                                        <a href="/edukacije/seminari-i-radionice/datumi-odrzavanja" class="nav-link">Seminari</a>
                                     </li>
-                                    <li class="mega-menu-item {{ 'active' if '/online-edukacije' in page.url }}">
-                                        <a href="/edukacije/online-edukacije" class="mega-menu-link">On-Line Edukacije</a>
+                                    <li class="nav-item {{ 'active' if '/online-edukacije' in page.url }}">
+                                        <a href="/edukacije/online-edukacije" class="nav-link">On-Line Edukacije</a>
                                     </li>
-                                    <li class="mega-menu-item {{ 'active' if 'akademije/' in page.url }}">
-                                        <a href="/edukacije/akademije" class="mega-menu-link">Akademije</a>
+                                    <li class="nav-item {{ 'active' if 'akademije' in page.url }}">
+                                        <a href="/edukacije/akademije" class="nav-link-link">Akademije</a>
                                     </li>
-                                    <li class="mega-menu-item {% if navID == 'in-house' %}active{% endif %}">
-                                        <a href="/edukacije/in-house" class="mega-menu-link">In-house edukacije</a>
+                                    <li class="nav-item {{ 'active' if '/in-house' in page.url }}">
+                                        <a href="/edukacije/in-house" class="nav-link">In-house edukacije</a>
                                     </li>
-                                    <li class="mega-menu-item {{ 'active' if '/blog' in page.url }}">
-                                        <a href="/blog" class="mega-menu-link">Blog</a>
+                                    <li class="nav-item {{ 'active' if '/blog' in page.url }}">
+                                        <a href="/blog" class="nav-link">Blog</a>
                                     </li>
-                                    <li class="mega-menu-item {% if navID == 'kontakt' %}active{% endif %}">
-                                        <a href="/kontakt" class="mega-menu-link">Kontakt</a>
+                                    <li class="nav-item {{ 'active' if '/kontakt' in page.url }}">
+                                        <a href="/kontakt" class="nav-link">Kontakt</a>
                                     </li>
                                 </ul>
                             </nav>

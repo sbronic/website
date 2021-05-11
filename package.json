@@ -20,7 +20,7 @@
   },
   "homepage": "https://gitlab.com/webshaped.biz/edukacije-hr-uniaro#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^0.11.1"
+    "@11ty/eleventy": "^0.12.1"
   },
   "dependencies": {
     "@11ty/eleventy-plugin-rss": "^1.0.9",
@@ -28,9 +28,11 @@
     "dotenv": "^8.2.0",
     "eleventy-plugin-wordcount": "^1.0.5",
     "got": "^11.8.1",
+    "html-minifier": "^4.0.0",
     "moment-timezone": "^0.5.32",
     "node-fetch": "^2.6.1",
     "pdf417-generator": "^1.0.2",
-    "slugify": "^1.4.6"
+    "slugify": "^1.4.6",
+    "uglify-js": "^3.13.6"
   }
 }
