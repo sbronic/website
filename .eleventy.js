@@ -16,7 +16,7 @@ module.exports = function (config) {
     const dirToClean = '_site/*';
     del(dirToClean);
 
-    /* minify the html output 
+    /* minify the html output */
     if (env != 'dev') {
         config.addTransform("htmlmin", function (content, outputPath) {
             // Eleventy 1.0+: use this.inputPath and this.outputPath instead
@@ -31,7 +31,7 @@ module.exports = function (config) {
 
             return content;
         });
-    } */
+    }
 
     /* Passthrough Copy */
     config.addPassthroughCopy("src/css");
