@@ -153,11 +153,17 @@ ul.menu-col li a:focus{
         height: auto;
         border-top: 3px solid;
     }
+    .lms-link {
+        display: none!important;
+    }
 }
 
 
 @media (max-width: 1199px) {
 
+    .lms-link {
+        display: block!important;
+    }
     .menubar{
         position: absolute;
         right: 0;
