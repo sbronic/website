@@ -1570,7 +1570,7 @@ ul.social-icons{
   .banner-slider-overlay, .banner-slider.banner-slider-overlay .banner-slide{ height: auto; }
   .banner-slider .banner-text { margin-top: -20px; }
   .banner-slide > img, .banner-slider-overlay .banner-slide > img{ height: 420px; width: 100%;}
-  .left , .right , .ttm-icon, .featured-icon-box, .banner-slider .banner-text.right-content p, .ttm-play-icon-btn, .banner-text h5, .ttm-hide{ 
+  .left , .right, .featured-icon-box, .banner-slider .banner-text.right-content p, .ttm-play-icon-btn, .banner-text h5, .ttm-hide{ 
     display: none !important;
   }
   .banner-slider .banner-caption { justify-content: center !important; }
