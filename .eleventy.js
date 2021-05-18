@@ -25,7 +25,8 @@ module.exports = function (config) {
                     useShortDoctype: true,
                     removeComments: true,
                     collapseWhitespace: true,
-                    //processScripts: 'application/ld+json'
+                    minifyJS: true,
+                    processScripts: 'application/ld+json'
                 });
                 return minified;
             }
