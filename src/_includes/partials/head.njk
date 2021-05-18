@@ -228,6 +228,22 @@
 
 {% elif page_type === 'edukacija' %}
 
+<script type="application/ld+json">
+{
+   "@context": "http://schema.org",
+   "@type": "WebPage",
+   "name":"{{ page_title }}",
+   "description":"{{ page_description | jsonldesc }}",
+   "publisher":{
+      "@type":"Organization",
+      "name":"Gastro Mreža",
+      "logo":{
+         "@type":"ImageObject",
+         "url":"{{ site.url }}/images/logo-img.png"
+    }
+}
+</script>
+
 <!-- SEO edukacija -->
 <!--Twitter Card-->
 <meta name="twitter:card" content="summary_large_image">
