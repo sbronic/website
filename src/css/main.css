@@ -2697,4 +2697,5 @@ label.error {
     overflow-y: auto;
     overflow-x: hidden;
     max-height: 800px;
+    margin-bottom: 20px;
 }
