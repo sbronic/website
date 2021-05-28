@@ -2692,4 +2692,9 @@ label.error {
     border-radius: 3px;
     background-color: #fdfefe;
 }
-
+.overflow-lista {
+    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 800px;
+}
