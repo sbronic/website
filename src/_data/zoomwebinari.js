@@ -86,7 +86,8 @@ async function getOnlineEdukacije() {
                     "titleslug": zoom.titleslug,
                     "category": zoom.category,
                     "categoryslug": zoom.categoryslug,
-                    "zoomDatumIVrijemePocetka": zoomdate
+                    "zoomDatumIVrijemePocetka": zoomdate,
+                    "trajanje": zoom.trajanje
                 }
                 zoomlist.zoomitems.push(zoomitem);
             }
