@@ -18,7 +18,7 @@ async function getOnlineEdukacije() {
             },
             body: JSON.stringify({
                 query: `{
-                    onLineEdukacije(where: {vrstaEdukacije: Zoom_meeting}, stage: PUBLISHED) {
+                    onLineEdukacije(where: {vrstaEdukacije: Zoom_meeting}, stage: PUBLISHED, orderBy: zoomDatumIVrijemePocetka_ASC) {
                         naziv
                         kategorija {
                             id
