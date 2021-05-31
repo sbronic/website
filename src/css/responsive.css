@@ -77,7 +77,7 @@
 		content: unset;
 		box-shadow: unset;
 	}
-	.ttm-header-style-01 #site-header-menu .site-navigation ul.menu > li >a { padding: 42px 18px 41px 18px; }
+	.ttm-header-style-01 #site-header-menu .site-navigation ul.menu > li >a { padding: 42px 10px 41px 10px; }
 	.ttm-header-style-01 #site-header-menu .ttm-stickable-header.fixed-header .site-navigation ul.menu > li >a{
 	    padding: 26px 17px;
 	}
@@ -603,8 +603,9 @@
 }
 
 @media (max-width: 520px){
-.site-branding img{
- max-height: 35px;
+	.site-branding img{
+	max-height: 35px;
+	}
 }
 
 @media (max-width:580px){

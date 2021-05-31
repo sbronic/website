@@ -9,19 +9,19 @@
                         <div class="top_bar_icon"><i class="fa fa-envelope-o"></i></div><a href="mailto:info@edukacije.hr" target="_blank">info@edukacije.hr</a>
                     </div>
                     <div class="top_bar_contact_item">
-                        <div class="top_bar_icon"><i class="fa fa-phone"></i></div>+385 1 557-9093
+                        <div class="top_bar_icon"><i class="fa fa-phone"></i></div>+385 98 9842-790
                     </div>
                     <div class="top_bar_contact_item ml-auto">
                         <a href="/" style="{% if navID == 'pocetna' %}color:#F77F00;{% endif %}">Početna</a>
                     </div>
-                     <div class="top_bar_contact_item">
+                    <div class="top_bar_contact_item">
                         <a href="/o-nama" style="{% if navID == 'o-nama' %}color:#F77F00;{% endif %}">O nama</a>
                     </div>
                     <div class="top_bar_contact_item">
-                        <a href="/uvjeti-koristenja" style="{% if navID == 'uvjeti-koristenja' %}color:#F77F00;{% endif %}">Uvjeti korištenja</a>
+                        <a href="/blog" style="{% if '/blog' in page.url %}color:#F77F00;{% endif %}">Blog</a>
                     </div>
                     <div class="top_bar_contact_item">
-                        <a href="/zastita-privatnosti" style="{% if navID == 'zastita-privatnosti' %}color:#F77F00;{% endif %}">Zaštita privatnosti</a>
+                        <a href="/kontakt" style="{% if '/kontakt' in page.url %}color:#F77F00;{% endif %}">Kontakt</a>
                     </div>
                     <div class="top_bar_contact_item">
                         <div class="top_bar_social">
@@ -66,6 +66,30 @@
                             <!-- menu -->
                             <nav class="main-menu menu-mobile" id="menu">
                                 <ul class="menu">
+                                    <li class="nav-item" style="margin-right:20px!important;">
+                                        <form class="navbar-form" id="searchbox" method="get" action="#">
+                                            <div class="form-group" style="display:inline;">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1"><span class="fa fa-search"></span></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Unesite riječ za pretragu" style="border: 2px solid rgba(0, 43, 92, 0.08)!important;" id="search_query_top" name="s" value="" autocomplete="off" onkeypress="return event.keyCode != 13;">
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div class="header_search">
+                                            <div class="header_search_content" id="hsc">
+                                                <p id="objavebanner" style="width:100%;text-align:center;display:none;border-bottom:1px solid #88402C;">OBJAVE</p>
+                                                <ul id="suggObjave"></ul>
+                                                <p id="seminaribanner" style="width:100%;text-align:center;display:none;border-bottom:1px solid #88402C;">SEMINARI I RADIONICE</p>
+                                                <ul id="suggSeminari"></ul>
+                                                <p id="edukacijebanner" style="width:100%;text-align:center;display:none;border-bottom:1px solid #88402C;">ON-LINE EDUKACIJE</p>
+                                                <ul id="suggEdukacije"></ul>
+                                                <p id="akademijebanner" style="width:100%;text-align:center;display:none;border-bottom:1px solid #88402C;">AKADEMIJE</p>
+                                                <ul id="suggAkademije"></ul>
+                                            </div>
+                                        </div>
+                                    </li>
                                     <li class="nav-item {{ 'active' if '/seminari-i-radionice' in page.url }}">
                                         <a href="/edukacije/seminari-i-radionice/datumi-odrzavanja" class="nav-link">Seminari</a>
                                     </li>
@@ -76,20 +100,22 @@
                                         <a href="/edukacije/akademije" class="nav-link">Akademije</a>
                                     </li>
                                     <li class="nav-item {{ 'active' if '/in-house' in page.url }}">
-                                        <a href="/edukacije/in-house" class="nav-link">In-house edukacije</a>
+                                        <a href="/edukacije/in-house" class="nav-link">In-house</a>
                                     </li>
+                                    <!--
                                     <li class="nav-item {{ 'active' if '/blog' in page.url }}">
                                         <a href="/blog" class="nav-link">Blog</a>
                                     </li>
                                     <li class="nav-item {{ 'active' if '/kontakt' in page.url }}">
                                         <a href="/kontakt" class="nav-link">Kontakt</a>
-                                    </li>
+                                    </li>-->
                                     <li class="nav-item lms-link">
                                         <a href="https://lms.edukacije.hr" target="_blank">LMS Login</a>
                                     </li>
                                 </ul>
                             </nav>
                             <div class="header_extra d-flex flex-row align-items-center justify-content-end">
+                                <!--
                                 <div class="header_search">
                                     <a href="#" class="btn-default search_btn"><i class="ti ti-search"></i></a>
                                     <div class="header_search_content">
@@ -106,6 +132,7 @@
                                         <ul id="suggAkademije"></ul>
                                     </div>
                                 </div>
+                                -->
                                 <div class="header_cart">
                                     <a href="#" class="button-cart snipcart-checkout" id="cartlink"">
                                         <div class="cart_icon"><i class="fa fa-shopping-cart"></i></div>

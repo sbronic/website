@@ -1342,7 +1342,6 @@ ul.social-icons{
 .header_search .header_search_content{
     position: absolute;
     top: 100%;
-    right: 35px;
     width: 400px;
     background: #fff;
     border-top: 3px solid;

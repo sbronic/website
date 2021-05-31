@@ -41,37 +41,6 @@
     })
 
 /*------------------------------------------------------------------------------*/
-/* header_search
-/*------------------------------------------------------------------------------*/
-    
-    $(".header_search").each(function(){  
-        $(".search_btn", this).on("click", function(e){
-
-            e.preventDefault();
-            e.stopPropagation();
-
-            $(".header_search_content").toggleClass("on");
-            $("#search_query_top").focus();
-
-                if ($('.header_search a').hasClass('open')) {
-
-                    $( ".header_search a i" ).removeClass('ti-close').addClass('ti-search');
-                    
-                    $(this).removeClass('open').addClass('sclose');    
-
-                } 
-
-                else {
-                    $(".header_search a").removeClass('sclose').addClass('open');
-
-                    $( ".header_search a i" ).removeClass('ti-search').addClass('ti-close');  
-                    
-                    }
-                });
-
-    });
-
-/*------------------------------------------------------------------------------*/
 /* Datetimepicker
 /*------------------------------------------------------------------------------*/
 
@@ -438,6 +407,37 @@ $(".input-number").keydown(function (e) {
 });
 
 /*------------------------------------------------------------------------------*/
+/* header_search
+/*------------------------------------------------------------------------------*/
+    
+    $(".header_search").each(function(){  
+        $(".search_btn", this).on("click", function(e){
+
+            e.preventDefault();
+            e.stopPropagation();
+
+            $(".header_search_content").toggleClass("on");
+            $("#search_query_top").focus();
+
+                if ($('.header_search a').hasClass('open')) {
+
+                    $( ".header_search a i" ).removeClass('ti-close').addClass('ti-search');
+                    
+                    $(this).removeClass('open').addClass('sclose');    
+
+                } 
+
+                else {
+                    $(".header_search a").removeClass('sclose').addClass('open');
+
+                    $( ".header_search a i" ).removeClass('ti-search').addClass('ti-close');  
+                    
+                    }
+                });
+
+    });
+
+/*------------------------------------------------------------------------------*/
 /* Search funkcija
 /*------------------------------------------------------------------------------*/
 $(function () {
@@ -490,6 +490,12 @@ $(function () {
         //objave
         const matchObjave = findRezObjave(this.value, objave);
         if ((matchObjave.length > 0) && (searchInput.value.length > 2)) {
+            
+            var elem1 = $('.header_search_content');
+            if (!elem1.hasClass('on')) {
+                elem1.addClass('on');
+            }
+            
             document.getElementById('objavebanner').style.display = "block";
             const htmlobjave = matchObjave.map(rezObjave => {
                 const regex = new RegExp(this.value, 'gi');
@@ -506,6 +512,12 @@ $(function () {
         // seminari
         const matchSeminari = findRezSeminari(this.value, seminari);
         if ((matchSeminari.length > 0) && (searchInput.value.length > 2)) {
+            
+            var elem2 = $('.header_search_content');
+            if (!elem2.hasClass('on')) {
+                elem2.addClass('on');
+            }
+
             document.getElementById('seminaribanner').style.display = "block";
             const htmlseminari = matchSeminari.map(rezSeminari => {
                 const regex = new RegExp(this.value, 'gi');
@@ -522,6 +534,12 @@ $(function () {
         // online edukacije
         const matchEdukacije = findRezEdukacije(this.value, edukacije);
         if ((matchEdukacije.length > 0) && (searchInput.value.length > 2)) {
+
+            var elem3 = $('.header_search_content');
+            if (!elem3.hasClass('on')) {
+                elem3.addClass('on');
+            }
+
             document.getElementById('edukacijebanner').style.display = "block";
             const htmledukacije = matchEdukacije.map(rezEdukacije => {
                 const regex = new RegExp(this.value, 'gi');
@@ -538,6 +556,12 @@ $(function () {
         // akademije
         const matchAkademije = findRezAkademije(this.value, akademije);
         if ((matchAkademije.length > 0) && (searchInput.value.length > 2)) {
+
+            var elem4 = $('.header_search_content');
+            if (!elem4.hasClass('on')) {
+                elem4.addClass('on');
+            }
+
             document.getElementById('akademijebanner').style.display = "block";
             const htmlakademije = matchAkademije.map(rezAkademije => {
                 const regex = new RegExp(this.value, 'gi');
@@ -549,6 +573,10 @@ $(function () {
         else {
             document.getElementById('akademijebanner').style.display = "none";
             suggakademije.innerHTML = '';
+        }
+
+        if (searchInput.value.length < 3) {
+            document.getElementById('hsc').classList.remove("on");
         }
     }
 
