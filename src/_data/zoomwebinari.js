@@ -97,8 +97,12 @@ async function getOnlineEdukacije() {
     
     const zoommeetings = zoomlist.zoomitems;
 
+    const sortzoommeetings = zoommeetings.sort((a, b) => {
+        return new Date(a.zoomDatumIVrijemePocetka) - new Date(b.zoomDatumIVrijemePocetka); // descending
+    })
+
     // return formatted blogposts
-    return zoommeetings;
+    return sortzoommeetings;
 }
 
 // export for 11ty

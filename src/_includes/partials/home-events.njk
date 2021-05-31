@@ -63,7 +63,7 @@
                     <h3 style="text-align: center;">Zoom webinari</h3>
                 </div>
                 <div class="overflow-lista">
-                    {% for zoom in zoomwebinari %}
+                    {% for zoom in zoomwebinari | sort(false, false, zoom.zoomDatumIVrijemePocetka) %}
                     <!-- featured-imagebox-post -->
                     <div class="featured-imagebox featured-imagebox-post style1" style="width:96%!important">
                         <div class="featured-content featured-content-post" style="padding: 10px;!important">
