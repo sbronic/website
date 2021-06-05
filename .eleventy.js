@@ -42,6 +42,7 @@ module.exports = function (config) {
     config.addPassthroughCopy("src/js");
     config.addPassthroughCopy("src/netlify.toml");
     config.addPassthroughCopy("src/_redirects");
+    config.addPassthroughCopy("src/sitemap.xml");
 
     /* RSS */
     config.addPlugin(pluginRSS);
