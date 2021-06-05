@@ -758,7 +758,7 @@ ul.tabs li.active a, ul.tabs li:hover a,
 .ttm-bgcolor-skincolor .ttm-progress-bar .progress-bar-percent,
 .ttm-bgcolor-darkgrey .ttm-progress-bar .progress-bar-percent,
 .ttm-bgcolor-skincolor .inside h3, .ttm-bgcolor-darkgrey .inside h3 {
-    color: rgba(255,255,255,.7);
+    color: #fff;
 }
 
 
@@ -1120,7 +1120,7 @@ ul.social-icons{
 .top_bar_contact_item:nth-last-child(2){ margin-right: 15px; }
 .top_bar.ttm-bgcolor-darkgrey.ttm-textcolor-white .top_bar_contact_item,
 .top_bar.ttm-bgcolor-darkgrey.ttm-textcolor-white .top_bar_contact_item a {
-    color: #b6bbcc;
+    color: #fff;
 }
 .top_bar_contact_item:last-child {
     margin-right: 0;
