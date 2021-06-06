@@ -124,7 +124,7 @@ async function getOnlineEdukacije() {
     }
 
     // return formatted blogposts
-    return formatedukacije;
+    return formatedukacije.sort(() => Math.random() - 0.5);
 }
 
 // export for 11ty

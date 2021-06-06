@@ -121,7 +121,7 @@ async function getSeminari() {
     }
 
     // return formatted blogposts
-    return formatseminari;
+    return formatseminari.sort(() => Math.random() - 0.5);
 }
 
 // export for 11ty
