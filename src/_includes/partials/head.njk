@@ -1,15 +1,17 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content=" width=device-width, initial-scale=1, maximum-scale=5" />
-<meta name="author" content="https://webshaped.biz" />
+<meta name="viewport" content=" width=device-width, initial-scale=1, maximum-scale=5"/>
+<meta name="author" content="https://webshaped.biz"/>
 <link rel="canonical" href="https://www.edukacije.hr{{ page.url }}">
 
 {% if site.environment == "prod" %}
    <!-- Global site tag (gtag.js) - Google Analytics -->
-   <script async src="https://www.googletagmanager.com/gtag/js?id=G-F0WYJ03ZKQ"></script>
+   <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-F0WYJ03ZKQ"></script>
    <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag() {
+         dataLayer.push(arguments);
+      }
       gtag('js', new Date());
 
       gtag('config', 'G-F0WYJ03ZKQ');
@@ -17,49 +19,68 @@
    <!-- End Google Analytics -->
    <!-- Facebook Pixel Code -->
    <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
+      !function (f, b, e, v, n, t, s) {
+         if (f.fbq) 
+            return;
+         n = f.fbq = function () {
+            n.callMethod
+               ? n
+                  .callMethod
+                  .apply(n, arguments)
+               : n
+                  .queue
+                  .push(arguments)
+         };
+         if (!f._fbq) 
+            f._fbq = n;
+         n.push = n;
+         n.loaded = !0;
+         n.version = '2.0';
+         n.queue = [];
+         t = b.createElement(e);
+         t.async = !0;
+         t.src = v;
+         s = b.getElementsByTagName(e)[0];
+         s
+            .parentNode
+            .insertBefore(t, s)
+      }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
       fbq('init', '2549429031755407');
       fbq('track', 'PageView');
    </script>
    <script>
       fbq('track', 'Purchase', {
-      value: {{dlv - attributes.response.data.data.end_price}},
-      currency: 'HRK'
-   });
+         value: {{dlv - attributes.response.data.data.end_price}},
+         currency: 'HRK'
+      });
    </script>
    <!-- End Facebook Pixel Code -->
 {% endif %}
 
 {% if page_title %}
-<title>{{ page_title }} | edukacijE.hr</title>
-<meta name="keywords" content="{{ page_keywords }}" />
-<meta name="description" content="{{ page_description }}" />
+   <title>{{ page_title }}
+      | edukacijE.hr</title>
+   <meta name="keywords" content="{{ page_keywords }}"/>
+   <meta name="description" content="{{ page_description }}"/>
 {% else  %}
-<title>Dobrodošli | edukacijE.hr</title>
-<meta name="keywords" content="homepage keywords" />
-<meta name="description" content="Svi trebamo sve više znanja i iskustva, kako bi bili bolji, konkurentniji i uspješniji. Što bolje radimo, svima će nam biti bolje." />
+   <title>Dobrodošli | edukacijE.hr</title>
+   <meta name="keywords" content="homepage keywords"/>
+   <meta name="description" content="Svi trebamo sve više znanja i iskustva, kako bi bili bolji, konkurentniji i uspješniji. Što bolje radimo, svima će nam biti bolje."/>
 {% endif %}
 
-<link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com/" crossorigin="crossorigin">
 <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
-<link rel="preconnect" href="https://app.snipcart.com/" crossorigin>
+<link rel="preconnect" href="https://app.snipcart.com/" crossorigin="crossorigin">
 <link rel="dns-prefetch" href="https://app.snipcart.com/">
-<link rel="preconnect" href="https://cdn.snipcart.com/" crossorigin>
+<link rel="preconnect" href="https://cdn.snipcart.com/" crossorigin="crossorigin">
 <link rel="dns-prefetch" href="https://cdn.snipcart.com/">
 
 <!-- favicon icon -->
-<link rel="shortcut icon" href="/images/favicon/cropped-favicon512x512-32x32.png" />
-<link rel="icon" href="/images/favicon/cropped-favicon512x512-32x32.png" sizes="32x32" />
-<link rel="icon" href="/images/favicon/cropped-favicon512x512-192x192.png" sizes="192x192" />
-<link rel="apple-touch-icon-precomposed" href="/images/favicon/cropped-favicon512x512-180x180.png" />
-<meta name="msapplication-TileImage" content="/images/favicon/cropped-favicon512x512-270x270.png" />
+<link rel="shortcut icon" href="/images/favicon/cropped-favicon512x512-32x32.png"/>
+<link rel="icon" href="/images/favicon/cropped-favicon512x512-32x32.png" sizes="32x32"/>
+<link rel="icon" href="/images/favicon/cropped-favicon512x512-192x192.png" sizes="192x192"/>
+<link rel="apple-touch-icon-precomposed" href="/images/favicon/cropped-favicon512x512-180x180.png"/>
+<meta name="msapplication-TileImage" content="/images/favicon/cropped-favicon512x512-270x270.png"/>
 <!-- bootstrap -->
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
 <!-- animate -->
@@ -79,238 +100,234 @@
 <!-- responsive -->
 <link rel="stylesheet" type="text/css" href="/css/responsive.css"/>
 <!-- google fonts -->
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&display=swap" async>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&display=swap" async="async">
 <!-- Snipcart -->
-<link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.1.1/default/snipcart.css" />
-<link rel="stylesheet" type="text/css" href="/css/snipcart-custom.css" />
+<link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.1.1/default/snipcart.css"/>
+<link rel="stylesheet" type="text/css" href="/css/snipcart-custom.css"/>
 <!-- Fancybox -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
 <!-- main -->
 <link rel="stylesheet" type="text/css" href="/css/main.css"/>
 <!-- SEO website -->
 <!-- JSON-LD website -->
 <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "publisher": {
-        "@type": "Organization",
-        "name": "Gastro Mreža",
-        "legalname": "Gastro Mreža d.o.o.",
-        "url": "https://gastromreza.hr/",
-        "address": {
+   {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "publisher": {
+         "@type": "Organization",
+         "name": "Gastro Mreža",
+         "legalname": "Gastro Mreža d.o.o.",
+         "url": "https://gastromreza.hr/",
+         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Mandaličina 16",
             "addressLocality": "Zagreb",
             "postalCode": "10000",
             "addressCountry": "Hrvatska"
-        }
-    },
-    "url": "https://www.edukacije.hr",
-    "image": {
-        "@type": "ImageObject",
-        "url": "https:www.edukacije.hr/images/logo-img.png",
-        "width": 359,
-        "height": 55
-    },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "http://www.edukacije.hr/search?&q={query}",
-      "query": "required"
-    },
-    "sameAs": [
-        "https://www.facebook.com/EdukacijEhr-390679021469000/",
-        "https://www.instagram.com/edukacije.hr/",
-        "https://www.linkedin.com/company/18852729/"
-    ]
-}
+         }
+      },
+      "url": "https://www.edukacije.hr",
+      "image": {
+         "@type": "ImageObject",
+         "url": "https:www.edukacije.hr/images/logo-img.png",
+         "width": 359,
+         "height": 55
+      },
+      "potentialAction": {
+         "@type": "SearchAction",
+         "target": "http://www.edukacije.hr/search?&q={search_term_string}",
+         "query-input": "required name=search_term_string"
+      },
+      "sameAs": ["https://www.facebook.com/EdukacijEhr-390679021469000/", "https://www.instagram.com/edukacije.hr/", "https://www.linkedin.com/company/18852729/"]
+   }
 </script>
 
 {% if page_type === 'article' %}
 
-<!-- JSON-LD article -->
-<script type="application/ld+json">
-{
-   "@context":"https://schema.org",
-   "@type":"Article",
-   "headline":"{{ page_title }}",
-   "image":"{{ objavaimage }}",
-   "author":"{{ objava.author }}",
-   "keywords":"{{ page_title }}",
-   "wordcount":"{{ textcount }}",
-   "publisher":{
-      "@type":"Organization",
-      "name":"Gastro Mreža",
-      "logo":{
-         "@type":"ImageObject",
-         "url":"{{ site.url }}/images/logo-img.png"
+   <!-- JSON-LD article -->
+   <script type="application/ld+json">
+      {
+         "@context": "https://schema.org",
+         "@type": "Article",
+         "headline": "{{ page_title }}",
+         "image": "{{ objavaimage }}",
+         "author": "{{ objava.author }}",
+         "keywords": "{{ page_title }}",
+         "wordcount": "{{ textcount }}",
+         "publisher": {
+            "@type": "Organization",
+            "name": "Gastro Mreža",
+            "logo": {
+               "@type": "ImageObject",
+               "url": "{{ site.url }}/images/logo-img.png"
+            }
+         },
+         "url": "{{ site.url }}{{ page.url }}",
+         "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "{{ site.url }}{{ page.url }}"
+         },
+         "datePublished": "{{ objava.dateUpdated }}",
+         "dateModified": "{{ objava.dateUpdated }}",
+         "description": "{{ page_description | jsonldesc }}",
+         "articleBody": "{{ objava.bodytext }}"
       }
-   },
-   "url":"{{ site.url }}{{ page.url }}",
-   "mainEntityOfPage":{
-      "@type":"WebPage",
-      "@id":"{{ site.url }}{{ page.url }}"
-   },
-   "datePublished":"{{ objava.dateUpdated }}",
-   "dateModified":"{{ objava.dateUpdated }}",
-   "description":"{{ page_description | jsonldesc }}",
-   "articleBody":"{{ objava.bodytext }}"
-}
-</script>
-<!-- SEO article -->
-<!--Twitter Card-->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
-<meta name="twitter:title" content="{{ objava.title }}">
-<meta name="twitter:description" content="{{ objava.excerpt }}">
-<meta name="twitter:image" content="https://media.graphcms.com/resize=fit:clip,width:1200,height:675/{{ objava.photo }}">
-<!--Schema-->
-<link rel="author" href="https://www.edukacije.hr">
-<link rel="publisher" href="https://gastromreza.hr">
-<meta itemprop="name" content="{{ objava.title }}">
-<meta itemprop="description" content="{{ objava.excerpt }}">
-<meta itemprop="image" content="https://media.graphcms.com/resize=fit:clip,width:1200,height:675/{{ objava.photo }}">
-<!--Facebook OpenGraph-->
-<meta property="fb:app_id" content="966242223397117" />
-<meta property="og:locale" content="hr_HR">
-<meta property="og:type" content="article">
-<meta property="article:section" content="{{ objava.category }}">
-<meta property="og:title" content="{{ objava.title }}">
-<meta property="og:description" content="{{ objava.excerpt }}">
-<meta property="og:url" content="{{ site.url }}{{ page.url }}">
-<meta property="og:site_name" content="edukacijE.hr">
-<meta property="og:updated_time" content="{{ objava.dateUpdated }}">
-<meta property="og:image" content="https://media.graphcms.com/resize=fit:clip,width:1200,height:675/{{ objava.photo }}">
-<meta property="og:image:secure_url" content="https://media.graphcms.com/resize=fit:clip,width:1200,height:675/{{ objava.photo }}">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="675">
-<meta property="og:image:alt" content="{{ objava.title }}">
-<meta property="og:image:type" content="image/jpeg">
+   </script>
+   <!-- SEO article -->
+   <!--Twitter Card-->
+   <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
+   <meta name="twitter:title" content="{{ objava.title }}">
+   <meta name="twitter:description" content="{{ objava.excerpt }}">
+   <meta name="twitter:image" content="https://media.graphcms.com/resize=fit:clip,width:1200,height:675/{{ objava.photo }}">
+   <!--Schema-->
+   <link rel="author" href="https://www.edukacije.hr">
+   <link rel="publisher" href="https://gastromreza.hr">
+   <meta itemprop="name" content="{{ objava.title }}">
+   <meta itemprop="description" content="{{ objava.excerpt }}">
+   <meta itemprop="image" content="https://media.graphcms.com/resize=fit:clip,width:1200,height:675/{{ objava.photo }}">
+   <!--Facebook OpenGraph-->
+   <meta property="fb:app_id" content="966242223397117"/>
+   <meta property="og:locale" content="hr_HR">
+   <meta property="og:type" content="article">
+   <meta property="article:section" content="{{ objava.category }}">
+   <meta property="og:title" content="{{ objava.title }}">
+   <meta property="og:description" content="{{ objava.excerpt }}">
+   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+   <meta property="og:site_name" content="edukacijE.hr">
+   <meta property="og:updated_time" content="{{ objava.dateUpdated }}">
+   <meta property="og:image" content="https://media.graphcms.com/resize=fit:clip,width:1200,height:675/{{ objava.photo }}">
+   <meta property="og:image:secure_url" content="https://media.graphcms.com/resize=fit:clip,width:1200,height:675/{{ objava.photo }}">
+   <meta property="og:image:width" content="1200">
+   <meta property="og:image:height" content="675">
+   <meta property="og:image:alt" content="{{ objava.title }}">
+   <meta property="og:image:type" content="image/jpeg">
 
 {% elif page_type === 'seminar' %}
 
-<!-- JSON-LD seminar -->
-<script type="application/ld+json">
-{
-   "@context":"https://schema.org",
-   "@type":"Course",
-   "name":"{{ page_title }}",
-   "description":"{{ page_description | jsonldesc }}",
-   "provider":{
-      "@type":"Organization",
-      "name":"Gastro Mreža d.o.o.",
-      "sameAs":"https://www.edukacije.hr"
-   }
-}
-</script>
-<!-- SEO seminar -->
-<!--Twitter Card-->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
-<meta name="twitter:title" content="{{ seminar.title }}">
-<meta name="twitter:description" content="{{ seminar.excerpt }}">
-<meta name="twitter:image" content="https://media.graphcms.com/resize=fit:clip,width:1200,height:675/{{ seminar.fotografija }}">
-<!--Schema-->
-<link rel="author" href="https://www.edukacije.hr">
-<link rel="publisher" href="https://gastromreza.hr">
-<meta itemprop="name" content="{{ seminar.title }}">
-<meta itemprop="description" content="{{ seminar.excerpt }}">
-<meta itemprop="image" content="https://media.graphcms.com/resize=fit:clip,width:1200,height:675/{{ seminar.fotografija }}">
-<!--Facebook OpenGraph-->
-<meta property="fb:app_id" content="966242223397117" />
-<meta property="og:locale" content="hr_HR">
-<meta property="og:type" content="product">
-<meta property="og:title" content="{{ seminar.title }}">
-<meta property="og:description" content="{{ seminar.excerpt }}">
-<meta property="og:url" content="{{ site.url }}{{ page.url }}">
-<meta property="og:site_name" content="edukacije.hr">
-<meta property="og:updated_time" content="{{ seminar.updated }}">
-<meta property="og:image" content="https://media.graphcms.com/resize=fit:clip,width:1200,height:675/{{ seminar.fotografija }}">
-<meta property="og:image:secure_url" content="https://media.graphcms.com/resize=fit:clip,width:1200,height:675/{{ seminar.fotografija }}">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="675">
-<meta property="og:image:alt" content="{{ seminar.title }}">
-<meta property="og:image:type" content="image/jpeg">
-<meta property="product:price:amount" content="{{ seminar.cijenaPDV }}">
-<meta property="product:price:currency" content="Kn">
+   <!-- JSON-LD seminar -->
+   <script type="application/ld+json">
+      {
+         "@context": "https://schema.org",
+         "@type": "Course",
+         "name": "{{ page_title }}",
+         "description": "{{ page_description | jsonldesc }}",
+         "provider": {
+            "@type": "Organization",
+            "name": "Gastro Mreža d.o.o.",
+            "sameAs": "https://www.edukacije.hr"
+         }
+      }
+   </script>
+   <!-- SEO seminar -->
+   <!--Twitter Card-->
+   <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
+   <meta name="twitter:title" content="{{ seminar.title }}">
+   <meta name="twitter:description" content="{{ seminar.excerpt }}">
+   <meta name="twitter:image" content="https://media.graphcms.com/resize=fit:clip,width:1200,height:675/{{ seminar.fotografija }}">
+   <!--Schema-->
+   <link rel="author" href="https://www.edukacije.hr">
+   <link rel="publisher" href="https://gastromreza.hr">
+   <meta itemprop="name" content="{{ seminar.title }}">
+   <meta itemprop="description" content="{{ seminar.excerpt }}">
+   <meta itemprop="image" content="https://media.graphcms.com/resize=fit:clip,width:1200,height:675/{{ seminar.fotografija }}">
+   <!--Facebook OpenGraph-->
+   <meta property="fb:app_id" content="966242223397117"/>
+   <meta property="og:locale" content="hr_HR">
+   <meta property="og:type" content="product">
+   <meta property="og:title" content="{{ seminar.title }}">
+   <meta property="og:description" content="{{ seminar.excerpt }}">
+   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+   <meta property="og:site_name" content="edukacije.hr">
+   <meta property="og:updated_time" content="{{ seminar.updated }}">
+   <meta property="og:image" content="https://media.graphcms.com/resize=fit:clip,width:1200,height:675/{{ seminar.fotografija }}">
+   <meta property="og:image:secure_url" content="https://media.graphcms.com/resize=fit:clip,width:1200,height:675/{{ seminar.fotografija }}">
+   <meta property="og:image:width" content="1200">
+   <meta property="og:image:height" content="675">
+   <meta property="og:image:alt" content="{{ seminar.title }}">
+   <meta property="og:image:type" content="image/jpeg">
+   <meta property="product:price:amount" content="{{ seminar.cijenaPDV }}">
+   <meta property="product:price:currency" content="Kn">
 
 {% elif page_type === 'edukacija' %}
 
-<script type="application/ld+json">
-{
-   "@context": "http://schema.org",
-   "@type": "WebPage",
-   "name":"{{ page_title }}",
-   "description":"{{ page_description | jsonldesc }}",
-   "publisher":{
-      "@type":"Organization",
-      "name":"Gastro Mreža",
-      "logo":{
-         "@type":"ImageObject",
-         "url":"{{ site.url }}/images/logo-img.png"
+   <script type="application/ld+json">
+      {
+         "@context": "http://schema.org",
+         "@type": "WebPage",
+         "name": "{{ page_title }}",
+         "description": "{{ page_description | jsonldesc }}",
+         "publisher": {
+            "@type": "Organization",
+            "name": "Gastro Mreža",
+            "logo": {
+               "@type": "ImageObject",
+               "url": "{{ site.url }}/images/logo-img.png"
+            }
+         }
       }
-   }
-}
-</script>
+   </script>
 
-<!-- SEO edukacija -->
-<!--Twitter Card-->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
-<meta name="twitter:title" content="{{ edukacija.title }}">
-<meta name="twitter:description" content="{{ edukacija.excerpt }}">
-<meta name="twitter:image" content="https://media.graphcms.com/resize=fit:clip,width:1200,height:675/{{ edukacija.photo }}">
-<!--Schema-->
-<link rel="author" href="https://www.edukacije.hr">
-<link rel="publisher" href="https://gastromreza.hr">
-<meta itemprop="name" content="{{ edukacija.title }}">
-<meta itemprop="description" content="{{ edukacija.excerpt }}">
-<meta itemprop="image" content="https://media.graphcms.com/resize=fit:clip,width:1200,height:675/{{ edukacija.photo }}">
-<!--Facebook OpenGraph-->
-<meta property="fb:app_id" content="966242223397117" />
-<meta property="og:locale" content="hr_HR">
-<meta property="og:type" content="product">
-<meta property="og:title" content="{{ edukacija.title }}">
-<meta property="og:description" content="{{ edukacija.excerpt }}">
-<meta property="og:url" content="{{ site.url }}{{ page.url }}">
-<meta property="og:site_name" content="edukacije.hr">
-<meta property="og:updated_time" content="{{ edukacija.updated }}">
-<meta property="og:image" content="https://media.graphcms.com/resize=fit:clip,width:1200,height:675/{{ edukacija.photo }}">
-<meta property="og:image:secure_url" content="https://media.graphcms.com/resize=fit:clip,width:1200,height:675/{{ edukacija.photo }}">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="675">
-<meta property="og:image:alt" content="{{ edukacija.title }}">
-<meta property="og:image:type" content="image/jpeg">
-<meta property="product:price:amount" content="{{ edukacija.cijenaPDV }}">
-<meta property="product:price:currency" content="Kn">
+   <!-- SEO edukacija -->
+   <!--Twitter Card-->
+   <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:url" content="{{ site.url }}{{ page.url }}">
+   <meta name="twitter:title" content="{{ edukacija.title }}">
+   <meta name="twitter:description" content="{{ edukacija.excerpt }}">
+   <meta name="twitter:image" content="https://media.graphcms.com/resize=fit:clip,width:1200,height:675/{{ edukacija.photo }}">
+   <!--Schema-->
+   <link rel="author" href="https://www.edukacije.hr">
+   <link rel="publisher" href="https://gastromreza.hr">
+   <meta itemprop="name" content="{{ edukacija.title }}">
+   <meta itemprop="description" content="{{ edukacija.excerpt }}">
+   <meta itemprop="image" content="https://media.graphcms.com/resize=fit:clip,width:1200,height:675/{{ edukacija.photo }}">
+   <!--Facebook OpenGraph-->
+   <meta property="fb:app_id" content="966242223397117"/>
+   <meta property="og:locale" content="hr_HR">
+   <meta property="og:type" content="product">
+   <meta property="og:title" content="{{ edukacija.title }}">
+   <meta property="og:description" content="{{ edukacija.excerpt }}">
+   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+   <meta property="og:site_name" content="edukacije.hr">
+   <meta property="og:updated_time" content="{{ edukacija.updated }}">
+   <meta property="og:image" content="https://media.graphcms.com/resize=fit:clip,width:1200,height:675/{{ edukacija.photo }}">
+   <meta property="og:image:secure_url" content="https://media.graphcms.com/resize=fit:clip,width:1200,height:675/{{ edukacija.photo }}">
+   <meta property="og:image:width" content="1200">
+   <meta property="og:image:height" content="675">
+   <meta property="og:image:alt" content="{{ edukacija.title }}">
+   <meta property="og:image:type" content="image/jpeg">
+   <meta property="product:price:amount" content="{{ edukacija.cijenaPDV }}">
+   <meta property="product:price:currency" content="Kn">
 
 {% else %}
 
-<!--Twitter Card-->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://www.edukacije.hr">
-<meta name="twitter:title" content="edukacijE.hr za bolje poslovanje i bolji život svih nas">
-<meta name="twitter:description" content="Svi trebamo sve više znanja i iskustva, kako bi bili bolji, konkurentniji i uspješniji. Što bolje radimo, svima će nam biti bolje.">
-<meta name="twitter:image" content="https://www.edukacije.hr/images/og-image.jpg">
-<!--Schema-->
-<link rel="author" href="https://www.edukacije.hr">
-<link rel="publisher" href="https://gastromreza.hr">
-<meta itemprop="name" content="edukacijE.hr za bolje poslovanje i bolji život svih nas">
-<meta itemprop="description" content="Svi trebamo sve više znanja i iskustva, kako bi bili bolji, konkurentniji i uspješniji. Što bolje radimo, svima će nam biti bolje.">
-<meta itemprop="image" content="https://www.edukacije.hr/images/og-image.jpg">
-<!-- Facebook OpenGraph -->
-<meta property="fb:app_id" content="966242223397117" />
-<meta property="og:locale" content="hr_HR">
-<meta property="og:type" content="website">
-<meta property="og:title" content="edukacijE.hr za bolje poslovanje i bolji život svih nas">
-<meta property="og:description" content="Svi trebamo sve više znanja i iskustva, kako bi bili bolji, konkurentniji i uspješniji. Što bolje radimo, svima će nam biti bolje.">
-<meta property="og:url" content="https://www.edukacije.hr/">
-<meta property="og:site_name" content="edukacije.hr">
-<meta property="og:image" content="https://www.edukacije.hr/images/og-image.jpg">
-<meta property="og:image:secure_url" content="https://www.edukacije.hr/images/og-image.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="675">
-<meta property="og:image:alt" content="edukacije.hr">
-<meta property="og:image:type" content="image/jpeg">
+   <!--Twitter Card-->
+   <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:url" content="https://www.edukacije.hr">
+   <meta name="twitter:title" content="edukacijE.hr za bolje poslovanje i bolji život svih nas">
+   <meta name="twitter:description" content="Svi trebamo sve više znanja i iskustva, kako bi bili bolji, konkurentniji i uspješniji. Što bolje radimo, svima će nam biti bolje.">
+   <meta name="twitter:image" content="https://www.edukacije.hr/images/og-image.jpg">
+   <!--Schema-->
+   <link rel="author" href="https://www.edukacije.hr">
+   <link rel="publisher" href="https://gastromreza.hr">
+   <meta itemprop="name" content="edukacijE.hr za bolje poslovanje i bolji život svih nas">
+   <meta itemprop="description" content="Svi trebamo sve više znanja i iskustva, kako bi bili bolji, konkurentniji i uspješniji. Što bolje radimo, svima će nam biti bolje.">
+   <meta itemprop="image" content="https://www.edukacije.hr/images/og-image.jpg">
+   <!-- Facebook OpenGraph -->
+   <meta property="fb:app_id" content="966242223397117"/>
+   <meta property="og:locale" content="hr_HR">
+   <meta property="og:type" content="website">
+   <meta property="og:title" content="edukacijE.hr za bolje poslovanje i bolji život svih nas">
+   <meta property="og:description" content="Svi trebamo sve više znanja i iskustva, kako bi bili bolji, konkurentniji i uspješniji. Što bolje radimo, svima će nam biti bolje.">
+   <meta property="og:url" content="https://www.edukacije.hr/">
+   <meta property="og:site_name" content="edukacije.hr">
+   <meta property="og:image" content="https://www.edukacije.hr/images/og-image.jpg">
+   <meta property="og:image:secure_url" content="https://www.edukacije.hr/images/og-image.jpg">
+   <meta property="og:image:width" content="1200">
+   <meta property="og:image:height" content="675">
+   <meta property="og:image:alt" content="edukacije.hr">
+   <meta property="og:image:type" content="image/jpeg">
 
 {% endif %}
