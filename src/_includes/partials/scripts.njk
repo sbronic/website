@@ -116,46 +116,7 @@
             </fieldset>
         </div>
     </billing>
-    <cart>
-        <div class="root">
-            <section class="snipcart-cart__content">
-                <item-list item-template="item-line" class="snipcart-item-list--no-shadow" :showdescription="!isSideCart">
-                    <template v-slot:footer="v-slot:footer" v-if="isSideCart && hasActiveDiscountsTriggerableByCode">
-                        <li class="snipcart-item-line snipcart-item-line--cart-edit">
-                            <div class="snipcart-item-line__container">
-                                <discount-box class="snipcart-cart__discount-box"></discount-box>
-                            </div>
-                        </li>
-                    </template>
-                </item-list>
-                <div class="snipcart-cart__footer">
-                    <div class="snipcart-cart__footer-col cart__footer-discount-box snipcart-cart__actions">
-                        <discount-box v-if="!isSideCart && hasActiveDiscountsTriggerableByCode" class="snipcart-cart__discount-box"></discount-box>
-                    </div>
 
-                    <div class="snipcart-cart__footer-col">
-                        <summary-fees class="snipcart-cart-summary-fees--reverse" :summaryData="summaryFeesProvider">
-                            PDV i eventualni troškovi dostave obračunat će se nakon unosa svih podataka.
-                        </summary-fees>
-
-                        <footer v-if="!editingCart || isSideCart">
-                            <flash-message type="error" v-if="errors != null" :title="$localize('errors.order_validation.custom_fields_validation.title')">
-                                Nekim artiklima u košarici nedostaje tražena informacija. Molimo uredite košaricu za nastavak.
-                            </flash-message>
-                            <cart-button class="snipcart-cart__checkout-button snipcart-cart-button--highlight snipcart__font--large" icon-right="continue-arrow" :disabled="checkoutDisabled" @click="checkout">
-                                Nastavak narudžbe
-                            </cart-button>
-                            <div v-if="isSideCart" class="snipcart__actions--link" @click="viewDetailedCart">Detalji košarice</div>
-                        </footer>
-
-                        <div class="snipcart-cart__featured-payment-methods-container">
-                            <featured-payment-methods v-if="!editingCart"></featured-payment-methods>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </cart>
 </div>
 
 <script>
