@@ -20,7 +20,7 @@ async function getAkademije() {
             body: JSON.stringify({
                 variables: { today },
                 query: `query akademije($today: Date!) {
-                    akademije (where: {vrstaAkademije: online}) {
+                    akademije (where: {vrstaAkademije: online}, orderBy: nazivAkademije_ASC) {
                         nazivAkademije
                         cijena
                         autoriIPredavaci {
