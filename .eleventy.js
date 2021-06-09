@@ -109,6 +109,12 @@ module.exports = function (config) {
         var day = dobj.getDate();
         return day;
     });
+    // Idući dan
+    config.addFilter("datumIduciDan", dateObj => {
+        var dobj = new Date(dateObj);
+        var day = dobj.getDate()+1;
+        return day;
+    });
     // Mjesec
     config.addFilter("datumMjesec", dateObj => {
         var dobj = new Date(dateObj);

@@ -72,7 +72,11 @@ eleventyComputed:
                                             {% if seminar.datumiseminara | length > 0%}
                                                 <strong>Datumi održavanja:</strong>
                                                 {% for datum in seminar.datumiseminara %}
-                                                <b>{{ datum.dateAndTime | datumSeminara }}</b> od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}<br/>
+                                                    {% if seminar.trajanje === 2 %}
+                                                        <b>{{ datum.dateAndTime | datumDan }}. i {{ datum.dateAndTime | datumIduciDan }}. {{ datum.dateAndTime | datumMjesecDugi }} {{ datum.dateAndTime | datumGodina }}</b> od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}<br/>
+                                                    {% else %}
+                                                        <b>{{ datum.dateAndTime | datumSeminara }}</b> od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}<br/>
+                                                    {% endif %}
                                                 {% endfor %}
                                             {% else %}
                                                 <strong>Datumi održavanja:</strong>
