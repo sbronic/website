@@ -124,10 +124,13 @@ ul.menu-col li a:focus{
         opacity: 0.3;
     }
     nav.main-menu li.mega-menu-item ul.mega-submenu li.mega-menu-item > a.mega-menu-link:before {
-        font-family: 'FontAwesome';
-        float: right;
-        content: "\f105";
-        margin-top: 0;
+        position: absolute;
+        content: "\f107";
+        font-family: "FontAwesome";
+        font-size: 13px;
+        margin-left: 4px;
+        margin-top: 3px;
+        opacity: 0.3;
     }
     nav.main-menu ul.mega-submenu.megamenu-content .col-menu{
         padding: 0;
@@ -256,8 +259,8 @@ ul.menu-col li a:focus{
         color: inherit;
     }
     nav.main-menu li.mega-menu-item a.mega-menu-link:after{
-        /*font-family: 'FontAwesome';
-        content: "\f107";*/
+        font-family: 'FontAwesome';
+        content: "\f107";
         float: right;
         font-size: 16px;
         margin-left: 10px;
