@@ -1281,7 +1281,7 @@ section{ counter-reset: featured-imagebox-procedure; }
 /* post */
 .featured-imagebox-post{
     position: relative;
-    overflow: visible;
+    /*overflow: visible;*/
     margin: 15px 0;
 }
 .featured-imagebox-post .featured-thumbnail img{
