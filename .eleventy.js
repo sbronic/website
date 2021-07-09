@@ -103,6 +103,15 @@ module.exports = function (config) {
         //var month = dobj.getMonth()+1;
         return day + ". " + month + " " + year + ".";
     });
+    // Datum seminara broj mjeseca
+    config.addFilter("datumSeminaraNo", dateObj => {
+        var dobj = new Date(dateObj);
+        var day = dobj.getDate();
+        var year = dobj.getFullYear();
+        var month = dobj.toLocaleString('hr-HR', { month: 'numeric' });
+        //var month = dobj.getMonth()+1;
+        return day + ". " + month + " " + year + ".";
+    });
     // Dan
     config.addFilter("datumDan", dateObj => {
         var dobj = new Date(dateObj);

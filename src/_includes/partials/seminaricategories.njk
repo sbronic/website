@@ -23,71 +23,42 @@
         {% if seminar.datumiseminara | length > 0 %}
 
         <div class="container">
-            <div class="row">
-                <label><h6>Broj polaznika (max. 3)</h6>
-                <input id="qnt" type="number" value="1" min="1" max="3" step="1"/>
-                </label>
-            </div>
             <div class="row ttm-meta-line ttm-course-price" style="margin-top:30px;" id="jed-cijena">
                 <h6 style="width:100%">Jedinična cijena</h6>
                 <strong style="color: #88402C;font-size:20px;">{{ seminar.cijena }}</strong>
             </div>
             <div class="row ttm-meta-line ttm-course-price" style="margin-top:30px;" id="jed-cijena">
-                <h6 style="width:100%">Popusti (obračun u košarici)</h6>
+                <h6 style="width:100%">Popusti</h6>
                 <p style="font-size:14px;">10% za više od dvije prijave iz iste tvrtke</p>
                 <p style="font-size:14px;">25% fizičke osobe</p>
                 <p style="font-size:14px;">50% neprofitne organizacije</p>
             </div>
-            <div class="row ttm-meta-line" style="margin-top:30px;">
-                    <h6 style="width:100%">Opcije plaćanja</h6>
-                    <p style="font-size:14px;">Plaćanje prema izdanoj ponudi.</p>
-                    <p style="font-size:14px;">Za rezervaciju nisu potrebne kartice.</p>
-                </div>
             <hr style="margin-left: -15px;"/>
             <div class="row ttm-meta-line" style="margin-top:30px;">
                 <p style="font-size:14px;">Klikom na donji gumb smatra se da razumijete i prihavaćate sve odredbe iz <u><a href="/uvjeti-koristenja/" target="_blank">Uvjeta korištenja</a></u> i politike <u><a href="/zastita-privatnosti/" target="_blank">Zaštite privatnosti</a></u></p>
             </div>
-            <button
-            id="buy-button"
-            data-item-id="{{seminar.sifra}}"
-            data-item-price="{{ seminar.cijenaCart }}"
-            data-item-quantity="1"
-            data-item-url="{{ site.url }}/edukacije/seminari-i-radionice/{{ seminar.kategorijaslug }}/{{ seminar.titleslug }}"
-            data-item-description="Šifra: {{ seminar.sifra }}"
-            data-item-image="https://media.graphcms.com/resize=fit:clip,width:120/{{ seminar.fotografija }}"
-            data-item-name="{{ seminar.title }}"
-            data-item-stackable="never"
-            data-item-min-quantity="1"
-            data-item-max-quantity="3"
-            data-item-custom1-name="Kupujete kao (odaberite):"
-            data-item-custom1-options="Pravna osoba|Fizička osoba[-{{ seminar.popustCartOsoba }}]|Neprofitna organizacija[-{{ seminar.popustCartNgo }}]"
-            data-item-custom1-value="Pravna osoba"
-            data-item-custom2-name="Odaberite datum početka i lokaciju edukacije:"
-            data-item-custom2-options="
-                {% for datum in seminar.datumiseminara %}
-                {% if loop.last %}
-                {{ datum.dateAndTime | datumSeminara }} od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}
-                {% else %}
-                {{ datum.dateAndTime | datumSeminara }} od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}|
-                {% endif %}
-                {% endfor %}
-            "
-            data-item-custom3-name="Podaci prvog polaznika"
-            data-item-custom3-type="textarea"
-            data-item-custom3-placeholder="Oblik unosa: Ime Prezime, Email, Telefon"
-            data-item-custom3-required="true"
-            data-item-custom4-name="Podaci drugog polaznika"
-            data-item-custom4-type="textarea"
-            data-item-custom4-placeholder="Oblik unosa: Ime Prezime, Email, Telefon"
-            data-item-custom4-required="false"
-            data-item-custom5-name="Podaci trećeg polaznika"
-            data-item-custom5-type="textarea"
-            data-item-custom5-placeholder="Oblik unosa: Ime Prezime, Email, Telefon"
-            data-item-custom5-required="false"
-            data-item-custom6-name="Molimo vas provjerite da li broj polaznika odgovara količini naručenih edukacija"
-            data-item-custom6-type="readonly"
-            style="margin-top:30px;"
-            class="snipcart-add-item lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">Rezervirajte edukaciju</button>
+
+            <script src ="https://form.jotform.com/static/feedback2.js" type="text/javascript"></script>
+            <script type="text/javascript">
+                var JFL_211825335778362 = new JotformFeedback({
+                formId: '211825335778362',
+                base: 'https://form.jotform.com/',
+                iframeParameters: {
+                    'nazivEdukacije': '{{ seminar.title }}',
+                    'jedinicnaCijena': '{{ seminar.cijenaCart }}',
+                    'pocetakEdukacije': '{% for datum in seminar.datumiseminara %}{{ datum.dateAndTime | datumSeminaraNo }} od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}\n{% endfor %}'
+                },
+                windowTitle: 'Rezervirajte edukaciju',
+                background: '#FFA500',
+                fontColor: '#FFFFFF',
+                type: '1',
+                height: 1000,
+                width: 800,
+                openOnLoad: false
+                });
+            </script>
+            <button class="lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark btn lightbox-211825335778362" style="margin-top:50px;">Rezervirajte edukaciju</button>
+
         </div>
 
         {% else %}

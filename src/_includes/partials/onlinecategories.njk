@@ -10,75 +10,42 @@
             {% if edukacija.zoomDatumIVrijemePocetka | length > 0%}
 
             <div class="container">
-                <div class="row">
-                    <label><h6>Broj polaznika (max. 3)</h6>
-                    <input id="qnt" type="number" value="1" min="1" max="3" step="1"/>
-                    </label>
-                </div>
                 <div class="row ttm-meta-line ttm-course-price" style="margin-top:30px;" id="jed-cijena">
                     <h6 style="width:100%">Jedinična cijena</h6>
                     <strong style="color: #88402C;font-size:20px;">{{ edukacija.cijena }}</strong>
                 </div>
                 <div class="row ttm-meta-line" style="margin-top:30px;">
-                    <h6 style="width:100%">Popusti (obračun u košarici)</h6>
+                    <h6 style="width:100%">Popusti</h6>
                     <p style="font-size:14px;">10% za više od dvije prijave iz iste tvrtke</p>
                     <p style="font-size:14px;">25% fizičke osobe</p>
                     <p style="font-size:14px;">50% neprofitne organizacije</p>
-                </div>
-                <div class="row ttm-meta-line" style="margin-top:30px;">
-                    <h6 style="width:100%">Opcije plaćanja</h6>
-                    <p style="font-size:14px;">Plaćanje prema izdanoj ponudi.</p>
-                    <p style="font-size:14px;">Za narudžbu nisu potrebne kartice.</p>
                 </div>
                 <hr/>
                 <div class="row ttm-meta-line" style="margin-top:30px;">
                     <p style="font-size:14px;">Klikom na donji gumb smatra se da razumijete i prihavaćate sve odredbe iz <u><a href="/uvjeti-koristenja/" target="_blank">Uvjeta korištenja</a></u> i politike <u><a href="/zastita-privatnosti/" target="_blank">Zaštite privatnosti</a></u></p>
                 </div>
-                <button
-                id="buy-button"
-                data-item-id="{{edukacija.sifra}}"
-                data-item-price="{{ edukacija.cijenaCart }}"
-                data-item-quantity="1"
-                data-item-url="{{ site.url }}/edukacije/online-edukacije/{{ edukacija.categoryslug }}/{{ edukacija.titleslug }}"
-                data-item-description="Šifra: {{ edukacija.sifra }}"
-                data-item-image="https://media.graphcms.com/resize=fit:clip,width:120/{{ edukacija.photo }}"
-                data-item-name="{{ edukacija.title }} ({{edukacija.sifra}})"
-                data-item-stackable="never"
-                data-item-min-quantity="1"
-                data-item-max-quantity="3"
-                data-item-custom1-name="Kupujete kao (odaberite):"
-                data-item-custom1-options="Pravna osoba|Fizička osoba[-{{ edukacija.popustCartOsoba }}]|Neprofitna organizacija[-{{ edukacija.popustCartNgo }}]"
-                data-item-custom1-value="Pravna osoba"
-                data-item-custom2-name="Odaberite datum i vrijeme edukacije:"
-                data-item-custom2-options="
-                    {% for datum in edukacija.zoomDatumIVrijemePocetka %}
-                    {% if loop.last %}
-                        {% if datum | datumSat != '7:00' %}
-                            {{ datum | datumSeminara }} u {{ datum | datumSat }}h
-                        {% endif %}
-                        {% else %}
-                        {% if datum | datumSat != '7:00' %}
-                            {{ datum | datumSeminara }} u {{ datum | datumSat }}h|
-                        {% endif %}
-                        {% endif %}
-                    {% endfor %}
-                "
-                data-item-custom3-name="Podaci prvog polaznika"
-                data-item-custom3-type="textarea"
-                data-item-custom3-placeholder="Oblik unosa: Ime Prezime, Email, Telefon"
-                data-item-custom3-required="true"
-                data-item-custom4-name="Podaci drugog polaznika"
-                data-item-custom4-type="textarea"
-                data-item-custom4-placeholder="Oblik unosa: Ime Prezime, Email, Telefon"
-                data-item-custom4-required="false"
-                data-item-custom5-name="Podaci trećeg polaznika"
-                data-item-custom5-type="textarea"
-                data-item-custom5-placeholder="Oblik unosa: Ime Prezime, Email, Telefon"
-                data-item-custom5-required="false"
-                data-item-custom6-name="Molimo vas provjerite da li broj polaznika odgovara količini naručenih edukacija"
-                data-item-custom6-type="readonly"
-                style="margin-top:30px;"
-                class="snipcart-add-item lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">Naručite edukaciju</button>
+               
+                <script src ="https://form.jotform.com/static/feedback2.js" type="text/javascript"></script>
+                <script type="text/javascript">
+                    var JFL_211825335778362 = new JotformFeedback({
+                    formId: '211825335778362',
+                    base: 'https://form.jotform.com/',
+                    iframeParameters: {
+                        'nazivEdukacije': '{{ edukacija.title }}',
+                        'jedinicnaCijena': '{{ edukacija.cijenaCart }}',
+                        'pocetakEdukacije': '{% for datum in edukacija.zoomDatumIVrijemePocetka %}{% if datum | datumSat != '7:00' %}{{ datum | datumSeminaraNo }} u {{ datum | datumSat }}h{% endif %}\n{% endfor %}'
+                    },
+                    windowTitle: 'Rezervirajte edukaciju',
+                    background: '#FFA500',
+                    fontColor: '#FFFFFF',
+                    type: '1',
+                    height: 1000,
+                    width: 800,
+                    openOnLoad: false
+                    });
+                </script>
+                <button class="lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark btn lightbox-211825335778362" style="margin-top:50px;">Rezervirajte edukaciju</button>
+
             </div>
             {% else %}
             <div class="container">
@@ -97,65 +64,41 @@
             <h3 class="widget-title">Naručite edukaciju</h3>
 
             <div class="container">
-                <div class="row">
-                    <label><h6>Količina (max. 3)</h6>
-                    <input id="qnt" type="number" value="1" min="1" max="3" step="1"/>
-                    </label>
-                </div>
                 <div class="row ttm-meta-line ttm-course-price" style="margin-top:30px;" id="jed-cijena">
                     <h6 style="width:100%">Jedinična cijena</h6>
                     <strong style="color: #88402C;font-size:20px;">{{ edukacija.cijena }}</strong>
                 </div>
                 <div class="row ttm-meta-line" style="margin-top:30px;">
-                    <h6 style="width:100%">Popusti (obračun u košarici)</h6>
+                    <h6 style="width:100%">Popusti</h6>
                     <p style="font-size:14px;">10% za više od dvije prijave iz iste tvrtke</p>
                     <p style="font-size:14px;">25% fizičke osobe</p>
                     <p style="font-size:14px;">50% neprofitne organizacije</p>
-                </div>
-                <div class="row ttm-meta-line" style="margin-top:30px;">
-                    <h6 style="width:100%">Opcije plaćanja</h6>
-                    <p style="font-size:14px;">Plaćanje prema izdanoj ponudi.</p>
-                    <p style="font-size:14px;">Za narudžbu nisu potrebne kartice.</p>
                 </div>
                 <hr style="margin-left: -15px;"/>
                 <div class="row ttm-meta-line" style="margin-top:30px;">
                    <p style="font-size:14px;">Klikom na donji gumb smatra se da razumijete i prihavaćate sve odredbe iz <u><a href="/uvjeti-koristenja/" target="_blank">Uvjeta korištenja</a></u> i politike <u><a href="/zastita-privatnosti/" target="_blank">Zaštite privatnosti</a></u></p>
                 </div>
-                <button
-                    id="buy-button"
-                    data-item-id="{{edukacija.sifra}}"
-                    data-item-price="{{ edukacija.cijenaCart }}"
-                    data-item-quantity="1"
-                    data-item-url="{{ site.url }}/edukacije/online-edukacije/{{ edukacija.categoryslug }}/{{ edukacija.titleslug }}"
-                    data-item-description="Šifra: {{ edukacija.sifra }}"
-                    data-item-image="https://media.graphcms.com/resize=fit:clip,width:120/{{ edukacija.photo }}"
-                    data-item-name="{{ edukacija.title }} ({{edukacija.sifra}})"
-                    data-item-stackable="never"
-                    data-item-min-quantity="1"
-                    data-item-max-quantity="3"
-                    data-item-custom1-name="Kupujete kao (odaberite):"
-                    data-item-custom1-options="Pravna osoba|Fizička osoba[-{{ edukacija.popustCartOsoba }}]|Neprofitna organizacija[-{{ edukacija.popustCartNgo }}]"
-                    data-item-custom1-value="Pravna osoba"
-                    data-item-custom2-name="Podaci prvog polaznika"
-                    data-item-custom2-type="textarea"
-                    data-item-custom2-placeholder="Oblik unosa: Ime Prezime, Email, Telefon"
-                    data-item-custom2-required="true"
-                    data-item-custom3-name="Podaci drugog polaznika"
-                    data-item-custom3-type="textarea"
-                    data-item-custom3-placeholder="Oblik unosa: Ime Prezime, Email, Telefon"
-                    data-item-custom3-required="false"
-                    data-item-custom4-name="Podaci trećeg polaznika"
-                    data-item-custom4-type="textarea"
-                    data-item-custom4-placeholder="Oblik unosa: Ime Prezime, Email, Telefon"
-                    data-item-custom4-required="false"
-                    data-item-custom5-name="Molimo vas provjerite da li broj polaznika odgovara količini naručenih edukacija"
-                    data-item-custom5-type="readonly"
-                {% if edukacija.printanje %}
-                    data-item-custom6-name="Opcije dostave materijala na drugim medijima"
-                    data-item-custom6-options="Bez dostave materijala|PDF emailom (+160Kn)[+160.00]|Uvezano tiskano izdanje poštom (+160Kn)[+160.00]|PDF i tiskano izdanje (+320Kn)[+320.00]"
-                {% endif %}
-                    style="margin-top:30px;"
-                    class="snipcart-add-item lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">Naručite edukaciju</button>
+                
+                <script src ="https://form.jotform.com/static/feedback2.js" type="text/javascript"></script>
+                <script type="text/javascript">
+                    var JFL_211825335778362 = new JotformFeedback({
+                    formId: '211825335778362',
+                    base: 'https://form.jotform.com/',
+                    iframeParameters: {
+                        'nazivEdukacije': '{{ edukacija.title }}',
+                        'jedinicnaCijena': '{{ edukacija.cijenaCart }}',
+                        'ezbirka': '{{ edukacija.vrsta }}'
+                    },
+                    windowTitle: 'Naručite edukaciju',
+                    background: '#FFA500',
+                    fontColor: '#FFFFFF',
+                    type: '1',
+                    height: 1000,
+                    width: 800,
+                    openOnLoad: false
+                    });
+                </script>
+                <button class="lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark btn lightbox-211825335778362" style="margin-top:50px;">Naručite edukaciju</button>
             </div>
         </aside>
 
