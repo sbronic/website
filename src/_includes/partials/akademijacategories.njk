@@ -28,6 +28,7 @@
                 base: 'https://form.jotform.com/',
                 iframeParameters: {
                     'nazivEdukacije': '{{ akademija.naziv }}',
+                    'sifraProizvoda': '{{ akademija.sifraProizvoda }}',
                     'jedinicnaCijena': '{{ akademija.cijenaCart }}',
                     'pocetakEdukacije': '{% for datum in akademija.datumi %}{{ datum.date | datumSeminaraNo }}\n{% endfor %}'
                 },

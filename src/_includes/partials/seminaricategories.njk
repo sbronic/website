@@ -45,6 +45,7 @@
                 base: 'https://form.jotform.com/',
                 iframeParameters: {
                     'nazivEdukacije': '{{ seminar.title }}',
+                    'sifraProizvoda': '{{ seminar.sifra }}',
                     'jedinicnaCijena': '{{ seminar.cijenaCart }}',
                     'pocetakEdukacije': '{% for datum in seminar.datumiseminara %}{{ datum.dateAndTime | datumSeminaraNo }} od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}\n{% endfor %}'
                 },
