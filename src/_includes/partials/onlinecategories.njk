@@ -32,6 +32,7 @@
                     base: 'https://form.jotform.com/',
                     iframeParameters: {
                         'nazivEdukacije': '{{ edukacija.title }}',
+                        'sifraProizvoda': '{{ edukacija.sifra }}',
                         'jedinicnaCijena': '{{ edukacija.cijenaCart }}',
                         'pocetakEdukacije': '{% for datum in edukacija.zoomDatumIVrijemePocetka %}{% if datum | datumSat != '7:00' %}{{ datum | datumSeminaraNo }} u {{ datum | datumSat }}h{% endif %}\n{% endfor %}'
                     },
