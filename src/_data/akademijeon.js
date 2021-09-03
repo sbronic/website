@@ -108,7 +108,11 @@ async function getAkademije() {
     }).filter(Boolean);
 
     if (formatakademije === undefined || formatakademije.length == 0) {
-        formatakademije.push("prazno");
+        formatakademije.push({
+            'naziv': 'prazno',
+            'datumi': 'prazno',
+            'slug': 'prazno'
+        });
     }
 
     // return formatted blogposts

@@ -32,8 +32,7 @@ eleventyComputed:
     <div class="row" style="margin-top:50px;">
         <div class="col-lg-12">
             
-
-            {% if akademijeon != 'prazno' %}
+            {% if akademijeon[0].naziv != 'prazno' %}
             {% for item in akademijeon %}
 
             <div class="row">

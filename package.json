@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@11ty/eleventy-plugin-rss": "^1.0.9",
-    "canvas": "^2.7.0",
+    "canvas": "^2.8.0",
     "dotenv": "^8.2.0",
     "eleventy-plugin-wordcount": "^1.0.5",
     "got": "^11.8.1",
