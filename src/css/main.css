@@ -2705,3 +2705,6 @@ label.error {
     padding: 0;
     background-color: yellow;
 }
+.entry-content a {
+    text-decoration: underline;
+}
