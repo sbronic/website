@@ -2662,6 +2662,10 @@ label.error {
     color:red;
     margin-top:-15px;
 }
+.redlink a {
+    color: red!important;
+    font-weight: bold!important;
+}
 
 /*------------------------------------------------------------------------------*/
 /*  Snipcart
