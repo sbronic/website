@@ -2701,3 +2701,7 @@ label.error {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+.mark, mark {
+    padding: 0;
+    background-color: yellow;
+}

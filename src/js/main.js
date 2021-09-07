@@ -470,8 +470,7 @@ $(function () {
             
             document.getElementById('objavebanner').style.display = "block";
             const htmlobjave = matchObjave.map(rezObjave => {
-                const regex = new RegExp(this.value, 'gi');
-                const posttitle = rezObjave.title.replace(regex, '<span class="hi">' + this.value + '</span>')
+                const posttitle = rezObjave.title.replace(new RegExp(this.value, "gi"), (match) => `<mark>${match}</mark>`);
                 return '<li><span class="name"><a href="' + rezObjave.url + '">' + posttitle + '</a></span>';
             }).join('');
             suggobjave.innerHTML = htmlobjave;
@@ -492,8 +491,7 @@ $(function () {
 
             document.getElementById('seminaribanner').style.display = "block";
             const htmlseminari = matchSeminari.map(rezSeminari => {
-                const regex = new RegExp(this.value, 'gi');
-                const seminarititle = rezSeminari.title.replace(regex, '<span class="hi">' + this.value + '</span>')
+                const seminarititle = rezSeminari.title.replace(new RegExp(this.value, "gi"), (match) => `<mark>${match}</mark>`);
                 return '<li><span class="name"><a href="' + rezSeminari.url + '">' + seminarititle + '</a></span>';
             }).join('');
             suggseminari.innerHTML = htmlseminari;
@@ -514,8 +512,7 @@ $(function () {
 
             document.getElementById('edukacijebanner').style.display = "block";
             const htmledukacije = matchEdukacije.map(rezEdukacije => {
-                const regex = new RegExp(this.value, 'gi');
-                const edukacijetitle = rezEdukacije.title.replace(regex, '<span class="hi">' + this.value + '</span>')
+                const edukacijetitle = rezEdukacije.title.replace(new RegExp(this.value, "gi"), (match) => `<mark>${match}</mark>`);
                 return '<li><span class="name"><a href="' + rezEdukacije.url + '">' + edukacijetitle + '</a></span>';
             }).join('');
             suggedukacije.innerHTML = htmledukacije;
@@ -536,8 +533,7 @@ $(function () {
 
             document.getElementById('akademijebanner').style.display = "block";
             const htmlakademije = matchAkademije.map(rezAkademije => {
-                const regex = new RegExp(this.value, 'gi');
-                const akademijetitle = rezAkademije.title.replace(regex, '<span class="hi">' + this.value + '</span>')
+                const akademijetitle = rezAkademije.title.replace(new RegExp(this.value, "gi"), (match) => `<mark>${match}</mark>`);
                 return '<li><span class="name"><a href="' + rezAkademije.url + '">' + akademijetitle + '</a></span>';
             }).join('');
             suggakademije.innerHTML = htmlakademije;
