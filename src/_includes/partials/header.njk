@@ -90,8 +90,12 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="nav-item {{ 'active' if '/seminari-i-radionice' in page.url }}">
-                                        <a href="/edukacije/seminari-i-radionice/datumi-odrzavanja" class="nav-link">Seminari</a>
+                                    <li class="mega-menu-item {{ 'active' if 'akademije/' in page.url }}">
+                                        <a href="#" class="mega-menu-link">Seminari</a>
+                                        <ul class="mega-submenu">
+                                            <li><a href="/edukacije/seminari-i-radionice/datumi-odrzavanja/">Datumi održavanja</a></li>
+                                            <li><a href="/edukacije/seminari-i-radionice/otvoreni-seminari-i-radionice/">Popis svih seminara</a></li>
+                                        </ul>
                                     </li>
                                     <li class="nav-item {{ 'active' if '/online-edukacije' in page.url }}">
                                         <a href="/edukacije/online-edukacije" class="nav-link">On-Line Edukacije</a>
