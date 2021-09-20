@@ -27,6 +27,39 @@
                 </div>
                 <div class="overflow-lista">
                     {% for seminar in seminari.svedatumi %}
+
+                    {% if seminar.popunjen %}
+
+                    <!-- featured-imagebox-post -->
+                    <div class="featured-imagebox featured-imagebox-post style1" style="width:96%!important">
+                        <div class="featured-content featured-content-post" style="padding: 10px;!important">
+                            <div class="row">
+                                <div class="col-sm-2" style="max-width: 15%;!important">
+                                    <div class="icon-box">
+                                        <div class="ttm-icon ttm-icon_element-fill ttm-icon_element-color-darkgrey ttm-icon_element-size-sm ttm-icon_element-style-rounded" style="background-color:lightgrey;margin-bottom: 0px;!important">
+                                            <div class="ttm-box-event-date">
+                                                <span class="ttm-entry-date">
+                                                    <time class="entry-date" datetime="{{ seminar.datumseminara }}" style="margin-top:10px;">{{ seminar.datumseminara | datumDan }}<span class="entry-month">{{ seminar.datumseminara | datumMjesec }}</span></time>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="post-meta">
+                                        <span class="ttm-meta-line"><i class="fa fa-clock-o"></i>{{ seminar.vrijeme }}</span>
+                                        <span class="ttm-meta-line"><i class="fa fa-map-marker"></i>{{ seminar.lokacijanaziv }}, {% if seminar.dvorana %}Dvorana {{ seminar.dvorana }},{% endif %} {{ seminar.lokacijaadresa }}, {{ seminar.lokacijagrad }}</span>
+                                    </div>
+                                    <div class="post-title featured-title">
+                                        <h6 style="color:lightgrey!important;"><a href="/edukacije/seminari-i-radionice/{{ seminar.kategorijaslug }}/{{ seminar.seminarnazivslug }}/" style="color:lightgrey!important;"><del>{{ seminar.seminarnaziv }}</del></a> - POPUNJENO</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- featured-imagebox-post end-->
+
+                    {% else %}
+
                     <!-- featured-imagebox-post -->
                     <div class="featured-imagebox featured-imagebox-post style1" style="width:96%!important">
                         <div class="featured-content featured-content-post" style="padding: 10px;!important">
@@ -54,6 +87,9 @@
                             </div>
                         </div>
                     </div><!-- featured-imagebox-post end-->
+                        
+                    {% endif %}
+     
                     {% endfor %}
                 </div>
                 <!--<a href="/edukacije/seminari-i-radionice/datumi-odrzavanja/" style="margin: 30px auto;text-align:center;align-self:center;display:block;max-width:50%" class="lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark">Provjerite sve seminare</a>-->

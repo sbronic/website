@@ -22,6 +22,7 @@ async function getDatumi() {
                 query: `query DatumiSeminara($today: DateTime!) {
                     datumiSeminara (orderBy: dateAndTime_ASC, stage: PUBLISHED, where: {dateAndTime_gt: $today, seminar: {kategorija: {kod: "zouo"}}}) {
                         dateAndTime
+                        popunjen
                         dvorana
                         lokacija {
                             adresa
@@ -72,6 +73,7 @@ async function getDatumi() {
     const formatdatumi = svidatumi.map((item) => {
         return {
             datumseminara: item.dateAndTime,
+            popunjen: item.popunjen,
             lokacijaadresa: item.lokacija.adresa,
             lokacijagrad: item.lokacija.grad,
             lokacijanaziv: item.lokacija.nazivLokacije,

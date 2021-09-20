@@ -9,6 +9,42 @@
 
                 {% for item in pagination.items %}
 
+                {% if item.popunjen %}
+
+                <div class="featured-imagebox featured-imagebox-post style1">
+                    <div class="featured-content featured-content-post" style="padding: 20px;!important">
+                        <div class="row">
+                            <div class="col-sm-2" style="max-width: 10.666667%;!important">
+                                <div class="icon-box">
+                                    <div class="ttm-icon ttm-icon_element-fill ttm-icon_element-color-darkgrey ttm-icon_element-size-sm ttm-icon_element-style-rounded" style="background-color:lightgrey;margin-bottom: 0px;!important">
+                                        <div class="ttm-box-event-date">
+                                            <span class="ttm-entry-date">
+                                                <time class="entry-date" datetime="{{ item.datumseminara }}" style="margin-top:10px;">{{ item.datumseminara | datumDan }}<span class="entry-month">{{ item.datumseminara | datumMjesec }}</span></time>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="post-meta" style="border-bottom: solid 1px;">
+                                    <span class="ttm-meta-line"><i class="fa fa-clock-o"></i>{{ item.vrijeme }}</span>
+                                    <span class="ttm-meta-line"><i class="fa fa-map-marker"></i>{{ item.lokacijanaziv }}, {% if item.dvorana %}Dvorana {{ item.dvorana }},{% endif %} {{ item.lokacijaadresa }}, {{ item.lokacijagrad }}</span>
+                                </div>
+                                <div class="post-title featured-title" style="margin-top: 10px;">
+                                    <h6><a href="/edukacije/seminari-i-radionice/{{ item.kategorijaslug }}/{{ item.seminarnazivslug }}" style="color:lightgrey!important"><del>{{ item.seminarnaziv }}</del></a></h6>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="ttm-btn-box" style="right:0px;width:100%;margin-top:20px;">
+                                    <h5 style="color: lightgrey!important;">POPUNJEN</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- featured-imagebox-post end-->
+
+                {% else %}
+
                 <div class="featured-imagebox featured-imagebox-post style1">
                     <div class="featured-content featured-content-post" style="padding: 20px;!important">
                         <div class="row">
@@ -40,6 +76,8 @@
                         </div>
                     </div>
                 </div><!-- featured-imagebox-post end-->
+
+                {% endif %}
 
                 {% endfor %}
 
