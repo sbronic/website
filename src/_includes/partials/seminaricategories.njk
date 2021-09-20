@@ -37,7 +37,6 @@
             <div class="row ttm-meta-line" style="margin-top:30px;">
                 <p style="font-size:14px;">Klikom na donji gumb smatra se da razumijete i prihavaćate sve odredbe iz <u><a href="/uvjeti-koristenja/" target="_blank">Uvjeta korištenja</a></u> i politike <u><a href="/zastita-privatnosti/" target="_blank">Zaštite privatnosti</a></u></p>
             </div>
-
             <script src ="https://form.jotform.com/static/feedback2.js" type="text/javascript"></script>
             <script type="text/javascript">
                 var JFL_211825335778362 = new JotformFeedback({
@@ -47,7 +46,7 @@
                     'nazivEdukacije': '{{ seminar.title }}',
                     'sifraProizvoda': '{{ seminar.sifra }}',
                     'jedinicnaCijena': '{{ seminar.cijenaCart }}',
-                    'pocetakEdukacije': '{% for datum in seminar.datumiseminara %}{% if seminar.trajanje === 2 %}{{ datum.dateAndTime | datumDan }}. i {{ datum.dateAndTime | datumIduciDan }}. {{ datum.dateAndTime | datumMjesecDugi }} {{ datum.dateAndTime | datumGodina }} od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }} (dvodnevna edukacija)\n{% else %}{{ datum.dateAndTime | datumSeminaraNo }} od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}\n{% endif %}{% endfor %}'
+                    'pocetakEdukacije': '{% for datum in seminar.datumiseminara %}{% if not datum.popunjen %}{% if (seminar.trajanje === 2) %}{{ datum.dateAndTime | datumDan }}. i {{ datum.dateAndTime | datumIduciDan }}. {{ datum.dateAndTime | datumMjesecDugi }} {{ datum.dateAndTime | datumGodina }} od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }} (dvodnevna edukacija)\n{% else %}{{ datum.dateAndTime | datumSeminaraNo }} od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}\n{% endif %}{% endif %}{% endfor %}'
                 },
                 windowTitle: 'Rezervirajte edukaciju',
                 background: '#FFA500',

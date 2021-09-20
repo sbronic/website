@@ -73,9 +73,18 @@ eleventyComputed:
                                                 <strong>Datumi održavanja:</strong>
                                                 {% for datum in seminar.datumiseminara %}
                                                     {% if seminar.trajanje === 2 %}
+                                                        {% if datum.popunjen %}
+                                                        <del><b>{{ datum.dateAndTime | datumDan }}. i {{ datum.dateAndTime | datumIduciDan }}. {{ datum.dateAndTime | datumMjesecDugi }} {{ datum.dateAndTime | datumGodina }}</b> od {{ datum.odDo }}.</del><span style="color:red;margin-left:20px;">Popunjeno</span><br/>
+                                                        {% else %}
                                                         <b>{{ datum.dateAndTime | datumDan }}. i {{ datum.dateAndTime | datumIduciDan }}. {{ datum.dateAndTime | datumMjesecDugi }} {{ datum.dateAndTime | datumGodina }}</b> od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}<br/>
+                                                        {% endif %}
                                                     {% else %}
+                                                        {% if datum.popunjen %}
+                                                        <del><b>{{ datum.dateAndTime | datumSeminara }}</b> od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}</del><span style="color:red;margin-left:20px;">Popunjeno</span><br/>
+                                                        {% else %}
                                                         <b>{{ datum.dateAndTime | datumSeminara }}</b> od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}<br/>
+                                                        {% endif %}
+                                                        
                                                     {% endif %}
                                                 {% endfor %}
                                             {% else %}

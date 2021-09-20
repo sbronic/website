@@ -43,6 +43,7 @@ async function getSeminari() {
                         }
                         datumiSeminara (orderBy: dateAndTime_ASC, where: {dateAndTime_gt: $today}) {
                             dateAndTime
+                            popunjen
                             odDo
                             lokacija {
                                 nazivLokacije
