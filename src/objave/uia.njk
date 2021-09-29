@@ -1,17 +1,35 @@
----
-title: Upravljanje i administracija
-description: Upravljanje i administracija
-layout: layouts/page.njk
-banner: blog.jpg
-navID: blog-uia
-pagination:
-  data: objave.uia
-  size: 5
-  alias: objave
-permalink: "blog/upravljanje-i-administracija{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
-eleventyComputed:
-    page_title: "Blog - Upravljanje i administracija {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+---js
+{
+  layout: "layouts/page.njk",
+  title: "Upravljanje i administracija",
+  description: "Upravljanje i administracija",
+  banner: "blog.jpg",
+  navID: "blog-uia",
+  permalink: "blog/upravljanje-i-administracija{% if pagination.pageNumber > 0 %}/stranica/{{ pagination.pageNumber + 1}}{% endif %}/index.html",
+  pagination: {
+    data: "objave.sve",
+    size: 5,
+	  alias: "objave",
+    before: function(data) {
+      const sviobjekti = [];
+	  
+      for (const obj of data) {
+        if ( obj.categoryslug === "upravljanje-i-administracija" ) {
+            sviobjekti.push(obj);
+        }
+	    }
+      if (!sviobjekti.length) {
+        sviobjekti.push("prazno")
+      }
+
+      return sviobjekti;
+    }
+  },
+  eleventyComputed: {
+    page_title: "Blog - Upravljanje i administracija {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}",
     page_description: "Blog - Upravljanje i administracija {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+  }
+}
 ---
 
 {% include "partials/blog-header.njk" %}

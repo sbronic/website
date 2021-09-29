@@ -1,17 +1,35 @@
----
-title: On-line edukacije
-description: Zaštita na radu
-layout: layouts/page.njk
-banner: online-edukacije.jpg
-navID: online-znr
-pagination:
-  data: online.znr
-  size: 10
-  alias: edukacije
-permalink: "edukacije/online-edukacije/zastita-na-radu{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
-eleventyComputed:
-    page_title: "On-line edukacije - Zaštita na radu {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+---js
+{
+  layout: "layouts/page.njk",
+  title: "Zaštita na radu",
+  description: "Zaštita na radu",
+  banner: "online-edukacije.jpg",
+  navID: "online-znr",
+  permalink: "edukacije/online-edukacije/zastita-na-radu{% if pagination.pageNumber > 0 %}/stranica/{{ pagination.pageNumber + 1}}{% endif %}/index.html",
+  pagination: {
+    data: "online.sve",
+    size: 10,
+	  alias: "edukacije",
+    before: function(data) {
+      const sviobjekti = [];
+	  
+      for (const obj of data) {
+        if ( obj.categoryslug === "zastita-na-radu" ) {
+            sviobjekti.push(obj);
+        }
+	    }
+      if (!sviobjekti.length) {
+        sviobjekti.push("prazno")
+      }
+
+      return sviobjekti;
+    }
+  },
+  eleventyComputed: {
+    page_title: "On-line edukacije - Zaštita na radu {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}",
     page_description: "On-line edukacije - Zaštita na radu {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+  }
+}
 ---
 
 {% include "partials/online-header.njk" %}

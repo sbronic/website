@@ -1,17 +1,35 @@
----
-title: Prodaja, marketing i odnosi s javnošću
-description: Prodaja, marketing i odnosi s javnošću
-layout: layouts/page.njk
-banner: blog.jpg
-navID: blog-pmoj
-pagination:
-  data: objave.pmoj
-  size: 5
-  alias: objave
-permalink: "blog/prodaja-marketing-i-odnosi-s-javnoscu{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
-eleventyComputed:
-    page_title: "Blog - Prodaja, marketing i odnosi s javnošću {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+---js
+{
+  layout: "layouts/page.njk",
+  title: "Prodaja, marketing i odnosi s javnošću",
+  description: "Prodaja, marketing i odnosi s javnošću",
+  banner: "blog.jpg",
+  navID: "blog-pmoj",
+  permalink: "blog/prodaja-marketing-i-odnosi-s-javnoscu{% if pagination.pageNumber > 0 %}/stranica/{{ pagination.pageNumber + 1}}{% endif %}/index.html",
+  pagination: {
+    data: "objave.sve",
+    size: 5,
+	  alias: "objave",
+    before: function(data) {
+      const sviobjekti = [];
+	  
+      for (const obj of data) {
+        if ( obj.categoryslug === "prodaja-marketing-i-odnosi-s-javnoscu" ) {
+            sviobjekti.push(obj);
+        }
+	    }
+      if (!sviobjekti.length) {
+        sviobjekti.push("prazno")
+      }
+
+      return sviobjekti;
+    }
+  },
+  eleventyComputed: {
+    page_title: "Blog - Prodaja, marketing i odnosi s javnošću {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}",
     page_description: "Blog - Prodaja, marketing i odnosi s javnošću {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+  }
+}
 ---
 
 {% include "partials/blog-header.njk" %}

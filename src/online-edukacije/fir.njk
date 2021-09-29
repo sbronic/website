@@ -1,17 +1,35 @@
----
-title: On-line edukacije
-description: Finacije i računovodstvo
-layout: layouts/page.njk
-banner: online-edukacije.jpg
-navID: online-fir
-pagination:
-  data: online.fir
-  size: 10
-  alias: edukacije
-permalink: "edukacije/online-edukacije/financije-i-racunovodstvo{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
-eleventyComputed:
-    page_title: "On-line edukacije - Finacije i računovodstvo {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+---js
+{
+  layout: "layouts/page.njk",
+  title: "Financije i računovodstvo",
+  description: "Financije i računovodstvo",
+  banner: "online-edukacije.jpg",
+  navID: "online-fir",
+  permalink: "edukacije/online-edukacije/financije-i-racunovodstvo{% if pagination.pageNumber > 0 %}/stranica/{{ pagination.pageNumber + 1}}{% endif %}/index.html",
+  pagination: {
+    data: "online.sve",
+    size: 10,
+	  alias: "edukacije",
+    before: function(data) {
+      const sviobjekti = [];
+	  
+      for (const obj of data) {
+        if ( obj.categoryslug === "financije-i-racunovodstvo" ) {
+            sviobjekti.push(obj);
+        }
+	    }
+      if (!sviobjekti.length) {
+        sviobjekti.push("prazno")
+      }
+
+      return sviobjekti;
+    }
+  },
+  eleventyComputed: {
+    page_title: "On-line edukacije - Finacije i računovodstvo {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}",
     page_description: "On-line edukacije - Finacije i računovodstvo {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+  }
+}
 ---
 
 {% include "partials/online-header.njk" %}

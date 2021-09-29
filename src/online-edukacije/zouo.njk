@@ -1,17 +1,35 @@
----
-title: On-line edukacije
-description: Zaštita okoliša i upravljanje otpadom
-layout: layouts/page.njk
-banner: online-edukacije.jpg
-navID: online-zouo
-pagination:
-  data: online.zouo
-  size: 10
-  alias: edukacije
-permalink: "edukacije/online-edukacije/zastita-okolisa-i-upravljanje-otpadom{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
-eleventyComputed:
-    page_title: "On-line edukacije - Zaštita okoliša i upravljanje otpadom {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+---js
+{
+  layout: "layouts/page.njk",
+  title: "Zaštita okoliša i upravljanje otpadom",
+  description: "Zaštita okoliša i upravljanje otpadom",
+  banner: "online-edukacije.jpg",
+  navID: "online-zouo",
+  permalink: "edukacije/online-edukacije/zastita-okolisa-i-upravljanje-otpadom{% if pagination.pageNumber > 0 %}/stranica/{{ pagination.pageNumber + 1}}{% endif %}/index.html",
+  pagination: {
+    data: "online.sve",
+    size: 10,
+	  alias: "edukacije",
+    before: function(data) {
+      const sviobjekti = [];
+	  
+      for (const obj of data) {
+        if ( obj.categoryslug === "zastita-okolisa-i-upravljanje-otpadom" ) {
+            sviobjekti.push(obj);
+        }
+	    }
+      if (!sviobjekti.length) {
+        sviobjekti.push("prazno")
+      }
+
+      return sviobjekti;
+    }
+  },
+  eleventyComputed: {
+    page_title: "On-line edukacije - Zaštita okoliša i upravljanje otpadom {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}",
     page_description: "On-line edukacije - Zaštita okoliša i upravljanje otpadom {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+  }
+}
 ---
 
 {% include "partials/online-header.njk" %}

@@ -8,7 +8,7 @@ pagination:
   data: online.sve
   size: 10
   alias: edukacije
-permalink: "edukacije/online-edukacije{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
+permalink: "edukacije/online-edukacije{% if pagination.pageNumber > 0 %}/stranica/{{ pagination.pageNumber + 1}}{% endif %}/index.html"
 eleventyComputed:
     page_title: "On-line edukacije {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
     page_description: "On-line edukacije {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
