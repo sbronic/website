@@ -1,0 +1,40 @@
+---js
+{
+  layout: "layouts/page.njk",
+  title: "Zbirke dokumenata",
+  description: "Zbirke dokumenata u MS Word i Excel formatu",
+  banner: "online-edukacije.jpg",
+  navID: "zbirke",
+  permalink: "edukacije/online-edukacije/zbirke-dokumenata{% if pagination.pageNumber > 0 %}/stranica/{{ pagination.pageNumber + 1}}{% endif %}/index.html",
+  pagination: {
+    data: "online.sve",
+    size: 9,
+	  alias: "edukacije",
+    before: function(data) {
+      const sviobjekti = [];
+	  
+      for (const obj of data) {
+        if ( obj.vrsta === "e_Zbirke" ) {
+            sviobjekti.push(obj);
+        }
+		}
+      if (!sviobjekti.length) {
+        sviobjekti.push("prazno")
+      }
+	  else {
+	  	sviobjekti.sort((a, b) => (a.title > b.title) ? 1 : -1)
+	  }
+
+      return sviobjekti;
+    }
+  },
+  eleventyComputed: {
+    page_title: "On-line edukacije - Zbirke dokumenata {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}",
+    page_description: "On-line edukacije - Zbirke dokumenata {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+  }
+}
+---
+
+{% include "partials/online-header.njk" %}
+
+{% include "partials/online-category-vrste.njk" %}

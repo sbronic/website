@@ -13,9 +13,11 @@
                     <div class="breadcrumb-wrapper">
                         <span><a href="/">Početna</a></span>
                         <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
-                        <span><a href="/edukacije/online-edukacije">{{ title }}</a></span>
+                        <span><a href="/edukacije/online-edukacije">Online-edukacije</a></span>
+                        {% if navID != "sve" %}
                         <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
                         <span class="current" style="color:#F77F00">{{ description }}</span>
+                        {% endif %}
                     </div>
                 </div>
             </div>
