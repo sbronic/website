@@ -1,18 +1,36 @@
----
-title: Seminari i radionice
-description: Financije i računovodstvo
-layout: layouts/page.njk
-banner: seminari.jpg
-navID: sem-fir
-nav2ID: datumi
-pagination:
-  data: seminari.firdatumi
-  size: 10
-  alias: seminari
-permalink: "edukacije/seminari-i-radionice/financije-i-racunovodstvo/datumi-odrzavanja{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
-eleventyComputed:
-    page_title: "Datumi održavanja seminara - Financije i računovodstvo {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+---js
+{
+  layout: "layouts/page.njk",
+  title: "Seminari i radionice",
+  description: "Financije i računovodstvo",
+  banner: "seminari.jpg",
+  navID: "sem-fir",
+  nav2ID: "datumi",
+  permalink: "edukacije/seminari-i-radionice/financije-i-racunovodstvo/datumi-odrzavanja{% if pagination.pageNumber > 0 %}/stranica/{{ pagination.pageNumber + 1}}{% endif %}/index.html",
+  pagination: {
+    data: "seminari.svedatumi",
+    size: 10,
+	  alias: "seminari",
+    before: function(data) {
+      const sviobjekti = [];
+	  
+      for (const obj of data) {
+        if ( obj.kategorijaslug === "financije-i-racunovodstvo" ) {
+            sviobjekti.push(obj);
+        }
+	    }
+      if (!sviobjekti.length) {
+        sviobjekti.push("prazno")
+      }
+
+      return sviobjekti;
+    }
+  },
+  eleventyComputed: {
+    page_title: "Datumi održavanja seminara - Financije i računovodstvo {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}",
     page_description: "Datumi održavanja seminara - Financije i računovodstvo {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+  }
+}
 ---
 
 {% include "partials/seminari-header-datumi.njk" %}

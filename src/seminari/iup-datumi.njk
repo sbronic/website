@@ -1,18 +1,36 @@
----
-title: Seminari i radionice
-description: Informatika i uredsko poslovanje
-layout: layouts/page.njk
-banner: seminari.jpg
-navID: sem-uip
-nav2ID: datumi
-pagination:
-  data: seminari.iupdatumi
-  size: 10
-  alias: seminari
-permalink: "edukacije/seminari-i-radionice/informatika-i-uredsko-poslovanje/datumi-odrzavanja{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
-eleventyComputed:
-    page_title: "Datumi održavanja seminara - Informatika i uredsko poslovanje {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+---js
+{
+  layout: "layouts/page.njk",
+  title: "Seminari i radionice",
+  description: "Informatika i uredsko poslovanje",
+  banner: "seminari.jpg",
+  navID: "sem-iup",
+  nav2ID: "datumi",
+  permalink: "edukacije/seminari-i-radionice/informatika-i-uredsko-poslovanje/datumi-odrzavanja{% if pagination.pageNumber > 0 %}/stranica/{{ pagination.pageNumber + 1}}{% endif %}/index.html",
+  pagination: {
+    data: "seminari.svedatumi",
+    size: 10,
+	  alias: "seminari",
+    before: function(data) {
+      const sviobjekti = [];
+	  
+      for (const obj of data) {
+        if ( obj.kategorijaslug === "informatika-i-uredsko-poslovanje" ) {
+            sviobjekti.push(obj);
+        }
+	    }
+      if (!sviobjekti.length) {
+        sviobjekti.push("prazno")
+      }
+
+      return sviobjekti;
+    }
+  },
+  eleventyComputed: {
+    page_title: "Datumi održavanja seminara - Informatika i uredsko poslovanje {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}",
     page_description: "Datumi održavanja seminara - Informatika i uredsko poslovanje {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+  }
+}
 ---
 
 {% include "partials/seminari-header-datumi.njk" %}

@@ -1,18 +1,36 @@
----
-title: Seminari i radionice
-description: Pravo i zaštita podataka
-layout: layouts/page.njk
-banner: seminari.jpg
-navID: sem-pzp
-nav2ID: popis
-pagination:
-  data: seminari.pzppopis
-  size: 10
-  alias: seminari
-permalink: "edukacije/seminari-i-radionice/pravo-i-zastita-podataka/otvoreni-seminari-i-radionice{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
-eleventyComputed:
-    page_title: "Seminari i radionice - Pravo i zaštita podataka {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+---js
+{
+  layout: "layouts/page.njk",
+  title: "Seminari i radionice",
+  description: "Pravo i zaštita podataka",
+  banner: "seminari.jpg",
+  navID: "sem-pzp",
+  nav2ID: "popis",
+  permalink: "edukacije/seminari-i-radionice/pravo-i-zastita-podataka/otvoreni-seminari-i-radionice{% if pagination.pageNumber > 0 %}/stranica/{{ pagination.pageNumber + 1}}{% endif %}/index.html",
+  pagination: {
+    data: "seminari.svepopis",
+    size: 10,
+	  alias: "seminari",
+    before: function(data) {
+      const sviobjekti = [];
+	  
+      for (const obj of data) {
+        if ( obj.kategorijaslug === "pravo-i-zastita-podataka" ) {
+            sviobjekti.push(obj);
+        }
+	    }
+      if (!sviobjekti.length) {
+        sviobjekti.push("prazno")
+      }
+
+      return sviobjekti;
+    }
+  },
+  eleventyComputed: {
+    page_title: "Seminari i radionice - Pravo i zaštita podataka {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}",
     page_description: "Seminari i radionice - Pravo i zaštita podataka {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+  }
+}
 ---
 
 {% include "partials/seminari-header-popis.njk" %}

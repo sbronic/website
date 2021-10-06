@@ -1,18 +1,36 @@
----
-title: Seminari i radionice
-description: Ostalo
-layout: layouts/page.njk
-banner: seminari.jpg
-navID: sem-ostalo
-nav2ID: popis
-pagination:
-  data: seminari.ostalopopis
-  size: 10
-  alias: seminari
-permalink: "edukacije/seminari-i-radionice/ostalo/otvoreni-seminari-i-radionice{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
-eleventyComputed:
-    page_title: "Seminari i radionice - Ostalo {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+---js
+{
+  layout: "layouts/page.njk",
+  title: "Seminari i radionice",
+  description: "Ostalo",
+  banner: "seminari.jpg",
+  navID: "sem-ostalo",
+  nav2ID: "popis",
+  permalink: "edukacije/seminari-i-radionice/ostalo/otvoreni-seminari-i-radionice{% if pagination.pageNumber > 0 %}/stranica/{{ pagination.pageNumber + 1}}{% endif %}/index.html",
+  pagination: {
+    data: "seminari.svepopis",
+    size: 10,
+	  alias: "seminari",
+    before: function(data) {
+      const sviobjekti = [];
+	  
+      for (const obj of data) {
+        if ( obj.kategorijaslug === "ostalo" ) {
+            sviobjekti.push(obj);
+        }
+	    }
+      if (!sviobjekti.length) {
+        sviobjekti.push("prazno")
+      }
+
+      return sviobjekti;
+    }
+  },
+  eleventyComputed: {
+    page_title: "Seminari i radionice - Ostalo {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}",
     page_description: "Seminari i radionice - Ostalo {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+  }
+}
 ---
 
 {% include "partials/seminari-header-popis.njk" %}
