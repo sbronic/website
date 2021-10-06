@@ -9,7 +9,7 @@ pagination:
   data: seminari.svedatumi
   size: 10
   alias: seminari
-permalink: "edukacije/seminari-i-radionice/datumi-odrzavanja{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
+permalink: "edukacije/seminari-i-radionice/datumi-odrzavanja{% if pagination.pageNumber > 0 %}/stranica/{{ pagination.pageNumber + 1}}{% endif %}/index.html"
 eleventyComputed:
     page_title: "Datumi održavanja seminara {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
     page_description: "Datumi održavanja seminara {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"

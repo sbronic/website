@@ -11,7 +11,7 @@ pagination:
   data: seminari.svepopis
   size: 6
   alias: seminari
-permalink: "edukacije/seminari-i-radionice/otvoreni-seminari-i-radionice{% if pagination.pageNumber > 0 %}/page{{ pagination.pageNumber + 1}}{% endif %}/index.html"
+permalink: "edukacije/seminari-i-radionice/otvoreni-seminari-i-radionice{% if pagination.pageNumber > 0 %}/stranica/{{ pagination.pageNumber + 1}}{% endif %}/index.html"
 eleventyComputed:
     page_title: "Svi otvoreni seminari i radionice {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
     page_description: "Svi otvoreni seminari i radionice {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
