@@ -20,7 +20,7 @@
   },
   "homepage": "https://gitlab.com/webshaped.biz/edukacije-hr-uniaro#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^0.12.1"
+    "@11ty/eleventy": "0.12.1"
   },
   "dependencies": {
     "@11ty/eleventy-plugin-rss": "^1.0.9",
