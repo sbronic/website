@@ -10,4 +10,10 @@ eleventyExcludeFromCollections: true
    "url":"/edukacije/online-edukacije/{{ edukacija.categoryslug }}/{{ edukacija.titleslug }}/"
 } {%- if loop.last == false -%},{% endif %}
 {% endfor %} 
+{% for edukacija in online.zbirke %}
+{
+   "title":"{{ edukacija.title }}",
+   "url":"/edukacije/online-edukacije/{{ edukacija.categoryslug }}/{{ edukacija.titleslug }}/"
+} {%- if loop.last == false -%},{% endif %}
+{% endfor %} 
 ]
