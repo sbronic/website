@@ -14,9 +14,7 @@
       const sviobjekti = [];
 	  
       for (const obj of data) {
-        if ( obj.vrsta === "e_Zbirke" ) {
-            sviobjekti.push(obj);
-        }
+        sviobjekti.push(obj);
 		}
       if (!sviobjekti.length) {
         sviobjekti.push("prazno")
