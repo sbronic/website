@@ -1,0 +1,208 @@
+---
+layout: layouts/page.njk
+banner: online-edukacije.jpg
+navID: {{ edukacija.categorycode }}
+nav2ID: edukacija
+pagination:
+  data: online.zbirke
+  size: 1
+  alias: edukacija
+permalink: edukacije/online-edukacije/{{ edukacija.categoryslug }}/{{ edukacija.titleslug }}/index.html
+eleventyComputed:
+    page_title: "{{ edukacija.title }}"
+    page_description: "{{ edukacija.excerpt }}"
+    page_type: "edukacija"
+    seminarimage: "https://media.graphcms.com/resize=width:1200/{{ edukacija.photo }}"
+    seminartekst: {{ edukacija.bodytext }}
+    seminarauthor: {{ edukacija.author }}
+---
+<div class="ttm-page-title-row" style="background: url(/images/online-edukacije.jpg)!important">
+    <div class="ttm-page-title-row-inner ttm-textcolor-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="page-title-heading">
+                        <h1 class="title">{{ edukacija.title }}</h1>
+                    </div>
+                    <div class="breadcrumb-wrapper">
+                        <span>
+                            <a title="Homepage" href="/">Početna</a>
+                        </span>
+                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                        <span>
+                            <a title="Blog" href="/edukacije/online-edukacije">On-line edukacije</a>
+                        </span>
+                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                        <span>
+                            <a title="Kategorija" href="/edukacije/online-edukacije/{{ edukacija.categoryslug }}">{{ edukacija.category }}</a>
+                        </span>
+                        <span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+                        <span class="current" style="color:#F77F00">{{ edukacija.title }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                    
+</div>
+
+<div class="site-main">
+
+    <!-- sidebar -->
+    <div class="ttm-row sidebar ttm-sidebar-right ttm-bgcolor-white clearfix">
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <div class="col-xl-9 col-lg-8 content-area">
+                        <!-- course -->
+                        <article class="course single-lp_course">
+                            <!-- course-featured-wrapper -->
+                            <div class="course-featured-wrapper mb-20">
+                                <div class="course-featured">
+                                    <img class="img-fluid" src="https://media.graphcms.com/resize=fit:clip,width:832,height:468/{{ edukacija.photo }}" alt="{{ edukacija.title }}">
+                                </div>
+                            </div>
+
+                            <!-- course-featured-wrapper end -->
+                            <!-- ttm-course-single-content -->
+                            <div class="ttm-course-single-content">
+                                <div class="ttm-single-course-box">
+                                    <ul class="ttm-coursedetails-box">
+                                    {% if edukacija.vrsta === "Zoom_meeting" %}
+                                        <li class="ttm-meta-line ttm-author">
+                                            {% if edukacija.zoomDatumIVrijemePocetka | length > 0%}
+                                                <strong>Datumi održavanja:</strong>
+                                                {% for datum in edukacija.zoomDatumIVrijemePocetka %}
+                                                
+                                                {% if datum | datumSat === '7:00' %}
+                                                    <del><b>{{ datum | datumSeminara }}</b> u {{ datum | datumSat }}h</del><span style="color:red;margin-left:20px;">Popunjeno</span><br/>
+                                                {% else %}
+                                                    <b>{{ datum | datumSeminara }}</b> u {{ datum | datumSat }}h<br/>
+                                                {% endif %}
+                                                
+                                                {% endfor %}
+                                            {% else %}
+                                                <strong>Datumi održavanja:</strong>
+                                                Trenutno nemamo dostupnih datuma
+                                            {% endif %}
+                                        </li>
+                                    {% endif %}
+                                        <li class="ttm-meta-line ttm-author">
+                                            {% if (edukacija.autori | length) == 1 %}
+                                                <strong>Predavač/Autor:</strong>
+                                            {% else %}
+                                                <strong>Predavači/Autori:</strong>
+                                            {% endif %}
+                                            
+                                            {% for autor in edukacija.autori %}
+                                            {% if loop.first %}
+                                                {{ autor.imeIPrezime }}
+                                            {% else %}
+                                                , {{ autor.imeIPrezime }}
+                                            {% endif %}
+                                            {% endfor %}
+                                        </li>
+                                        <li class="ttm-meta-line ttm-course-dur"> 
+                                            <strong>Vrsta edukacije:</strong>
+                                            {% if edukacija.vrsta == "e_Zbirke"%}e-Zbirka{% endif %}
+                                            {% if edukacija.vrsta == "Video_seminari"%}Video seminar{% endif %}
+                                            {% if edukacija.vrsta == "Webinari"%}Webinar{% endif %}
+                                            {% if edukacija.vrsta == "Zoom_meeting"%}Zoom meeting uživo{% endif %}
+                                            {% if edukacija.vrsta == "Zoom_snimka"%}Zoom meeting snimka{% endif %}
+                                        </li>
+                                    {% if (edukacija.vrsta === "Zoom_meeting") or (edukacija.vrsta === "Video_seminari") or (edukacija.vrsta === "Zoom_snimka") %}
+                                        <li class="ttm-meta-line ttm-course-dur"> 
+                                            <strong>Trajanje:</strong>{{ edukacija.trajanje }}
+                                        </li>
+                                    {% endif %}
+                                        <li class="ttm-meta-line ttm-course-dur"> 
+                                            <strong>Šifra:</strong>{{ edukacija.sifra }}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="ttm-tabs course-tabs" data-effect="fadeIn">
+                                    <ul class="tabs clearfix">
+                                        <li class="tab active"><a href="#">Opis edukacije</a></li>
+                                        <li class="tab"><a href="#">Sadržaj edukacije</a></li>
+                                        {% if edukacija.preview %}
+                                        <li class="tab"><a href="#">Preview sadržaja</a></li>
+                                        {% endif %}
+                                        {% if (edukacija.autori | length) == 1 %}
+                                            <li class="tab"><a href="#">O Predavaču</a></li>
+                                        {% else %}
+                                            <li class="tab"><a href="#">O Predavačima</a></li>
+                                        {% endif %}
+                                        <li class="tab"><a href="#">Najčešća pitanja</a></li>
+                                    </ul>
+                                    <div class="content-tab">
+                                        <!-- Opis content-inner -->
+                                        <div class="content-inner active">
+                                            {% if edukacija.promoVideo %}
+                                            <div class="youtube-player" data-id="{{ edukacija.promoVideo }}"></div>
+                                            <hr/>
+                                            {% endif %}
+                                            {{ edukacija.bodyhtml | safe }}
+                                            {% if edukacija.outroVideo %}
+                                            <div class="youtube-player" data-id="{{ edukacija.outroVideo }}"></div>
+                                            {% endif %}
+                                        </div><!-- content-inner end-->
+                                        <!-- Curriculum content-inner -->
+                                        <div class="content-inner">
+                                            {{ edukacija.curriculum | safe }}
+                                        </div><!-- content-inner end-->
+                                        {% if edukacija.preview %}
+                                        <!-- Preview content-inner -->
+                                        <div class="content-inner">
+                                        <p>Na donjoj slici je prikaz zbirke otvorene na ekranu računala.<br/>
+                                        Sve lekcije s plavom oznakom "Preview" možete pogledati bez registracije i plaćanja te iz njih preuzeti pripadajuće dokumente.<br/>
+                                        Klikom na sliku otvarate Zbirku kako bi mogli isprobati navigaciju.<br/>
+                                        U slučaju dodatnih pitanja, pišite nam na <a href="mailto:info@edukacije.hr" target="_blank">info@edukacije.hr</a> ili nazovite na 01/5579 093.</p>
+                                        <button class="preview-image" data-fancybox data-type="iframe" data-options='{"iframe": {"css": {"width":"100%","height:":"100%"}}}' href="{{ edukacija.preview }}" style="background: url(/images/preview-image.jpg);width:832px;height:408px;"></button>
+                                        </div>
+                                        <!--
+                                        <div class="content-inner" style="min-height:1000px;">    
+                                            <iframe src="{{ edukacija.preview }}" height="950px;" width="100%" frameborder="0">Your browser doesnot support iframes<a href="{{ edukacija.preview }}" target="_blank"> click here to view the page directly. </a></iframe>
+                                        </div><!-- content-inner end-->
+                                        {% endif %}
+                                        <!-- Predavači content-inner -->
+                                        <div class="content-inner">
+                                            {% for autor in edukacija.autori %}
+                                            <div class="d-flex">
+                                                <div class="author-img text-center">
+                                                {% if autor.fotografija.handle %}
+                                                    <img src="https://media.graphcms.com/resize=fit:crop,width:150,height:150/{{ autor.fotografija.handle }}" alt="{{ autor.imeIPrezime }}" class="imag-fluid avatar photo">
+                                                {% else %}
+                                                    <img src="https://media.graphcms.com/yZUqDFbREqgA4I11VyAK" class="imag-fluid avatar photo">
+                                                {% endif %}
+                                                    <div class="mt-10"><h6>{{ autor.imeIPrezime }}</h6></div>
+                                                </div>
+                                                <div class="author-bio pl-30">
+                                                    {{ autor.oAutoruPredavacu.html | safe }}
+                                                </div>
+                                            </div>
+                                            {% if not loop.last %}
+                                            <hr/>
+                                            {% endif %}
+                                            {% endfor %}
+                                        </div><!-- content-inner end-->
+                                        <!-- Uvjeti content-inner -->
+                                        <div class="content-inner">
+                                        {% for faq in faqs %}
+                                            {% if faq.vrsta === "online" %}
+                                                <p>{{ faq.html | safe }}</p>                                                
+                                            {% endif %}
+                                        {% endfor %}
+                                        </div><!-- content-inner end-->
+                                    </div>
+                                </div>
+                            </div> <!-- ttm-course-single-content end -->
+                        </article><!-- course end -->
+                    </div>
+
+                {% include "partials/onlinecategories.njk" %}
+
+            </div><!-- row end -->
+        </div>
+    </div>
+    <!-- sidebar end -->
+
+</div><!--site-main end-->
