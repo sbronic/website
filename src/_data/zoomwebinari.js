@@ -69,38 +69,41 @@ async function getOnlineEdukacije() {
             zoomDatumIVrijemePocetka: futureDates,
         };
     }).filter(Boolean);
-
+    
+    var sortzoommeetings = [];
+    
     if (formatedukacije === undefined || formatedukacije.length == 0) {
         formatedukacije.push("prazno");
     }
-
-    var zoomlist = {};
-    var zoomitems = [];
-    zoomlist.zoomitems = zoomitems;
-    formatedukacije.forEach(zoom => {
-        var zoomdates = zoom.zoomDatumIVrijemePocetka;
-        if (zoomdates.length) {
-            zoomdates.forEach(zoomdate => {
-                var zoomitem = {
-                    "title": zoom.title,
-                    "titleslug": zoom.titleslug,
-                    "category": zoom.category,
-                    "categoryslug": zoom.categoryslug,
-                    "zoomDatumIVrijemePocetka": zoomdate,
-                    "trajanje": zoom.trajanje
+    else {
+        var zoomlist = {};
+        var zoomitems = [];
+        zoomlist.zoomitems = zoomitems;
+        formatedukacije.forEach(zoom => {
+            var zoomdates = zoom.zoomDatumIVrijemePocetka;
+            if (zoomdates.length) {
+                zoomdates.forEach(zoomdate => {
+                    var zoomitem = {
+                        "title": zoom.title,
+                        "titleslug": zoom.titleslug,
+                        "category": zoom.category,
+                        "categoryslug": zoom.categoryslug,
+                        "zoomDatumIVrijemePocetka": zoomdate,
+                        "trajanje": zoom.trajanje
+                    }
+                    zoomlist.zoomitems.push(zoomitem);
                 }
-                zoomlist.zoomitems.push(zoomitem);
+                )
             }
-            )
-        }
-    });
+        });
     
-    const zoommeetings = zoomlist.zoomitems;
+        const zoommeetings = zoomlist.zoomitems;
 
-    const sortzoommeetings = zoommeetings.sort((a, b) => {
-        return new Date(a.zoomDatumIVrijemePocetka) - new Date(b.zoomDatumIVrijemePocetka); // descending
-    })
-
+        const sortzoommeetings = zoommeetings.sort((a, b) => {
+            return new Date(a.zoomDatumIVrijemePocetka) - new Date(b.zoomDatumIVrijemePocetka); // descending
+        })
+    }
+    
     // return formatted blogposts
     return sortzoommeetings;
 }
