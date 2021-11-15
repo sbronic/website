@@ -30,6 +30,7 @@
                     'nazivEdukacije': '{{ akademija.naziv }}',
                     'sifraProizvoda': '{{ akademija.sifraProizvoda }}',
                     'jedinicnaCijena': '{{ akademija.cijenaCart }}',
+                    'vrstaProizvoda': 'akademija',
                     'pocetakEdukacije': '{% for datum in akademija.datumi %}{{ datum.date | datumSeminaraNo }}\n{% endfor %}'
                 },
                 windowTitle: 'Rezervirajte akademiju',
