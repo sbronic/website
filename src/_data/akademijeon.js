@@ -43,9 +43,6 @@ async function getAkademije() {
                             html
                         }
                         outroVideo
-                        pdf {
-                            url
-                        }
                         promoVideo
                         outroVideo
                         sazetak
@@ -95,7 +92,6 @@ async function getAkademije() {
             elementi: item.elementi,
             fotografija: item.fotografija.handle,
             opis: item.opisAkademije.html,
-            pdf: item.pdf.url,
             promoVideo: item.promoVideo,
             outroVideo: item.outroVideo,
             sazetak: item.sazetak,

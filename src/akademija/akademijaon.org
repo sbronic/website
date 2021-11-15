@@ -104,7 +104,6 @@ eleventyComputed:
                                     <div class="content-tab">
                                         <!-- Opis content-inner -->
                                         <div class="content-inner active">
-                                            <h2>Preuzmite PDF datoteku sa svim detaljima <a href="{{ akademija.pdf }}" target="_blank" style="text-decoration:underline;">ovdje</a></h2>
                                             {% if akademija.promoVideo %}
                                             <div class="youtube-player" data-id="{{ akademija.promoVideo }}"></div>
                                             <hr/>

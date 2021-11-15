@@ -47,6 +47,8 @@
                     'nazivEdukacije': '{{ seminar.title }}',
                     'sifraProizvoda': '{{ seminar.sifra }}',
                     'jedinicnaCijena': '{{ seminar.cijenaCart }}',
+                    'kategorijaProizvoda': '{{ seminar.kategorija }}',
+                    'vrstaProizvoda': 'seminar',
                     'ponudeniDatumi27': '{% for datum in seminar.datumiseminara %}{% if not datum.popunjen %}{% if (seminar.trajanje === 2) %}{{ datum.dateAndTime | datumDan }}. i {{ datum.dateAndTime | datumIduciDan }}. {{ datum.dateAndTime | datumMjesecDugi }} {{ datum.dateAndTime | datumGodina }} od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }} (dvodnevna edukacija)\n{% else %}{{ datum.dateAndTime | datumSeminaraNo }} od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}\n{% endif %}{% endif %}{% endfor %}'
                 },
                 windowTitle: 'Rezervirajte edukaciju',
