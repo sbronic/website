@@ -41,14 +41,5 @@
         document.getElementsByTagName("head")[0].appendChild(mf);
     })();
     </script>
-
-    {% if navID === 'hvala-na-narudzbi' %}
-    <script>
-        docReady(function() {
-            var urlToRemove = window.location.href;
-            var deletingUrl = browser.history.deleteUrl({url: urlToRemove});
-        });
-    </script>
-    {% endif %}
-
+   
 </body>
