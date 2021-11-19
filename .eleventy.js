@@ -8,10 +8,12 @@ moment().tz('Europe/Zagreb').format();
 const Canvas = require("canvas");
 const PDF417 = require("pdf417-generator");
 const htmlmin = require("html-minifier");
+const UpgradeHelper = require("@11ty/eleventy-upgrade-help");
 
 module.exports = function (config) {
 
     let env = process.env.ELEVENTY_ENV;
+    config.addPlugin(UpgradeHelper);
 
     const dirToClean = '_site/*';
     del(dirToClean);
