@@ -59,7 +59,15 @@ eleventyComputed:
                             <!-- course-featured-wrapper -->
                             <div class="course-featured-wrapper mb-20">
                                 <div class="course-featured">
+
+                                    {% set imgP = seminar.fotografijaurl %}
+                                    {% set imgAlt = seminar.title %}
+                                    {% set imageSize = "(min-width: 30em) 50vw, 100vw" %}
+                                    {% image ""+imgP, ""+imgAlt, ""+imageSize %}
+
+                                    <!--
                                     <img class="img-fluid" src="https://media.graphcms.com/resize=fit:clip,width:832,height:468/{{ seminar.fotografija }}" alt="{{ seminar.title }}">
+                                    -->
                                 </div>
                             </div>
 

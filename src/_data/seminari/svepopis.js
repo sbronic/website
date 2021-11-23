@@ -53,6 +53,7 @@ async function getSeminari() {
                         }
                         fotografija {
                             handle
+                            url
                         }
                         autoriIPredavaci {
                             fotografija {
@@ -110,7 +111,8 @@ async function getSeminari() {
             trajanje: item.trajanjeDana,
             curriculum: item.curriculum.html,
             datumiseminara: item.datumiSeminara,
-            fotografija: item.fotografija.handle,            
+            fotografija: item.fotografija.handle,
+            fotografijaurl: item.fotografija.url,
             predavaci: item.autoriIPredavaci,
             updated: item.updatedAt
             
