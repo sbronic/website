@@ -48,6 +48,7 @@ async function imageShortcode(src, alt) {
       height="${highsrc.height}"
       alt="${alt}"
       decoding="async"
+      loading="lazy"
       class="img-fluid">
   </picture>`
 }
