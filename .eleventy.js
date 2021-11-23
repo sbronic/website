@@ -5,13 +5,13 @@ const pluginRSS = require("@11ty/eleventy-plugin-rss");
 const { wordCount } = require("eleventy-plugin-wordcount");
 const moment = require('moment-timezone');
 moment().tz('Europe/Zagreb').format();
-const Canvas = require("canvas");
-const PDF417 = require("pdf417-generator");
+//const Canvas = require("canvas");
+//const PDF417 = require("pdf417-generator");
 const htmlmin = require("html-minifier");
 const UpgradeHelper = require("@11ty/eleventy-upgrade-help");
 const Image = require("@11ty/eleventy-img");
 const path = require('path');
-const Cache = require("@11ty/eleventy-cache-assets");
+//const Cache = require("@11ty/eleventy-cache-assets");
 
 async function imageShortcode(src, alt) {
     let sizes = "(min-width: 400px) 100vw, 50vw"
@@ -47,7 +47,6 @@ async function imageShortcode(src, alt) {
       width="${highsrc.width}"
       height="${highsrc.height}"
       alt="${alt}"
-      loading="lazy"
       decoding="async"
       class="img-fluid">
   </picture>`
