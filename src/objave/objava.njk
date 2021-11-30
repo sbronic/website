@@ -59,6 +59,9 @@ eleventyComputed:
                             <div class="ttm-post-featured">
                                 <img class="img-fluid" src="https://media.graphcms.com/resize=fit:clip,width:833,height:468/{{ objava.photo }}" alt="{{ objava.title }}">
                             </div>
+                            {% if objava.contribution %}
+                            <div style="font-size:11px;color:grey;">{{ objava.contribution | safe }}</div>
+                            {% endif %}
                         </div>
                         <!-- ttm-post-featured-wrapper end -->
                         <!-- ttm-blog-single-content -->

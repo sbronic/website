@@ -1,10 +1,6 @@
 node_modules/*
 _site/*
-<<<<<<< HEAD
 .cache/*
-=======
-.cache
->>>>>>> 539776185f719cf7ea5ac6f791cf9a6aeebec87b
 
 # Local Netlify folder
 .netlify

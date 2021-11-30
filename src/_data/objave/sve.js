@@ -38,6 +38,7 @@ async function getObjave() {
                             html
                             text
                         }
+                        contribution
                     }
                 }`
             })
@@ -77,7 +78,8 @@ async function getObjave() {
             category: item.kategorija.naziv,
             categoryslug: slugify(item.kategorija.naziv, { lower: true, strict: true }),
             bodyhtml: item.objava.html,
-            bodytext: item.objava.text.replace(/\n /, "\n")
+            bodytext: item.objava.text.replace(/\n /, "\n"),
+            contribution: item.contribution
         };
     }).filter(Boolean);
 
