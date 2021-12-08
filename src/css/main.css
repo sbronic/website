@@ -2668,20 +2668,30 @@ label.error {
 }
 /* Link u objavama */
 .ttm-box-desc-text p a {
-    color:red!important;
+    color:#88402C!important;
     text-decoration:underline;
 }
 .ttm-box-desc-text ol li div a {
-    color:red!important;
+    color:#88402C!important;
     text-decoration:underline;
 }
 .ttm-box-desc-text ul li div a {
-    color:red!important;
+    color:#88402C!important;
     text-decoration:underline;
 }
-/* Link u seminarima */
-
-/* Link u online edukacijama */
+/* Link u seminarima, online edukacijama i akademijama */
+.content-inner p a {
+    color:#88402C!important;
+    text-decoration:underline;
+}
+.content-inner ol li div a {
+    color:#88402C!important;
+    text-decoration:underline;
+}
+.content-inner ul li div a {
+    color:#88402C!important;
+    text-decoration:underline;
+}
 
 /*------------------------------------------------------------------------------*/
 /*  Snipcart

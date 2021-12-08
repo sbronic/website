@@ -62,8 +62,8 @@ eleventyComputed:
 
                                     {% set imgP = seminar.fotografijaurl %}
                                     {% set imgAlt = seminar.title %}
-                                    {% set imageSize = "50vw, 100vw" %}
-                                    {% image ""+imgP, ""+imgAlt, ""+imageSize %}
+                                    {% set imageSizes = "50vw, 100vw" %}
+                                    {% image ""+imgP, ""+imgAlt, ""+imageSizes %}
 
                                     <!--
                                     <img class="img-fluid" src="https://media.graphcms.com/resize=fit:clip,width:832,height:468/{{ seminar.fotografija }}" alt="{{ seminar.title }}">

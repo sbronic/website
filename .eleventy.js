@@ -13,15 +13,15 @@ const Image = require("@11ty/eleventy-img");
 const path = require('path');
 //const Cache = require("@11ty/eleventy-cache-assets");
 
-async function imageShortcode(src, alt) {
-    let sizes = "(min-width: 400px) 100vw, 50vw"
+async function imageShortcode(src, alt, sizes) {
+    //let sizes = "(min-width: 400px) 100vw, 50vw"
     console.log(`Generating image(s) from:  ${src}`)
     if (alt === undefined) {
         // Throw an error on missing alt (alt="" works okay)
         throw new Error(`Missing \`alt\` on responsiveimage from: ${src}`)
     }
     let metadata = await Image(src, {
-        widths: [400, 832],
+        widths: [410, 832],
         formats: ['webp', 'jpeg'],
         urlPath: "/img/",
         outputDir: "./_site/img/",
