@@ -87,7 +87,16 @@ async function getSeminari() {
     } catch (error) {
         throw new Error(error);
     }
-
+    //console.log(JSON.stringify(sviseminari));
+    for (const seminar of sviseminari) {
+        if (seminar.trajanjeDana > 1) {
+            for (const datum of seminar.datumiSeminara) {
+                var drugidan = new Date(datum.dateAndTime);
+                drugidan.setDate(drugidan.getDate() + parseInt(1));
+                datum.drugiDan = drugidan.toISOString();
+            }
+        }
+    }
     // format blogposts objects
     const formatseminari = sviseminari.map((item) => {
         return {
@@ -122,7 +131,6 @@ async function getSeminari() {
     if (formatseminari === undefined || formatseminari.length == 0) {
         formatseminari.push("prazno");
     }
-
     // return formatted blogposts
     return formatseminari.sort(() => Math.random() - 0.5);
 }

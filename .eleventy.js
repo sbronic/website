@@ -168,8 +168,16 @@ module.exports = function (config) {
     // Idući dan
     config.addFilter("datumIduciDan", dateObj => {
         var dobj = new Date(dateObj);
-        var day = dobj.getDate()+1;
-        return day;
+        var tomorrow = new Date(dobj);
+        tomorrow.setDate(dobj.getDate() + 1);
+        //var day = dobj.getDate()+1;
+        return tomorrow;
+    });
+    // Mjesec broj
+    config.addFilter("datumMjesecBroj", dateObj => {
+        var dobj = new Date(dateObj);
+        var month = dobj.toLocaleString('hr-HR', { month: 'numeric' });
+        return month;
     });
     // Mjesec
     config.addFilter("datumMjesec", dateObj => {
