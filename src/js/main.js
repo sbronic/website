@@ -461,7 +461,7 @@ $(function () {
             
             document.getElementById('objavebanner').style.display = "block";
             const htmlobjave = matchObjave.map(rezObjave => {
-                const posttitle = rezObjave.title.replace(new RegExp(this.value, "gi"), (match) => `<mark>${match}</mark>`);
+                const posttitle = rezObjave.title.replace(new RegExp(this.value, "gi"), (match) => `<mark style="padding:0">${match}</mark>`);
                 return '<li><span class="name"><a href="' + rezObjave.url + '">' + posttitle + '</a></span>';
             }).join('');
             suggobjave.innerHTML = htmlobjave;
@@ -482,7 +482,7 @@ $(function () {
 
             document.getElementById('seminaribanner').style.display = "block";
             const htmlseminari = matchSeminari.map(rezSeminari => {
-                const seminarititle = rezSeminari.title.replace(new RegExp(this.value, "gi"), (match) => `<mark>${match}</mark>`);
+                const seminarititle = rezSeminari.title.replace(new RegExp(this.value, "gi"), (match) => `<mark style="padding:0">${match}</mark>`);
                 return '<li><span class="name"><a href="' + rezSeminari.url + '">' + seminarititle + '</a></span>';
             }).join('');
             suggseminari.innerHTML = htmlseminari;
@@ -503,7 +503,7 @@ $(function () {
 
             document.getElementById('edukacijebanner').style.display = "block";
             const htmledukacije = matchEdukacije.map(rezEdukacije => {
-                const edukacijetitle = rezEdukacije.title.replace(new RegExp(this.value, "gi"), (match) => `<mark>${match}</mark>`);
+                const edukacijetitle = rezEdukacije.title.replace(new RegExp(this.value, "gi"), (match) => `<mark style="padding:0">${match}</mark>`);
                 return '<li><span class="name"><a href="' + rezEdukacije.url + '">' + edukacijetitle + '</a></span>';
             }).join('');
             suggedukacije.innerHTML = htmledukacije;
