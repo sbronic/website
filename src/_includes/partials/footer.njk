@@ -47,12 +47,12 @@
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 widget-area">
                     <div class="widget widget-text clearfix">
                         <h3 class="widget-title">Prijava na Newsletter</h3>
-                        <form id="subscribe-form" name="newsletter" method="POST" action="/newsletter" netlify-honeypot="bot-news" netlify>
+                        <form id="subscribe-form" name="newsletter" method="POST" action="/newsletter" netlify-honeypot="bot-news" data-netlify="true" data-netlify-recaptcha="true">
                             <div class="honeypot">
 																<input name="bot-news" type="hidden" id="shoney">
 														</div>
 														<div class="ttm_subscribe_form">
-                                <input type="email" placeholder="Upišite vašu email adresu" required>
+                                <input type="email" name="email" placeholder="Upišite vašu email adresu" required>
                                 <button class="btn" type="submit" aria-label="Pretplati se na newsletter"> <i class="fa fa-paper-plane-o"></i> </button>
                             </div>
                             <div class="subscribe-response"></div>
