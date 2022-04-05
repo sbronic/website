@@ -84,13 +84,13 @@ eleventyComputed:
                                                         {% if datum.popunjen %}
                                                         <del><b>{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }} i {{ datum.drugiDan | datumDan }}.{{ datum.drugiDan | datumMjesecBroj }} {{ datum.dateAndTime | datumGodina }}.</b> od {{ datum.odDo }}.</del><span style="color:red;margin-left:20px;">Popunjeno</span><br/>
                                                         {% else %}
-                                                        <b>{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }} i {{ datum.drugiDan | datumDan }}.{{ datum.drugiDan | datumMjesecBroj }} {{ datum.dateAndTime | datumGodina }}.</b> od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {% if datum.dvorana %}Dvorana {{ datum.dvorana }},{% endif %} {{ datum.lokacija.grad }}<br/>
+                                                        <b>{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }} i {{ datum.drugiDan | datumDan }}.{{ datum.drugiDan | datumMjesecBroj }} {{ datum.dateAndTime | datumGodina }}.</b> od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {% if datum.dvorana %}Dvorana {{ datum.dvorana }},{% endif %} {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}<br/>
                                                         {% endif %}
                                                     {% else %}
                                                         {% if datum.popunjen %}
                                                         <del><b>{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }} {{ datum.dateAndTime | datumGodina }}.</b> od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}</del><span style="color:red;margin-left:20px;">Popunjeno</span><br/>
                                                         {% else %}
-                                                        <b>{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }} {{ datum.dateAndTime | datumGodina }}.</b> od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {% if datum.dvorana %}Dvorana {{ datum.dvorana }},{% endif %} {{ datum.lokacija.grad }}<br/>
+                                                        <b>{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }} {{ datum.dateAndTime | datumGodina }}.</b> od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {% if datum.dvorana %}Dvorana {{ datum.dvorana }},{% endif %} {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}<br/>
                                                         {% endif %}
                                                         
                                                     {% endif %}
