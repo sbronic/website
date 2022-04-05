@@ -51,7 +51,7 @@ eleventyComputed:
                             <!-- course-featured-wrapper -->
                             <div class="course-featured-wrapper mb-20">
                                 <div class="course-featured">
-                                    <img class="img-fluid" src="https://media.graphcms.com/resize=fit:clip,width:832,height:468/{{ akademija.fotografija }}" alt="">
+                                    <img class="img-fluid" src="{{ site.cdn }}/resize=fit:clip,width:832,height:468/{{ akademija.fotografija }}" alt="">
                                 </div>
                             </div>
 
@@ -123,9 +123,9 @@ eleventyComputed:
                                                 <div class="d-flex">
                                                     <div class="author-img text-center">
                                                     {% if predavac.fotografija.handle %}
-                                                        <img src="https://media.graphcms.com/resize=fit:clip,width:150,height:150/{{ predavac.fotografija.handle }}" alt="{{ autor.imeIPrezime }}" class="imag-fluid avatar photo">
+                                                        <img src="{{ site.cdn }}/resize=fit:clip,width:150,height:150/{{ predavac.fotografija.handle }}" alt="{{ autor.imeIPrezime }}" class="imag-fluid avatar photo">
                                                     {% else %}
-                                                        <img src="https://media.graphcms.com/yZUqDFbREqgA4I11VyAK" class="imag-fluid avatar photo">
+                                                        <img src="{{ site.cdn }}/yZUqDFbREqgA4I11VyAK" class="imag-fluid avatar photo">
                                                     {% endif %}
                                                         <div class="mt-10"><h6>{{ predavac.imeIPrezime }}</h6></div>
                                                     </div>

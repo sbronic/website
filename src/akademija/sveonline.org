@@ -37,7 +37,7 @@ eleventyComputed:
 
             <div class="row">
                 <div class="col-md-6">
-                    <img class="img-fluid lazyloaded" alt="image" src="https://media.graphcms.com/resize=fit:crop,width:540,height:414/output=format:webp/{{ item.fotografija }}">
+                    <img class="img-fluid lazyloaded" alt="image" src="{{ site.cdn }}/resize=fit:crop,width:540,height:414/output=format:webp/{{ item.fotografija }}">
                 </div>
                 <div class="col-md-6">
                     <div class="pt-15 pl-15 pr-15 pb-15 res-991-p-0 res-991-mt-20">

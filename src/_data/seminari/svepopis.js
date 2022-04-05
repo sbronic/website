@@ -50,6 +50,7 @@ async function getSeminari() {
                                 adresa
                                 grad
                             }
+														dvorana
                         }
                         fotografija {
                             handle

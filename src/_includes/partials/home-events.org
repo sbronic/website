@@ -24,7 +24,7 @@
                         <!-- featured-imagebox-post -->
                         <div class="featured-imagebox featured-imagebox-event featured-imagebox-post style1">
                             <div class="ttm-post-thumbnail featured-thumbnail"> 
-                                <img class="img-fluid lazyload" data-src="https://media.graphcms.com/resize=fit:crop,width:720,height:450/{{ seminar.photo }}" alt="image">
+                                <img class="img-fluid lazyload" data-src="{{ site.cdn }}/resize=fit:crop,width:720,height:450/{{ seminar.photo }}" alt="image">
                                 <div class="ttm-box-event-date">
                                     <span class="ttm-entry-date">
                                         <time class="entry-date" datetime="2019-07-20T07:07:55+00:00">{{ seminar.datumseminara | datumDan }}<span class="entry-month">{{ seminar.datumseminara | datumMjesec }}</span></time>

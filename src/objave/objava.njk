@@ -11,7 +11,7 @@ eleventyComputed:
     page_title: 'Članak "{{ objava.title }}"'
     page_description: "{{ objava.excerpt }}"
     page_type: "article"
-    objavaimage: "https://media.graphcms.com/resize=width:1200/{{ objava.photo }}"
+    objavaimage: "{{ site.cdn }}/resize=width:1200/{{ objava.photo }}"
     textcount: "{{ objava.bodytext | wordCount }}"
 ---
 
@@ -57,7 +57,7 @@ eleventyComputed:
                         <!-- ttm-post-featured-wrapper -->
                         <div class="ttm-post-featured-wrapper ttm-featured-wrapper mb-20">
                             <div class="ttm-post-featured">
-                                <img class="img-fluid" src="https://media.graphcms.com/resize=fit:clip,width:833,height:468/{{ objava.photo }}" alt="{{ objava.title }}">
+                                <img class="img-fluid" src="{{ site.cdn }}/resize=fit:clip,width:833,height:468/{{ objava.photo }}" alt="{{ objava.title }}">
                             </div>
                             {% if objava.contribution %}
                             <div style="font-size:11px;color:grey;">{{ objava.contribution | safe }}</div>

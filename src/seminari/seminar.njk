@@ -12,7 +12,7 @@ eleventyComputed:
     page_title: "{{ seminar.title }}"
     page_description: "{{ seminar.excerpt }}"
     page_type: "seminar"
-    seminarimage: "https://media.graphcms.com/resize=width:1200/{{ seminar.fotografija }}"
+    seminarimage: "{{ site.cdn }}/resize=width:1200/{{ seminar.fotografija }}"
     seminartekst: {{ seminar.bodytext }}
     seminarauthor: {{ seminar.author }}
 ---
@@ -66,7 +66,7 @@ eleventyComputed:
                                     {% image ""+imgP, ""+imgAlt, ""+imageSizes %}
 
                                     <!--
-                                    <img class="img-fluid" src="https://media.graphcms.com/resize=fit:clip,width:832,height:468/{{ seminar.fotografija }}" alt="{{ seminar.title }}">
+                                    <img class="img-fluid" src="{{ site.cdn }}/resize=fit:clip,width:832,height:468/{{ seminar.fotografija }}" alt="{{ seminar.title }}">
                                     -->
                                 </div>
                             </div>
@@ -84,13 +84,13 @@ eleventyComputed:
                                                         {% if datum.popunjen %}
                                                         <del><b>{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }} i {{ datum.drugiDan | datumDan }}.{{ datum.drugiDan | datumMjesecBroj }} {{ datum.dateAndTime | datumGodina }}.</b> od {{ datum.odDo }}.</del><span style="color:red;margin-left:20px;">Popunjeno</span><br/>
                                                         {% else %}
-                                                        <b>{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }} i {{ datum.drugiDan | datumDan }}.{{ datum.drugiDan | datumMjesecBroj }} {{ datum.dateAndTime | datumGodina }}.</b> od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}<br/>
+                                                        <b>{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }} i {{ datum.drugiDan | datumDan }}.{{ datum.drugiDan | datumMjesecBroj }} {{ datum.dateAndTime | datumGodina }}.</b> od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {% if datum.dvorana %}Dvorana {{ datum.dvorana }},{% endif %} {{ datum.lokacija.grad }}<br/>
                                                         {% endif %}
                                                     {% else %}
                                                         {% if datum.popunjen %}
                                                         <del><b>{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }} {{ datum.dateAndTime | datumGodina }}.</b> od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}</del><span style="color:red;margin-left:20px;">Popunjeno</span><br/>
                                                         {% else %}
-                                                        <b>{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }} {{ datum.dateAndTime | datumGodina }}.</b> od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}<br/>
+                                                        <b>{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }} {{ datum.dateAndTime | datumGodina }}.</b> od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {% if datum.dvorana %}Dvorana {{ datum.dvorana }},{% endif %} {{ datum.lokacija.grad }}<br/>
                                                         {% endif %}
                                                         
                                                     {% endif %}
@@ -145,9 +145,9 @@ eleventyComputed:
                                             <div class="d-flex">
                                                 <div class="author-img text-center">
                                                 {% if predavac.fotografija.handle %}
-                                                    <img src="https://media.graphcms.com/resize=fit:clip,width:150,height:150/{{ predavac.fotografija.handle }}" alt="{{ autor.imeIPrezime }}" class="imag-fluid avatar photo">
+                                                    <img src="{{ site.cdn }}/resize=fit:clip,width:150,height:150/{{ predavac.fotografija.handle }}" alt="{{ autor.imeIPrezime }}" class="imag-fluid avatar photo">
                                                 {% else %}
-                                                    <img src="https://media.graphcms.com/yZUqDFbREqgA4I11VyAK" class="imag-fluid avatar photo">
+                                                    <img src="{{ site.cdn }}/yZUqDFbREqgA4I11VyAK" class="imag-fluid avatar photo">
                                                 {% endif %}
                                                     <div class="mt-10"><h6>{{ predavac.imeIPrezime }}</h6></div>
                                                 </div>
