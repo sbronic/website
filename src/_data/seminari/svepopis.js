@@ -97,35 +97,40 @@ async function getSeminari() {
                 datum.drugiDan = drugidan.toISOString();
             }
         }
-    }
+		}
+		// konverzija u EUR
+		function konverzija(num) {
+			var m = Number((Math.abs(num) * 100).toPrecision(15))/7.53450;
+			return ((Math.round(m) / 100) * Math.sign(num));
+		}
     // format blogposts objects
     const formatseminari = sviseminari.map((item) => {
         return {
-            id: item.id,
-            title: item.nazivSeminara,
-            titleslug: slugify(item.nazivSeminara, { lower: true, strict: true }),
-            kategorija: item.kategorija.naziv,
-            kategorijaslug: slugify(item.kategorija.naziv, { lower: true, strict: true }),
-            kategorijakod: item.kategorija.kod,
-            opishtml: item.opis.html,
-            opistext: item.opis.text,
-            promoVideo: item.promoVideo,
-            outroVideo: item.outroVideo,
-            excerpt: item.sazetakSeminara,
-            sifra: item.sifraProizvoda,
-            cijena: item.cijena.toLocaleString('hr-HR') + ' Kn + PDV',
-            cijenaCart: item.cijena,
-            cijenaPDV: (item.cijena * 1.25).toFixed(2),
-            popustCartOsoba: (item.cijena * 0.25).toFixed(2),
-            popustCartNgo: (item.cijena * 0.50).toFixed(2),
-            trajanje: item.trajanjeDana,
-            curriculum: item.curriculum.html,
-            datumiseminara: item.datumiSeminara,
-            fotografija: item.fotografija.handle,
-            fotografijaurl: item.fotografija.url,
-            predavaci: item.autoriIPredavaci,
-            updated: item.updatedAt
-            
+					id: item.id,
+					title: item.nazivSeminara,
+					titleslug: slugify(item.nazivSeminara, { lower: true, strict: true }),
+					kategorija: item.kategorija.naziv,
+					kategorijaslug: slugify(item.kategorija.naziv, { lower: true, strict: true }),
+					kategorijakod: item.kategorija.kod,
+					opishtml: item.opis.html,
+					opistext: item.opis.text,
+					promoVideo: item.promoVideo,
+					outroVideo: item.outroVideo,
+					excerpt: item.sazetakSeminara,
+					sifra: item.sifraProizvoda,
+					cijena: item.cijena.toLocaleString('hr-HR') + ' Kn + PDV',
+					cijenaeur: konverzija(item.cijena).toLocaleString('hr-HR') + ' EUR + PDV',	
+					cijenaCart: item.cijena,
+					cijenaPDV: (item.cijena * 1.25).toFixed(2),
+					popustCartOsoba: (item.cijena * 0.25).toFixed(2),
+					popustCartNgo: (item.cijena * 0.50).toFixed(2),
+					trajanje: item.trajanjeDana,
+					curriculum: item.curriculum.html,
+					datumiseminara: item.datumiSeminara,
+					fotografija: item.fotografija.handle,
+					fotografijaurl: item.fotografija.url,
+					predavaci: item.autoriIPredavaci,
+					updated: item.updatedAt  
         };
     }).filter(Boolean);
 
