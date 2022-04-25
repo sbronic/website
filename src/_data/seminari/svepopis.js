@@ -4,22 +4,24 @@ const slugify = require('slugify');
 
 // get Objave
 async function getSeminari() {
-    
-    // Objave array
-    let sviseminari = [];
-    const today = new Date().toISOString();
 
-    try {
-        // initiate fetch
-        const graphcms = await fetch("https://api-eu-central-1.graphcms.com/v2/ckhhcs4a0ds0501xs7lx6803e/master", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-            },
-            body: JSON.stringify({
-                variables: { today },
-                query: `query Seminari($today: DateTime!) {
+	// Objave array
+	let sviseminari = [];
+	const today = new Date().toISOString();
+
+	try {
+		// initiate fetch
+		const graphcms = await fetch("https://api-eu-central-1.graphcms.com/v2/ckhhcs4a0ds0501xs7lx6803e/master", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+				Accept: "application/json",
+			},
+			body: JSON.stringify({
+				variables: {
+					today
+				},
+				query: `query Seminari($today: DateTime!) {
                     seminari(stage: PUBLISHED) {
                         id
                         nazivSeminara
@@ -49,6 +51,9 @@ async function getSeminari() {
                                 nazivLokacije
                                 adresa
                                 grad
+																napomeneLokacije {
+																	html
+																}
                             }
 														dvorana
                         }
@@ -67,78 +72,95 @@ async function getSeminari() {
                         }
                     }
                 }`
-            })
-        });
+			})
+		});
 
-        // store the JSON response when promise resolves
-        const response = await graphcms.json();
+		// store the JSON response when promise resolves
+		const response = await graphcms.json();
 
-        // handle DatoCMS errors
-        if (response.errors) {
-            let errors = response.errors;
-            errors.map((error) => {
-                console.log(error.message);
-            });
-            throw new Error("Aborting: GraphCMS errors");
-        }
-
-        // update blogpost array with the data from the JSON response
-        sviseminari = sviseminari.concat(response.data.seminari);
-
-    } catch (error) {
-        throw new Error(error);
-    }
-    //console.log(JSON.stringify(sviseminari));
-    for (const seminar of sviseminari) {
-        if (seminar.trajanjeDana > 1) {
-            for (const datum of seminar.datumiSeminara) {
-                var drugidan = new Date(datum.dateAndTime);
-                drugidan.setDate(drugidan.getDate() + parseInt(1));
-                datum.drugiDan = drugidan.toISOString();
-            }
-        }
+		// handle DatoCMS errors
+		if (response.errors) {
+			let errors = response.errors;
+			errors.map((error) => {
+				console.log(error.message);
+			});
+			throw new Error("Aborting: GraphCMS errors");
 		}
-		// konverzija u EUR
-		function konverzija(num) {
-			var m = Number((Math.abs(num) * 100).toPrecision(15))/7.53450;
-			return ((Math.round(m) / 100) * Math.sign(num));
-		}
-    // format blogposts objects
-    const formatseminari = sviseminari.map((item) => {
-        return {
-					id: item.id,
-					title: item.nazivSeminara,
-					titleslug: slugify(item.nazivSeminara, { lower: true, strict: true }),
-					kategorija: item.kategorija.naziv,
-					kategorijaslug: slugify(item.kategorija.naziv, { lower: true, strict: true }),
-					kategorijakod: item.kategorija.kod,
-					opishtml: item.opis.html,
-					opistext: item.opis.text,
-					promoVideo: item.promoVideo,
-					outroVideo: item.outroVideo,
-					excerpt: item.sazetakSeminara,
-					sifra: item.sifraProizvoda,
-					cijena: item.cijena.toLocaleString('hr-HR') + ' Kn + PDV',
-					cijenaeur: konverzija(item.cijena).toLocaleString('hr-HR') + ' EUR + PDV',	
-					cijenaCart: item.cijena,
-					cijenaPDV: (item.cijena * 1.25).toFixed(2),
-					popustCartOsoba: (item.cijena * 0.25).toFixed(2),
-					popustCartNgo: (item.cijena * 0.50).toFixed(2),
-					trajanje: item.trajanjeDana,
-					curriculum: item.curriculum.html,
-					datumiseminara: item.datumiSeminara,
-					fotografija: item.fotografija.handle,
-					fotografijaurl: item.fotografija.url,
-					predavaci: item.autoriIPredavaci,
-					updated: item.updatedAt  
-        };
-    }).filter(Boolean);
 
-    if (formatseminari === undefined || formatseminari.length == 0) {
-        formatseminari.push("prazno");
-    }
-    // return formatted blogposts
-    return formatseminari.sort(() => Math.random() - 0.5);
+		// update blogpost array with the data from the JSON response
+		sviseminari = sviseminari.concat(response.data.seminari);
+
+	} catch (error) {
+		throw new Error(error);
+	}
+
+	for (const seminar of sviseminari) {
+		svelokacije = [];
+		for (const datum of seminar.datumiSeminara) {
+			svelokacije.push(datum.lokacija)
+		}
+		if (svelokacije) {
+			uniquelocations = [...new Set(svelokacije.map(JSON.stringify))].map(JSON.parse);	
+			}
+		seminar.svelokacije = uniquelocations;
+		if (seminar.trajanjeDana > 1) {
+			for (const datum of seminar.datumiSeminara) {
+				var drugidan = new Date(datum.dateAndTime);
+				drugidan.setDate(drugidan.getDate() + parseInt(1));
+				datum.drugiDan = drugidan.toISOString();
+			}
+		}
+	}
+	
+	// konverzija u EUR
+	function konverzija(num) {
+		var m = Number((Math.abs(num) * 100).toPrecision(15)) / 7.53450;
+		return ((Math.round(m) / 100) * Math.sign(num));
+	}
+
+	// format seminar objects
+	const formatseminari = sviseminari.map((item) => {
+		return {
+			id: item.id,
+			title: item.nazivSeminara,
+			titleslug: slugify(item.nazivSeminara, {
+				lower: true,
+				strict: true
+			}),
+			kategorija: item.kategorija.naziv,
+			kategorijaslug: slugify(item.kategorija.naziv, {
+				lower: true,
+				strict: true
+			}),
+			kategorijakod: item.kategorija.kod,
+			opishtml: item.opis.html,
+			opistext: item.opis.text,
+			promoVideo: item.promoVideo,
+			outroVideo: item.outroVideo,
+			excerpt: item.sazetakSeminara,
+			sifra: item.sifraProizvoda,
+			cijena: item.cijena.toLocaleString('hr-HR') + ' Kn + PDV',
+			cijenaeur: konverzija(item.cijena).toLocaleString('hr-HR') + ' EUR + PDV',
+			cijenaCart: item.cijena,
+			cijenaPDV: (item.cijena * 1.25).toFixed(2),
+			popustCartOsoba: (item.cijena * 0.25).toFixed(2),
+			popustCartNgo: (item.cijena * 0.50).toFixed(2),
+			trajanje: item.trajanjeDana,
+			curriculum: item.curriculum.html,
+			datumiseminara: item.datumiSeminara,
+			lokacije: item.svelokacije,
+			fotografija: item.fotografija.handle,
+			fotografijaurl: item.fotografija.url,
+			predavaci: item.autoriIPredavaci,
+			updated: item.updatedAt
+		};
+	}).filter(Boolean);
+	
+	if (formatseminari === undefined || formatseminari.length == 0) {
+		formatseminari.push("prazno");
+	}
+	// return formatted blogposts
+	return formatseminari.sort(() => Math.random() - 0.5);
 }
 
 // export for 11ty

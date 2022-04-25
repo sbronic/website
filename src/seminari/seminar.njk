@@ -131,6 +131,9 @@ eleventyComputed:
                                             <hr/>
                                             {% endif %}
                                             {{ seminar.opishtml | safe }}
+																						{% for lokacija in seminar.lokacije%}
+																							{{ lokacija.napomeneLokacije.html | safe }}
+																						{% endfor %}
                                             {% if seminar.outroVideo %}
                                             <div class="youtube-player" data-id="{{ seminar.outroVideo }}"></div>
                                             {% endif %}
