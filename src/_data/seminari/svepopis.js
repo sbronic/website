@@ -139,10 +139,12 @@ async function getSeminari() {
 			outroVideo: item.outroVideo,
 			excerpt: item.sazetakSeminara,
 			sifra: item.sifraProizvoda,
-			cijena: item.cijena.toLocaleString('hr-HR') + ' Kn + PDV',
-			cijenaeur: konverzija(item.cijena).toLocaleString('hr-HR') + ' EUR + PDV',
-			cijenaCart: item.cijena,
-			cijenaPDV: (item.cijena * 1.25).toFixed(2),
+			cijena: item.cijena.toLocaleString('hr-HR') + ' Kn + PDV', // za prikazivanje cijene
+			cijenaEUR: konverzija(item.cijena).toLocaleString('hr-HR') + ' EUR + PDV', // za prikazivanje cijene
+			cijenaCart: item.cijena, // za snipcart odn. jotform
+			cijenaCartEUR: (item.cijena / 7.53450).toFixed(2), // za snipcart odn. jotform
+			cijenaPDV: (item.cijena * 1.25).toFixed(2), // za meta tagove
+			cijenaPDVEUR: (item.cijena / 7.53450 * 1.25).toFixed(2), // za meta tagove
 			popustCartOsoba: (item.cijena * 0.25).toFixed(2),
 			popustCartNgo: (item.cijena * 0.50).toFixed(2),
 			trajanje: item.trajanjeDana,
