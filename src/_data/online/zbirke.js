@@ -47,6 +47,7 @@ async function getOnlineEdukacije() {
                             html
                         }
                         sifraProizvoda
+												shorthand
                         vrstaEdukacije
                         trajanje
                         popularan
@@ -106,7 +107,8 @@ async function getOnlineEdukacije() {
             categoryslug: slugify(item.kategorija.naziv, { lower: true, strict: true }),
             categorycode: item.kategorija.kod,
             bodyhtml: item.opisEdukacije.html,
-            sifra: item.sifraProizvoda,
+						sifra: item.sifraProizvoda,
+						shorthand: item.shorthand,
             vrsta: item.vrstaEdukacije,
             trajanje: item.trajanje,
             popularan: item.popularan,

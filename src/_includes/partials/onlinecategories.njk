@@ -42,6 +42,7 @@
 												'jedinicnaCijenaEUR': '{{ edukacija.cijenaCartEUR }}',
                         'kategorijaProizvoda': '{{ edukacija.category }}',
                         'vrstaProizvoda': 'on-line',
+												'shorthand': '{{ edukacija.shorthand }}',
                         'pocetakEdukacije': '{% for datum in edukacija.zoomDatumIVrijemePocetka %}{% if datum | datumSat != "7:00" %}{{ datum | datumSeminaraNo }} u {{ datum | datumSat }}h{% endif %}\n{% endfor %}'
                     },
                     windowTitle: 'Rezervirajte edukaciju',
@@ -105,6 +106,7 @@
 												'jedinicnaCijenaEUR': '{{ edukacija.cijenaCartEUR }}',
                         'kategorijaProizvoda': '{{ edukacija.category }}',
                         'vrstaProizvoda': 'on-line',
+												'shorthand': '{{ edukacija.shorthand }}',
                         'ezbirka': '{{ edukacija.vrsta }}'
                     },
                     windowTitle: 'Naručite edukaciju',

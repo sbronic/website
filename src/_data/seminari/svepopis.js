@@ -37,6 +37,7 @@ async function getSeminari() {
                         outroVideo
                         sazetakSeminara
                         sifraProizvoda
+												shorthand
                         cijena
                         trajanjeDana
                         updatedAt
@@ -139,6 +140,7 @@ async function getSeminari() {
 			outroVideo: item.outroVideo,
 			excerpt: item.sazetakSeminara,
 			sifra: item.sifraProizvoda,
+			shorthand: item.shorthand,
 			cijena: item.cijena.toLocaleString('hr-HR') + ' Kn + PDV', // za prikazivanje cijene
 			cijenaEUR: konverzija(item.cijena).toLocaleString('hr-HR') + ' EUR + PDV', // za prikazivanje cijene
 			cijenaCart: item.cijena, // za snipcart odn. jotform

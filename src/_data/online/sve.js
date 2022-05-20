@@ -47,6 +47,7 @@ async function getOnlineEdukacije() {
                             html
                         }
                         sifraProizvoda
+												shorthand
                         vrstaEdukacije
                         trajanje
                         popularan
@@ -116,6 +117,7 @@ async function getOnlineEdukacije() {
 					categorycode: item.kategorija.kod,
 					bodyhtml: item.opisEdukacije.html,
 					sifra: item.sifraProizvoda,
+					shorthand: item.shorthand,
 					vrsta: item.vrstaEdukacije,
 					trajanje: item.trajanje,
 					popularan: item.popularan,
