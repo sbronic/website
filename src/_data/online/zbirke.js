@@ -81,7 +81,13 @@ async function getOnlineEdukacije() {
         throw new Error(error);
     }
 
-    // format blogposts objects
+		// konverzija u EUR
+		function konverzija(num) {
+			var m = Number((Math.abs(num) * 100).toPrecision(15)) / 7.53450;
+			return ((Math.round(m) / 100) * Math.sign(num));
+		}
+	
+    // format zbirke objects
     const formatedukacije = sveedukacije.map((item) => {
 
         const now = Date.now();
@@ -91,33 +97,42 @@ async function getOnlineEdukacije() {
         });
 
         return {
-            id: item.id,
-            cijena: item.cijena.toLocaleString('hr-HR') + ' Kn + PDV',
-            cijenaCart: item.cijena,
-            cijenaPDV: (item.cijena * 1.25).toFixed(2),
-            popustCartOsoba: (item.cijena * 0.25).toFixed(2),
-            popustCartNgo: (item.cijena * 0.50).toFixed(2),
-            autori: item.autoriIPredavaci,
-            title: item.naziv,
-            titleslug: slugify(item.naziv, { lower: true, strict: true }),
-            photo: item.fotografija.handle,
-            excerpt: item.sazetak,
-            curriculum: item.curriculum.html,
-            category: item.kategorija.naziv,
-            categoryslug: slugify(item.kategorija.naziv, { lower: true, strict: true }),
-            categorycode: item.kategorija.kod,
-            bodyhtml: item.opisEdukacije.html,
-						sifra: item.sifraProizvoda,
-						shorthand: item.shorthand,
-            vrsta: item.vrstaEdukacije,
-            trajanje: item.trajanje,
-            popularan: item.popularan,
-            promoVideo: item.promoVideo,
-            outroVideo: item.outroVideo,
-            zoomDatumIVrijemePocetka: futureDates,
-            updated: item.updatedAt,
-            preview: item.preview,
-            printanje: item.daLiNudimoPrintanje
+        	id: item.id,
+        	cijena: item.cijena.toLocaleString('hr-HR') + ' Kn + PDV', // za prikazivanje cijene
+        	cijenaEUR: konverzija(item.cijena).toLocaleString('hr-HR') + ' EUR + PDV', // za prikazivanje cijene
+					cijenaCart: item.cijena, // za snipcart odn. jotform
+					cijenaCartEUR: (item.cijena / 7.53450).toFixed(2), // za snipcart odn. jotform
+					cijenaPDV: (item.cijena * 1.25).toFixed(2), // za meta tagove
+					cijenaPDVEUR: (item.cijena / 7.53450 * 1.25).toFixed(2), // za meta tagove
+        	popustCartOsoba: (item.cijena * 0.25).toFixed(2),
+        	popustCartNgo: (item.cijena * 0.50).toFixed(2),
+        	autori: item.autoriIPredavaci,
+        	title: item.naziv,
+        	titleslug: slugify(item.naziv, {
+        		lower: true,
+        		strict: true
+        	}),
+        	photo: item.fotografija.handle,
+        	excerpt: item.sazetak,
+        	curriculum: item.curriculum.html,
+        	category: item.kategorija.naziv,
+        	categoryslug: slugify(item.kategorija.naziv, {
+        		lower: true,
+        		strict: true
+        	}),
+        	categorycode: item.kategorija.kod,
+        	bodyhtml: item.opisEdukacije.html,
+        	sifra: item.sifraProizvoda,
+        	shorthand: item.shorthand,
+        	vrsta: item.vrstaEdukacije,
+        	trajanje: item.trajanje,
+        	popularan: item.popularan,
+        	promoVideo: item.promoVideo,
+        	outroVideo: item.outroVideo,
+        	zoomDatumIVrijemePocetka: futureDates,
+        	updated: item.updatedAt,
+        	preview: item.preview,
+        	printanje: item.daLiNudimoPrintanje
         };
     }).filter(Boolean);
 
