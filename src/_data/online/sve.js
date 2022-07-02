@@ -137,13 +137,7 @@ async function getOnlineEdukacije() {
     }
 
     // return formatted blogposts
-    return formatedukacije.sort((a,b) => {
-		if (a.prioritet === b.prioritet){
-			return a.title < b.title ? -1 : 1
-		} else {
-			return a.prioritet < b.prioritet ? -1 : 1
-		}
-	})
+    return formatedukacije.sort((a, b) => (a.prioritet - b.prioritet || a.titleslug.localeCompare(b.titleslug)  ))
 }
 
 // export for 11ty

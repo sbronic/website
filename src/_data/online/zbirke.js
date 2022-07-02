@@ -18,7 +18,7 @@ async function getOnlineEdukacije() {
             },
             body: JSON.stringify({
                 query: `{
-                    onLineEdukacije(orderBy: prioritetKodIzlistavanja_ASC, stage: PUBLISHED, where: {vrstaEdukacije: e_Zbirke}) {
+                    onLineEdukacije(stage: PUBLISHED, where: {vrstaEdukacije: e_Zbirke}) {
                         naziv
                         cijena
                         autoriIPredavaci {
@@ -108,7 +108,7 @@ async function getOnlineEdukacije() {
         	popustCartOsoba: (item.cijena * 0.25).toFixed(2),
         	popustCartNgo: (item.cijena * 0.50).toFixed(2),
         	autori: item.autoriIPredavaci,
-        	title: item.naziv,
+					title: item.naziv,
         	titleslug: slugify(item.naziv, {
         		lower: true,
         		strict: true
@@ -140,16 +140,10 @@ async function getOnlineEdukacije() {
 
     if (formatedukacije === undefined || formatedukacije.length == 0) {
         formatedukacije.push("prazno");
-    }
-
-    // return formatted blogposts
-    return formatedukacije.sort((a,b) => {
-		if (a.prioritet === b.prioritet){
-			return a.title < b.title ? -1 : 1
-		} else {
-			return a.prioritet < b.prioritet ? -1 : 1
 		}
-	})
+	
+  // return formatted blogposts
+	return formatedukacije.sort((a, b) => (a.prioritet - b.prioritet || a.titleslug.localeCompare(b.titleslug)  ))
 }
 
 // export for 11ty

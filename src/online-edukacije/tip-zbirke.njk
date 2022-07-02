@@ -10,21 +10,6 @@
     data: "online.zbirke",
     size: 9,
 	  alias: "edukacije",
-    before: function(data) {
-      const sviobjekti = [];
-	  
-      for (const obj of data) {
-        sviobjekti.push(obj);
-		}
-      if (!sviobjekti.length) {
-        sviobjekti.push("prazno")
-      }
-	  else {
-	  	sviobjekti.sort((a, b) => (a.title > b.title) ? 1 : -1)
-	  }
-
-      return sviobjekti;
-    }
   },
   eleventyComputed: {
     page_title: "On-line edukacije - Zbirke dokumenata {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}",
