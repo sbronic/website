@@ -22,7 +22,7 @@ async function getSeminari() {
 					today
 				},
 				query: `query Seminari($today: DateTime!) {
-                    seminari(stage: PUBLISHED, orderBy: prioritetKodIzlistavanja_ASC) {
+                    seminari(stage: PUBLISHED) {
                         id
                         nazivSeminara
                         kategorija {
@@ -41,6 +41,7 @@ async function getSeminari() {
                         cijena
                         trajanjeDana
                         updatedAt
+												prioritetKodIzlistavanja
                         curriculum {
                             html
                         }
@@ -156,7 +157,8 @@ async function getSeminari() {
 			fotografija: item.fotografija.handle,
 			fotografijaurl: item.fotografija.url,
 			predavaci: item.autoriIPredavaci,
-			updated: item.updatedAt
+			updated: item.updatedAt,
+			prioritet: item.prioritetKodIzlistavanja
 		};
 	}).filter(Boolean);
 	
@@ -164,8 +166,13 @@ async function getSeminari() {
 		formatseminari.push("prazno");
 	}
 	// return formatted blogposts
-	// return formatseminari.sort(() => Math.random() - 0.5);
-	return formatseminari;
+	return formatseminari.sort((a,b) => {
+		if (a.prioritet === b.prioritet){
+			return a.title < b.title ? -1 : 1
+		} else {
+			return a.prioritet < b.prioritet ? -1 : 1
+		}
+	})
 }
 
 // export for 11ty

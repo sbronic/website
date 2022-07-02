@@ -39,6 +39,7 @@ async function getOnlineEdukacije() {
                             kod
                             naziv
                         }
+												prioritetKodIzlistavanja
                         opisEdukacije {
                             html
                         }
@@ -132,7 +133,8 @@ async function getOnlineEdukacije() {
         	zoomDatumIVrijemePocetka: futureDates,
         	updated: item.updatedAt,
         	preview: item.preview,
-        	printanje: item.daLiNudimoPrintanje
+					printanje: item.daLiNudimoPrintanje,
+					prioritet: item.prioritetKodIzlistavanja
         };
     }).filter(Boolean);
 
@@ -141,8 +143,13 @@ async function getOnlineEdukacije() {
     }
 
     // return formatted blogposts
-    // return formatedukacije.sort(() => Math.random() - 0.5);
-	return formatedukacije;
+    return formatedukacije.sort((a,b) => {
+		if (a.prioritet === b.prioritet){
+			return a.title < b.title ? -1 : 1
+		} else {
+			return a.prioritet < b.prioritet ? -1 : 1
+		}
+	})
 }
 
 // export for 11ty
