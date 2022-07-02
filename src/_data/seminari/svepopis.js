@@ -22,7 +22,7 @@ async function getSeminari() {
 					today
 				},
 				query: `query Seminari($today: DateTime!) {
-                    seminari(stage: PUBLISHED) {
+                    seminari(stage: PUBLISHED, orderBy: prioritetKodIzlistavanja_ASC) {
                         id
                         nazivSeminara
                         kategorija {
@@ -164,7 +164,8 @@ async function getSeminari() {
 		formatseminari.push("prazno");
 	}
 	// return formatted blogposts
-	return formatseminari.sort(() => Math.random() - 0.5);
+	// return formatseminari.sort(() => Math.random() - 0.5);
+	return formatseminari;
 }
 
 // export for 11ty

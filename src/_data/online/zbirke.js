@@ -18,7 +18,7 @@ async function getOnlineEdukacije() {
             },
             body: JSON.stringify({
                 query: `{
-                    onLineEdukacije(orderBy: naziv_ASC, stage: PUBLISHED, where: {vrstaEdukacije: e_Zbirke}) {
+                    onLineEdukacije(orderBy: prioritetKodIzlistavanja_ASC, stage: PUBLISHED, where: {vrstaEdukacije: e_Zbirke}) {
                         naziv
                         cijena
                         autoriIPredavaci {
@@ -141,7 +141,8 @@ async function getOnlineEdukacije() {
     }
 
     // return formatted blogposts
-    return formatedukacije.sort(() => Math.random() - 0.5);
+    // return formatedukacije.sort(() => Math.random() - 0.5);
+	return formatedukacije;
 }
 
 // export for 11ty
