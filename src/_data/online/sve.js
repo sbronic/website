@@ -135,7 +135,6 @@ async function getOnlineEdukacije() {
     if (formatedukacije === undefined || formatedukacije.length == 0) {
         formatedukacije.push("prazno");
     }
-
     // return formatted blogposts
     return formatedukacije.sort((a, b) => (a.prioritet - b.prioritet || a.titleslug.localeCompare(b.titleslug)  ))
 }

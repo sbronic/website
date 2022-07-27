@@ -42,6 +42,7 @@ async function getSeminari() {
                         trajanjeDana
                         updatedAt
 												prioritetKodIzlistavanja
+												popularan
                         curriculum {
                             html
                         }
@@ -158,7 +159,8 @@ async function getSeminari() {
 			fotografijaurl: item.fotografija.url,
 			predavaci: item.autoriIPredavaci,
 			updated: item.updatedAt,
-			prioritet: item.prioritetKodIzlistavanja
+			prioritet: item.prioritetKodIzlistavanja,
+			popularan: item.popularan
 		};
 	}).filter(Boolean);
 	
