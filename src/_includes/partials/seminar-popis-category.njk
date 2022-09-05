@@ -28,18 +28,11 @@
                                 </div>
                                 <div class="ttm-course-box-meta">
                                     <div class="ttm-enrolled">
-                                        <span class="ttm-comments ttm-meta-line"><i class="fa fa-id-badge" aria-hidden="true"></i>
-                                            {% for predavac in item.predavaci %}
-                                            {% if loop.first %}
-                                            {{ predavac.imeIPrezime }}
-                                            {% else %}
-                                            , {{ predavac.imeIPrezime }}
-                                            {% endif %}
-                                            {% endfor %}
-                                        </span>
                                         <span class="ttm-comments ttm-meta-line" title="Šifra proizvoda"><i class="fa fa-barcode" aria-hidden="true"></i>{{ item.sifra }}</span>
                                     </div>  
-                                    <span class="ttm-lp-price"><ins>{{ item.cijena }}</ins></span>                            
+                                    <span class="ttm-lp-price">
+																			<ins><strong>{{ item.cijena }}</strong> ({{item.cijenaEUR}})</ins>
+																		</span>                            
                                 </div>
                             </div>
                         </div><!-- featured-imagebox-post end-->

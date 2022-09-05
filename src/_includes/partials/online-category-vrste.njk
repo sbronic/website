@@ -25,14 +25,17 @@
                                 </div>
                                 <div class="post-desc featured-desc" style="padding:0 20px;">
                                     <p style="min-height:130px;">{{ item.excerpt | truncate(200) }}</p>
+																		<div class="ttm-enrolled">
+																			<span class="ttm-comments ttm-meta-line" style="font-size:13px;"><i class="fa fa-tag" aria-hidden="true"></i>
+																				{{ item.category | truncate(35) }}
+																			</span>
+																		</div>
                                 </div>
                                 <div class="ttm-course-box-meta">
-                                    <div class="ttm-enrolled">
-                                        <span class="ttm-comments ttm-meta-line"><i class="fa fa-tag" aria-hidden="true"></i>
-                                        {{ item.category | truncate(35) }}
-                                        </span>
-                                    </div>  
-                                    <span class="ttm-lp-price"><ins>{{ item.cijena }}</ins></span>                            
+                                    
+																		<span class="ttm-lp-price">
+																			<ins><strong>{{ item.cijena }}</strong> ({{item.cijenaEUR}})</ins>
+																		</span>
                                 </div>
                             </div>
                         </div><!-- featured-imagebox-post end-->
