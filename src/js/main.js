@@ -546,10 +546,10 @@ $.extend($.validator.messages, {
     required: "Obavezno polje",
     email: "Neispravna email adresa"
 });
-
+	
     
-    $(function () {
+$(function () {
 
-    });
+});
 
 })(jQuery);

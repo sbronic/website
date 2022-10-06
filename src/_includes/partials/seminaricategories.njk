@@ -57,31 +57,58 @@
             <div class="row ttm-meta-line" style="margin-top:30px;">
                 <p style="font-size:14px;">Klikom na donji gumb smatra se da razumijete i prihavaćate sve odredbe iz <u><a href="/uvjeti-koristenja/" target="_blank">Uvjeta korištenja</a></u> i politike <u><a href="/zastita-privatnosti/" target="_blank">Zaštite privatnosti</a></u></p>
             </div>
+
+						{% if nav2ID === "seminar" %}
+						<aside class="widget widget-Categories with-title" style="width:206px;">
+							<h3 class="widget-title">Rezervirajte termin</h3>
+							<div class="ttm-btn-box">
+								<div class="form-group">
+									<label for="sel1">Odaberite datum</label>
+									<select class="form-control" id="datumi" onchange="datum()">
+										<option>---</option>
+										{% for datum in seminar.datumiseminara %}
+										<option>{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }}{{ datum.dateAndTime | datumGodina }}.</option>
+										{% endfor %}
+									</select>
+								</div>
+							</div>
+						</aside>
+						{% endif %}
+
             <script src ="https://form.jotform.com/static/feedback2.js" type="text/javascript"></script>
             <script type="text/javascript">
-                var JFL_221121885687361 = new JotformFeedback({
-                formId: '221121885687361',
-                base: 'https://form.jotform.com/',
-                iframeParameters: {
-                    'nazivEdukacije': '{{ seminar.title }}',
-                    'sifraProizvoda': '{{ seminar.sifra }}',
-                    'jedinicnaCijena': '{{ seminar.cijenaCart }}',
+							function datum() {
+								var odabraniDatum = $('#datumi').find(":selected").text();
+								if (odabraniDatum == "---") {
+									document.querySelector('#rezervacijaSeminara').disabled = true;
+								}
+								else {
+									document.querySelector('#rezervacijaSeminara').disabled = false;
+								}
+								var JFL_222782737177365 = new JotformFeedback({
+									formId: '222782737177365',
+									base: 'https://form.jotform.com/',
+									iframeParameters: {
+										'nazivEdukacije': '{{ seminar.title }}',
+										'sifraProizvoda': '{{ seminar.sifra }}',
+										'jedinicnaCijena': '{{ seminar.cijenaCart }}',
 										'jedinicnaCijenaEUR': '{{ seminar.cijenaCartEUR }}',
-                    'kategorijaProizvoda': '{{ seminar.kategorija }}',
-                    'vrstaProizvoda': 'seminar',
+										'kategorijaProizvoda': '{{ seminar.kategorija }}',
+										'vrstaProizvoda': 'seminar',
 										'shorthand': '{{ seminar.shorthand }}',
-                    'ponudeniDatumi27': '{% for datum in seminar.datumiseminara %}{% if not datum.popunjen %}{% if (seminar.trajanje === 2) %}{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }} i {{ datum.drugiDan | datumDan }}.{{ datum.drugiDan | datumMjesecBroj }} {{ datum.dateAndTime | datumGodina }}. od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {% if datum.dvorana %}Dvorana {{ datum.dvorana }},{% endif %} {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }} (dvodnevna edukacija)\n{% else %}{{ datum.dateAndTime | datumSeminaraNo }} od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {% if datum.dvorana %}Dvorana {{ datum.dvorana }},{% endif %} {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}\n{% endif %}{% endif %}{% endfor %}'
-                },
-                windowTitle: 'Rezervirajte edukaciju',
-                background: '#FFA500',
-                fontColor: '#FFFFFF',
-                type: '1',
-                height: 1000,
-                width: 800,
-                openOnLoad: false
-                });
+										'odabraniDatum': odabraniDatum
+									},
+									windowTitle: 'Rezervirajte edukaciju',
+									background: '#FFA500',
+									fontColor: '#FFFFFF',
+									type: '1',
+									height: 1000,
+									width: 800,
+									openOnLoad: false
+								});
+							} 
             </script>
-            <button class="lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark btn lightbox-221121885687361" style="margin-top:50px;">Rezervirajte edukaciju</button>
+            <button id="rezervacijaSeminara" class="lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark btn lightbox-222782737177365" disabled>Rezervirajte edukaciju</button>
 
         </div>
 
