@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "ELEVENTY_ENV=dev npx eleventy --serve",
+    "dev": "ELEVENTY_ENV=dev npx eleventy --serve",
     "build": "ELEVENTY_ENV=dev npx eleventy",
     "build:prod": "ELEVENTY_ENV=prod npx eleventy"
   },

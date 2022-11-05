@@ -1,22 +1,5 @@
 <div class="col-xl-3 col-lg-4 widget-area sidebar-right ttm-col-bgcolor-yes ttm-bg ttm-right-span ttm-bgcolor-grey mt_60 pt-60 mb_60 pb-60 res-991-mt-0 res-991-pt-0">
-    <!--
-    {% if nav2ID === "popis" %}
-    <aside class="widget widget-Categories with-title">
-        <div class="ttm-btn-box pb-20">
-            <a class="ttm-btn ttm-btn-size-lg ttm-btn-shape-square ttm-btn-style-fill ttm-icon-btn-right ttm-btn-color-dark" href="/edukacije/seminari-i-radionice/datumi-odrzavanja/"><i class="fa fa-calendar" aria-hidden="true" style="margin-right:10px;"></i>DATUMI ODRŽAVANJA</a>
-        </div>
-    </aside>
-    {% endif %}
-
-    {% if nav2ID === "datumi" %}
-    <aside class="widget widget-Categories with-title">
-        <div class="ttm-btn-box pb-20">
-            <a class="ttm-btn ttm-btn-size-lg ttm-btn-shape-square ttm-btn-style-fill ttm-icon-btn-right ttm-btn-color-dark" href="/edukacije/seminari-i-radionice/otvoreni-seminari-i-radionice/"><i class="fa fa-list" aria-hidden="true" style="margin-right:10px;"></i>POPIS EDUKACIJA</a>
-        </div>
-    </aside>
-    {% endif %}
-    -->
-
+    
     {% if nav2ID === "seminar" %}
     <aside class="widget widget-Categories with-title">
      <h3 class="widget-title">Rezervirajte edukaciju</h3>
@@ -59,7 +42,7 @@
             </div>
 
 						{% if nav2ID === "seminar" %}
-						<aside class="widget widget-Categories with-title" style="width:206px;">
+						<aside class="widget widget-Categories with-title" style="width:206px;margin-top:30px;">
 							<h3 class="widget-title">Rezervirajte termin</h3>
 							<div class="ttm-btn-box">
 								<div class="form-group">
@@ -109,7 +92,7 @@
 							} 
             </script>
             <button id="rezervacijaSeminara" class="lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark btn lightbox-222782737177365" disabled>Rezervirajte edukaciju</button>
-
+						<small>Potrebno je prethodno odabrati datum</small>
         </div>
 
         {% else %}
