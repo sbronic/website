@@ -196,7 +196,7 @@ async function getDatumi() {
 			new Date(b.datumseminara)
 		); // descending
 	});
-	console.log(sortcombined)
+	
 	// return formatted blogposts
 	return sortcombined;
 }
