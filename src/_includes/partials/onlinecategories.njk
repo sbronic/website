@@ -45,7 +45,8 @@
 											<select class="form-control" id="datumi" onchange="datum()">
 												<option>---</option>
 												{% for datum in edukacija.zoomDatumIVrijemePocetka %}
-												<option>{{ datum | datumDan }}.{{ datum | datumMjesecBroj }}{{ datum | datumGodina }}.</option>
+												<option
+													value="{{ datum | datumDan }}.{{ datum | datumMjesecBroj }}{{ datum | datumGodina }} u {{ datum | datumSat }}h">{{ datum | datumDan }}.{{ datum | datumMjesecBroj }}{{ datum | datumGodina }}.</option>
 												{% endfor %}
 											</select>
 										</div>
@@ -55,8 +56,9 @@
                 <script src ="https://form.jotform.com/static/feedback2.js" type="text/javascript"></script>
                 <script type="text/javascript">
 									function datum() {
-											var odabraniDatumFull = $('#datumi').find(":selected").text();
-											if (odabraniDatumFull == "---") {
+											var odabraniDatumFull = $('#datumi').find(":selected").val();
+											var odabraniDatum = $('#datumi').find(":selected").val();
+											if (odabraniDatum == "---") {
 												document.querySelector('#rezervacijaSeminara').disabled = true;
 											}
 											else {
@@ -66,15 +68,16 @@
                     formId: '222782737177365',
                     base: 'https://form.jotform.com/',
                     iframeParameters: {
-                        'nazivEdukacije': '{{ edukacija.title }}',
-                        'sifraProizvoda': '{{ edukacija.sifra }}',
-                        'jedinicnaCijena': '{{ edukacija.cijenaCart }}',
-												'jedinicnaCijenaEUR': '{{ edukacija.cijenaCartEUR }}',
-                        'kategorijaProizvoda': '{{ edukacija.category }}',
-                        'vrstaProizvoda': 'on-line',
-												'shorthand': '{{ edukacija.shorthand }}',
-												'zoom':'zoom',
-                        'odabraniDatumFull': odabraniDatumFull
+											'nazivEdukacije': '{{ edukacija.title }}',
+											'sifraProizvoda': '{{ edukacija.sifra }}',
+											'jedinicnaCijena': '{{ edukacija.cijenaCart }}',
+											'jedinicnaCijenaEUR': '{{ edukacija.cijenaCartEUR }}',
+											'kategorijaProizvoda': '{{ edukacija.category }}',
+											'vrstaProizvoda': 'on-line',
+											'shorthand': '{{ edukacija.shorthand }}',
+											'zoom':'zoom',
+											'odabraniDatum': odabraniDatum,
+											'odabraniDatumFull': odabraniDatumFull
                     },
                     windowTitle: 'Rezervirajte edukaciju',
                     background: '#FFA500',
