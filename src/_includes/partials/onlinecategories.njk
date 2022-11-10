@@ -55,8 +55,8 @@
                 <script src ="https://form.jotform.com/static/feedback2.js" type="text/javascript"></script>
                 <script type="text/javascript">
 									function datum() {
-											var odabraniDatum = $('#datumi').find(":selected").text();
-											if (odabraniDatum == "---") {
+											var odabraniDatumFull = $('#datumi').find(":selected").text();
+											if (odabraniDatumFull == "---") {
 												document.querySelector('#rezervacijaSeminara').disabled = true;
 											}
 											else {
@@ -74,7 +74,7 @@
                         'vrstaProizvoda': 'on-line',
 												'shorthand': '{{ edukacija.shorthand }}',
 												'zoom':'zoom',
-                        'odabraniDatum': odabraniDatum
+                        'odabraniDatumFull': odabraniDatumFull
                     },
                     windowTitle: 'Rezervirajte edukaciju',
                     background: '#FFA500',

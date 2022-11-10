@@ -51,9 +51,7 @@
 										<option value="---">---</option>
 										{% for datum in seminar.datumiseminara %}
 										<option
-											value="{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }}{{ datum.dateAndTime | datumGodina }}. od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}">
-												{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }}{{ datum.dateAndTime | datumGodina }}.
-										</option>
+											value="{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }}{{ datum.dateAndTime | datumGodina }}. od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}">{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }}{{ datum.dateAndTime | datumGodina }}.</option>
 										{% endfor %}
 									</select>
 								</div>
@@ -64,7 +62,9 @@
             <script src ="https://form.jotform.com/static/feedback2.js" type="text/javascript"></script>
             <script type="text/javascript">
 							function datum() {
-								var odabraniDatum = $('#datumi').find(":selected").val();
+								var odabraniDatumFull = $('#datumi').find(":selected").val();
+								var odabraniDatum = $('#datumi').find(":selected").text();
+								console.log(odabraniDatum);
 								if (odabraniDatum == "---") {
 									document.querySelector('#rezervacijaSeminara').disabled = true;
 								}
@@ -82,7 +82,8 @@
 										'kategorijaProizvoda': '{{ seminar.kategorija }}',
 										'vrstaProizvoda': 'seminar',
 										'shorthand': '{{ seminar.shorthand }}',
-										'odabraniDatum': odabraniDatum
+										'odabraniDatum': odabraniDatum,
+										'odabraniDatumFull': odabraniDatumFull
 									},
 									windowTitle: 'Rezervirajte edukaciju',
 									background: '#FFA500',
