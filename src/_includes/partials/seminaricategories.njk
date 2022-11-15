@@ -50,8 +50,14 @@
 									<select class="form-control" id="datumi" onchange="datum()">
 										<option value="---">---</option>
 										{% for datum in seminar.datumiseminara %}
+										{% if seminar.trajanje === 1 %}
 										<option
-											value="{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }}{{ datum.dateAndTime | datumGodina }}. od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}">{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }}{{ datum.dateAndTime | datumGodina }}.</option>
+											value="{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }}{{ datum.dateAndTime | datumGodina }}. od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}">{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }}{{ datum.dateAndTime | datumGodina }}.
+										</option>
+										{% else %}
+											<option value="{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }} i {{ datum.drugiDan | datumDan }}.{{ datum.drugiDan | datumMjesecBroj }}{{ datum.dateAndTime | datumGodina }}. od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}">{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }}{{ datum.dateAndTime | datumGodina }}.
+											</option>
+										{% endif %}
 										{% endfor %}
 									</select>
 								</div>
@@ -64,7 +70,6 @@
 							function datum() {
 								var odabraniDatumFull = $('#datumi').find(":selected").val();
 								var odabraniDatum = $('#datumi').find(":selected").text();
-								console.log(odabraniDatum);
 								if (odabraniDatum == "---") {
 									document.querySelector('#rezervacijaSeminara').disabled = true;
 								}
