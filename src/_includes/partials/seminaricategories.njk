@@ -108,8 +108,26 @@
 
         <div class="ttm-btn-box pb-20">
             <div class="form-group">
-                <h5>Na žalost nemamo dostupnih datuma ove edukacije</h5>
+                <p><strong>Na žalost nemamo dostupnih datuma ove edukacije ali možete ostaviti svoje podatke da vas obavijestimo kada seminar bude dosupan.</strong></p>
             </div>
+						<script src="https://form.jotform.com/static/feedback2.js" type="text/javascript"></script>
+						<script type="text/javascript">
+								var JFL_223213771400039 = new JotformFeedback({
+									formId: '223213771400039',
+									base: 'https://form.jotform.com/',
+									iframeParameters: {
+										'seminar': '{{ seminar.title }}',
+									},
+									windowTitle: 'Rezervirajte edukaciju',
+									background: '#FFA500',
+									fontColor: '#FFFFFF',
+									type: '1',
+									height: 600,
+									width: 800,
+									openOnLoad: false
+								});
+						</script>
+						<button class="lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark btn lightbox-223213771400039">Predbilježite se na seminar</button>
         </div>
 
         {% endif %}
