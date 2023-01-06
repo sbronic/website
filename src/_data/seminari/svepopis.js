@@ -39,6 +39,7 @@ async function getSeminari() {
                         sifraProizvoda
 												shorthand
                         cijena
+												cijenaEUR
                         trajanjeDana
                         updatedAt
 												prioritetKodIzlistavanja

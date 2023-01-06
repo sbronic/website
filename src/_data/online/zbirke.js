@@ -21,6 +21,7 @@ async function getOnlineEdukacije() {
                     onLineEdukacije(stage: PUBLISHED, where: {vrstaEdukacije: e_Zbirke}) {
                         naziv
                         cijena
+												cijenaEUR
                         autoriIPredavaci {
                             imeIPrezime
                             fotografija {

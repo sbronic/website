@@ -33,6 +33,7 @@ async function getDatumi() {
                         seminar {
                             nazivSeminara
                             cijena
+														cijenaEUR
                             kategorija {
                                 kod
                                 naziv

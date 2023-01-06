@@ -21,6 +21,7 @@ async function getOnlineEdukacije() {
                     onLineEdukacije(orderBy: prioritetKodIzlistavanja_ASC, stage: PUBLISHED, where: {vrstaEdukacije_not: e_Zbirke}) {
                         naziv
                         cijena
+												cijenaEUR
                         autoriIPredavaci {
                             imeIPrezime
                             fotografija {
