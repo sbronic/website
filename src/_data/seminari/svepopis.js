@@ -39,6 +39,7 @@ async function getSeminari() {
                         sifraProizvoda
 												shorthand
                         cijena
+												cijenaEUR
                         trajanjeDana
                         updatedAt
 												prioritetKodIzlistavanja
@@ -115,9 +116,9 @@ async function getSeminari() {
 		}
 	}
 	
-	// konverzija u EUR
+	// konverzija  EUR -> Kn
 	function konverzija(num) {
-		var m = Number((Math.abs(num) * 100).toPrecision(15)) / 7.53450;
+		var m = Number((Math.abs(num) * 100).toPrecision(15)) * 7.53450;
 		return ((Math.round(m) / 100) * Math.sign(num));
 	}
 
@@ -143,14 +144,18 @@ async function getSeminari() {
 			excerpt: item.sazetakSeminara,
 			sifra: item.sifraProizvoda,
 			shorthand: item.shorthand,
-			cijena: item.cijena.toLocaleString('hr-HR') + ' Kn + PDV', // za prikazivanje cijene
-			cijenaEUR: konverzija(item.cijena).toLocaleString('hr-HR') + ' EUR + PDV', // za prikazivanje cijene
-			cijenaCart: item.cijena, // za snipcart odn. jotform
-			cijenaCartEUR: (item.cijena / 7.53450).toFixed(2), // za snipcart odn. jotform
-			cijenaPDV: (item.cijena * 1.25).toFixed(2), // za meta tagove
-			cijenaPDVEUR: (item.cijena / 7.53450 * 1.25).toFixed(2), // za meta tagove
-			popustCartOsoba: (item.cijena * 0.25).toFixed(2),
-			popustCartNgo: (item.cijena * 0.50).toFixed(2),
+			//cijena: item.cijena.toLocaleString('hr-HR') + ' Kn + PDV', // za prikazivanje cijene
+			cijena: konverzija(item.cijenaEUR).toLocaleString('hr-HR') + ' Kn + PDV', // za prikazivanje cijene
+			//cijenaEUR: konverzija(item.cijena).toLocaleString('hr-HR') + ' EUR + PDV', // za prikazivanje cijene
+			cijenaEUR: item.cijenaEUR.toLocaleString('hr-HR') + ' EUR + PDV', // za prikazivanje cijene
+			//cijenaCart: item.cijena, // za snipcart odn. jotform
+			cijenaCart: konverzija(item.cijenaEUR).toFixed(2), // za snipcart odn. jotform
+			//cijenaCartEUR: (item.cijena / 7.53450).toFixed(2), // za snipcart odn. jotform
+			cijenaCartEUR: item.cijenaEUR, // za snipcart odn. jotform
+			//cijenaPDV: (item.cijena * 1.25).toFixed(2), // za meta tagove
+			cijenaPDV: (konverzija(item.cijenaEUR) * 1.25).toFixed(2), // za meta tagove
+			//cijenaPDVEUR: (item.cijena / 7.53450 * 1.25).toFixed(2), // za meta tagove
+			cijenaPDVEUR: (item.cijenaEUR * 1.25).toFixed(2), // za meta tagove	
 			trajanje: item.trajanjeDana,
 			curriculum: item.curriculum.html,
 			datumiseminara: item.datumiSeminara,
