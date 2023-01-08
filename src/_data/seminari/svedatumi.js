@@ -72,7 +72,7 @@ async function getDatumi() {
 
 		// konverzija u EUR
 		function konverzija(num) {
-		var m = Number((Math.abs(num) * 100).toPrecision(15)) / 7.53450;
+		var m = Number((Math.abs(num) * 100).toPrecision(15)) * 7.53450;
 		return ((Math.round(m) / 100) * Math.sign(num));
 	}
 	
@@ -87,8 +87,10 @@ async function getDatumi() {
             dvorana: item.dvorana,
             seminarnaziv: item.seminar.nazivSeminara,
             seminarnazivslug: slugify(item.seminar.nazivSeminara, { lower: true, strict: true }),
-						seminarcijena: item.seminar.cijena.toLocaleString('hr-HR') + ',00 Kn + PDV',
-						seminarcijenaEUR: konverzija(item.seminar.cijena).toLocaleString('hr-HR') + ' EUR + PDV', // za prikazivanje cijene
+						//seminarcijena: item.seminar.cijena.toLocaleString('hr-HR') + ',00 Kn + PDV', // za prikazivanje cijene u calendar view
+						seminarcijena: konverzija(item.seminar.cijenaEUR).toLocaleString('hr-HR') + ' Kn + PDV', // za prikazivanje cijene u calendar view
+						//seminarcijenaEUR: konverzija(item.seminar.cijena).toLocaleString('hr-HR') + ' EUR + PDV', // za prikazivanje cijene u calendar view
+						seminarcijenaEUR: item.seminar.cijenaEUR.toLocaleString('hr-HR') + ' EUR + PDV', // za prikazivanje cijene u calendar view
             kategorijanaziv: item.seminar.kategorija.naziv,
             kategorijaslug: slugify(item.seminar.kategorija.naziv, { lower: true, strict: true }),
             kategorijakod: item.seminar.kategorija.kod,
