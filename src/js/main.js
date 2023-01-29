@@ -547,6 +547,10 @@ $.extend($.validator.messages, {
     email: "Neispravna email adresa"
 });
 	
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+	
     
 $(function () {
 
