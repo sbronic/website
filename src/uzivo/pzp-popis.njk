@@ -1,0 +1,38 @@
+---js
+{
+  layout: "layouts/page.njk",
+  title: "Seminari uživo",
+  description: "Pravo i zaštita podataka",
+  banner: "seminari.jpg",
+  navID: "sem-pzp",
+  nav2ID: "popis",
+  permalink: "edukacije/seminari-uzivo/pravo-i-zastita-podataka/popis{% if pagination.pageNumber > 0 %}/stranica/{{ pagination.pageNumber + 1}}{% endif %}/index.html",
+  pagination: {
+    data: "seminari-uzivo.popis",
+    size: 10,
+	  alias: "seminari",
+    before: function(data) {
+      const sviobjekti = [];
+	  
+      for (const obj of data) {
+        if ( obj.kategorijaslug === "pravo-i-zastita-podataka" ) {
+            sviobjekti.push(obj);
+        }
+	    }
+      if (!sviobjekti.length) {
+        sviobjekti.push("prazno")
+      }
+
+      return sviobjekti;
+    }
+  },
+  eleventyComputed: {
+    page_title: "Seminari i radionice - Pravo i zaštita podataka {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}",
+    page_description: "Seminari i radionice - Pravo i zaštita podataka {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+  }
+}
+---
+
+{% include "partials/uzivo-popis-header.njk" %}
+
+{% include "partials/uzivo-popis.njk" %}

@@ -1,75 +1,77 @@
 <!-- sidebar -->
 <div class="ttm-row sidebar ttm-sidebar-right ttm-bgcolor-white clearfix">
-    <div class="container">
-        <!-- row -->
-        <div class="row">
-            <div class="col-xl-9 col-lg-8 content-area">
+	<div class="container">
+		<!-- row -->
+		<div class="row">
+			<div class="col-xl-9 col-lg-8 content-area">
 
-                {% if seminari != 'prazno' %}
-                
-                <div class="row multi-columns-row ttm-boxes-spacing-10px isotope-project">
+				{% if seminari != 'prazno' %}
 
-                {% for item in pagination.items %}
+				<div class="row multi-columns-row ttm-boxes-spacing-10px isotope-project">
 
-                    <div class="ttm-box-col-wrapper col-lg-6">
-                        <!-- featured-imagebox-post -->
-                        <div class="featured-imagebox featured-imagebox-event featured-imagebox-course style1" >
-                            <div class="ttm-post-thumbnail featured-thumbnail"> 
-                            <a href="/edukacije/seminari-i-radionice/{{ item.kategorijaslug }}/{{ item.titleslug }}/">
-                                <img class="img-fluid lazyload" style="width:410px;height:230px;" alt="{{ item.title }}" src="{{ site.cdn }}/resize=fit:clip,width:410,height:230/output=format:webp/{{ item.fotografija }}">
-                            </a>
-                            </div>
-                            <div class="featured-content-post">
-                                <div class="post-title" style="min-height:60px!important;margin-top:30px;padding:0 20px;">
-                                    <h5><a href="/edukacije/seminari-i-radionice/{{ item.kategorijaslug }}/{{ item.titleslug }}/">{{ item.title }}</a></h5>
-                                </div>
-                                <div class="post-desc featured-desc" style="padding:0 20px;">
-                                    <p style="min-height:130px!important;margin-top:0;margin-bottom:20px;padding-top:0">{{ item.excerpt | truncate(250) }}</p>
-                                </div>
-                                <div class="ttm-course-box-meta">
-                                    <div class="ttm-enrolled">
-																			{% if item.oblik === "Dvorana" %}
-                                        <span class="ttm-comments ttm-meta-line" style="color:#88402C;font-size:14px;font-style:italic;" data-toggle="tooltip" data-placement="top" title="Seminar vodi predavač u dvorani">{{ item.oblik }}<i class="fa fa-info-circle" style="margin-left:10px;color:lightslategrey" aria-hidden="true"></i></span>
-																			{% else %}
-																				<span class="ttm-comments ttm-meta-line" style="color:#88402C;font-size:14px;font-style:italic;" data-toggle="tooltip" data-placement="top" title="Seminar vodi predavač putem Zooma">{{ item.oblik }}<i class="fa fa-info-circle" style="margin-left:10px;color:lightslategrey" aria-hidden="true"></i></span>
-																			{% endif %}
-                                    </div>  
-                                    <span class="ttm-lp-price">
-																			<ins><strong>{{ item.cijenaEUR }}</strong> ({{item.cijena}})</ins>
-																		</span>                            
-                                </div>
-                            </div>
-                        </div><!-- featured-imagebox-post end-->
-                    </div>
+					{% for item in pagination.items %}
 
-                {% endfor %}     
+					<div class="ttm-box-col-wrapper col-lg-6">
+						<!-- featured-imagebox-post -->
+						<div class="featured-imagebox featured-imagebox-event featured-imagebox-course style1">
+							<div class="ttm-post-thumbnail featured-thumbnail">
+								<a href="/edukacije/seminari-uzivo/{{ item.kategorijaslug }}/{{ item.titleslug }}/">
+									<img class="img-fluid lazyload" style="width:410px;height:230px;" alt="{{ item.title }}" src="{{ site.cdn }}/resize=fit:clip,width:410,height:230/output=format:webp/{{ item.fotografija }}">
+								</a>
+							</div>
+							<div class="featured-content-post">
+								<div class="post-title" style="min-height:60px!important;margin-top:30px;padding:0 20px;">
+									<h5><a href="/edukacije/seminari-uzivo/{{ item.kategorijaslug }}/{{ item.titleslug }}/">{{ item.title }}</a></h5>
+								</div>
+								<div class="post-desc featured-desc" style="padding:0 20px;">
+									<p style="min-height:130px!important;margin-top:0;margin-bottom:20px;padding-top:0">{{ item.excerpt | truncate(250) }}</p>
+								</div>
+								<div class="ttm-course-box-meta">
+									<div class="ttm-enrolled">
+										{% if item.oblik === "Dvorana" %}
+										U dvorani
+										<span class="ttm-comments ttm-meta-line" style="color:#88402C;font-size:14px;font-style:italic;" data-toggle="tooltip" data-placement="top" title="Seminar vodi predavač u dvorani"><i class="fa fa-info-circle" style="margin-left:5px;color:lightslategrey" aria-hidden="true"></i></span>
+										{% else %}
+										Zoom meeting
+										<span class="ttm-comments ttm-meta-line" style="color:#88402C;font-size:14px;font-style:italic;" data-toggle="tooltip" data-placement="top" title="Seminar vodi predavač putem Zooma"><i class="fa fa-info-circle" style="margin-left:5px;color:lightslategrey" aria-hidden="true"></i></span>
+										{% endif %}
+									</div>
+									<span class="ttm-lp-price">
+										<ins><strong>{{ item.cijenaEUR }}</strong> ({{item.cijena}})</ins>
+									</span>
+								</div>
+							</div>
+						</div><!-- featured-imagebox-post end-->
+					</div>
 
-                </div>
+					{% endfor %}
 
-                {% include "partials/pagination-block.njk" %}
+				</div>
 
-            </div>
-            
-                {% else %}
+				{% include "partials/pagination-block.njk" %}
 
-                    <!-- post -->
-                    <article class="post ttm-blog-classic clearfix">
-                        <!-- ttm-blog-classic-content -->
-                        <div class="ttm-blog-classic-content">
-                            <div class="ttm-post-entry-header">
-                                <header class="entry-header">
-                                    <h2 class="entry-title">Trenutno nemamo seminara u ovoj kategoriji.</h2>
-                                </header>
-                            </div>
-                        </div><!-- ttm-blog-classic-content end -->
-                    </article><!-- post end -->
-            </div>
+			</div>
 
-            {% endif %}
-            
-            {% include "partials/seminaricategories.njk" %}
+			{% else %}
 
-        </div><!-- row end -->
-    </div>
+			<!-- post -->
+			<article class="post ttm-blog-classic clearfix">
+				<!-- ttm-blog-classic-content -->
+				<div class="ttm-blog-classic-content">
+					<div class="ttm-post-entry-header">
+						<header class="entry-header">
+							<h2 class="entry-title">Trenutno nemamo seminara u ovoj kategoriji.</h2>
+						</header>
+					</div>
+				</div><!-- ttm-blog-classic-content end -->
+			</article><!-- post end -->
+		</div>
+
+		{% endif %}
+
+		{% include "partials/uzivo-stupac.njk" %}
+
+	</div><!-- row end -->
+</div>
 </div>
 <!-- sidebar end -->

@@ -1,11 +1,11 @@
 ---
-title: Seminari i radionice
-description: Svi otvoreni seminari i radionice
+title: Seminari uživo
+description: Svi seminari
 layout: layouts/page.njk
 banner: seminari.jpg
 # navID kontrolira active status navigacije
 navID: sem-sve
-# navID2 kontrolira ponašanje i sadržaj seminarcategories stupce
+# navID2 kontrolira ponašanje i sadržaj stupca
 nav2ID: popis
 pagination:
   data: seminari-uzivo.popis
@@ -13,10 +13,10 @@ pagination:
   alias: seminari
 permalink: "edukacije/seminari-uzivo/popis{% if pagination.pageNumber > 0 %}/stranica/{{ pagination.pageNumber + 1}}{% endif %}/index.html"
 eleventyComputed:
-    page_title: "Svi otvoreni seminari i radionice {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
-    page_description: "Svi otvoreni seminari i radionice {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+    page_title: "Popis seminara uživo {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+    page_description: "Popis seminara uživo {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
 ---
 
-{% include "partials/seminari-header-popis.njk" %}
+{% include "partials/uzivo-popis-header.njk" %}
 
 {% include "partials/uzivo-popis.njk" %}

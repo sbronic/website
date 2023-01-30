@@ -1,0 +1,38 @@
+---js
+{
+  layout: "layouts/page.njk",
+  title: "Seminari uživo",
+  description: "Zaštita okoliša i upravljanje otpadom",
+  banner: "seminari.jpg",
+  navID: "sem-zouo",
+  nav2ID: "popis",
+  permalink: "edukacije/seminari-uzivo/zastita-okolisa-i-upravljanje-otpadom/popis{% if pagination.pageNumber > 0 %}/stranica/{{ pagination.pageNumber + 1}}{% endif %}/index.html",
+  pagination: {
+    data: "seminari-uzivo.popis",
+    size: 10,
+	  alias: "seminari",
+    before: function(data) {
+      const sviobjekti = [];
+	  
+      for (const obj of data) {
+        if ( obj.kategorijaslug === "zastita-okolisa-i-upravljanje-otpadom" ) {
+            sviobjekti.push(obj);
+        }
+	    }
+      if (!sviobjekti.length) {
+        sviobjekti.push("prazno")
+      }
+
+      return sviobjekti;
+    }
+  },
+  eleventyComputed: {
+    page_title: "Seminari i radionice - Zaštita okoliša i upravljanje otpadom {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}",
+    page_description: "Seminari i radionice - Zaštita okoliša i upravljanje otpadom {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+  }
+}
+---
+
+{% include "partials/uzivo-popis-header.njk" %}
+
+{% include "partials/uzivo-popis.njk" %}

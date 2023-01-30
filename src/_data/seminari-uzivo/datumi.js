@@ -48,7 +48,7 @@ async function getDatumi() {
 
         // store the JSON response when promise resolves
         const response = await graphcms.json();
-
+				
         // handle DatoCMS errors
         if (response.errors) {
             let errors = response.errors;
@@ -60,7 +60,7 @@ async function getDatumi() {
 
         // update blogpost array with the data from the JSON response
         svidatumi = svidatumi.concat(response.data.datumiOdrzavanja);
-
+				
     } catch (error) {
         throw new Error(error);
     }
@@ -74,27 +74,28 @@ async function getDatumi() {
     // format blogposts objects
     const formatdatumi = svidatumi.map((item) => {
         return {
-            datumseminara: item.dateAndTime,
-            popunjen: item.popunjen,
-            lokacijaadresa: item.lokacija.adresa,
-            lokacijagrad: item.lokacija.grad,
-            lokacijanaziv: item.lokacija.nazivLokacije,
-            dvorana: item.dvorana,
-            seminarnaziv: item.seminarUzivo.nazivSeminara,
-            seminarnazivslug: item.seminarUzivo.nazivSeminara.slug,
-						seminarcijena: konverzija(item.seminarUzivo.cijenaUEur).toLocaleString('hr-HR') + ' Kn + PDV',
-						seminarcijenaEUR: item.seminarUzivo.cijenaUEur.toLocaleString('hr-HR') + ' EUR + PDV', // za prikazivanje cijene
-            kategorijanaziv: item.seminarUzivo.kategorija.naziv,
-            kategorijaslug: item.seminarUzivo.kategorija.naziv.slug,
-            kategorijakod: item.seminarUzivo.kategorija.kod,
-            vrijeme: item.odDo
+					datumseminara: item.dateAndTime,
+					oblik: item.seminarUzivo.oblikSeminara,
+					popunjen: item.popunjen,
+					lokacijaadresa: item.lokacija.adresa,
+					lokacijagrad: item.lokacija.grad,
+					lokacijanaziv: item.lokacija.nazivLokacije,
+					dvorana: item.dvorana,
+					seminarnaziv: item.seminarUzivo.nazivSeminara,
+					seminarnazivslug: item.seminarUzivo.nazivSeminara.slug,
+					seminarcijena: konverzija(item.seminarUzivo.cijenaUEur).toLocaleString('hr-HR') + ' Kn + PDV',
+					seminarcijenaEUR: item.seminarUzivo.cijenaUEur.toLocaleString('hr-HR') + ' EUR + PDV', // za prikazivanje cijene
+					kategorijanaziv: item.seminarUzivo.kategorija.naziv,
+					kategorijaslug: item.seminarUzivo.kategorija.naziv.slug,
+					kategorijakod: item.seminarUzivo.kategorija.kod,
+					vrijeme: item.odDo
         };
     }).filter(Boolean);
 
     if (formatdatumi === undefined || formatdatumi.length == 0) {
         formatdatumi.push("prazno");
-    }
-
+		}
+	
     // return formatted blogposts
     return formatdatumi;
 }

@@ -1,0 +1,194 @@
+---
+layout: layouts/page.njk
+banner: seminari.jpg
+navID: {{ seminar.kategorijakod }}
+nav2ID: seminar
+pagination:
+  data: seminari-uzivo.popis
+  size: 1
+  alias: seminar
+permalink: edukacije/seminari-uzivo/{{ seminar.kategorijaslug }}/{{ seminar.titleslug }}/index.html
+eleventyComputed:
+    page_title: "{{ seminar.title }}"
+    page_description: "{{ seminar.excerpt }}"
+    page_type: "seminar"
+    seminarimage: "{{ site.cdn }}/resize=width:1200/{{ seminar.fotografija }}"
+    seminartekst: {{ seminar.bodytext }}
+    seminarauthor: {{ seminar.author }}
+---
+
+<div class="ttm-page-title-row" style="background: url(/images/blog.jpg)!important">
+	<div class="ttm-page-title-row-inner ttm-textcolor-white">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-12">
+					<div class="page-title-heading">
+						<h1 class="title">{{ seminar.title }}</h1>
+					</div>
+					<div class="breadcrumb-wrapper">
+						<span>
+							<a title="Homepage" href="/">Početna</a>
+						</span>
+						<span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+						<span>
+							<a title="Edukacije" href="/edukacije/seminari-uzivo/popis/">Seminari uživo</a>
+						</span>
+						<span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+						<span>
+							<a title="Kategorija" href="/edukacije//seminari-uzivo/{{ seminar.kategorijaslug }}/popis/">{{ seminar.kategorija }}</a>
+						</span>
+						<span class="ttm-bread-sep">&nbsp;&gt;&nbsp;</span>
+						<span class="current" style="color:#F77F00">{{ seminar.title }}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>                    
+</div>
+
+<div class="site-main">
+	<!-- sidebar -->
+	<div class="ttm-row sidebar ttm-sidebar-right ttm-bgcolor-white clearfix">
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<div class="col-xl-9 col-lg-8 content-area">
+					<!-- course -->
+					<article class="course single-lp_course">
+						<!-- course-featured-wrapper -->
+						<div class="course-featured-wrapper mb-20">
+							<div class="course-featured">
+
+								{% set imgP = seminar.fotografijaurl %}
+								{% set imgAlt = seminar.title %}
+								{% set imageSizes = "50vw, 100vw" %}
+								{% image ""+imgP, ""+imgAlt, ""+imageSizes %}
+
+								<!--
+								<img class="img-fluid" src="{{ site.cdn }}/resize=fit:clip,width:832,height:468/{{ seminar.fotografija }}" alt="{{ seminar.title }}">
+								-->
+							</div>
+						</div>
+
+						<!-- course-featured-wrapper end -->
+						<!-- ttm-course-single-content -->
+						<div class="ttm-course-single-content">
+							<div class="ttm-single-course-box">
+								<ul class="ttm-coursedetails-box">
+									<li class="ttm-meta-line ttm-author">
+										{% if seminar.datumiseminara | length > 0%}
+											<strong>Datumi održavanja:</strong>
+											{% for datum in seminar.datumiseminara %}
+												{% if seminar.trajanje === 2 %}
+													{% if datum.popunjen %}
+													<del><b>{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }} i {{ datum.drugiDan | datumDan }}.{{ datum.drugiDan | datumMjesecBroj }} {{ datum.dateAndTime | datumGodina }}.</b> od {{ datum.odDo }}.</del><span style="color:red;margin-left:20px;">Popunjeno</span><br/>
+													{% else %}
+													<b>{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }} i {{ datum.drugiDan | datumDan }}.{{ datum.drugiDan | datumMjesecBroj }} {{ datum.dateAndTime | datumGodina }}.</b> od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {% if datum.dvorana %}Dvorana {{ datum.dvorana }},{% endif %} {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}<br/>
+													{% endif %}
+												{% else %}
+													{% if datum.popunjen %}
+													<del><b>{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }} {{ datum.dateAndTime | datumGodina }}.</b> od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}</del><span style="color:red;margin-left:20px;">Popunjeno</span><br/>
+													{% else %}
+													<b>{{ datum.dateAndTime | datumDan }}.{{ datum.dateAndTime | datumMjesecBroj }} {{ datum.dateAndTime | datumGodina }}.</b> od {{ datum.odDo }}, {{ datum.lokacija.nazivLokacije }}, {% if datum.dvorana %}Dvorana {{ datum.dvorana }},{% endif %} {{ datum.lokacija.adresa }}, {{ datum.lokacija.grad }}<br/>
+													{% endif %}
+												{% endif %}
+											{% endfor %}
+										{% else %}
+												<strong>Datumi održavanja:</strong>
+												Trenutno nemamo dostupnih datuma
+										{% endif %}
+									</li>
+									<li class="ttm-meta-line ttm-course-dur"> 
+										<strong>Trajanje seminara:</strong>
+										{% if seminar.trajanje == "1" %}
+												Jedan dan
+										{% else %}
+												Dva dana
+										{% endif %}
+									</li>
+									<li class="ttm-meta-line ttm-course-dur">
+										{% if seminar.oblik === "Dvorana" %}
+											<strong>Oblik:</strong>
+											U dvorani
+											<span class="ttm-comments ttm-meta-line" style="color:#88402C;font-size:14px;font-style:italic;" data-toggle="tooltip" data-placement="top" title="Seminar vodi predavač u dvorani"><i class="fa fa-info-circle" style="margin-left:5px;color:lightslategrey" aria-hidden="true"></i></span>
+										{% else %}
+											<strong>Oblik:</strong>
+											Zoom meeting
+											<span class="ttm-comments ttm-meta-line" style="color:#88402C;font-size:14px;font-style:italic;" data-toggle="tooltip" data-placement="top" title="Seminar vodi predavač putem Zooma"><i class="fa fa-info-circle" style="margin-left:5px;color:lightslategrey" aria-hidden="true"></i></span>
+										{% endif%}
+									</li>
+								</ul>
+							</div>
+							<div class="ttm-tabs course-tabs" data-effect="fadeIn">
+								<ul class="tabs clearfix">
+									<li class="tab active"><a href="#">Opis edukacije</a></li>
+									<li class="tab"><a href="#">Sadržaj edukacije</a></li>
+									{% if (seminar.predavaci | length) == 1 %}
+											<li class="tab"><a href="#">O Predavaču</a></li>
+									{% else %}
+											<li class="tab"><a href="#">O Predavačima</a></li>
+									{% endif %}
+									<li class="tab"><a href="#">Najčešća pitanja</a></li>
+								</ul>
+								<div class="content-tab">
+									<!-- content-inner -->
+									<div class="content-inner active">
+										{% if seminar.promoVideo %}
+										<div class="youtube-player" data-id="{{ seminar.promoVideo }}"></div>
+										<hr/>
+										{% endif %}
+										{{ seminar.opishtml | safe }}
+										{% for lokacija in seminar.lokacije%}
+											{{ lokacija.napomeneLokacije.html | safe }}
+										{% endfor %}
+										{% if seminar.outroVideo %}
+										<div class="youtube-player" data-id="{{ seminar.outroVideo }}"></div>
+										{% endif %}
+									</div><!-- content-inner end-->
+									<!-- content-inner -->
+									<div class="content-inner">
+										{{ seminar.curriculum | safe }}
+									</div><!-- content-inner end-->
+									<!-- content-inner -->
+									<div class="content-inner">
+										{% for predavac in seminar.predavaci %}
+										<div class="d-flex">
+											<div class="author-img text-center">
+											{% if predavac.fotografija.handle %}
+												<img src="{{ site.cdn }}/resize=fit:clip,width:150,height:150/{{ predavac.fotografija.handle }}" alt="{{ autor.imeIPrezime }}" class="imag-fluid avatar photo">
+											{% else %}
+												<img src="{{ site.cdn }}/yZUqDFbREqgA4I11VyAK" class="imag-fluid avatar photo">
+											{% endif %}
+												<div class="mt-10"><h6>{{ predavac.imeIPrezime }}</h6></div>
+											</div>
+											<div class="author-bio pl-30">
+												{{ predavac.oAutoruPredavacu.html | safe }}
+											</div>
+										</div>
+										{% if not loop.last %}
+										<hr/>
+										{% endif %}
+										{% endfor %}
+									</div><!-- content-inner end-->
+									<!-- content-inner -->
+									<div class="content-inner">
+									{% for faq in faqs %}
+										{% if faq.vrsta === "seminari" %}
+												<p>{{ faq.html | safe }}</p>                                                
+										{% endif %}
+									{% endfor %}
+									</div><!-- content-inner end-->
+								</div>
+							</div>
+						</div> <!-- ttm-course-single-content end -->
+					</article><!-- course end -->
+				</div>
+
+				{% include "partials/uzivo-stupac.njk" %}
+
+			</div><!-- row end -->
+		</div>
+	</div>
+	<!-- sidebar end -->
+
+</div><!--site-main end-->

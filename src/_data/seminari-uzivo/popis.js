@@ -34,6 +34,7 @@ async function getSeminari() {
 						shorthand
 						naslovnaFotografija {
 							handle
+							url
 						}
 						autoriIPredavaci {
 							imeIPrezime
@@ -167,6 +168,7 @@ async function getSeminari() {
 	if (formatseminari === undefined || formatseminari.length == 0) {
 		formatseminari.push("prazno");
 	}
+
 	// return formatted blogposts
 	return formatseminari.sort((a, b) => (a.prioritet - b.prioritet || a.titleslug.localeCompare(b.titleslug)  ))
 }

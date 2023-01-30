@@ -1,0 +1,38 @@
+---js
+{
+  layout: "layouts/page.njk",
+  title: "Seminari uzivo",
+  description: "Ostalo",
+  banner: "seminari.jpg",
+  navID: "sem-ostalo",
+  nav2ID: "datumi",
+  permalink: "edukacije/seminari-uzivo/ostalo/datumi-odrzavanja{% if pagination.pageNumber > 0 %}/stranica/{{ pagination.pageNumber + 1}}{% endif %}/index.html",
+  pagination: {
+    data: "seminari-uzivo.datumi",
+    size: 10,
+	  alias: "seminari",
+    before: function(data) {
+      const sviobjekti = [];
+	  
+      for (const obj of data) {
+        if ( obj.kategorijaslug === "ostalo" ) {
+            sviobjekti.push(obj);
+        }
+	    }
+      if (!sviobjekti.length) {
+        sviobjekti.push("prazno")
+      }
+
+      return sviobjekti;
+    }
+  },
+  eleventyComputed: {
+    page_title: "Datumi održavanja seminara - Ostalo {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}",
+    page_description: "Datumi održavanja seminara - Ostalo {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+  }
+}
+---
+
+{% include "partials/uzivo-datumi-header.njk" %}
+
+{% include "partials/uzivo-datumi.njk" %}

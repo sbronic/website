@@ -1,6 +1,6 @@
 ---
-title: Seminari i radionice
-description: Datumi održavanja
+title: Seminari uživo
+description: Svi seminari
 layout: layouts/page.njk
 banner: seminari.jpg
 navID: sem-sve
@@ -15,6 +15,6 @@ eleventyComputed:
     page_description: "Datumi održavanja seminara {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
 ---
 
-{% include "partials/seminari-header-datumi.njk" %}
+{% include "partials/uzivo-datumi-header.njk" %}
 
-{% include "partials/seminar-datumi-category.njk" %}
+{% include "partials/uzivo-datumi.njk" %}
