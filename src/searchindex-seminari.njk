@@ -7,7 +7,7 @@ eleventyExcludeFromCollections: true
 {% for seminar in seminari.svepopis %}
 {
    "title":"{{ seminar.title }}",
-   "url":"/edukacije/seminari-i-radionice/{{ seminar.kategorijaslug }}/{{ seminar.titleslug }}/"
+   "url":"/edukacije/seminari-uzivo/{{ seminar.kategorijaslug }}/{{ seminar.titleslug }}/"
 } {%- if loop.last == false -%},{% endif %}
 {% endfor %} 
 ]

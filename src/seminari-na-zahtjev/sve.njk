@@ -1,0 +1,19 @@
+---
+title: Seminari na zahtjev
+description: Seminari na zahtjev
+layout: layouts/page.njk
+banner: online-edukacije.jpg
+navID: sve
+pagination:
+  data: seminari-na-zahtjev.popis
+  size: 10
+  alias: edukacije
+permalink: "edukacije/seminari-na-zahtjev{% if pagination.pageNumber > 0 %}/stranica/{{ pagination.pageNumber + 1}}{% endif %}/index.html"
+eleventyComputed:
+    page_title: "Seminari na zahtjev {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+    page_description: "Seminari na zahtjev {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+---
+
+{% include "partials/online-header.njk" %}
+
+{% include "partials/online-category.njk" %}

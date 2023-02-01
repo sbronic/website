@@ -1,12 +1,12 @@
 ---
-permalink: /sitemap_seminari-i-radionice.xml
+permalink: /sitemap_seminari-uzivo.xml
 eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {%- for seminar in seminari.svepopis %}
   <url>
-    <loc>{{ site.url }}/seminari-i-radionice/{{ seminar.kategorijaslug }}/{{ seminar.titleslug }}/</loc>
+    <loc>{{ site.url }}/seminari-uzivo/{{ seminar.kategorijaslug }}/{{ seminar.titleslug }}/</loc>
     <lastmod>{{ seminar.updated }}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

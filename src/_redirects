@@ -214,6 +214,8 @@
 /course/krizno-komuniciranje/	/edukacije/online-edukacije/prodaja-marketing-i-odnosi-s-javnoscu/krizno-komuniciranje/
 /course/upravljanje-reklamacijama-i-komunikacijom-s-nezadovoljnim-kupcima/	/edukacije/seminari-i-radionice/prodaja-marketing-i-odnosi-s-javnoscu/upravljanje-reklamacijama-i-komunikacijom-s-nezadovoljnim-kupcima/
 /course/*	/edukacije/online-edukacije/
+/seminari-i-radionice/* /seminari-uzivo/
+/online-edukacije/* /seminari-na-zahtjev/
 /wp-login.php   https://lms.edukacije.hr/
 /lp-profile/courses/purchased/  https://lms.edukacije.hr/
 /blog/ostalo/kalendar-nastave-u-skolskoj-godini-20212022/ /blog/ostalo/skolski-kalendar-u-skolskoj-godini-20212022/

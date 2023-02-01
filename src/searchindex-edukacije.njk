@@ -4,10 +4,10 @@ eleventyExcludeFromCollections: true
 ---
 
 [
-{% for edukacija in online.sve %}
+{% for edukacija in seminari-on-demand.popis %}
 {
    "title":"{{ edukacija.title }}",
-   "url":"/edukacije/online-edukacije/{{ edukacija.categoryslug }}/{{ edukacija.titleslug }}/"
+   "url":"/edukacije/seminari-na-zahtjev/{{ edukacija.categoryslug }}/{{ edukacija.titleslug }}/"
 } {%- if loop.last == false -%},{% endif %}
 {% endfor %},
 {% for edukacija in online.zbirke %}
