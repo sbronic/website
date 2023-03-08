@@ -1,6 +1,6 @@
 ---
 title: Zbirke dokumenata
-description: Zbirke dokumenata
+description: Sve zbirke
 layout: layouts/page.njk
 banner: online-edukacije.jpg
 navID: sve
@@ -10,8 +10,8 @@ pagination:
   alias: edukacije
 permalink: "edukacije/zbirke-dokumenata{% if pagination.pageNumber > 0 %}/stranica/{{ pagination.pageNumber + 1}}{% endif %}/index.html"
 eleventyComputed:
-    page_title: "Zbirke dokumenata {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
-    page_description: "Zbirke dokumenata {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+    page_title: "{{title}} - {{description}} {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+    page_description: "{{title}} - {{description}} {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
 ---
 
 {% include "partials/zbirke-header.njk" %}

@@ -1,0 +1,37 @@
+---js
+{
+  layout: "layouts/page.njk",
+  title: "Zbirke dokumenata",
+  description: "Informatika i uredsko poslovanje",
+  banner: "online-edukacije.jpg",
+  navID: "zbirke-iup",
+  permalink: "edukacije/zbirke-dokumenata/informatika-i-uredsko-poslovanje{% if pagination.pageNumber > 0 %}/stranica/{{ pagination.pageNumber + 1}}{% endif %}/index.html",
+  pagination: {
+    data: "zbirke.popis",
+    size: 10,
+	  alias: "edukacije",
+    before: function(data) {
+      const sviobjekti = [];
+	  
+      for (const obj of data) {
+        if ( obj.categoryslug === "informatika-i-uredsko-poslovanje" ) {
+            sviobjekti.push(obj);
+        }
+	    }
+      if (!sviobjekti.length) {
+        sviobjekti.push("prazno")
+      }
+
+      return sviobjekti;
+    }
+  },
+  eleventyComputed: {
+    page_title: "{{title}} - {{description}} {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}",
+    page_description: "{{title}} - {{description}} {% if pagination.pages | length != 1 %}({{ pagination.pageNumber + 1 }}/{{ pagination.pages | length }}){% endif %}"
+  }
+}
+---
+
+{% include "partials/zbirke-header.njk" %}
+
+{% include "partials/zbirke-popis.njk" %}
