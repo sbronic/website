@@ -16,7 +16,6 @@ eleventyComputed:
     seminartekst: {{ seminar.bodytext }}
     seminarauthor: {{ seminar.author }}
 ---
-
 <div class="ttm-page-title-row" style="background: url(/images/blog.jpg)!important">
 	<div class="ttm-page-title-row-inner ttm-textcolor-white">
 		<div class="container">
@@ -49,6 +48,8 @@ eleventyComputed:
 <div class="site-main">
 	<!-- sidebar -->
 	<div class="ttm-row sidebar ttm-sidebar-right ttm-bgcolor-white clearfix">
+	<!-- TOC -->
+	<nav class="toc toc-left js-toc relative z-1 transition--300 absolute pa4 pt5" style="position:fixed;margin-left:30px;"></nav>
 		<div class="container">
 			<!-- row -->
 			<div class="row">
@@ -119,20 +120,11 @@ eleventyComputed:
 									</li>
 								</ul>
 							</div>
-							<div class="ttm-tabs course-tabs" data-effect="fadeIn">
-								<ul class="tabs clearfix">
-									<li class="tab active"><a href="#">Opis edukacije</a></li>
-									<li class="tab"><a href="#">Sadržaj edukacije</a></li>
-									{% if (seminar.predavaci | length) == 1 %}
-											<li class="tab"><a href="#">O Predavaču</a></li>
-									{% else %}
-											<li class="tab"><a href="#">O Predavačima</a></li>
-									{% endif %}
-									<li class="tab"><a href="#">Najčešća pitanja</a></li>
-								</ul>
-								<div class="content-tab">
+							<div class="ttm-tabs course-tabs js-toc-content">
+								<div>
 									<!-- content-inner -->
 									<div class="content-inner active">
+									<h2 style="text-decoration: underline;" id="Opis seminara">Opis seminara</h2>
 										{% if seminar.promoVideo %}
 										<div class="youtube-player" data-id="{{ seminar.promoVideo }}"></div>
 										<hr/>
@@ -147,10 +139,12 @@ eleventyComputed:
 									</div><!-- content-inner end-->
 									<!-- content-inner -->
 									<div class="content-inner">
+									<h2 style="text-decoration: underline;margin-top:30px;" id="Curriculum">Curriculum</h2>
 										{{ seminar.curriculum | safe }}
 									</div><!-- content-inner end-->
 									<!-- content-inner -->
 									<div class="content-inner">
+									<h2 style="text-decoration: underline;margin-top:30px;" id="Predavači">Predavači</h2>
 										{% for predavac in seminar.predavaci %}
 										<div class="d-flex">
 											<div class="author-img text-center">
@@ -172,6 +166,7 @@ eleventyComputed:
 									</div><!-- content-inner end-->
 									<!-- content-inner -->
 									<div class="content-inner">
+									<h2 style="text-decoration: underline;margin-top:30px;" id="Najčešća pitanja">Najčešća pitanja</h2>
 									{% for faq in faqs %}
 										{% if faq.vrsta === "seminari" %}
 												<p>{{ faq.html | safe }}</p>                                                
