@@ -82,16 +82,16 @@ async function getDatumi() {
 					lokacijanaziv: item.lokacija.nazivLokacije,
 					dvorana: item.dvorana,
 					seminarnaziv: item.seminarUzivo.nazivSeminara,
-					seminarnazivslug: item.seminarUzivo.nazivSeminara.slug,
+					seminarnazivslug: item.seminarUzivo.slug,
 					seminarcijena: konverzija(item.seminarUzivo.cijenaUEur).toLocaleString('hr-HR') + ' Kn + PDV',
 					seminarcijenaEUR: item.seminarUzivo.cijenaUEur.toLocaleString('hr-HR') + ' EUR + PDV', // za prikazivanje cijene
 					kategorijanaziv: item.seminarUzivo.kategorija.naziv,
-					kategorijaslug: item.seminarUzivo.kategorija.naziv.slug,
+					kategorijaslug: item.seminarUzivo.kategorija.slug,
 					kategorijakod: item.seminarUzivo.kategorija.kod,
 					vrijeme: item.odDo
         };
     }).filter(Boolean);
-
+		
     if (formatdatumi === undefined || formatdatumi.length == 0) {
         formatdatumi.push("prazno");
 		}
