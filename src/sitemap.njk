@@ -26,4 +26,12 @@ eleventyExcludeFromCollections: true
     <priority>0.8</priority>
   </url>
 {%- endfor %}
+{%- for edukacija in online.zbirke %}
+  <url>
+    <loc>{{ site.url }}/edukacije/online-edukacije/{{ edukacija.categoryslug }}/{{ edukacija.titleslug }}/</loc>
+    <lastmod>{{ edukacija.updated }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+{%- endfor %}
 </urlset>
