@@ -1,0 +1,29 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>https://www.edukacije.hr/</loc>
+		<lastmod>2023-06-03T11:11:55.9169968+02:00</lastmod>
+		<changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+	</url>
+{%- for seminar in seminari.svepopis %}
+  <url>
+    <loc>{{ site.url }}/edukacije/seminari-i-radionice/{{ seminar.kategorijaslug }}/{{ seminar.titleslug }}/</loc>
+    <lastmod>{{ seminar.updated }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+{%- endfor %}
+{%- for edukacija in online.sve %}
+  <url>
+    <loc>{{ site.url }}/edukacije/online-edukacije/{{ edukacija.categoryslug }}/{{ edukacija.titleslug }}/</loc>
+    <lastmod>{{ edukacija.updated }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+{%- endfor %}
+</urlset>
