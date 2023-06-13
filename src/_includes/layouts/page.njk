@@ -44,8 +44,11 @@
 
 		{% if navID === "hvala-na-narudzbi" %}
 		<script>
+			const queryString = window.location.search;
+			const urlParams = new URLSearchParams(queryString);
+			const cijena = urlParams.get('transaction_revenue')
 			window.addEventListener('load', (event) => {
-				fathom.trackGoal('FCBJGHVZ', 0);
+				fathom.trackGoal('FCBJGHVZ', cijena);
 			});
 		</script>
 		{% endif %}
