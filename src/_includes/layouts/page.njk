@@ -44,9 +44,11 @@
 
 		{% if navID === "hvala-na-narudzbi" %}
 		<script>
+		window.onload = function() {
 			window.addEventListener('load', (event) => {
-							fathom.trackGoal('FCBJGHVZ', 0);
+				fathom.trackGoal('FCBJGHVZ', 0);
 			});
+		}
 		</script>
 		{% endif %}
    
