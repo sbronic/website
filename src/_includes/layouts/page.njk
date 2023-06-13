@@ -41,5 +41,13 @@
         document.getElementsByTagName("head")[0].appendChild(mf);
     })();
     </script>
+
+		{% if navID === "hvala-na-narudzbi" %}
+		<script>
+			window.addEventListener('load', (event) => {
+							fathom.trackGoal('FCBJGHVZ', 0);
+			});
+		</script>
+		{% endif %}
    
 </body>
