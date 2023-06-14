@@ -52,5 +52,15 @@
 			});
 		</script>
 		{% endif %}
+
+		{% if (navID === "seminar") or (navID === "edukacija") or (navID === "zbirke") %}
+		<script>
+			window.addEventListener('load', (event) => {
+				document.getElementById('about-us-link').addEventListener('click', () => {
+					fathom.trackGoal('S3GN8CDX', {{ edukacija.cijenaCartEUR }});
+        });
+			});
+		</script>
+		{% endif %}
    
 </body>
