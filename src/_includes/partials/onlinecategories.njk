@@ -171,9 +171,8 @@
 								} else if (window.attachEvent) {
 									window.attachEvent("onmessage", handleIFrameMessage);
 								}
-								fathom.trackGoal('S3GN8CDX', 0);
 								</script>
-                <button onclick="fathom.trackGoal('S3GN8CDX', 0);" id="rezervacijaSeminara" class="lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark btn lightbox-230051774516351" style="margin-top:50px;" disabled>Rezervirajte edukaciju</button>
+                <button id="rezervacijaSeminara" class="lp-button button button-purchase-course ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark btn lightbox-230051774516351" style="margin-top:50px;" disabled>Rezervirajte edukaciju</button>
 								<small>Potrebno je prethodno odabrati datum</small>
             </div>
             {% else %}
@@ -281,8 +280,9 @@
 							} else if (window.attachEvent) {
 								window.attachEvent("onmessage", handleIFrameMessage);
 							}
+							fathom.trackGoal('S3GN8CDX', 0);
 							</script>
-							<button class="lp-button button button-purchase-course ttm-btn ttm-btn-size-md btn-block ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark btn lightbox-223213771400039">Obavijestite me</button>
+							<button onclick="fathom.trackGoal('S3GN8CDX', 0);" class="lp-button button button-purchase-course ttm-btn ttm-btn-size-md btn-block ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-dark btn lightbox-223213771400039">Obavijestite me</button>
 						</div>
             {% endif %}
         </aside>
